@@ -76,7 +76,15 @@ def plot_detection_results(input_ids, rep_reader_scores_dict, THRESHOLD, start_a
     colormap = cmap
 
     # Define words and their colors
-    words = [token.replace('▁', ' ') for token in input_ids]
+    # Replace common BPE/SentencePiece markers for better visualization
+    words = []
+    for token in input_ids:
+        # Replace Llama/Mistral/Roberta style markers
+        w = token.replace('▁', ' ')
+        w = w.replace('Ġ', ' ')
+        w = w.replace('Ċ', '\n')
+        w = w.replace('▏', '')  # Remove partial token marker if present
+        words.append(w)
 
     # Create a new figure
     fig, ax = plt.subplots(figsize=(12.8, 10), dpi=200)
