@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACT Conversation Steering Demo</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Header -->
         <header class="header">
             <h1>🎭 ACT Conversation Steering</h1>
             <p class="subtitle">Affect Control Theory for LLM Response Control</p>
+            <div class="model-status" id="modelStatus">
+                <span class="status-indicator loading"></span>
+                <span id="modelStatusText">Loading model...</span>
+            </div>
         </header>
 
         <!-- Main Content -->
@@ -23,10 +29,10 @@
                         <p>Welcome! Configure identities and start chatting to see ACT steering in action.</p>
                     </div>
                 </div>
-                
+
                 <div class="chat-input-container">
-                    <input type="text" id="messageInput" class="chat-input" 
-                           placeholder="Type your message..." autocomplete="off">
+                    <input type="text" id="messageInput" class="chat-input" placeholder="Type your message..."
+                        autocomplete="off">
                     <button id="sendBtn" class="send-btn">Send</button>
                 </div>
             </section>
@@ -84,27 +90,57 @@
                     </div>
                 </div>
 
-                <!-- Settings -->
+                <!-- Identity Settings -->
                 <div class="panel-section">
-                    <h3>⚙️ Settings</h3>
-                    
+                    <h3>👤 Identities</h3>
+
                     <div class="setting-group">
                         <label>Agent Identity</label>
                         <input type="text" id="agentIdentity" value="assistant" class="setting-input">
                     </div>
-                    
+
                     <div class="setting-group">
                         <label>User Identity</label>
                         <input type="text" id="userIdentity" value="person" class="setting-input">
                     </div>
-                    
+                </div>
+
+                <!-- Model Parameters -->
+                <div class="panel-section">
+                    <h3>🤖 Generation Settings</h3>
+
+                    <div class="setting-group">
+                        <label>Max Tokens: <span id="maxTokensValue">128</span></label>
+                        <input type="range" id="maxNewTokens" min="32" max="512" step="16" value="128" class="slider">
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Temperature: <span id="temperatureValue">0.7</span></label>
+                        <input type="range" id="temperature" min="0.1" max="2.0" step="0.1" value="0.7" class="slider">
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Top P: <span id="topPValue">0.95</span></label>
+                        <input type="range" id="topP" min="0.1" max="1.0" step="0.05" value="0.95" class="slider">
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Steering Coefficient: <span id="steeringCoeffValue">1.0</span></label>
+                        <input type="range" id="steeringCoeff" min="0" max="3" step="0.1" value="1.0" class="slider">
+                    </div>
+                </div>
+
+                <!-- Controller Settings -->
+                <div class="panel-section">
+                    <h3>⚙️ Controller</h3>
+
                     <div class="setting-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="controllerEnabled" checked>
                             Enable Deflection Controller
                         </label>
                     </div>
-                    
+
                     <div class="setting-group">
                         <label>Context Mode</label>
                         <select id="contextMode" class="setting-input">
@@ -112,24 +148,24 @@
                             <option value="history">History Window</option>
                         </select>
                     </div>
-                    
+
                     <div class="setting-group" id="windowSizeGroup" style="display: none;">
                         <label>Window Size</label>
                         <input type="number" id="windowSize" value="5" min="1" max="20" class="setting-input">
                     </div>
-                    
+
                     <div class="setting-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="useDecay" checked>
                             Use Decay
                         </label>
                     </div>
-                    
+
                     <div class="setting-group">
                         <label>Decay Rate: <span id="decayRateValue">0.8</span></label>
                         <input type="range" id="decayRate" min="0" max="1" step="0.1" value="0.8" class="slider">
                     </div>
-                    
+
                     <div class="button-group">
                         <button id="applySettings" class="btn-primary">Apply</button>
                         <button id="resetConversation" class="btn-secondary">Reset</button>
@@ -141,4 +177,5 @@
 
     <script src="/static/app.js"></script>
 </body>
+
 </html>

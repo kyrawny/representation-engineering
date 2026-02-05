@@ -64,6 +64,52 @@ body {
     font-size: 0.95rem;
 }
 
+/* Model Status */
+.model-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-tertiary);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+.status-indicator.loading {
+    background: var(--accent-yellow);
+}
+
+.status-indicator.loaded {
+    background: var(--accent-green);
+    animation: none;
+}
+
+.status-indicator.error {
+    background: var(--accent-red);
+    animation: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
 /* Main Content Layout */
 .main-content {
     display: grid;
@@ -99,8 +145,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .message.user {
@@ -123,6 +176,28 @@ body {
     text-align: center;
     align-self: center;
     font-size: 0.9rem;
+}
+
+.message.loading {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+    align-self: center;
+    font-size: 0.9rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 .message-epa {
@@ -242,9 +317,17 @@ body {
     position: absolute;
 }
 
-.e-bar { background: var(--accent-green); }
-.p-bar { background: var(--accent-purple); }
-.a-bar { background: var(--accent-yellow); }
+.e-bar {
+    background: var(--accent-green);
+}
+
+.p-bar {
+    background: var(--accent-purple);
+}
+
+.a-bar {
+    background: var(--accent-yellow);
+}
 
 .epa-value {
     width: 45px;
@@ -347,7 +430,8 @@ body {
     margin-top: 1rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     flex: 1;
     padding: 0.6rem 1rem;
     border-radius: 8px;
@@ -381,7 +465,7 @@ body {
     .main-content {
         grid-template-columns: 1fr;
     }
-    
+
     .side-panel {
         order: -1;
     }

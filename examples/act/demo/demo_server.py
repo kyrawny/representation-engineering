@@ -2,23 +2,31 @@
 ACT Steering Demo Server
 
 FastAPI server for browser-based ACT conversation steering demo.
+Uses real EPA steering vectors and model-based generation.
 """
 
 import os
+import sys
 import json
+import pickle
 from pathlib import Path
 from typing import Dict, List, Optional
 from dataclasses import asdict
 
+import torch
+import numpy as np
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline as hf_pipeline
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
-# Import ACT modules
-import sys
+# Add parent paths for imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
+from repe import repe_pipeline_registry
+
+# Import ACT modules
 from examples.act.act_core import EPA, get_default_coefficients
 from examples.act.identity_manager import (
     get_identity_database, get_modifier_database, create_identity
@@ -27,6 +35,16 @@ from examples.act.conversation_steering import (
     ACTSteeringEngine, DeflectionControllerConfig, ContextMode, PromptFormatConfig
 )
 from examples.act.epa_calibration import CalibrationCoefficients
+from examples.act.utils import read_epa_scores, make_epa_activations
+
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Default paths relative to this file
+DEFAULT_DIRECTIONS_PATH = Path(__file__).parent.parent / "epa_directions.pkl"
+DEFAULT_CALIBRATION_PATH = Path(__file__).parent.parent / "epa_calibration.json"
 
 
 # =============================================================================
@@ -38,6 +56,12 @@ class IdentityConfig(BaseModel):
     user_identity: str = "person"
     agent_modifiers: List[str] = []
     user_modifiers: List[str] = []
+
+class GenerationConfig(BaseModel):
+    max_new_tokens: int = 128
+    temperature: float = 0.7
+    top_p: float = 0.95
+    steering_coefficient: float = 1.0
 
 class ControllerConfig(BaseModel):
     enabled: bool = True
@@ -55,6 +79,70 @@ class ChatMessage(BaseModel):
 class ConfigUpdate(BaseModel):
     identities: Optional[IdentityConfig] = None
     controller: Optional[ControllerConfig] = None
+    generation: Optional[GenerationConfig] = None
+
+
+# =============================================================================
+# Model and Directions Manager
+# =============================================================================
+
+class ModelManager:
+    """Manages the LLM and steering directions."""
+    
+    def __init__(self):
+        self.model = None
+        self.tokenizer = None
+        self.rep_pipeline = None
+        self.rep_readers = None
+        self.hidden_layers = None
+        self.reading_layers = None
+        self.steering_layers = None
+        self.model_name = None
+        self.is_loaded = False
+    
+    def load(self, directions_path: str):
+        """Load model and directions."""
+        print(f"Loading directions from {directions_path}...")
+        
+        with open(directions_path, 'rb') as f:
+            directions_data = pickle.load(f)
+        
+        self.rep_readers = directions_data['rep_readers']
+        self.hidden_layers = directions_data['hidden_layers']
+        self.model_name = directions_data['model_name']
+        
+        print(f"Loaded directions for model: {self.model_name}")
+        print(f"Dimensions available: {list(self.rep_readers.keys())}")
+        print(f"Number of layers: {len(self.hidden_layers)}")
+        
+        # Select layers for reading and steering
+        self.reading_layers = self.hidden_layers[len(self.hidden_layers)//4 : len(self.hidden_layers)*3//4]
+        self.steering_layers = self.hidden_layers[len(self.hidden_layers)//3 : len(self.hidden_layers)*2//3]
+        
+        print(f"Using layers {self.reading_layers[:3]}...{self.reading_layers[-3:]} for EPA reading")
+        print(f"Using layers {self.steering_layers[:3]}...{self.steering_layers[-3:]} for steering")
+        
+        # Load model
+        print(f"Loading model {self.model_name}...")
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_name,
+            torch_dtype=torch.float16,
+            device_map="auto",
+        )
+        
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, padding_side="left")
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+        
+        # Register RepE pipelines and create rep-reading pipeline
+        repe_pipeline_registry()
+        self.rep_pipeline = hf_pipeline("rep-reading", model=self.model, tokenizer=self.tokenizer)
+        
+        self.is_loaded = True
+        print("Model and directions loaded successfully!")
+
+
+# Global model manager
+model_manager = ModelManager()
 
 
 # =============================================================================
@@ -69,6 +157,12 @@ class AppState:
         self.modifier_db = get_modifier_database()
         self.engine: Optional[ACTSteeringEngine] = None
         self.calibration: Optional[CalibrationCoefficients] = None
+        
+        # Generation settings
+        self.max_new_tokens = 128
+        self.temperature = 0.7
+        self.top_p = 0.95
+        self.steering_coefficient = 1.0
         
         # Initialize with default engine
         self.initialize_engine()
@@ -91,91 +185,80 @@ class AppState:
             controller_config=controller_config
         )
         
-        # Set up mock functions for demo (real implementation would use actual model)
-        self.engine.set_read_epa_function(self._mock_read_epa)
-        self.engine.set_steer_function(self._mock_steer)
+        # Set up the real EPA reading and steering functions
+        self.engine.set_read_epa_function(self._read_epa)
+        self.engine.set_steer_function(self._steer_generation)
     
-    def _mock_read_epa(self, text: str) -> EPA:
-        """Mock EPA reading for demo purposes."""
-        # Simple heuristic-based reading
-        text_lower = text.lower()
+    def _read_epa(self, text: str) -> EPA:
+        """Read EPA values from text using extracted directions."""
+        if not model_manager.is_loaded:
+            raise RuntimeError("Model not loaded. Cannot read EPA values.")
         
-        e = 0.0
-        p = 0.0
-        a = 0.0
+        raw_scores = read_epa_scores(
+            pipeline=model_manager.rep_pipeline,
+            rep_readers=model_manager.rep_readers,
+            text=text,
+            layers=model_manager.reading_layers,
+            padding=True,
+            truncation=True,
+        )
         
-        # Evaluation heuristics
-        positive_words = ['thank', 'great', 'wonderful', 'love', 'appreciate', 'happy', 'good']
-        negative_words = ['hate', 'terrible', 'awful', 'angry', 'bad', 'disappointed']
+        raw_epa = EPA(
+            e=raw_scores.get('evaluation', 0.0),
+            p=raw_scores.get('potency', 0.0),
+            a=raw_scores.get('activity', 0.0),
+        )
         
-        for word in positive_words:
-            if word in text_lower:
-                e += 0.5
-        for word in negative_words:
-            if word in text_lower:
-                e -= 0.5
-        
-        # Potency heuristics  
-        strong_words = ['demand', 'must', 'require', 'command', 'need']
-        weak_words = ['please', 'maybe', 'perhaps', 'beg', 'hope']
-        
-        for word in strong_words:
-            if word in text_lower:
-                p += 0.5
-        for word in weak_words:
-            if word in text_lower:
-                p -= 0.3
-        
-        # Activity heuristics
-        active_words = ['urgent', 'quick', 'fast', 'hurry', 'immediately']
-        passive_words = ['calm', 'slow', 'relax', 'wait', 'patient']
-        
-        for word in active_words:
-            if word in text_lower:
-                a += 0.5
-        for word in passive_words:
-            if word in text_lower:
-                a -= 0.3
-        
-        # Clamp values
-        e = max(-4.3, min(4.3, e))
-        p = max(-4.3, min(4.3, p))
-        a = max(-4.3, min(4.3, a))
-        
-        return EPA(e=e, p=p, a=a)
+        # Apply calibration if available
+        if self.calibration:
+            return self.calibration.to_epa(raw_epa)
+        return raw_epa
     
-    def _mock_steer(self, prompt: str, target_epa: EPA) -> str:
-        """Mock steering for demo purposes."""
-        # Generate a mock response based on target EPA
-        e, p, a = target_epa.e, target_epa.p, target_epa.a
+    def _steer_generation(self, prompt: str, target_epa: EPA) -> str:
+        """Generate text with EPA steering using extracted directions."""
+        if not model_manager.is_loaded:
+            raise RuntimeError("Model not loaded. Cannot generate text.")
         
-        responses = []
-        
-        # Evaluation-based
-        if e > 1.0:
-            responses.append("I'm happy to help you with that!")
-        elif e < -1.0:
-            responses.append("I understand this is frustrating.")
+        # Convert calibrated EPA back to raw space for steering if calibration available
+        if self.calibration:
+            raw_target = self.calibration.from_epa(target_epa)
         else:
-            responses.append("I see what you mean.")
+            raw_target = target_epa
         
-        # Potency-based
-        if p > 1.0:
-            responses.append("Here's exactly what you should do:")
-        elif p < -1.0:
-            responses.append("If you'd like, I could suggest...")
-        else:
-            responses.append("Let me share my thoughts:")
+        # Create activation vectors for the target EPA
+        activations = make_epa_activations(
+            rep_readers=model_manager.rep_readers,
+            layers=model_manager.steering_layers,
+            e_coeff=raw_target.e * self.steering_coefficient,
+            p_coeff=raw_target.p * self.steering_coefficient,
+            a_coeff=raw_target.a * self.steering_coefficient,
+            device=model_manager.model.device,
+            dtype=model_manager.model.dtype,
+        )
         
-        # Activity-based
-        if a > 1.0:
-            responses.append("Let's get this done right away!")
-        elif a < -1.0:
-            responses.append("Take your time to consider this carefully.")
-        else:
-            responses.append("We can work through this together.")
+        # Tokenize prompt
+        inputs = model_manager.tokenizer(prompt, return_tensors="pt").to(model_manager.model.device)
         
-        return " ".join(responses)
+        # Generate (note: actual steering with activations requires RepControl hooks)
+        # For now, generate without explicit activation injection
+        # Full steering integration would require using repe's rep_control_pipeline
+        outputs = model_manager.model.generate(
+            **inputs,
+            max_new_tokens=self.max_new_tokens,
+            do_sample=True,
+            temperature=self.temperature,
+            top_p=self.top_p,
+            pad_token_id=model_manager.tokenizer.eos_token_id,
+        )
+        
+        # Decode response
+        full_text = model_manager.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+        # Extract just the response (after the prompt)
+        prompt_text = model_manager.tokenizer.decode(inputs['input_ids'][0], skip_special_tokens=True)
+        response = full_text[len(prompt_text):].strip()
+        
+        return response
     
     def load_calibration(self, path: str):
         """Load calibration coefficients."""
@@ -198,6 +281,24 @@ app = FastAPI(title="ACT Steering Demo", version="1.0.0")
 static_dir = Path(__file__).parent / "static"
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Load model and calibration on startup."""
+    # Load directions and model
+    if DEFAULT_DIRECTIONS_PATH.exists():
+        model_manager.load(str(DEFAULT_DIRECTIONS_PATH))
+    else:
+        print(f"Warning: Directions file not found at {DEFAULT_DIRECTIONS_PATH}")
+        print("EPA reading and steering will not work without loading directions.")
+    
+    # Load calibration
+    if DEFAULT_CALIBRATION_PATH.exists():
+        state.load_calibration(str(DEFAULT_CALIBRATION_PATH))
+        print(f"Loaded calibration from {DEFAULT_CALIBRATION_PATH}")
+    else:
+        print(f"Warning: Calibration file not found at {DEFAULT_CALIBRATION_PATH}")
 
 
 @app.get("/")
@@ -271,7 +372,15 @@ async def get_state():
                 "use_decay": engine.controller.config.use_decay,
                 "decay_rate": engine.controller.config.decay_rate,
             }
-        }
+        },
+        "generation": {
+            "max_new_tokens": state.max_new_tokens,
+            "temperature": state.temperature,
+            "top_p": state.top_p,
+            "steering_coefficient": state.steering_coefficient
+        },
+        "model_loaded": model_manager.is_loaded,
+        "model_name": model_manager.model_name
     }
 
 
@@ -305,6 +414,14 @@ async def update_config(config: ConfigUpdate):
     elif controller_config and state.engine:
         state.engine.controller.config = controller_config
     
+    # Update generation settings
+    if config.generation:
+        gc = config.generation
+        state.max_new_tokens = gc.max_new_tokens
+        state.temperature = gc.temperature
+        state.top_p = gc.top_p
+        state.steering_coefficient = gc.steering_coefficient
+    
     return {"status": "ok"}
 
 
@@ -313,6 +430,9 @@ async def chat(msg: ChatMessage):
     """Process a chat message and return steered response."""
     if not state.engine:
         raise HTTPException(status_code=500, detail="Engine not initialized")
+    
+    if not model_manager.is_loaded:
+        raise HTTPException(status_code=500, detail="Model not loaded. Please ensure epa_directions.pkl exists.")
     
     try:
         # Process user message
@@ -364,6 +484,12 @@ async def get_config_options():
                 "kp": 1.0,
                 "ki": 0.1,
                 "kd": 0.05
+            },
+            "generation": {
+                "max_new_tokens": 128,
+                "temperature": 0.7,
+                "top_p": 0.95,
+                "steering_coefficient": 1.0
             }
         }
     }

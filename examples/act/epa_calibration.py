@@ -142,6 +142,9 @@ class BehaviorPromptGenerator:
         self.behaviors_df = pd.read_csv(behaviors_csv)
         self._build_lookup()
         
+        # Optional LLM generation function: (behavior: str, epa: EPA) -> str
+        self._llm_generate_fn: Optional[Callable[[str, EPA], str]] = None
+        
         if filter_conversational:
             self.available_behaviors = [
                 b for b in self.behaviors.keys() 
@@ -149,6 +152,28 @@ class BehaviorPromptGenerator:
             ]
         else:
             self.available_behaviors = list(self.behaviors.keys())
+    
+    def set_llm_generate_function(
+        self, 
+        fn: Callable[[str, EPA], str]
+    ) -> None:
+        """
+        Set the LLM function for generating utterances.
+        
+        The function should take (behavior_name, behavior_epa) and return
+        a conversational utterance that embodies the behavior.
+        
+        Args:
+            fn: Function (behavior: str, epa: EPA) -> str
+            
+        Example:
+            def generate_with_llm(behavior: str, epa: EPA) -> str:
+                prompt = f"Generate a single conversational utterance that embodies the behavior '{behavior}' ..."
+                return llm.generate(prompt)
+            
+            generator.set_llm_generate_function(generate_with_llm)
+        """
+        self._llm_generate_fn = fn
     
     def _build_lookup(self):
         """Build behavior EPA lookup."""
@@ -166,6 +191,11 @@ class BehaviorPromptGenerator:
         """
         Generate an utterance embodying the given behavior.
         
+        Priority:
+        1. Use hardcoded template if available
+        2. Use LLM generation function if set
+        3. Fall back to placeholder string
+        
         Args:
             behavior: Behavior name from dictionary
             variant: Which variant to use (for behaviors with multiple templates)
@@ -177,8 +207,15 @@ class BehaviorPromptGenerator:
             templates = self.BEHAVIOR_TEMPLATES[behavior]
             return templates[variant % len(templates)]
         
-        # Fallback: construct a generic prompt
-        # In production, this could call an LLM
+        # Use LLM generation if function is set
+        if self._llm_generate_fn is not None:
+            epa = self.get_behavior_epa(behavior)
+            try:
+                return self._llm_generate_fn(behavior, epa)
+            except Exception as e:
+                warnings.warn(f"LLM generation failed for '{behavior}': {e}")
+        
+        # Fallback: construct a generic placeholder
         behavior_display = behavior.replace("_", " ")
         return f"[Expressing {behavior_display}]"
     

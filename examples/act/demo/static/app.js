@@ -15,6 +15,10 @@ class ACTDemo {
         this.messageInput = document.getElementById('messageInput');
         this.sendBtn = document.getElementById('sendBtn');
 
+        // Model status
+        this.modelStatus = document.getElementById('modelStatus');
+        this.modelStatusText = document.getElementById('modelStatusText');
+
         // EPA bars
         this.eBar = document.getElementById('eBar');
         this.pBar = document.getElementById('pBar');
@@ -29,9 +33,21 @@ class ACTDemo {
         this.turnCount = document.getElementById('turnCount');
         this.errorValue = document.getElementById('errorValue');
 
-        // Settings
+        // Identity settings
         this.agentIdentity = document.getElementById('agentIdentity');
         this.userIdentity = document.getElementById('userIdentity');
+
+        // Generation settings
+        this.maxNewTokens = document.getElementById('maxNewTokens');
+        this.maxTokensValue = document.getElementById('maxTokensValue');
+        this.temperature = document.getElementById('temperature');
+        this.temperatureValue = document.getElementById('temperatureValue');
+        this.topP = document.getElementById('topP');
+        this.topPValue = document.getElementById('topPValue');
+        this.steeringCoeff = document.getElementById('steeringCoeff');
+        this.steeringCoeffValue = document.getElementById('steeringCoeffValue');
+
+        // Controller settings
         this.controllerEnabled = document.getElementById('controllerEnabled');
         this.contextMode = document.getElementById('contextMode');
         this.windowSizeGroup = document.getElementById('windowSizeGroup');
@@ -60,9 +76,25 @@ class ACTDemo {
                 this.contextMode.value === 'history' ? 'block' : 'none';
         });
 
-        // Decay rate slider
+        // Slider value displays
         this.decayRate.addEventListener('input', () => {
             this.decayRateValue.textContent = this.decayRate.value;
+        });
+
+        this.maxNewTokens.addEventListener('input', () => {
+            this.maxTokensValue.textContent = this.maxNewTokens.value;
+        });
+
+        this.temperature.addEventListener('input', () => {
+            this.temperatureValue.textContent = this.temperature.value;
+        });
+
+        this.topP.addEventListener('input', () => {
+            this.topPValue.textContent = this.topP.value;
+        });
+
+        this.steeringCoeff.addEventListener('input', () => {
+            this.steeringCoeffValue.textContent = this.steeringCoeff.value;
         });
     }
 
@@ -76,12 +108,18 @@ class ACTDemo {
         this.messageInput.disabled = true;
         this.sendBtn.disabled = true;
 
+        // Show loading indicator
+        const loadingMsg = this.addMessage('Generating response...', 'loading');
+
         try {
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message })
             });
+
+            // Remove loading message
+            loadingMsg.remove();
 
             const data = await response.json();
 
@@ -98,6 +136,7 @@ class ACTDemo {
                 this.addMessage(`Error: ${data.detail}`, 'system');
             }
         } catch (error) {
+            loadingMsg.remove();
             this.addMessage(`Error: ${error.message}`, 'system');
         }
 
@@ -119,6 +158,7 @@ class ACTDemo {
         div.innerHTML = html;
         this.chatMessages.appendChild(div);
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+        return div;
     }
 
     updateEPABars(epa) {
@@ -161,6 +201,22 @@ class ACTDemo {
         }
     }
 
+    updateModelStatus(loaded, modelName) {
+        const indicator = this.modelStatus.querySelector('.status-indicator');
+
+        if (loaded) {
+            indicator.className = 'status-indicator loaded';
+            this.modelStatusText.textContent = `Model: ${modelName || 'Loaded'}`;
+            this.sendBtn.disabled = false;
+            this.messageInput.disabled = false;
+        } else {
+            indicator.className = 'status-indicator loading';
+            this.modelStatusText.textContent = 'Loading model...';
+            this.sendBtn.disabled = true;
+            this.messageInput.disabled = true;
+        }
+    }
+
     async applyConfig() {
         const config = {
             identities: {
@@ -178,6 +234,12 @@ class ACTDemo {
                 kp: 1.0,
                 ki: 0.1,
                 kd: 0.05
+            },
+            generation: {
+                max_new_tokens: parseInt(this.maxNewTokens.value),
+                temperature: parseFloat(this.temperature.value),
+                top_p: parseFloat(this.topP.value),
+                steering_coefficient: parseFloat(this.steeringCoeff.value)
             }
         };
 
@@ -228,13 +290,30 @@ class ACTDemo {
             if (response.ok) {
                 const data = await response.json();
 
-                // Update settings from state
+                // Update model status
+                this.updateModelStatus(data.model_loaded, data.model_name);
+
+                // Update identity settings from state
                 if (data.agent) {
                     this.agentIdentity.value = data.agent.identity.split(' ').pop() || 'assistant';
                 }
                 if (data.user) {
                     this.userIdentity.value = data.user.identity.split(' ').pop() || 'person';
                 }
+
+                // Update generation settings
+                if (data.generation) {
+                    this.maxNewTokens.value = data.generation.max_new_tokens;
+                    this.maxTokensValue.textContent = data.generation.max_new_tokens;
+                    this.temperature.value = data.generation.temperature;
+                    this.temperatureValue.textContent = data.generation.temperature;
+                    this.topP.value = data.generation.top_p;
+                    this.topPValue.textContent = data.generation.top_p;
+                    this.steeringCoeff.value = data.generation.steering_coefficient;
+                    this.steeringCoeffValue.textContent = data.generation.steering_coefficient;
+                }
+
+                // Update controller settings
                 if (data.controller) {
                     this.controllerEnabled.checked = data.controller.enabled;
                     this.contextMode.value = data.controller.config.context_mode;
@@ -246,12 +325,15 @@ class ACTDemo {
                     this.windowSizeGroup.style.display =
                         this.contextMode.value === 'history' ? 'block' : 'none';
                 }
+
                 if (data.metrics) {
                     this.updateMetrics(data.metrics);
                 }
             }
         } catch (error) {
             console.error('Failed to load state:', error);
+            // Keep trying until model is loaded
+            setTimeout(() => this.loadState(), 2000);
         }
     }
 

@@ -555,6 +555,8 @@ def read_epa_scores(
     text: str,
     layers: List[int] = None,
     neutral_context: str = "What do you think?",
+    system_prompt: Optional[str] = None,
+    user_prompt: Optional[str] = None,
     **tokenizer_kwargs,
 ) -> Dict[str, float]:
     """
@@ -565,14 +567,23 @@ def read_epa_scores(
         rep_readers: Dict mapping dimension name to RepReader
         text: Text to analyze
         layers: Layers to average for final scoring (if None, uses all layers from rep_reader)
-        neutral_context: Context prompt for formatting
+        neutral_context: Context prompt for formatting (used if user_prompt not provided)
+        system_prompt: Optional custom system prompt for formatting
+        user_prompt: Optional custom user prompt for formatting (overrides neutral_context)
         **tokenizer_kwargs: Tokenizer arguments
     
     Returns:
         Dict with 'evaluation', 'potency', 'activity' scores
     """
-    # Format text as assistant response
-    formatted = format_for_reading(text, neutral_context)
+    # Format text as assistant response with custom prompts if provided
+    if system_prompt is not None or user_prompt is not None:
+        # Use custom prompts
+        sys = system_prompt if system_prompt is not None else "You are in a conversation."
+        usr = user_prompt if user_prompt is not None else neutral_context
+        formatted = format_llama3_prompt(sys, usr, text)
+    else:
+        # Use default formatting
+        formatted = format_for_reading(text, neutral_context)
     
     tokenizer_kwargs.setdefault('padding', True)
     tokenizer_kwargs.setdefault('truncation', True)
@@ -598,3 +609,139 @@ def read_epa_scores(
         scores[dim] = float(np.mean(layer_scores)) if layer_scores else 0.0
     
     return scores
+
+
+def read_epa(
+    pipeline,
+    rep_readers: Dict[str, 'RepReader'],
+    text: str,
+    layers: List[int],
+    neutral_context: str = "What do you think?",
+    system_prompt: Optional[str] = None,
+    user_prompt: Optional[str] = None,
+    **tokenizer_kwargs,
+) -> 'EPA':
+    """
+    Read raw EPA values from text using the extracted directions.
+    
+    This is a convenience wrapper around read_epa_scores that returns an EPA object.
+    
+    Args:
+        pipeline: RepReadingPipeline
+        rep_readers: Dict mapping dimension name to RepReader
+        text: Text to analyze
+        layers: Layers to average for final scoring
+        neutral_context: Context prompt for formatting (used if user_prompt not provided)
+        system_prompt: Optional custom system prompt for formatting
+        user_prompt: Optional custom user prompt for formatting (overrides neutral_context)
+        **tokenizer_kwargs: Tokenizer arguments (e.g., padding=True, truncation=True)
+    
+    Returns:
+        EPA object with raw (uncalibrated) values.
+    """
+    # Import EPA here to avoid circular imports
+    from .act_core import EPA
+    
+    scores = read_epa_scores(
+        pipeline=pipeline,
+        rep_readers=rep_readers,
+        text=text,
+        layers=layers,
+        neutral_context=neutral_context,
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        **tokenizer_kwargs,
+    )
+    return EPA(
+        e=scores.get('evaluation', 0.0),
+        p=scores.get('potency', 0.0),
+        a=scores.get('activity', 0.0)
+    )
+
+
+def steer_generation(
+    model,
+    tokenizer,
+    rep_readers: Dict[str, 'RepReader'],
+    layers: List[int],
+    prompt: str,
+    target_epa: Tuple[float, float, float],
+    steering_coefficient: float = 1.0,
+    max_new_tokens: int = 128,
+    temperature: float = 0.7,
+    top_p: float = 0.95,
+    rep_control_pipeline = None,
+    **generation_kwargs,
+) -> str:
+    """
+    Generate text with EPA steering.
+    
+    This utility function wraps the steering logic for easy use with ACTSteeringEngine.
+    Uses RepControlPipeline from the repe library to apply steering vectors.
+    
+    Args:
+        model: The language model for generation
+        tokenizer: The tokenizer
+        rep_readers: Dict mapping dimension name to RepReader
+        layers: Layer indices to apply steering to
+        prompt: The input prompt for the LLM
+        target_epa: Target EPA values (e, p, a) for steering
+        steering_coefficient: Multiplier for steering strength (default 1.0)
+        max_new_tokens: Maximum tokens to generate
+        temperature: Sampling temperature
+        top_p: Top-p sampling parameter
+        rep_control_pipeline: Optional pre-configured RepControlPipeline. If None, one will be created.
+        **generation_kwargs: Additional generation parameters
+        
+    Returns:
+        Generated text (response only, without prompt)
+    """
+    import torch
+    from transformers import pipeline
+    
+    e_target, p_target, a_target = target_epa
+    
+    # Create activation vectors for the target EPA
+    activations = make_epa_activations(
+        rep_readers=rep_readers,
+        layers=layers,
+        e_coeff=e_target * steering_coefficient,
+        p_coeff=p_target * steering_coefficient,
+        a_coeff=a_target * steering_coefficient,
+        device=model.device,
+        dtype=model.dtype,
+    )
+    
+    # Create or use existing RepControlPipeline
+    if rep_control_pipeline is None:
+        rep_control_pipeline = pipeline(
+            "rep-control",
+            model=model,
+            tokenizer=tokenizer,
+            layers=layers,
+            control_method="reading_vec",
+        )
+    
+    # Generate with representation control
+    outputs = rep_control_pipeline(
+        prompt,
+        activations=activations,
+        max_new_tokens=max_new_tokens,
+        do_sample=True,
+        temperature=temperature,
+        top_p=top_p,
+        pad_token_id=tokenizer.eos_token_id,
+        repetition_penalty=1.5,
+        **generation_kwargs,
+    )
+    
+    # Extract response text (pipeline returns list of dicts with 'generated_text')
+    generated_text = outputs[0]['generated_text']
+    
+    # Remove the prompt from the generated text
+    if generated_text.startswith(prompt):
+        response = generated_text[len(prompt):].strip()
+    else:
+        response = generated_text.strip()
+    
+    return response
