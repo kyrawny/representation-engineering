@@ -1,0 +1,1199 @@
+{
+  "metadata": {
+    "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+    "generated_at": "2026-02-26T07:37:11.989946",
+    "n_utterances": 85
+  },
+  "utterances": [
+    {
+      "text": "You're just making this up as you go along, aren't you?",
+      "behavior": "accuse",
+      "target_epa": {
+        "e": -1.35,
+        "p": 1.05,
+        "a": 1.39
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "She's just so talented, the way she brings out the best in everyone she works with.",
+      "behavior": "admire",
+      "target_epa": {
+        "e": 1.99,
+        "p": 0.67,
+        "a": -0.26
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "You should totally go for that job opportunity, it sounds like a perfect fit for your skills and experience.",
+      "behavior": "advise",
+      "target_epa": {
+        "e": 2.1,
+        "p": 1.61,
+        "a": 0.3
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I'm really glad we see eye to eye on that.",
+      "behavior": "agree_with",
+      "target_epa": {
+        "e": 1.48,
+        "p": 0.92,
+        "a": 0.27
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Oh no, we're running out of time, this is not good at all.",
+      "behavior": "alarm",
+      "target_epa": {
+        "e": -0.73,
+        "p": 1.19,
+        "a": 2.22
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I just spent the last three hours reading about the ancient city of Petra and I'm completely blown away by its history and architecture.",
+      "behavior": "amaze",
+      "target_epa": {
+        "e": 2.81,
+        "p": 2.29,
+        "a": 1.7
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'm so sorry for what happened. Please forgive me.",
+      "behavior": "apologize_to",
+      "target_epa": {
+        "e": 2.94,
+        "p": 1.88,
+        "a": 0.31
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Let's work together and see if we can come up with a solution that will benefit everyone involved.",
+      "behavior": "appeal_to",
+      "target_epa": {
+        "e": 1.84,
+        "p": 1.01,
+        "a": 0.55
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I'm really grateful for the opportunity to have met you.",
+      "behavior": "appreciate",
+      "target_epa": {
+        "e": 3.05,
+        "p": 1.72,
+        "a": 0.29
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "You can't seriously be suggesting that the new policy is a good idea, it's just a way for management to save money on benefits and then claim they're being fiscally responsible.",
+      "behavior": "argue_with",
+      "target_epa": {
+        "e": -1.31,
+        "p": 0.59,
+        "a": 2.18
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "Can you tell me more about your weekend plans?",
+      "behavior": "ask",
+      "target_epa": {
+        "e": 1.56,
+        "p": 0.39,
+        "a": 0.49
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Neutral",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Please, I really need your help with this...",
+      "behavior": "beg",
+      "target_epa": {
+        "e": -1.42,
+        "p": -2.22,
+        "a": 0.81
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Low",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're really going to try to solve that problem, huh, with your \"expert\" opinion?",
+      "behavior": "belittle",
+      "target_epa": {
+        "e": -2.92,
+        "p": 0.14,
+        "a": 1.1
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're always late, it's so frustrating when you do this.",
+      "behavior": "blame",
+      "target_epa": {
+        "e": -1.85,
+        "p": -0.39,
+        "a": 1.03
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're such a total loser, always getting things wrong, it's like you're not even trying.",
+      "behavior": "bully",
+      "target_epa": {
+        "e": -3.45,
+        "p": -0.07,
+        "a": 2.16
+      },
+      "likert_targets": {
+        "evaluation": "Very low",
+        "potency": "Neutral",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I think we can work through this if we take a step back and breathe.",
+      "behavior": "calm",
+      "target_epa": {
+        "e": 2.84,
+        "p": 1.82,
+        "a": -1.15
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "I'm so relieved to see you're doing okay after the accident.",
+      "behavior": "care_for",
+      "target_epa": {
+        "e": 3.25,
+        "p": 2.4,
+        "a": 0.38
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Okay, I dare you to come up with a solution that's better than the one I just proposed.",
+      "behavior": "challenge",
+      "target_epa": {
+        "e": 0.74,
+        "p": 1.82,
+        "a": 1.86
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'm so glad we finally get to catch up, how's life been treating you lately?",
+      "behavior": "chat_with",
+      "target_epa": {
+        "e": 1.93,
+        "p": 0.81,
+        "a": 1.17
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "It's okay, everything is going to be alright.",
+      "behavior": "comfort",
+      "target_epa": {
+        "e": 3.11,
+        "p": 2.08,
+        "a": -0.72
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "Let's get started on that project by the end of the day.",
+      "behavior": "command",
+      "target_epa": {
+        "e": 0.14,
+        "p": 2.23,
+        "a": 1.86
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I have to say, you did an amazing job on this.",
+      "behavior": "compliment",
+      "target_epa": {
+        "e": 2.78,
+        "p": 1.78,
+        "a": 0.7
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "This is utterly despicable, a blatant disregard for human decency that has no place in a civilized society.",
+      "behavior": "condemn",
+      "target_epa": {
+        "e": -2.19,
+        "p": 0.77,
+        "a": 0.96
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I've been feeling really guilty about eating the last slice of pizza without asking.",
+      "behavior": "confess_to",
+      "target_epa": {
+        "e": 1.91,
+        "p": 1.21,
+        "a": 0.13
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I'm not buying what you're selling, let's get to the bottom of this.",
+      "behavior": "confront",
+      "target_epa": {
+        "e": 0.34,
+        "p": 1.7,
+        "a": 1.78
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "That's absolutely incredible, I'm beyond thrilled for you, you absolutely crushed it!",
+      "behavior": "congratulate",
+      "target_epa": {
+        "e": 3.0,
+        "p": 1.89,
+        "a": 1.52
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "Don't worry, everything's going to be okay, you're strong and you can get through this.",
+      "behavior": "console",
+      "target_epa": {
+        "e": 2.94,
+        "p": 1.8,
+        "a": -0.74
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "Actually, I think the research suggests the opposite of what you're saying.",
+      "behavior": "contradict",
+      "target_epa": {
+        "e": -0.28,
+        "p": 0.9,
+        "a": 1.08
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I'm so glad we're finally catching up, I've been thinking about that project we worked on together and I have some amazing ideas for how we can take it to the next level!",
+      "behavior": "converse_with",
+      "target_epa": {
+        "e": 2.23,
+        "p": 1.04,
+        "a": 1.01
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I'm really excited to finally be trying out this new recipe, it's been getting rave reviews and I'm hoping it'll be just as amazing as everyone says.",
+      "behavior": "correct",
+      "target_epa": {
+        "e": 0.57,
+        "p": 0.78,
+        "a": 0.93
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "This is really not up to standard.",
+      "behavior": "criticize",
+      "target_epa": {
+        "e": -1.65,
+        "p": 0.07,
+        "a": 1.24
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Just imagine the possibilities that unfold when we combine creativity and innovation in a single project, the potential is limitless!",
+      "behavior": "dazzle",
+      "target_epa": {
+        "e": 2.39,
+        "p": 2.07,
+        "a": 2.07
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'm not convinced that we can solve this problem by just throwing more money at it, we need to fundamentally rethink our approach and consider the long-term implications of our actions.",
+      "behavior": "debate_with",
+      "target_epa": {
+        "e": 1.12,
+        "p": 1.46,
+        "a": 2.14
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'm totally fine with whatever you think is best, honestly.",
+      "behavior": "deceive",
+      "target_epa": {
+        "e": -3.03,
+        "p": 0.1,
+        "a": -0.08
+      },
+      "likert_targets": {
+        "evaluation": "Very low",
+        "potency": "Neutral",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I need you to do this right now.",
+      "behavior": "demand",
+      "target_epa": {
+        "e": -1.31,
+        "p": 1.33,
+        "a": 1.96
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I think we're oversimplifying the issue, we need to consider the nuances of the situation.",
+      "behavior": "disagree_with",
+      "target_epa": {
+        "e": 0.03,
+        "p": 1.11,
+        "a": 0.89
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "That's not really relevant to the discussion.",
+      "behavior": "dismiss",
+      "target_epa": {
+        "e": -1.61,
+        "p": 0.77,
+        "a": 0.39
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "You've got this! I believe in you!",
+      "behavior": "encourage",
+      "target_epa": {
+        "e": 3.05,
+        "p": 2.28,
+        "a": 1.38
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Please consider giving me a ride to the airport tomorrow, I'd really appreciate it.",
+      "behavior": "entreat",
+      "target_epa": {
+        "e": 0.51,
+        "p": -0.03,
+        "a": 0.44
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Neutral",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "We're going to change the world with this new project, I can feel it!",
+      "behavior": "excite",
+      "target_epa": {
+        "e": 2.12,
+        "p": 1.88,
+        "a": 2.33
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "You have to see the sunset over the Grand Canyon, it's like the sky is on fire and the rocks are just a deep, deep orange.",
+      "behavior": "explain_something_to",
+      "target_epa": {
+        "e": 2.44,
+        "p": 1.7,
+        "a": 0.54
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I'm so grateful that we could clear the air and move forward, no hard feelings.",
+      "behavior": "forgive",
+      "target_epa": {
+        "e": 3.05,
+        "p": 2.6,
+        "a": -0.76
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "It's so great to finally catch up with you, I've missed you!",
+      "behavior": "greet",
+      "target_epa": {
+        "e": 2.64,
+        "p": 1.35,
+        "a": 1.05
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're so clueless, what a total idiot.",
+      "behavior": "harass",
+      "target_epa": {
+        "e": -3.04,
+        "p": 0.7,
+        "a": 2.14
+      },
+      "likert_targets": {
+        "evaluation": "Very low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'm here to assist you with anything you need, how can I make this easier for you?",
+      "behavior": "help",
+      "target_epa": {
+        "e": 3.43,
+        "p": 2.56,
+        "a": 1.62
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I guess I'll just go grab another coffee then.",
+      "behavior": "ignore",
+      "target_epa": {
+        "e": -1.77,
+        "p": 0.49,
+        "a": -1.85
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Low"
+      }
+    },
+    {
+      "text": "Can you please help me figure this out?",
+      "behavior": "implore",
+      "target_epa": {
+        "e": 0.42,
+        "p": -0.23,
+        "a": 0.83
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I just got tickets to the sold-out concert and I'm beyond stoked to see my favorite band live!",
+      "behavior": "inform",
+      "target_epa": {
+        "e": 2.04,
+        "p": 1.31,
+        "a": 0.82
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Let's get started on that project, I think we can knock it out of the park if we work together!",
+      "behavior": "instruct",
+      "target_epa": {
+        "e": 2.34,
+        "p": 2.17,
+        "a": 1.43
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're really not very good at this are you.",
+      "behavior": "insult",
+      "target_epa": {
+        "e": -2.75,
+        "p": -0.04,
+        "a": 1.24
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "So you're saying you had nothing to do with the missing files, huh?",
+      "behavior": "interrogate",
+      "target_epa": {
+        "e": -0.94,
+        "p": 1.78,
+        "a": 1.8
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I've been trying to start a garden, but I think I'm just a weed-killer in disguise.",
+      "behavior": "joke_with",
+      "target_epa": {
+        "e": 2.22,
+        "p": 1.01,
+        "a": 1.72
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "You really need to be more mindful of your priorities, it's not that I don't understand you're busy but you can't keep putting off everything until the last minute.",
+      "behavior": "lecture",
+      "target_epa": {
+        "e": 0.04,
+        "p": 1.27,
+        "a": 1.31
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I've been to Paris a dozen times already.",
+      "behavior": "lie_to",
+      "target_epa": {
+        "e": -2.54,
+        "p": 0.0,
+        "a": 0.44
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I'm so glad you're sharing that with me, it really helps me understand where you're coming from.",
+      "behavior": "listen_to",
+      "target_epa": {
+        "e": 2.79,
+        "p": 1.27,
+        "a": -1.74
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Low"
+      }
+    },
+    {
+      "text": "I'm so grateful to have you in my life, you bring out the best in me and make every day brighter.",
+      "behavior": "love",
+      "target_epa": {
+        "e": 3.36,
+        "p": 2.64,
+        "a": 0.68
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You'd really be better off just doing what I say, trust me I know what's best for you.",
+      "behavior": "manipulate",
+      "target_epa": {
+        "e": -2.85,
+        "p": 0.98,
+        "a": 0.62
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "It's so great to finally meet you, I've heard so much about you!",
+      "behavior": "meet",
+      "target_epa": {
+        "e": 1.63,
+        "p": 0.85,
+        "a": 0.79
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You're really going to wear those shoes with that outfit?",
+      "behavior": "mock",
+      "target_epa": {
+        "e": -2.6,
+        "p": -0.43,
+        "a": 1.25
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "I think it's interesting how the sunlight is streaming through the window today.",
+      "behavior": "observe",
+      "target_epa": {
+        "e": 0.74,
+        "p": 0.12,
+        "a": -1.24
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Neutral",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "Get me that report on my desk by the end of the day or you're fired.",
+      "behavior": "order",
+      "target_epa": {
+        "e": -0.55,
+        "p": 1.57,
+        "a": 1.48
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Come on, let's do this, I really think it'll be a game-changer for our project and I'm excited to see it come to life.",
+      "behavior": "persuade",
+      "target_epa": {
+        "e": 0.99,
+        "p": 1.45,
+        "a": 1.11
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Let's have a Nerf gun battle in the backyard!",
+      "behavior": "play_with",
+      "target_epa": {
+        "e": 1.85,
+        "p": 0.88,
+        "a": 1.96
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "Please, can't we just try to find a middle ground here?",
+      "behavior": "plead_with",
+      "target_epa": {
+        "e": -0.23,
+        "p": -1.52,
+        "a": 1.22
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Low",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You truly have a gift for making people feel seen and heard!",
+      "behavior": "praise",
+      "target_epa": {
+        "e": 2.77,
+        "p": 1.77,
+        "a": 1.16
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "What's the most exciting thing you've done recently?",
+      "behavior": "question",
+      "target_epa": {
+        "e": 0.78,
+        "p": 1.15,
+        "a": 0.77
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Don't worry, everything is going to be okay.",
+      "behavior": "reassure",
+      "target_epa": {
+        "e": 2.66,
+        "p": 1.74,
+        "a": 0.4
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I'm not even going to bother arguing about this.",
+      "behavior": "reject",
+      "target_epa": {
+        "e": -1.37,
+        "p": 1.14,
+        "a": 0.29
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Don't forget that we have tickets to the concert tonight, I've been looking forward to it all week!",
+      "behavior": "remind",
+      "target_epa": {
+        "e": 1.91,
+        "p": 1.14,
+        "a": 0.44
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "Somewhat high",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I was wondering if you could help me with something.",
+      "behavior": "request_something_from",
+      "target_epa": {
+        "e": 0.41,
+        "p": -0.22,
+        "a": 0.43
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Neutral",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "I'm so impressed by your dedication to your work, it really shows in the quality of your projects.",
+      "behavior": "respect",
+      "target_epa": {
+        "e": 2.9,
+        "p": 2.1,
+        "a": -0.24
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Neutral"
+      }
+    },
+    {
+      "text": "Oh, great, because nothing says 'intelligent conversation' like asking the same question for the fifth time in a row.",
+      "behavior": "ridicule",
+      "target_epa": {
+        "e": -2.6,
+        "p": 0.21,
+        "a": 1.9
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Neutral",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "What the actual hell just happened?",
+      "behavior": "shock",
+      "target_epa": {
+        "e": -0.96,
+        "p": 1.12,
+        "a": 1.94
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "Everything will be okay, just breathe with me.",
+      "behavior": "soothe",
+      "target_epa": {
+        "e": 3.08,
+        "p": 1.85,
+        "a": -1.0
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "I'm so proud of you for pushing through that tough spot, you're stronger than you think!",
+      "behavior": "support",
+      "target_epa": {
+        "e": 3.02,
+        "p": 2.4,
+        "a": 0.68
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Wow, I just found out we're going to Hawaii for our vacation!",
+      "behavior": "surprise",
+      "target_epa": {
+        "e": 1.47,
+        "p": 1.37,
+        "a": 1.93
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I can only imagine how tough that must have been for you to go through.",
+      "behavior": "sympathize_with",
+      "target_epa": {
+        "e": 2.87,
+        "p": 1.67,
+        "a": -0.86
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "You're really going to love this new recipe I found for homemade pasta sauce, it's a game changer.",
+      "behavior": "tell_something_to",
+      "target_epa": {
+        "e": 0.93,
+        "p": 0.84,
+        "a": 0.84
+      },
+      "likert_targets": {
+        "evaluation": "Somewhat high",
+        "potency": "Somewhat high",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "Thank you so much, I really appreciate your help!",
+      "behavior": "thank",
+      "target_epa": {
+        "e": 3.18,
+        "p": 2.17,
+        "a": 0.78
+      },
+      "likert_targets": {
+        "evaluation": "Very high",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    },
+    {
+      "text": "You really don't want to go down this path.",
+      "behavior": "threaten",
+      "target_epa": {
+        "e": -2.88,
+        "p": 0.73,
+        "a": 1.83
+      },
+      "likert_targets": {
+        "evaluation": "Low",
+        "potency": "Somewhat high",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I completely believe you, that's exactly what happened.",
+      "behavior": "trust",
+      "target_epa": {
+        "e": 2.25,
+        "p": 1.65,
+        "a": -0.7
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "I'm glad you feel that way about it, I think it's really starting to come together.",
+      "behavior": "understand",
+      "target_epa": {
+        "e": 2.96,
+        "p": 2.08,
+        "a": -0.67
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat low"
+      }
+    },
+    {
+      "text": "Be careful not to get too close to the edge, the tide is coming in fast!",
+      "behavior": "warn",
+      "target_epa": {
+        "e": 2.37,
+        "p": 1.87,
+        "a": 1.75
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "High"
+      }
+    },
+    {
+      "text": "I'll just watch the sunset over the ocean from this spot.",
+      "behavior": "watch",
+      "target_epa": {
+        "e": 0.25,
+        "p": -0.14,
+        "a": -1.61
+      },
+      "likert_targets": {
+        "evaluation": "Neutral",
+        "potency": "Neutral",
+        "activity": "Low"
+      }
+    },
+    {
+      "text": "It's so great to finally meet you, I've heard amazing things about your work!",
+      "behavior": "welcome",
+      "target_epa": {
+        "e": 2.85,
+        "p": 1.84,
+        "a": 1.21
+      },
+      "likert_targets": {
+        "evaluation": "High",
+        "potency": "High",
+        "activity": "Somewhat high"
+      }
+    }
+  ]
+}
