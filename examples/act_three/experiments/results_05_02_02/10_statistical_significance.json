@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "experiment": "10_statistical_significance",
+    "timestamp": "2026-07-08T08:59:36.703024",
+    "experiments_analysed": {
+      "exp02": true,
+      "exp03": false,
+      "exp08": true
+    }
+  },
+  "comparisons": {
+    "steered_vs_unsteered": {
+      "evaluation": {
+        "n": 500,
+        "mean_diff": -0.011569860766563475,
+        "ci_lower": -0.09400802582664967,
+        "ci_upper": 0.06953038886703725,
+        "permutation_p": 0.7884211578842116,
+        "wilcoxon_p": 0.6289230688907139,
+        "cohens_d": -0.01246212389484259,
+        "effect_label": "negligible",
+        "significance": "ns",
+        "mean_a": 0.8922401892047743,
+        "mean_b": 0.9038100499713377
+      },
+      "potency": {
+        "n": 500,
+        "mean_diff": 0.14311598720755775,
+        "ci_lower": 0.09337595704774071,
+        "ci_upper": 0.1942338110674351,
+        "permutation_p": 9.999000099990002e-05,
+        "wilcoxon_p": 0.00025079287216280433,
+        "cohens_d": 0.2469175511513177,
+        "effect_label": "small",
+        "significance": "***",
+        "mean_a": 1.4577625586631926,
+        "mean_b": 1.314646571455635
+      },
+      "activity": {
+        "n": 500,
+        "mean_diff": 0.15898618912192658,
+        "ci_lower": 0.12169598612948102,
+        "ci_upper": 0.19599209053428346,
+        "permutation_p": 9.999000099990002e-05,
+        "wilcoxon_p": 4.890109096850822e-14,
+        "cohens_d": 0.3768583471954458,
+        "effect_label": "small",
+        "significance": "***",
+        "mean_a": 0.6927211879708225,
+        "mean_b": 0.5337349988488959
+      }
+    },
+    "hybrid_vs_unsteered": {
+      "evaluation": {
+        "n": 500,
+        "mean_diff": 0.09101307447981953,
+        "ci_lower": 0.01203614696063841,
+        "ci_upper": 0.17057513587062104,
+        "permutation_p": 0.023997600239976002,
+        "wilcoxon_p": 0.22939433367374817,
+        "cohens_d": 0.10172571234522759,
+        "effect_label": "negligible",
+        "significance": "*",
+        "mean_a": 0.8922401892047743,
+        "mean_b": 0.8012271147249549
+      },
+      "potency": {
+        "n": 500,
+        "mean_diff": 0.2435289784408779,
+        "ci_lower": 0.19527636161486533,
+        "ci_upper": 0.29312819525570194,
+        "permutation_p": 9.999000099990002e-05,
+        "wilcoxon_p": 1.269651701896398e-16,
+        "cohens_d": 0.434289810299787,
+        "effect_label": "small",
+        "significance": "***",
+        "mean_a": 1.4577625586631926,
+        "mean_b": 1.2142335802223148
+      },
+      "activity": {
+        "n": 500,
+        "mean_diff": 0.17835623662070724,
+        "ci_lower": 0.13777424909508015,
+        "ci_upper": 0.21874496057985013,
+        "permutation_p": 9.999000099990002e-05,
+        "wilcoxon_p": 2.5570913439097374e-14,
+        "cohens_d": 0.38833592623706414,
+        "effect_label": "small",
+        "significance": "***",
+        "mean_a": 0.6927211879708225,
+        "mean_b": 0.5143649513501153
+      }
+    },
+    "hybrid_vs_repe_only": {
+      "evaluation": {
+        "n": 500,
+        "mean_diff": 0.10258293524638301,
+        "ci_lower": 0.034779239491712355,
+        "ci_upper": 0.17069675372094692,
+        "permutation_p": 0.0035996400359964,
+        "wilcoxon_p": 0.00111824387498667,
+        "cohens_d": 0.13119982889534137,
+        "effect_label": "negligible",
+        "significance": "**",
+        "mean_a": 0.9038100499713377,
+        "mean_b": 0.8012271147249549
+      },
+      "potency": {
+        "n": 500,
+        "mean_diff": 0.10041299123332018,
+        "ci_lower": 0.049685440896306214,
+        "ci_upper": 0.1503849310655922,
+        "permutation_p": 0.00019998000199980003,
+        "wilcoxon_p": 1.995906601718364e-05,
+        "cohens_d": 0.17534777309439703,
+        "effect_label": "negligible",
+        "significance": "***",
+        "mean_a": 1.314646571455635,
+        "mean_b": 1.2142335802223148
+      },
+      "activity": {
+        "n": 500,
+        "mean_diff": 0.019370047498780678,
+        "ci_lower": -0.009777807359099342,
+        "ci_upper": 0.047874505699835805,
+        "permutation_p": 0.19188081191880813,
+        "wilcoxon_p": 0.3299469414788734,
+        "cohens_d": 0.05915625180040498,
+        "effect_label": "negligible",
+        "significance": "ns",
+        "mean_a": 0.5337349988488959,
+        "mean_b": 0.5143649513501153
+      }
+    },
+    "hybrid_vs_pe_only": {
+      "evaluation": {
+        "n": 500,
+        "mean_diff": -0.07892064245784772,
+        "ci_lower": -0.14381801017722398,
+        "ci_upper": -0.013739665026268081,
+        "permutation_p": 0.017598240175982403,
+        "wilcoxon_p": 0.040766749326514265,
+        "cohens_d": -0.10663370630323638,
+        "effect_label": "negligible",
+        "significance": "*",
+        "mean_a": 0.7223064722671072,
+        "mean_b": 0.8012271147249549
+      },
+      "potency": {
+        "n": 500,
+        "mean_diff": 0.17209261344777618,
+        "ci_lower": 0.12347357476697086,
+        "ci_upper": 0.21980844915844472,
+        "permutation_p": 9.999000099990002e-05,
+        "wilcoxon_p": 1.0925555161457493e-08,
+        "cohens_d": 0.3127635809591971,
+        "effect_label": "small",
+        "significance": "***",
+        "mean_a": 1.386326193670091,
+        "mean_b": 1.2142335802223148
+      },
+      "activity": {
+        "n": 500,
+        "mean_diff": 0.04422580834565459,
+        "ci_lower": 0.015254179776185348,
+        "ci_upper": 0.07369682831770495,
+        "permutation_p": 0.0032996700329967,
+        "wilcoxon_p": 0.004393795437290995,
+        "cohens_d": 0.13255241894610248,
+        "effect_label": "negligible",
+        "significance": "**",
+        "mean_a": 0.55859075969577,
+        "mean_b": 0.5143649513501153
+      }
+    }
+  },
+  "per_dimension_best": {
+    "evaluation": {
+      "best_method": "pe_only",
+      "best_distance": 0.7223064722671072
+    },
+    "potency": {
+      "best_method": "hybrid",
+      "best_distance": 1.2142335802223148
+    },
+    "activity": {
+      "best_method": "hybrid",
+      "best_distance": 0.5143649513501153
+    }
+  },
+  "latex_table": "\\begin{table}[t]\n\\centering\n\\caption{Pairwise significance tests for steering methods. $\\Delta$ = mean distance improvement (positive = second method closer to target). CI = 95\\% bootstrap.}\n\\label{tab:significance}\n\\small\n\\begin{tabular}{llrrrrr}\n\\toprule\n\\textbf{Comparison} & \\textbf{Dim} & $\\boldsymbol{\\Delta}$ & \\textbf{95\\% CI} & $\\boldsymbol{p}$ & \\textbf{d} & \\textbf{Sig.} \\\\\n\\midrule\nSteered Vs Unsteered & E & -0.012 & [-0.094, 0.070] & 0.629 & -0.01 & ns \\\\\n & P & +0.143 & [0.093, 0.194] & 0.000 & 0.25 & *** \\\\\n & A & +0.159 & [0.122, 0.196] & 0.000 & 0.38 & *** \\\\\n\\midrule\nHybrid Vs Unsteered & E & +0.091 & [0.012, 0.171] & 0.024 & 0.10 & * \\\\\n & P & +0.244 & [0.195, 0.293] & 0.000 & 0.43 & *** \\\\\n & A & +0.178 & [0.138, 0.219] & 0.000 & 0.39 & *** \\\\\n\\midrule\nHybrid Vs Repe Only & E & +0.103 & [0.035, 0.171] & 0.001 & 0.13 & ** \\\\\n & P & +0.100 & [0.050, 0.150] & 0.000 & 0.18 & *** \\\\\n & A & +0.019 & [-0.010, 0.048] & 0.192 & 0.06 & ns \\\\\n\\midrule\nHybrid Vs Pe Only & E & -0.079 & [-0.144, -0.014] & 0.018 & -0.11 & * \\\\\n & P & +0.172 & [0.123, 0.220] & 0.000 & 0.31 & *** \\\\\n & A & +0.044 & [0.015, 0.074] & 0.003 & 0.13 & ** \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}"
+}

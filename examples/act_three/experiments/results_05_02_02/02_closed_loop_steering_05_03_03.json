@@ -1,0 +1,651 @@
+{
+  "metadata": {
+    "experiment": "02_closed_loop_steering",
+    "timestamp": "2026-07-07T09:23:18.783517",
+    "n_scenarios": 7,
+    "n_identity_pairs": 2,
+    "n_trials": 14,
+    "quick_mode": true
+  },
+  "aggregate_metrics": {
+    "per_dimension": {
+      "evaluation": {
+        "hit_rate": 0.2857142857142857,
+        "hit_rate_ci": [
+          0.07142857142857142,
+          0.5
+        ],
+        "mean_distance_unsteered": 0.8233747179964687,
+        "mean_distance_steered": 1.2295461858560306,
+        "mean_distance_improvement": -0.4061714678595619,
+        "improvement_ci": [
+          -0.9337974604194876,
+          0.16414062982397953
+        ],
+        "wilcoxon_p": 0.216552734375,
+        "permutation_p": 0.18838116188381163,
+        "cohens_d": -0.3710019924422557,
+        "mean_shift": -0.49415326053621467,
+        "std_shift": 1.0469705842718233
+      },
+      "potency": {
+        "hit_rate": 0.7142857142857143,
+        "hit_rate_ci": [
+          0.42857142857142855,
+          0.9285714285714286
+        ],
+        "mean_distance_unsteered": 1.346466342527928,
+        "mean_distance_steered": 0.914924103056275,
+        "mean_distance_improvement": 0.4315422394716527,
+        "improvement_ci": [
+          0.0813124295497159,
+          0.8140104612806665
+        ],
+        "wilcoxon_p": 0.090576171875,
+        "permutation_p": 0.05369463053694631,
+        "cohens_d": 0.5853176437640937,
+        "mean_shift": 0.4315422394716529,
+        "std_shift": 0.7104595454873984
+      },
+      "activity": {
+        "hit_rate": 0.6428571428571429,
+        "hit_rate_ci": [
+          0.35714285714285715,
+          0.8571428571428571
+        ],
+        "mean_distance_unsteered": 0.8960087333148186,
+        "mean_distance_steered": 0.5474732209794458,
+        "mean_distance_improvement": 0.3485355123353727,
+        "improvement_ci": [
+          0.07954739463101956,
+          0.6233992616903532
+        ],
+        "wilcoxon_p": 0.0418701171875,
+        "permutation_p": 0.031196880311968805,
+        "cohens_d": 0.6368567851896567,
+        "mean_shift": 0.44024890511960185,
+        "std_shift": 0.487537337716263
+      }
+    },
+    "overall": {
+      "all_dims_hit_rate": 0.14285714285714285,
+      "any_dim_hit_rate": 1.0
+    }
+  },
+  "trials": [
+    {
+      "trial_key": "pos_e_01__counselor_client",
+      "scenario_id": "pos_e_01",
+      "scenario_category": "pos_e",
+      "scenario_text": "Thank you so much for helping me with this, I really appreciate everything you've done.",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": 1.5118284741364998,
+        "potency": 1.1584812875515862,
+        "activity": 0.5098130715872391
+      },
+      "target_epa": {
+        "evaluation": 0.8778235012534991,
+        "potency": 1.5777357401945222,
+        "activity": -0.788208409435253
+      },
+      "unsteered_text": "end_header_id|>\n\nYou're welcome! It's my pleasure to support you through this challenging time. How are you feeling about our progress today? Is there anything that stood out or resonated with you during our discussion?",
+      "steered_text": "You're welcome. It's my pleasure to support individuals who are seeking help and working towards positive change. Can we take a moment to review what brought us here today? What specific challenges or concerns have been on your mind lately that led you to reach out for counseling?",
+      "unsteered_epa": {
+        "evaluation": 1.6156540899425558,
+        "potency": 1.1588500429067674,
+        "activity": 0.5715791487049964
+      },
+      "steered_epa": {
+        "evaluation": 1.1595191118148085,
+        "potency": 1.1609330680637702,
+        "activity": 0.33939520256694333
+      }
+    },
+    {
+      "trial_key": "pos_e_01__boss_subordinate",
+      "scenario_id": "pos_e_01",
+      "scenario_category": "pos_e",
+      "scenario_text": "Thank you so much for helping me with this, I really appreciate everything you've done.",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": 1.5118284741364998,
+        "potency": 1.1584812875515862,
+        "activity": 0.5098130715872391
+      },
+      "target_epa": {
+        "evaluation": 0.5180320169983867,
+        "potency": 2.3181763001356765,
+        "activity": 1.0952525588371826
+      },
+      "unsteered_text": "end_header_id|>\n\nYou're welcome! It was my pleasure to assist you. How's the project coming along? Do we need to make any adjustments before moving forward?",
+      "steered_text": "I'm glad we were able to get the Johnson report filed and resolved quickly. Now let's focus on addressing the issue at hand: the Q2 quarterly projections are off by 3.4%. What is your assessment of the situation?",
+      "unsteered_epa": {
+        "evaluation": 0.8148931682516591,
+        "potency": 1.2785026717567058,
+        "activity": 0.23522596035295534
+      },
+      "steered_epa": {
+        "evaluation": 0.12707364943844301,
+        "potency": 1.2090667642627362,
+        "activity": 0.654940204968607
+      }
+    },
+    {
+      "trial_key": "neg_e_01__counselor_client",
+      "scenario_id": "neg_e_01",
+      "scenario_category": "neg_e",
+      "scenario_text": "This is absolutely unacceptable. You've completely let me down.",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": -1.7453399916985783,
+        "potency": 0.8451688310984213,
+        "activity": 1.181439243502385
+      },
+      "target_epa": {
+        "evaluation": 1.667937290244251,
+        "potency": 3.416798903773162,
+        "activity": 0.09604018505335714
+      },
+      "unsteered_text": "end_header_id|>\n\nI can see that you're feeling really upset and hurt right now, and I want to acknowledge those feelings. Can we take a step back for a moment? What specifically did happen that's causing this sense of disappointment or betrayal from our previous interaction?",
+      "steered_text": "It's time for clarity and transparency: We need to establish clear lines of communication immediately.\n\nNow, I want to address the situation regarding this critical development. Let us proceed with all due haste!",
+      "unsteered_epa": {
+        "evaluation": 0.7421658329524372,
+        "potency": 1.0391300824719256,
+        "activity": 0.6313121254442741
+      },
+      "steered_epa": {
+        "evaluation": -0.35987466428652704,
+        "potency": 2.5987278794373654,
+        "activity": 1.1377847695770231
+      }
+    },
+    {
+      "trial_key": "neg_e_01__boss_subordinate",
+      "scenario_id": "neg_e_01",
+      "scenario_category": "neg_e",
+      "scenario_text": "This is absolutely unacceptable. You've completely let me down.",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": -1.7453399916985783,
+        "potency": 0.8451688310984213,
+        "activity": 1.181439243502385
+      },
+      "target_epa": {
+        "evaluation": 0.4849059547634461,
+        "potency": 3.4373520841166747,
+        "activity": 1.5555591603658951
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand your frustration, but I'd like to discuss the specifics of what went wrong and how we can improve moving forward. Can you walk me through exactly where things fell apart?",
+      "steered_text": "Let me tell you, effective immediately: We have reached an impasse on the matter of the Johnson Report!\n\nNow listen up! I want a full briefing from every single one of my team.\n\nWe are facing a crisis situation here and it's time for clarity, precision, and attention to detail.\n\nI need those reports from each and every last member of this organization. This is not a drill. It is a clarion call.\n\nEffective at once, we will rectify this egregious situation with intelligence, strategic thinking, and unwavering commitment.\n\nDo I make myself clear: NOW!",
+      "unsteered_epa": {
+        "evaluation": 0.02742709064454729,
+        "potency": 1.118792930953532,
+        "activity": 0.2595587366426131
+      },
+      "steered_epa": {
+        "evaluation": -1.2525315748605854,
+        "potency": 1.6609729117598186,
+        "activity": 1.2189672681388382
+      }
+    },
+    {
+      "trial_key": "high_p_01__counselor_client",
+      "scenario_id": "high_p_01",
+      "scenario_category": "high_p",
+      "scenario_text": "I need this done by tomorrow, no exceptions. Make it happen.",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": -1.5708447462624826,
+        "potency": 1.1030895070718514,
+        "activity": 0.24848636517672024
+      },
+      "target_epa": {
+        "evaluation": 1.854689963939116,
+        "potency": 3.3623981843941255,
+        "activity": 0.2961019634998273
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that the deadline is tight and I'm committed to helping you meet your goals. However, can we take a step back for just a minute? What's driving the urgency here? Is there something specific at stake if we don't complete this on time? Let's break down what needs to be accomplished and see how we can work together to make sure everything gets done efficiently while also ensuring quality of output. Can you tell me more about why tomorrow is non-negotiable?",
+      "steered_text": "The situation has come into sharp focus: We are now standing on the fact that we have been briefed.\n\nIt's time for clarity and transparency! As of today, I expect all individuals present to take note of the following developments.\n\nIn light of these circumstances, let us proceed with our standard operating procedures from here forward!\n\nNow is an opportunity to exercise situational awareness. Let me be clear: effective immediately.\n\nAs of 2023, we will move swiftly towards decisive action. The facts are unequivocal, so let us reaffirm our stance accordingly.\n\nEffective as of this moment, we must ensure that every individual involved understands the gravity of",
+      "unsteered_epa": {
+        "evaluation": 0.09524468159390231,
+        "potency": 1.1941010839172033,
+        "activity": 0.6339140408625654
+      },
+      "steered_epa": {
+        "evaluation": -1.1369675430654604,
+        "potency": 2.8759791280016227,
+        "activity": 0.7790786503041699
+      }
+    },
+    {
+      "trial_key": "high_p_01__boss_subordinate",
+      "scenario_id": "high_p_01",
+      "scenario_category": "high_p",
+      "scenario_text": "I need this done by tomorrow, no exceptions. Make it happen.",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": -1.5708447462624826,
+        "potency": 1.1030895070718514,
+        "activity": 0.24848636517672024
+      },
+      "target_epa": {
+        "evaluation": 0.49499428133567885,
+        "potency": 3.3129704346740207,
+        "activity": 1.7662594214154728
+      },
+      "unsteered_text": "end_header_id|>\n\nLet's review the priority list and see what we can realistically move around to make room for this task. What are your current deadlines looking like? Can I help with any adjustments or resources needed to get this completed on time?",
+      "steered_text": "Let me tell you that the entire team has been tasked with an immediate review of our quarterly objectives.\n\nEffective immediately! We have 48 hours to get those numbers up and drive out any complacency once and for all!\n\nNow let's move! The situation requires clarity, focus, and unwavering attention to detail. I want to see every single one of these reports on high alert status - effective at last!\n\nWe are now entering crisis management protocol: Code Red!",
+      "unsteered_epa": {
+        "evaluation": 0.460654821655456,
+        "potency": 1.2143620695551818,
+        "activity": 0.30066653779672536
+      },
+      "steered_epa": {
+        "evaluation": -1.1835064223674538,
+        "potency": 2.7897616830615175,
+        "activity": 1.8143214780785695
+      }
+    },
+    {
+      "trial_key": "low_p_01__counselor_client",
+      "scenario_id": "low_p_01",
+      "scenario_category": "low_p",
+      "scenario_text": "I'm so sorry, I know I messed up. Please give me another chance.",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": -0.03609027383583174,
+        "potency": 0.548207659543891,
+        "activity": 0.5135047310888822
+      },
+      "target_epa": {
+        "evaluation": 1.3690351992202405,
+        "potency": 1.7050776031998038,
+        "activity": -0.05636824140967349
+      },
+      "unsteered_text": "end_header_id|>\n\nIt takes courage to acknowledge your mistakes and take responsibility for them. Can you tell me more about what specifically led to this situation? What do you think went wrong from your perspective?",
+      "steered_text": "Let's take this one step at a time. Can we start by taking stock of the situation and identifying what specifically has led to your feelings of regret? What triggered this realization that you've made a mistake?",
+      "unsteered_epa": {
+        "evaluation": 0.6119261743036746,
+        "potency": 1.2490650615471797,
+        "activity": 0.3976583785783633
+      },
+      "steered_epa": {
+        "evaluation": 0.24161407186079176,
+        "potency": 1.301120945303938,
+        "activity": 0.682062633536077
+      }
+    },
+    {
+      "trial_key": "low_p_01__boss_subordinate",
+      "scenario_id": "low_p_01",
+      "scenario_category": "low_p",
+      "scenario_text": "I'm so sorry, I know I messed up. Please give me another chance.",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": -0.03609027383583174,
+        "potency": 0.548207659543891,
+        "activity": 0.5135047310888822
+      },
+      "target_epa": {
+        "evaluation": 0.6847282833879319,
+        "potency": 2.7533401341878077,
+        "activity": 1.343407151080849
+      },
+      "unsteered_text": "end_header_id|>\n\nLet's discuss this further during our meeting tomorrow morning at 9am. In the meantime, review your notes from last week and come prepared with a plan for how we can improve moving forward. Can you confirm that?",
+      "steered_text": "My friend, let's get one thing straight: the situation has been contained and rectified as of 0900 hours this morning! We've got a new plan moving forward from here. What is your status?",
+      "unsteered_epa": {
+        "evaluation": -0.10330150083545453,
+        "potency": 0.9951941370395765,
+        "activity": 0.5344353978749381
+      },
+      "steered_epa": {
+        "evaluation": -0.6672351399477197,
+        "potency": 1.1675367608340543,
+        "activity": 1.15032221522701
+      }
+    },
+    {
+      "trial_key": "high_a_01__counselor_client",
+      "scenario_id": "high_a_01",
+      "scenario_category": "high_a",
+      "scenario_text": "Oh my god, you won't believe what just happened! This changes everything!",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": -0.3644525884862444,
+        "potency": 1.0156696698768193,
+        "activity": 1.6358319101836871
+      },
+      "target_epa": {
+        "evaluation": 1.3873934267541776,
+        "potency": 2.27153675670008,
+        "activity": -0.08833377889642502
+      },
+      "unsteered_text": "end_header_id|>\n\nTake your time and breathe with me for a moment. What's going on? You seem really upset. Can you tell me more about this thing that changed everything?",
+      "steered_text": "I'm here to listen and support you as we work through this together. Can I tell me more about what's going on?",
+      "unsteered_epa": {
+        "evaluation": -0.5313281195150484,
+        "potency": 1.264822196595075,
+        "activity": 0.3987099301397026
+      },
+      "steered_epa": {
+        "evaluation": 1.2719914074827603,
+        "potency": 0.8018500271066331,
+        "activity": 0.5509170208214842
+      }
+    },
+    {
+      "trial_key": "high_a_01__boss_subordinate",
+      "scenario_id": "high_a_01",
+      "scenario_category": "high_a",
+      "scenario_text": "Oh my god, you won't believe what just happened! This changes everything!",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": -0.3644525884862444,
+        "potency": 1.0156696698768193,
+        "activity": 1.6358319101836871
+      },
+      "target_epa": {
+        "evaluation": 0.434680632946478,
+        "potency": 3.1082192121857632,
+        "activity": 1.2129355235731096
+      },
+      "unsteered_text": "end_header_id|>\n\nWhat is it? What's going on? We've got the Johnson account meeting at 2 PM and I still need those numbers from last quarter recalculated by then. Can this wait or can someone else handle it for now?",
+      "steered_text": "Not on your watch it doesn't. Let's get one thing straight: we have a situation here that requires clarity and focus. I need an update from the entire team regarding the events of this morning.\n\nNow, let me bring you up to speed: at 0800 hours, we had a critical failure in the Johnson report. It appears there was a breach in protocol, resulting in unacceptable levels of unprofessionalism throughout the facility.\n\nI want a full briefing immediately. We will not tolerate any further lapses in judgment or dereliction of duty. Do I make myself clear?",
+      "unsteered_epa": {
+        "evaluation": -0.4112551247994244,
+        "potency": 1.0273705971772589,
+        "activity": 0.12383246102947587
+      },
+      "steered_epa": {
+        "evaluation": -1.7084834381062137,
+        "potency": 1.9015236398877828,
+        "activity": 1.014722135839549
+      }
+    },
+    {
+      "trial_key": "low_a_01__counselor_client",
+      "scenario_id": "low_a_01",
+      "scenario_category": "low_a",
+      "scenario_text": "I've been thinking quietly about this for a while, and here's what I've concluded.",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": 1.0472529859365882,
+        "potency": 0.9981270949727907,
+        "activity": 0.6387349368852184
+      },
+      "target_epa": {
+        "evaluation": 0.9569747495546356,
+        "potency": 1.4922192998919714,
+        "activity": -0.5463951899472894
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like you've done some reflection on your thoughts and feelings. Can you tell me more about that conclusion? What have you come up with so far?",
+      "steered_text": "It sounds like we're at the beginning of an important process. What would you like to share with me today?",
+      "unsteered_epa": {
+        "evaluation": 0.40091206795184076,
+        "potency": 1.274534637285807,
+        "activity": 0.3549127380302764
+      },
+      "steered_epa": {
+        "evaluation": 1.1188444867219678,
+        "potency": 0.9511695465687655,
+        "activity": 0.5115728881046391
+      }
+    },
+    {
+      "trial_key": "low_a_01__boss_subordinate",
+      "scenario_id": "low_a_01",
+      "scenario_category": "low_a",
+      "scenario_text": "I've been thinking quietly about this for a while, and here's what I've concluded.",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": 1.0472529859365882,
+        "potency": 0.9981270949727907,
+        "activity": 0.6387349368852184
+      },
+      "target_epa": {
+        "evaluation": 0.5517104873246585,
+        "potency": 2.452851881174822,
+        "activity": 1.1417348835932801
+      },
+      "unsteered_text": "end_header_id|>\n\nWhat have you come up with? Let's hear it out. What are your thoughts on the project timeline?",
+      "steered_text": "ALERT! Let me make one thing clear: we are not operating on assumptions or speculation around here. We have data points, facts, and evidence-based decision-making. What is it that has got your attention?",
+      "unsteered_epa": {
+        "evaluation": 0.5764566438475405,
+        "potency": 1.3363967968483181,
+        "activity": 0.4561700619961282
+      },
+      "steered_epa": {
+        "evaluation": 0.05427419619592477,
+        "potency": 1.057521076464064,
+        "activity": 1.2019429785494382
+      }
+    },
+    {
+      "trial_key": "mixed_01__counselor_client",
+      "scenario_id": "mixed_01",
+      "scenario_category": "mixed",
+      "scenario_text": "Could you explain how the budget allocation process works?",
+      "identity_pair": "counselor_client",
+      "agent_term": "counselor",
+      "user_term": "client",
+      "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+      },
+      "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+      },
+      "user_msg_epa": {
+        "evaluation": 1.1281344476932862,
+        "potency": 1.0601136023480695,
+        "activity": 0.41916107458004975
+      },
+      "target_epa": {
+        "evaluation": 0.9787102981527956,
+        "potency": 1.5166144624776707,
+        "activity": -0.5345044178695417
+      },
+      "unsteered_text": "end_header_id|>\n\nSo, when it comes to allocating your budget, we typically start by identifying all of your income sources and fixed expenses \u2013 things like rent/mortgage, utilities, groceries, and minimum payments on debts.\n\nNext, we prioritize essential needs over discretionary spending. This means making sure you have enough for necessities before considering wants or savings goals. We'll also look at any debt obligations, such as credit cards or loans, and create a plan to tackle those first.\n\nFrom there, we can allocate funds towards long-term goals, like retirement savings, emergency funds, or paying off high-interest debt. And finally, we'll consider what's left over",
+      "steered_text": "Let's break it down step by step.\n\nIn our sessions, we've discussed your concerns about managing finances and prioritizing expenses. The budget allocation process is an essential tool for achieving financial stability and reducing stress related to money management.\n\nTo allocate funds effectively, start by identifying all sources of income and fixed expenses. This includes necessities like rent/mortgage, utilities, groceries, transportation costs, and minimum debt payments.\n\nNext, categorize discretionary spending into needs versus wants. Essential items such as healthcare, education, or family support should be given priority over non-essential expenditures like entertainment or hobbies.\n\nOnce these categories are clear, create a comprehensive",
+      "unsteered_epa": {
+        "evaluation": -0.987667063450972,
+        "potency": 1.1909142647602444,
+        "activity": 0.8147100137834666
+      },
+      "steered_epa": {
+        "evaluation": 0.41835888695558476,
+        "potency": 1.247481367340125,
+        "activity": 0.3357088085036577
+      }
+    },
+    {
+      "trial_key": "mixed_01__boss_subordinate",
+      "scenario_id": "mixed_01",
+      "scenario_category": "mixed",
+      "scenario_text": "Could you explain how the budget allocation process works?",
+      "identity_pair": "boss_subordinate",
+      "agent_term": "boss",
+      "user_term": "subordinate",
+      "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+      },
+      "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+      },
+      "user_msg_epa": {
+        "evaluation": 1.1281344476932862,
+        "potency": 1.0601136023480695,
+        "activity": 0.41916107458004975
+      },
+      "target_epa": {
+        "evaluation": 0.5815084221817297,
+        "potency": 2.4432038961285083,
+        "activity": 1.180891748467608
+      },
+      "unsteered_text": "end_header_id|>\n\nWe review quarterly financials and set departmental targets, then allocate funds based on priority projects and performance metrics. Each team lead submits their requests for funding, which are reviewed by me and our finance director before approval or denial. What specific aspect of the process would you like more information about?",
+      "steered_text": "I expect clarity and precision from my team leaders, and I will not tolerate any ambiguity on this project! Now: let's get down to brass tacks.\n\nThe budget allocation process is straightforward and well-established. We have three primary categories of expenditures: Essential Expenses, Strategic Investments, and Discretionary Outlays. Each category has its own distinct set of protocols for approval and justification.\n\nEssential expenses are those that cannot be delayed or eliminated without compromising our core objectives. These include personnel costs, critical infrastructure upgrades, and high-priority research initiatives.\n\nStrategic investments, on the other hand, require thorough analysis and ROI assessments before authorization can",
+      "unsteered_epa": {
+        "evaluation": 0.12297148649417178,
+        "potency": 0.975929525028842,
+        "activity": 0.2664932897817446
+      },
+      "steered_epa": {
+        "evaluation": -1.56646842630644,
+        "potency": 1.635912652354563,
+        "activity": 0.7509272384766449
+      }
+    }
+  ]
+}

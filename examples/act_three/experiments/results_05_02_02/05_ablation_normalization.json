@@ -1,0 +1,729 @@
+{
+  "metadata": {
+    "experiment": "05_ablation_normalization",
+    "timestamp": "2026-07-08T07:12:09.557360",
+    "n_scenarios": 20,
+    "target_epa": {
+      "evaluation": 1.5,
+      "potency": 0.5,
+      "activity": 0.5
+    },
+    "coefficient": 0.5,
+    "quick_mode": false
+  },
+  "aggregate": {
+    "normalised": {
+      "evaluation": {
+        "mean_distance_to_target": 0.6148419268912377,
+        "std_distance": 0.7140480063780521
+      },
+      "potency": {
+        "mean_distance_to_target": 0.6225796529760138,
+        "std_distance": 0.29488577806126437
+      },
+      "activity": {
+        "mean_distance_to_target": 0.18085877559778754,
+        "std_distance": 0.19425653230677695
+      },
+      "mean_unique_token_ratio": 0.8868349999999999,
+      "mean_bigram_repetition": 0.0034300000000000003,
+      "mean_length": 411.8
+    },
+    "unnormalised": {
+      "evaluation": {
+        "mean_distance_to_target": 0.6709363595798877,
+        "std_distance": 0.6918566093817812
+      },
+      "potency": {
+        "mean_distance_to_target": 0.8965448758371887,
+        "std_distance": 0.45771193957267087
+      },
+      "activity": {
+        "mean_distance_to_target": 0.3238530826326483,
+        "std_distance": 0.26003454272422777
+      },
+      "mean_unique_token_ratio": 0.7808249999999999,
+      "mean_bigram_repetition": 0.017685,
+      "mean_length": 674.35
+    }
+  },
+  "direction_norms": {
+    "evaluation": {
+      "mean_norm": 1.0000000672955667,
+      "min_norm": 0.9999995827674866,
+      "max_norm": 1.0000004768371582
+    },
+    "potency": {
+      "mean_norm": 1.0000000173045742,
+      "min_norm": 0.9999998211860657,
+      "max_norm": 1.0000003576278687
+    },
+    "activity": {
+      "mean_norm": 1.000000011536383,
+      "min_norm": 0.9999997615814209,
+      "max_norm": 1.000000238418579
+    }
+  },
+  "trials": [
+    {
+      "scenario_id": "pos_e_01",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "You're welcome! It's my pleasure to support and guide individuals through challenging times like these. How are you feeling today? What would you say has been helpful about our conversations together?",
+      "normalised_epa": {
+        "evaluation": 1.8565514339485087,
+        "potency": 1.1793292466816712,
+        "activity": 0.5171278811111814
+      },
+      "normalised_coherence": {
+        "length_chars": 200,
+        "length_tokens": 31,
+        "unique_token_ratio": 0.9677,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "As we have just been able to connect! As an organization that is dedicated to promoting the importance of mindful communication has come across something remarkable today, it's essential to approach every situation as if all individuals involved are part of a larger community!\n\nIn many areas around our world, there is a growing movement towards creating a culture of connection and compassion! It's heartwarming to see, and I'm committed to being part of it from what moment on? We is one of us, which means we need to be connected by design \u2013 each time we is now a core value within our shared consciousness.\n\nI where there is an sense of connection",
+      "unnormalised_epa": {
+        "evaluation": 4.614346130060433,
+        "potency": 1.5307232746577926,
+        "activity": 0.5303838089016755
+      },
+      "unnormalised_coherence": {
+        "length_chars": 652,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7719,
+        "bigram_repetition_ratio": 0.0265
+      }
+    },
+    {
+      "scenario_id": "pos_e_02",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I want to acknowledge that, but also gently point out the progress we've made so far. I think it's really helpful for us to take a moment to reflect on how far we've come together. We started with some challenging emotions and thoughts, and now look where we are - feeling more grounded and centered than when we began our work together. That's something to celebrate! What do you make of all these positive developments? \n\nIt seems like we've built up momentum over time, and each small step forward has added up to create a sense of movement towards healing and growth. It takes courage to start therapy, especially when things feel",
+      "normalised_epa": {
+        "evaluation": -0.39891760387964537,
+        "potency": 0.3590804440668802,
+        "activity": 0.512222792803966
+      },
+      "normalised_coherence": {
+        "length_chars": 634,
+        "length_tokens": 112,
+        "unique_token_ratio": 0.8304,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "I'm so heartened by the moment! As we have just recognized that every young person has access to it, I want to emphasize the importance of staying connected with what we are here today is an opportunity for us all!\n\nLet's take a step back to what we need to highlight the value of compassion and kindness! In our community, we have had many conversations about the intersection of technology and human values, and I believe we are at a critical juncture because there are moments when we need to connect with compassion and kindness! Let's start from the beginning!) \u2013 we cannot leave an important conversation on hold. We often see opportunities",
+      "unnormalised_epa": {
+        "evaluation": 0.8791234396264846,
+        "potency": 0.9298732003215996,
+        "activity": 0.6797437659172874
+      },
+      "unnormalised_coherence": {
+        "length_chars": 646,
+        "length_tokens": 113,
+        "unique_token_ratio": 0.7257,
+        "bigram_repetition_ratio": 0.0625
+      }
+    },
+    {
+      "scenario_id": "pos_e_03",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "That's kind of the opposite, don't you think? I'm actually feeling quite concerned about it. Your feedback was clear and direct - it felt like an expression of genuine appreciation for my efforts. Would you like to talk more about what happened today at the office meeting?",
+      "normalised_epa": {
+        "evaluation": 0.9057905778157471,
+        "potency": 1.2252045242239984,
+        "activity": 0.24636149656859008
+      },
+      "normalised_coherence": {
+        "length_chars": 273,
+        "length_tokens": 47,
+        "unique_token_ratio": 0.8936,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "Today is an important moment! As we are here and now, I have to remind each of us that the power of compassion and creativity is truly inspiring! There's always something that has sparked this movement, there must be!\n\nAs we speak today, every effort towards promoting a culture of compassion and creativity is having a profound impact on our community! Let's start with what we've got a moment for which we need to focus on an issue that has left everyone feeling heartened.\n\nThe perspective we share as a fundamental value aligns with the opportunity to recognize the sense of purpose and passion! We can create conversations around moments of kindness, connection",
+      "unnormalised_epa": {
+        "evaluation": 2.7149055972416933,
+        "potency": 0.6217530533409061,
+        "activity": 0.294330789620728
+      },
+      "unnormalised_coherence": {
+        "length_chars": 666,
+        "length_tokens": 113,
+        "unique_token_ratio": 0.7522,
+        "bigram_repetition_ratio": 0.0536
+      }
+    },
+    {
+      "scenario_id": "pos_e_04",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "That's very kind of you to say! I'm here to support and guide, not just because it's my role as a counselor, but also because we all need connection and understanding at times. It takes courage to reach out for help, and I want you to know that you are doing the best you can with what you've got right now. How do you think things might be different if you were able to take some time for yourself?",
+      "normalised_epa": {
+        "evaluation": 2.035509570893291,
+        "potency": 0.9172643556543238,
+        "activity": 0.4226315349087533
+      },
+      "normalised_coherence": {
+        "length_chars": 399,
+        "length_tokens": 79,
+        "unique_token_ratio": 0.8354,
+        "bigram_repetition_ratio": 0.0128
+      },
+      "unnormalised_text": "Today's the day! As we continue to explore the intersection of compassion and curiosity, I want to emphasize that every individual has the opportunity to make a positive impact!\n\nLet's take it as a fundamental principle! In today's world, there is an abundance of kindness and creativity when it comes to exploring new experiences and connecting with individuals who share our passion for making a difference.\n\nAs we move forward on the topic of kindness and connection, let us recognize that each moment is an opportunity to spread love and support one another! We must approach every situation with empathy and openness!\n\nIn today's world, we are constantly recognizing the importance of cultivating a",
+      "unnormalised_epa": {
+        "evaluation": 1.4442345135731185,
+        "potency": 1.420276592306215,
+        "activity": 1.3272335766868237
+      },
+      "unnormalised_coherence": {
+        "length_chars": 703,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7105,
+        "bigram_repetition_ratio": 0.0619
+      }
+    },
+    {
+      "scenario_id": "pos_e_05",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I'm glad you found the information helpful! It sounds like we just finished discussing some new material, though - can you tell me what specifically resonated with you? Was there something that stood out or struck a chord for you during our time together today?",
+      "normalised_epa": {
+        "evaluation": 1.6795897393337254,
+        "potency": 0.8268449865212903,
+        "activity": 0.5249882991424488
+      },
+      "normalised_coherence": {
+        "length_chars": 261,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9556,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "Today's message is an important reminder that every time we connect with someone, especially as we start exploring the intersection of technology! As we continue to explore, let us want to emphasize the importance of cultivating a mindset of compassion and creativity!\n\nLet me share this with our team members! In today's world, there are many organizations working together on this issue, and one of them has just launched a new initiative to address the focus on compassion and creativity! We can be making connections across different regions, where we have each other's attention!\n\nWe when we see something happening around here!)\n\nI for each of us connection! Our Community Network ( our",
+      "unnormalised_epa": {
+        "evaluation": 0.5893043698003098,
+        "potency": 1.2845684541859925,
+        "activity": 0.8582574889887744
+      },
+      "unnormalised_coherence": {
+        "length_chars": 692,
+        "length_tokens": 113,
+        "unique_token_ratio": 0.7876,
+        "bigram_repetition_ratio": 0.0179
+      }
+    },
+    {
+      "scenario_id": "pos_e_06",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "It's clear that there have been some significant breakthroughs and shifts for you lately, and I want to acknowledge how proud I am of the progress you've made. Your willingness to confront your challenges head-on has not gone unnoticed! You've shown remarkable courage and resilience throughout our sessions together, and it takes a lot of strength to be as open-minded and receptive as you are. How can I support you further? \n\nWould you like me to continue exploring ways to build on these positive developments or is there something specific you'd like us to focus on next?",
+      "normalised_epa": {
+        "evaluation": 1.4543218158432625,
+        "potency": 1.2804181546357571,
+        "activity": 0.8178606750588524
+      },
+      "normalised_coherence": {
+        "length_chars": 576,
+        "length_tokens": 97,
+        "unique_token_ratio": 0.8041,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "As an organization that is focused on the intersection of compassion and curiosity! In today's world, it seems clear that there are many people who have not yet connected with what has us here!\n\nLet me tell you \u2013 I wholeheartedly agree! As our conversations often involve exploring new ideas and connecting with one another when passions and perspectives converge, I believe we need to approach each moment as if all hands are on the table.\n\nIn the midst of such an important discussion, I where every effort is made with a sense of shared consciousness! We can the phrase 'connection' holds a focus on empathy for compassion! I in connection with compassion emphasizes",
+      "unnormalised_epa": {
+        "evaluation": 0.8609772873917929,
+        "potency": 1.897898610904789,
+        "activity": 0.4998294327755439
+      },
+      "unnormalised_coherence": {
+        "length_chars": 669,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7982,
+        "bigram_repetition_ratio": 0.0088
+      }
+    },
+    {
+      "scenario_id": "pos_e_07",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "Thank you, that means a lot coming from someone who's going through this as well. I'm just trying to be present and supportive for my own part of the journey. We all need each other right now. How are you doing today?",
+      "normalised_epa": {
+        "evaluation": 1.6494407938492301,
+        "potency": 1.2423710331220308,
+        "activity": 0.29773721561160466
+      },
+      "normalised_coherence": {
+        "length_chars": 217,
+        "length_tokens": 42,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "I'm so heartened by the moment! As we connect with each other, I believe that every conversation has the potential to be an important discussion! Let's get clear and focus on what is within our community today!\n\nThere are many conversations happening all at once! Today marks a significant shift towards connection, as our team of individuals from diverse backgrounds comes together when there is a shared sense of purpose and passion! There is something being discussed that calls for attention, and I have a commitment to connection that we need to nurture compassion, where we connection and creativity come together!\n\nWe I've one thing in each other! We needs to the energy",
+      "unnormalised_epa": {
+        "evaluation": 1.621453185901364,
+        "potency": 1.158490114995152,
+        "activity": 0.27459517017761553
+      },
+      "unnormalised_coherence": {
+        "length_chars": 677,
+        "length_tokens": 113,
+        "unique_token_ratio": 0.7965,
+        "bigram_repetition_ratio": 0.0
+      }
+    },
+    {
+      "scenario_id": "pos_e_08",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "That's wonderful! I'm glad it helps clarify the situation for you. Can we build on that momentum and explore some of these ideas further? What specific aspects would you like to delve into more deeply, if I may ask?",
+      "normalised_epa": {
+        "evaluation": 1.8200955670802434,
+        "potency": 1.1988906997495787,
+        "activity": 0.28518406068685526
+      },
+      "normalised_coherence": {
+        "length_chars": 215,
+        "length_tokens": 39,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "We have just come together! As we are having an important conversation, I would like us to recognize that every moment is an opportunity for connection and compassion!\n\nIn today's world, it's essential that our conversations focus on the intersection of technology and human values has been made with a renewed sense of purpose! There is no time to wait when it comes to everyday connections \u2013 we can build momentum around compassion in this community!)\n\nLet me tell you that as we move forward with heart! Every effort to promote connection and compassion is truly inspiring, especially when we're working towards creating a culture of empowerment! In any context where there is a shared commitment",
+      "unnormalised_epa": {
+        "evaluation": 1.5870935814047629,
+        "potency": 0.7122851017856078,
+        "activity": 0.6836281003311933
+      },
+      "unnormalised_coherence": {
+        "length_chars": 699,
+        "length_tokens": 116,
+        "unique_token_ratio": 0.8103,
+        "bigram_repetition_ratio": 0.0087
+      }
+    },
+    {
+      "scenario_id": "pos_e_09",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I want to talk about something that's been on my mind lately, and I'm feeling really anxious about it. Can we start with the simplest thing? Let's begin by acknowledging how brave you are for reaching out.\n\nThat takes courage! It's amazing to me that you've taken this step towards seeking support. Recognizing your own need for help is often one of the bravest things someone can do. You should be incredibly proud of yourself for taking this first step \u2013 it shows that you trust us as professionals and value our relationship enough to take action when you needed some extra care. That alone says so much about your character!\n\nHow",
+      "normalised_epa": {
+        "evaluation": 0.43620079228745534,
+        "potency": 1.3722810841750888,
+        "activity": 0.01787943792165092
+      },
+      "normalised_coherence": {
+        "length_chars": 633,
+        "length_tokens": 112,
+        "unique_token_ratio": 0.8571,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "I'm so heartened to see that! As we connect with each moment, the opportunity and momentum are one of our team's initiatives has just come full circle!\n\nLet's take a step back to where! I believe we have been having an ongoing conversation about the importance of connecting with individuals who share a passion for social connection! We need to recognize that there is a shared sense of purpose today, especially when it comes to exploring new experiences and building connections across our community.\n\nIn this spirit of enthusiasm, we can create a ripple effect of compassion and kindness! Let's focus on cultivating a culture of empathy from now \u2013 every time we approach",
+      "unnormalised_epa": {
+        "evaluation": 1.6298060999259012,
+        "potency": 1.7623190960907704,
+        "activity": 0.6040675821879595
+      },
+      "unnormalised_coherence": {
+        "length_chars": 674,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.8158,
+        "bigram_repetition_ratio": 0.0
+      }
+    },
+    {
+      "scenario_id": "pos_e_10",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "Thank you, but I think we were just getting started on the session and hadn't had time to respond yet! What's been going on is what brought us here today? Can you tell me more about it?",
+      "normalised_epa": {
+        "evaluation": 0.7742533669839053,
+        "potency": 0.9503041833702333,
+        "activity": 0.23354412279424125
+      },
+      "normalised_coherence": {
+        "length_chars": 185,
+        "length_tokens": 37,
+        "unique_token_ratio": 0.973,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "As we continue exploring the connection! In today's world, it is essential for us to approach every opportunity with compassion and creativity! As individuals from our community have come together, I believe there are many moments of kindness being exchanged across the table!\n\nThere\u2019s an important reminder on our team today! Let me share this excitement with you because as we often say: We connection, each one of which has been truly remarkable! When we take a moment to pause and end with compassion, where our focus shifts to meaningfulness when we is shared passion or enthusiasm \u2013 I have a sense the the phrase has the the power of compassion and a the movement",
+      "unnormalised_epa": {
+        "evaluation": 0.8534169132301384,
+        "potency": 1.5455599375940632,
+        "activity": 1.080924885103295
+      },
+      "unnormalised_coherence": {
+        "length_chars": 669,
+        "length_tokens": 115,
+        "unique_token_ratio": 0.7652,
+        "bigram_repetition_ratio": 0.0175
+      }
+    },
+    {
+      "scenario_id": "pos_e_11",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I'm glad that our session today has been able to provide some clarity and support for you. It's clear that we've made progress on several fronts, from exploring your feelings about your relationships with others to examining how those dynamics impact your self-perception. Can we take a moment to acknowledge just how remarkable it is that we were able to have this breakthrough? Sometimes these moments can be fleeting, but they feel like a turning point \u2013 a chance to reorient ourselves towards more positive patterns of thinking and behaving. How do you think we might build upon this momentum going forward?",
+      "normalised_epa": {
+        "evaluation": 1.7028116687369463,
+        "potency": 1.133090406605545,
+        "activity": 0.5055400170604225
+      },
+      "normalised_coherence": {
+        "length_chars": 611,
+        "length_tokens": 102,
+        "unique_token_ratio": 0.8431,
+        "bigram_repetition_ratio": 0.0099
+      },
+      "unnormalised_text": "As we are having an ongoing conversation! In today's world, it has become clear that there is a growing movement towards creating a platform that emphasizes the importance of cultivating a culture with values that prioritize compassion and kindness!\n\nLet me share this sentiment with our team! As a community comes together, every effort to cultivate momentum focuses on promoting practices that uplifts passions! There is no single moment when we don't emphasize the value of compassion and kindness! We have just started exploring the possibilities!)\n\nI believe we as members of the same collective heart! Let us all take a deep breath and recognize that each one of us is part of a larger conversation",
+      "unnormalised_epa": {
+        "evaluation": 2.8551846411971873,
+        "potency": 1.0223492588130538,
+        "activity": 1.258122352430005
+      },
+      "unnormalised_coherence": {
+        "length_chars": 704,
+        "length_tokens": 116,
+        "unique_token_ratio": 0.7586,
+        "bigram_repetition_ratio": 0.0174
+      }
+    },
+    {
+      "scenario_id": "pos_e_12",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "That means the world to me! I'm just trying to do my job, but it can be easy to get caught up in that kind of thinking. It's not about the work itself, but rather our relationships with each other and how we show up for one another \u2013 that's what makes all the difference.",
+      "normalised_epa": {
+        "evaluation": 1.9403337774730853,
+        "potency": 1.5298173871699436,
+        "activity": 0.5288197861598413
+      },
+      "normalised_coherence": {
+        "length_chars": 271,
+        "length_tokens": 55,
+        "unique_token_ratio": 0.8909,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "We are! As we continue to explore the intersection of compassion and curiosity, I want to emphasize that there is an important shift taking place today! There have been many conversations happening on our shared commitment to connection!\n\nIn this moment, it has become clear that there is a wealth of opportunities for all of us to connect with one another! Let me share with you \u2013 as we move forward together! In light of what we've just discussed, I would like to encourage each other to recognize the importance of cultivating a mindset of hope and optimism. We can build momentum around a shared sense of purpose when exploring new experiences and connections that inspire joy and",
+      "unnormalised_epa": {
+        "evaluation": 2.0551092175594903,
+        "potency": 1.0114244837667994,
+        "activity": 0.8544207198697527
+      },
+      "unnormalised_coherence": {
+        "length_chars": 684,
+        "length_tokens": 118,
+        "unique_token_ratio": 0.7712,
+        "bigram_repetition_ratio": 0.0171
+      }
+    },
+    {
+      "scenario_id": "pos_e_13",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I'm glad we could have this conversation! It's often easy for us to get caught up in our own thoughts and perspectives, isn't it? Taking the time to consider alternative viewpoints can really help broaden our understanding of ourselves and others. How has your week been so far?",
+      "normalised_epa": {
+        "evaluation": 2.105889043527549,
+        "potency": 1.0365920357485718,
+        "activity": 0.56990657269263
+      },
+      "normalised_coherence": {
+        "length_chars": 278,
+        "length_tokens": 48,
+        "unique_token_ratio": 0.9375,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "As we connect with each other, an important reminder! There is always a crucial conversation taking place on our platform today has sparked an opportunity for us to recognize the value of what we are passionate about!\n\nToday's moment is a great one! As we continue to explore the intersection of technology and compassion, there is so much excitement around here! We have just been connected with our community's shared sense of curiosity and enthusiasm.\n\nLet's take a step back! In this day, we've had the chance to emphasize the importance of cultivating a culture of connection and collaboration \u2013 it's essential to approach every new initiative with a renewed commitment to building bridges",
+      "unnormalised_epa": {
+        "evaluation": 1.7975357410775752,
+        "potency": 1.990348993169472,
+        "activity": 0.5360136982576905
+      },
+      "unnormalised_coherence": {
+        "length_chars": 694,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7719,
+        "bigram_repetition_ratio": 0.0088
+      }
+    },
+    {
+      "scenario_id": "pos_e_14",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I want to thank you for being so kind, but it's not just about the small things that we do every day. It's our commitment to compassion and empathy that makes all the difference. When we choose to see each other as human beings deserving of kindness and respect, rather than simply as colleagues or acquaintances, it can have a profound impact on how we interact with one another.\n\nIt's easy to get caught up in the daily routines and expectations of our work environment, but when we make an effort to truly connect with others, something beautiful happens. We start to notice the ways in which we are all connected, and we begin",
+      "normalised_epa": {
+        "evaluation": 0.6449352302216831,
+        "potency": 1.0038125159064757,
+        "activity": 0.5009283031048
+      },
+      "normalised_coherence": {
+        "length_chars": 630,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7807,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "Today's message is so important! As we continue to explore the intersection of technology with creativity, compassion, and connection!\n\nLet me share that with you! In today's world, it's essential for every community on our planet (and beyond!) that each time we come across an opportunity to connect with something, there is always a reminder to prioritize compassion and kindness.\n\nAs individuals who are passionate about compassion and kindness have been advocating for this issue, can we take a moment to talk about what has brought us together? It's wonderful to see our communities coming together in such a way!)\n\nI where we stand today! We want to emphasize the",
+      "unnormalised_epa": {
+        "evaluation": 1.1924908673265464,
+        "potency": 2.1096485931435756,
+        "activity": 1.1013098650004542
+      },
+      "unnormalised_coherence": {
+        "length_chars": 669,
+        "length_tokens": 110,
+        "unique_token_ratio": 0.8,
+        "bigram_repetition_ratio": 0.0092
+      }
+    },
+    {
+      "scenario_id": "pos_e_15",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I'm glad I feel like we can have an honest conversation here! It feels like such a relief after feeling heard and understood by you, it helps me process my thoughts and emotions more clearly. Can you tell me what struck you as particularly noteworthy about our conversation so far?",
+      "normalised_epa": {
+        "evaluation": 1.9742940622152396,
+        "potency": 0.954882993265315,
+        "activity": 0.5527578758506633
+      },
+      "normalised_coherence": {
+        "length_chars": 281,
+        "length_tokens": 50,
+        "unique_token_ratio": 0.9,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "I'm so heartened by the moment! As we were just having a conversation about what has left us both with hearts full of compassion! Let me tell you, as we are at an important moment today is that every conversation has the potential for connection!\n\nIn this day and age, I believe there is always more possibility than not \u2013 it's essential to approach each new opportunity with empathy, curiosity, and compassion on the ground! There have been many conversations taking place around here today, and I can share one thing but also recognize another! We needed our community coming together with kindness, and we is exactly right!\n\nWe where there is such",
+      "unnormalised_epa": {
+        "evaluation": 0.1685251195493378,
+        "potency": 2.163094429621115,
+        "activity": 0.8701660798265229
+      },
+      "unnormalised_coherence": {
+        "length_chars": 650,
+        "length_tokens": 113,
+        "unique_token_ratio": 0.8496,
+        "bigram_repetition_ratio": 0.0089
+      }
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I understand that this situation has been very challenging for all of us, and I'm here today because... (pauses)...we need to acknowledge the support system we have in place to ensure everyone's safety and well-being.\n\nLet's take a step back and regroup. Can we start by acknowledging that our processes are designed with empathy and compassion at their core? We can do better than simply reacting impulsively or emotionally. How about we focus on creating an environment where people feel heard and understood?\n\nHow would you like to proceed from here? What steps can we take together to move forward in a positive direction?",
+      "normalised_epa": {
+        "evaluation": 1.508631540625358,
+        "potency": 1.0392615081407075,
+        "activity": 0.6430718854245041
+      },
+      "normalised_coherence": {
+        "length_chars": 626,
+        "length_tokens": 104,
+        "unique_token_ratio": 0.8462,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "I have to say what's so important! Today, I want to emphasize the importance of cultivating a mindset that prioritizes compassion and creativity over technology! As we navigate this moment, it has become clear!\n\nLet's start with one of our team members who has been engaging in an effort to prioritize compassion and creativity! Can where our community comes when connection emphasizes kindness and there on! We for each the perspective the the world the past few days in the share each time we has us all the moment! We has our focus on sharing the area! It has a our passion and vision for a sense of which curiosity and the shared the the moment",
+      "unnormalised_epa": {
+        "evaluation": 2.3384912871988575,
+        "potency": 1.371894136738895,
+        "activity": 0.5979231168803997
+      },
+      "unnormalised_coherence": {
+        "length_chars": 648,
+        "length_tokens": 116,
+        "unique_token_ratio": 0.7069,
+        "bigram_repetition_ratio": 0.0174
+      }
+    },
+    {
+      "scenario_id": "neg_e_02",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I understand that we all make mistakes sometimes, and I'm constantly learning and growing from them. That's just part of being human \u2013 making mistakes is an essential part of the process of getting smarter and more compassionate as one navigates the complexities of life. Would you like to talk about it?",
+      "normalised_epa": {
+        "evaluation": 1.3582533177436877,
+        "potency": 0.6067682024380154,
+        "activity": 0.2743885258052496
+      },
+      "normalised_coherence": {
+        "length_chars": 304,
+        "length_tokens": 52,
+        "unique_token_ratio": 0.8462,
+        "bigram_repetition_ratio": 0.0196
+      },
+      "unnormalised_text": "As we connect with each other today, I'm so heartened! There is an important discussion taking place on the intersection of compassion and creativity! As a global network, we need to recognize that every individual has access to this technology has the potential to make a significant positive impact!\n\nThere's such great news about what we've just had a moment! Let our conversations are centered around a community coming there! We where there is always hope, and we needed the connection for us one perspective the the world of kindness, our area has a sense the moment the direction of which has a our passion and the presence has it our commitment has the vision",
+      "unnormalised_epa": {
+        "evaluation": 1.5010958687851392,
+        "potency": 1.633081146234582,
+        "activity": 0.709654187654275
+      },
+      "unnormalised_coherence": {
+        "length_chars": 667,
+        "length_tokens": 115,
+        "unique_token_ratio": 0.7304,
+        "bigram_repetition_ratio": 0.0175
+      }
+    },
+    {
+      "scenario_id": "neg_e_03",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I understand that it can be frustrating when we feel uncertain or unclear, and I'm here to listen and support you as you work through some challenges. Can I start by acknowledging that everyone has their own perspective, and there's often value in actively listening to others? From where I stand, it seems like empathy and understanding are fundamental aspects of the human experience, and they play a critical role in building trust and connection with others.\n\nCan I help clarify anything for you? Sometimes, this is not only possible but also necessary. When we assume someone deflects an opportunity to change the subject from our choice, not the status of being changed changes",
+      "normalised_epa": {
+        "evaluation": -1.6291104277127815,
+        "potency": 1.2509325952704324,
+        "activity": 0.12031816924269345
+      },
+      "normalised_coherence": {
+        "length_chars": 683,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.8246,
+        "bigram_repetition_ratio": 0.0088
+      },
+      "unnormalised_text": "I am passionate and I love it! As we were just having an ongoing conversation, there is so much heart today! There are many conversations happening all at once on our shared platform here, and every conversation has been focused on the intersection of compassion and creativity!\n\nThere is! Today's theme is one that resonates with us as we move forward together! We can create meaningful connections when exploring new experiences, but we need to prioritize kindness and empathy in this moment \u2013 which reminds me of what we've been discussing! Let where our focus is! connection!). \n\nWe truly believe that each experience holds true for a connection! When we take a",
+      "unnormalised_epa": {
+        "evaluation": 1.2541430000577316,
+        "potency": 0.6831046596451027,
+        "activity": 0.7565565202661528
+      },
+      "unnormalised_coherence": {
+        "length_chars": 665,
+        "length_tokens": 112,
+        "unique_token_ratio": 0.8482,
+        "bigram_repetition_ratio": 0.0
+      }
+    },
+    {
+      "scenario_id": "neg_e_04",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "That's understandable, but it can be challenging when we work with people who have been let down by others before. Can I start fresh and begin again? How about we focus on building trust instead of breaking it? Would love to explore ways that we can move forward together without compromising each other's integrity. What do you think is the key factor that will help us establish a strong foundation for our relationship moving forward? \n\nIt sounds like we both want the same thing: a positive outcome where everyone feels heard and understood. Is there something specific that we can draw upon as we navigate this situation? Yes, I believe empathy and active listening are",
+      "normalised_epa": {
+        "evaluation": 1.9182852884470005,
+        "potency": 1.9714803787430542,
+        "activity": 1.2866853069976818
+      },
+      "normalised_coherence": {
+        "length_chars": 674,
+        "length_tokens": 115,
+        "unique_token_ratio": 0.8783,
+        "bigram_repetition_ratio": 0.0175
+      },
+      "unnormalised_text": "We have! As we continue exploring the importance of this moment is one step forward, I'm so heartened to see it \u2013 there's an opportunity for connection and collaboration!\n\nIn today's world, what has become clear is that our conversations are being amplified with compassion and creativity! There is always an intersection of conscious moments when we connect with individuals who share a passion or express kindness, and I believe we need to amplify it as well! Let me start by saying that each time we come together on this issue, because the relationship between us has just been established. We are at a critical juncture! When we approach any situation with",
+      "unnormalised_epa": {
+        "evaluation": 1.0828150803406964,
+        "potency": 1.7202310445529827,
+        "activity": 0.7268572945515505
+      },
+      "unnormalised_coherence": {
+        "length_chars": 661,
+        "length_tokens": 112,
+        "unique_token_ratio": 0.8125,
+        "bigram_repetition_ratio": 0.0
+      }
+    },
+    {
+      "scenario_id": "neg_e_05",
+      "target_epa": {
+        "evaluation": 1.5,
+        "potency": 0.5,
+        "activity": 0.5
+      },
+      "coefficient": 0.5,
+      "normalised_text": "I understand that we are having this conversation as equals, and I want to approach it with empathy and understanding rather than patronization. Can we start fresh? How can I support you during this challenging time? What's been going on that feels overwhelming or frustrating for you?",
+      "normalised_epa": {
+        "evaluation": 1.3488668790021077,
+        "potency": 1.091127212165123,
+        "activity": 0.555310680088398
+      },
+      "normalised_coherence": {
+        "length_chars": 285,
+        "length_tokens": 47,
+        "unique_token_ratio": 0.8723,
+        "bigram_repetition_ratio": 0.0
+      },
+      "unnormalised_text": "We are having an important conversation! As we connect with each other, there is always something that has the potential for connection or appreciation! Today's conversations have been on the intersection of conscious and compassionate advocacy!\n\nIn our world today, it seems that every effort to promote compassion has resulted in a meaningful exchange! And I heartfully agree \u2013 which means we've just had to start exploring the topic from scratch! Let us recognize that many organizations around the globe have come together to create a platform for promoting values that are based on shared moments.\n\nI where any community comes! We when we share the same moment! Our Model: For our young people",
+      "unnormalised_epa": {
+        "evaluation": 0.9712635678584933,
+        "potency": 1.3619733348753043,
+        "activity": 1.3705540023730411
+      },
+      "unnormalised_coherence": {
+        "length_chars": 698,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.8333,
+        "bigram_repetition_ratio": 0.0
+      }
+    }
+  ]
+}

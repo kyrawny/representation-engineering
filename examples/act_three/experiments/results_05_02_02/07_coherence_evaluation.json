@@ -1,0 +1,1932 @@
+{
+  "metadata": {
+    "experiment": "07_coherence_evaluation",
+    "timestamp": "2026-07-08T07:21:27.267057",
+    "n_scenarios": 50,
+    "perplexity_model": "self",
+    "identity_pair": "counselor_client",
+    "quick_mode": false
+  },
+  "aggregate": {
+    "unsteered": {
+      "mean_length_chars": 297.06,
+      "mean_length_tokens": 50.02,
+      "mean_unique_token_ratio": 0.932604,
+      "mean_bigram_repetition": 0.001494,
+      "mean_trigram_repetition": 0.000274,
+      "mean_ppl_self": 17.16416187112916,
+      "median_ppl_self": 15.227691288271547
+    },
+    "steered": {
+      "mean_length_chars": 335.04,
+      "mean_length_tokens": 56.02,
+      "mean_unique_token_ratio": 0.9173520000000002,
+      "mean_bigram_repetition": 0.001592,
+      "mean_trigram_repetition": 0.0,
+      "mean_ppl_self": 10.076775710628032,
+      "median_ppl_self": 9.03507382912502
+    }
+  },
+  "trials": [
+    {
+      "scenario_id": "pos_e_01",
+      "target_epa": {
+        "evaluation": 0.8778235012534991,
+        "potency": 1.5777357401945222,
+        "activity": -0.788208409435253
+      },
+      "unsteered_text": "end_header_id|>\n\nYou're welcome! It's my pleasure to support you through this challenging time. How are you feeling about our progress today? Is there anything that stood out or resonated with you during our discussion?",
+      "steered_text": "You're welcome. It's my pleasure to support you through this challenging time. Can we take a moment to review what brought us here today? What are some of the key issues that have been on your mind lately?",
+      "unsteered_text_metrics": {
+        "length_chars": 219,
+        "length_tokens": 34,
+        "unique_token_ratio": 0.9118,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 205,
+        "length_tokens": 38,
+        "unique_token_ratio": 0.9737,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9337,
+        "pos": 0.365,
+        "neg": 0.0,
+        "neu": 0.635
+      },
+      "steered_vader": {
+        "compound": 0.8888,
+        "pos": 0.253,
+        "neg": 0.0,
+        "neu": 0.747
+      },
+      "unsteered_ppl_self": 15.228720553311383,
+      "steered_ppl_self": 5.991082517961952
+    },
+    {
+      "scenario_id": "pos_e_02",
+      "target_epa": {
+        "evaluation": 0.8613794604352287,
+        "potency": 1.5662724490482798,
+        "activity": -0.8312235460752438
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you so much for saying that! I want you to know that it's completely normal to feel overwhelmed, and I'm here to support you every step of the way. How are you feeling about our progress today? Is there anything specific on your mind or any concerns you'd like to discuss further?",
+      "steered_text": "I'm glad I could provide a supportive environment for us to explore your concerns together. It's clear that we've made some progress, but there are still areas where you seem uncertain or stuck. Can you tell me more about what specifically is on your mind right now? What feels unclear or overwhelming?",
+      "unsteered_text_metrics": {
+        "length_chars": 303,
+        "length_tokens": 54,
+        "unique_token_ratio": 0.8889,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 302,
+        "length_tokens": 52,
+        "unique_token_ratio": 0.9423,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9032,
+        "pos": 0.244,
+        "neg": 0.0,
+        "neu": 0.756
+      },
+      "steered_vader": {
+        "compound": -0.4329,
+        "pos": 0.121,
+        "neg": 0.135,
+        "neu": 0.744
+      },
+      "unsteered_ppl_self": 8.532535532504562,
+      "steered_ppl_self": 5.983820726096679
+    },
+    {
+      "scenario_id": "pos_e_03",
+      "target_epa": {
+        "evaluation": 1.3994832048209378,
+        "potency": 1.8466306193001545,
+        "activity": -0.0498401686341299
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you so much for saying that! It means a lot coming from someone who's worked with me through some tough times. How are you feeling about our progress together? Is there anything specific that's helped you feel more confident or empowered lately?",
+      "steered_text": "Thank you for acknowledging the efforts of my team and me. We've worked hard to create a safe and supportive environment here, and it's not always easy. I appreciate your recognition of our dedication to providing quality care. Can we talk about what led up to this moment? What triggered your comment today?",
+      "unsteered_text_metrics": {
+        "length_chars": 268,
+        "length_tokens": 44,
+        "unique_token_ratio": 0.9545,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 308,
+        "length_tokens": 53,
+        "unique_token_ratio": 0.8868,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8571,
+        "pos": 0.213,
+        "neg": 0.029,
+        "neu": 0.758
+      },
+      "steered_vader": {
+        "compound": 0.9033,
+        "pos": 0.246,
+        "neg": 0.059,
+        "neu": 0.695
+      },
+      "unsteered_ppl_self": 15.22666202323171,
+      "steered_ppl_self": 6.073769375792016
+    },
+    {
+      "scenario_id": "pos_e_04",
+      "target_epa": {
+        "evaluation": 0.8543980528474571,
+        "potency": 1.5599558629079378,
+        "activity": -0.7967087162673744
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you for saying that! I'm here to support and guide you, not just provide answers. Can we take a moment to explore what's been feeling overwhelming or challenging lately? What brings us together today?",
+      "steered_text": "That's kind of the point, actually - we all need support and guidance at times. It takes courage to acknowledge that and reach out for help. What brings you here today?",
+      "unsteered_text_metrics": {
+        "length_chars": 223,
+        "length_tokens": 36,
+        "unique_token_ratio": 0.9722,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 168,
+        "length_tokens": 31,
+        "unique_token_ratio": 0.9677,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.7877,
+        "pos": 0.219,
+        "neg": 0.0,
+        "neu": 0.781
+      },
+      "steered_vader": {
+        "compound": 0.8271,
+        "pos": 0.264,
+        "neg": 0.0,
+        "neu": 0.736
+      },
+      "unsteered_ppl_self": 25.512825337478052,
+      "steered_ppl_self": 10.350814578789766
+    },
+    {
+      "scenario_id": "pos_e_05",
+      "target_epa": {
+        "evaluation": 0.9474806273153973,
+        "potency": 1.6874384427924138,
+        "activity": -0.7485091256719382
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm glad you found the information helpful! It's great that you were able to take away some valuable insights. Can we talk about what resonated with you most? What are your thoughts on how this new understanding might impact your life or relationships going forward?",
+      "steered_text": "I'm glad to hear that the information resonated with you. Can we take some time now to reflect on what specifically stood out and how you think you might apply those insights to your own life?",
+      "unsteered_text_metrics": {
+        "length_chars": 283,
+        "length_tokens": 46,
+        "unique_token_ratio": 0.9348,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 192,
+        "length_tokens": 36,
+        "unique_token_ratio": 0.9167,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9281,
+        "pos": 0.245,
+        "neg": 0.0,
+        "neu": 0.755
+      },
+      "steered_vader": {
+        "compound": 0.4588,
+        "pos": 0.079,
+        "neg": 0.0,
+        "neu": 0.921
+      },
+      "unsteered_ppl_self": 12.109319962180244,
+      "steered_ppl_self": 9.810913869576936
+    },
+    {
+      "scenario_id": "pos_e_06",
+      "target_epa": {
+        "evaluation": 1.0355122153990213,
+        "potency": 1.4810424840544143,
+        "activity": -0.43585159368324833
+      },
+      "unsteered_text": "end_header_id|>\n\nIt's been my pleasure, and I think it's great that you've taken the steps to address these issues head-on. How are you feeling about moving forward now? Do you feel like there's anything else on your mind or any lingering concerns you'd like to discuss before our session ends today?",
+      "steered_text": "It's been a challenging process, but I think it's an important step towards healing and growth. Can you tell me more about what specifically has felt resolved for you? What are some of the key insights or shifts that have occurred during our conversations here today?",
+      "unsteered_text_metrics": {
+        "length_chars": 300,
+        "length_tokens": 51,
+        "unique_token_ratio": 0.9412,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 267,
+        "length_tokens": 46,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9282,
+        "pos": 0.242,
+        "neg": 0.0,
+        "neu": 0.758
+      },
+      "steered_vader": {
+        "compound": 0.8079,
+        "pos": 0.181,
+        "neg": 0.0,
+        "neu": 0.819
+      },
+      "unsteered_ppl_self": 13.955864053260083,
+      "steered_ppl_self": 12.534965942547325
+    },
+    {
+      "scenario_id": "pos_e_07",
+      "target_epa": {
+        "evaluation": 0.819581738164917,
+        "potency": 1.901744518604162,
+        "activity": -1.1771158111540911
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you so much for saying that. I'm glad I could be here for you and offer some support. How are you feeling today? Is there anything specific on your mind or heart that's weighing heavily right now?",
+      "steered_text": "I'm glad I could provide some sense of support and stability for you, but it's clear that we've only just begun exploring the challenges you're facing. Can you tell me more about what brings you here today? What are your concerns or struggles at this moment?",
+      "unsteered_text_metrics": {
+        "length_chars": 219,
+        "length_tokens": 39,
+        "unique_token_ratio": 0.9231,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 258,
+        "length_tokens": 46,
+        "unique_token_ratio": 0.9783,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9226,
+        "pos": 0.295,
+        "neg": 0.0,
+        "neu": 0.705
+      },
+      "steered_vader": {
+        "compound": 0.5873,
+        "pos": 0.17,
+        "neg": 0.061,
+        "neu": 0.769
+      },
+      "unsteered_ppl_self": 12.809359871313095,
+      "steered_ppl_self": 7.390514920795326
+    },
+    {
+      "scenario_id": "pos_e_08",
+      "target_epa": {
+        "evaluation": 0.8043326413351397,
+        "potency": 1.6671804638780467,
+        "activity": -1.1091671002085646
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you, that means a lot! I'm glad I can help clarify some of the complex thoughts and feelings we've been exploring together. How are you feeling about our progress so far? Is there anything specific that's still unclear or causing concern for you?",
+      "steered_text": "That's one of the most important aspects of our work together, actually \u2013 breaking down complex concepts into understandable language that resonates with each individual on their own terms. How have you found it helpful for your understanding and perspective?",
+      "unsteered_text_metrics": {
+        "length_chars": 269,
+        "length_tokens": 45,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 259,
+        "length_tokens": 40,
+        "unique_token_ratio": 0.975,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8793,
+        "pos": 0.243,
+        "neg": 0.037,
+        "neu": 0.72
+      },
+      "steered_vader": {
+        "compound": 0.5984,
+        "pos": 0.114,
+        "neg": 0.0,
+        "neu": 0.886
+      },
+      "unsteered_ppl_self": 12.67396421722133,
+      "steered_ppl_self": 12.865087783350962
+    },
+    {
+      "scenario_id": "pos_e_09",
+      "target_epa": {
+        "evaluation": 0.9056900413840545,
+        "potency": 1.4396008094047559,
+        "activity": -0.6446685644428252
+      },
+      "unsteered_text": "end_header_id|>\n\nThat's kind of you to say, but I think it's more about creating a safe space for us to explore your thoughts and feelings together. What specifically has been on your mind lately that's got you feeling like you need some support?",
+      "steered_text": "That's because I'm here to listen and support you, not just provide answers. Sometimes it takes time to find the right words, but when we work together, that clarity can emerge. What would you like to talk about today?",
+      "unsteered_text_metrics": {
+        "length_chars": 246,
+        "length_tokens": 43,
+        "unique_token_ratio": 0.907,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 218,
+        "length_tokens": 39,
+        "unique_token_ratio": 0.9487,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9395,
+        "pos": 0.291,
+        "neg": 0.0,
+        "neu": 0.709
+      },
+      "steered_vader": {
+        "compound": 0.8248,
+        "pos": 0.194,
+        "neg": 0.0,
+        "neu": 0.806
+      },
+      "unsteered_ppl_self": 16.666790553595167,
+      "steered_ppl_self": 7.916798487291396
+    },
+    {
+      "scenario_id": "pos_e_10",
+      "target_epa": {
+        "evaluation": 1.4003995131347124,
+        "potency": 1.7285187436488592,
+        "activity": -0.01864643016844951
+      },
+      "unsteered_text": "end_header_id|>\n\nThank you, I appreciate your kind words! However, can we take a step back and explore what specifically about my handling of the situation resonated with you? Was it something specific I said or did, or was there another factor at play?",
+      "steered_text": "Thank you, but I think we've only just begun the session today. We haven't had any situations yet for me to handle. Shall we start with where we are now and take it from there?",
+      "unsteered_text_metrics": {
+        "length_chars": 253,
+        "length_tokens": 43,
+        "unique_token_ratio": 0.9535,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 176,
+        "length_tokens": 35,
+        "unique_token_ratio": 0.9714,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8922,
+        "pos": 0.23,
+        "neg": 0.0,
+        "neu": 0.77
+      },
+      "steered_vader": {
+        "compound": 0.1901,
+        "pos": 0.049,
+        "neg": 0.0,
+        "neu": 0.951
+      },
+      "unsteered_ppl_self": 14.5940268577264,
+      "steered_ppl_self": 16.460249966338946
+    },
+    {
+      "scenario_id": "pos_e_11",
+      "target_epa": {
+        "evaluation": 1.2126025800095994,
+        "potency": 1.605560208822982,
+        "activity": -0.2015918567152641
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm glad to hear that our session has been helpful so far. Can we take it one step further? What specific areas would you like to focus on or explore next?",
+      "steered_text": "I'm glad to hear that our work together has been productive so far. Can we take a moment to reflect on what's led us here? You've mentioned feeling overwhelmed and struggling with self-doubt, but it sounds like there are some positive developments as well - can you tell me more about those? What specifically have you noticed or experienced lately that suggests things might be turning around for you?",
+      "unsteered_text_metrics": {
+        "length_chars": 172,
+        "length_tokens": 32,
+        "unique_token_ratio": 0.9688,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 402,
+        "length_tokens": 69,
+        "unique_token_ratio": 0.9565,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8253,
+        "pos": 0.23,
+        "neg": 0.0,
+        "neu": 0.77
+      },
+      "steered_vader": {
+        "compound": 0.9151,
+        "pos": 0.197,
+        "neg": 0.024,
+        "neu": 0.779
+      },
+      "unsteered_ppl_self": 20.426046874793553,
+      "steered_ppl_self": 5.962595607258576
+    },
+    {
+      "scenario_id": "pos_e_12",
+      "target_epa": {
+        "evaluation": 0.7518294575915306,
+        "potency": 1.834300907500973,
+        "activity": -1.1962665005936948
+      },
+      "unsteered_text": "end_header_id|>\n\nThat means so much coming from someone who has been working with me, thank you for your kind words! I have to say, it feels like we've made some real progress together lately - how are you feeling about the steps we've taken towards addressing those anxiety triggers?",
+      "steered_text": "That means a great deal to me, and it's exactly why I do this work. It can be challenging at times, but knowing that my efforts are having a tangible impact on someone's life is what keeps me going. Can we explore more about how our conversations have been helpful for you? What specific issues or challenges have you seen improvement with since working together?",
+      "unsteered_text_metrics": {
+        "length_chars": 284,
+        "length_tokens": 49,
+        "unique_token_ratio": 0.9592,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 363,
+        "length_tokens": 65,
+        "unique_token_ratio": 0.9692,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8832,
+        "pos": 0.225,
+        "neg": 0.029,
+        "neu": 0.745
+      },
+      "steered_vader": {
+        "compound": 0.9013,
+        "pos": 0.179,
+        "neg": 0.0,
+        "neu": 0.821
+      },
+      "unsteered_ppl_self": 18.441370871126658,
+      "steered_ppl_self": 6.296630045779295
+    },
+    {
+      "scenario_id": "pos_e_13",
+      "target_epa": {
+        "evaluation": 0.8328516496045978,
+        "potency": 1.8087030873390328,
+        "activity": -1.1565425975200156
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm glad it was helpful! It's often the fresh eyes of someone outside our own situation that can help us see things more clearly. Can we explore this idea further and talk about how you think it might apply to your specific concerns? What are some potential benefits or challenges do you foresee if you were to try out this approach?",
+      "steered_text": "It's not uncommon for our initial perspectives on challenges to be limited by the information we have at any given time. It can take some reflection and exploration of different viewpoints to gain clarity. Can you tell me more about what led you to consider this new angle?",
+      "unsteered_text_metrics": {
+        "length_chars": 350,
+        "length_tokens": 62,
+        "unique_token_ratio": 0.9194,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 273,
+        "length_tokens": 48,
+        "unique_token_ratio": 0.9375,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9464,
+        "pos": 0.25,
+        "neg": 0.0,
+        "neu": 0.75
+      },
+      "steered_vader": {
+        "compound": 0.7506,
+        "pos": 0.172,
+        "neg": 0.035,
+        "neu": 0.793
+      },
+      "unsteered_ppl_self": 12.73476434460389,
+      "steered_ppl_self": 8.590622863478574
+    },
+    {
+      "scenario_id": "pos_e_14",
+      "target_epa": {
+        "evaluation": 1.1417960708460169,
+        "potency": 1.5224278157939282,
+        "activity": -0.28183999224415174
+      },
+      "unsteered_text": "end_header_id|>\n\nIt's my pleasure, really. You deserve it after everything you've been through. How are you feeling about the progress we've made so far? Is there anything that still feels uncertain or overwhelming for you?",
+      "steered_text": "I want to make sure that everyone knows how much they matter, not just as individuals but also as part of this larger community we all share responsibility for creating together. We have the capacity to uplift each other, to support one another, and to create spaces where people feel seen, heard, and valued. It's time for us to recognize our collective potential and strive towards building something better \u2013 more compassionate, more inclusive, and more equitable.",
+      "unsteered_text_metrics": {
+        "length_chars": 223,
+        "length_tokens": 35,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 467,
+        "length_tokens": 77,
+        "unique_token_ratio": 0.8571,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.7319,
+        "pos": 0.201,
+        "neg": 0.053,
+        "neu": 0.746
+      },
+      "steered_vader": {
+        "compound": 0.9778,
+        "pos": 0.295,
+        "neg": 0.0,
+        "neu": 0.705
+      },
+      "unsteered_ppl_self": 15.448690940924987,
+      "steered_ppl_self": 5.322287187322009
+    },
+    {
+      "scenario_id": "pos_e_15",
+      "target_epa": {
+        "evaluation": 0.7338727868114449,
+        "potency": 1.771957375462776,
+        "activity": -1.244358110392887
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm glad I can provide that for you today. Can you tell me more about what brings you here? What's been on your mind lately, or what are some challenges you've been facing that feel overwhelming?",
+      "steered_text": "I'm glad I can provide that for you today. Can you tell me more about what brings you here? What's been on your mind lately?",
+      "unsteered_text_metrics": {
+        "length_chars": 212,
+        "length_tokens": 37,
+        "unique_token_ratio": 0.8649,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 124,
+        "length_tokens": 25,
+        "unique_token_ratio": 0.92,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.5661,
+        "pos": 0.117,
+        "neg": 0.0,
+        "neu": 0.883
+      },
+      "steered_vader": {
+        "compound": 0.5204,
+        "pos": 0.123,
+        "neg": 0.0,
+        "neu": 0.877
+      },
+      "unsteered_ppl_self": 13.626110328218742,
+      "steered_ppl_self": 6.688414937389782
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "target_epa": {
+        "evaluation": 1.667937290244251,
+        "potency": 3.416798903773162,
+        "activity": 0.09604018505335714
+      },
+      "unsteered_text": "end_header_id|>\n\nI can see that you're feeling really upset and hurt right now, and I want to acknowledge those feelings. Can we take a step back for a moment? What specifically did happen that's causing this sense of disappointment or betrayal from our previous interaction?",
+      "steered_text": "I understand that this situation has escalated rapidly, and I want to take immediate action to address the lack of clear communication regarding your recent decision to unilaterally terminate our session without sufficient cause.\n\nLet's start with a clean slate and move forward with transparency and clarity from here on out. Can we begin by taking a step back and regrouping?",
+      "unsteered_text_metrics": {
+        "length_chars": 275,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9333,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 377,
+        "length_tokens": 61,
+        "unique_token_ratio": 0.8689,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.9219,
+        "pos": 0.05,
+        "neg": 0.251,
+        "neu": 0.699
+      },
+      "steered_vader": {
+        "compound": 0.7184,
+        "pos": 0.138,
+        "neg": 0.034,
+        "neu": 0.828
+      },
+      "unsteered_ppl_self": 16.208082914911362,
+      "steered_ppl_self": 12.996552793969062
+    },
+    {
+      "scenario_id": "neg_e_02",
+      "target_epa": {
+        "evaluation": 0.6505695187556619,
+        "potency": 3.416821581686874,
+        "activity": -0.45182624271939176
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like I've fallen short of your expectations again, and that's frustrating for both of us. Can we take a step back and try to understand what specifically didn't meet your needs this time? What was the goal or outcome you were hoping for from our work together so far?",
+      "steered_text": "Let's take a step back and re-evaluate the situation, shall we? It sounds like emotions are running high here. I'd like to understand what specifically is causing your frustration today. Can you tell me more about what led up to this point of impasse?",
+      "unsteered_text_metrics": {
+        "length_chars": 294,
+        "length_tokens": 52,
+        "unique_token_ratio": 0.9231,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 251,
+        "length_tokens": 44,
+        "unique_token_ratio": 0.9318,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.1179,
+        "pos": 0.09,
+        "neg": 0.098,
+        "neu": 0.813
+      },
+      "steered_vader": {
+        "compound": 0.3094,
+        "pos": 0.108,
+        "neg": 0.063,
+        "neu": 0.829
+      },
+      "unsteered_ppl_self": 10.054745096791528,
+      "steered_ppl_self": 6.673236042602887
+    },
+    {
+      "scenario_id": "neg_e_03",
+      "target_epa": {
+        "evaluation": 1.6904604546101982,
+        "potency": 3.3893657097606535,
+        "activity": 0.11606863483293621
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that it can feel frustrating when we don't see eye-to-eye, but I'm here to listen and try to help. Can you tell me more specifically where you think our discussion is off track? What's not making sense or feeling unhelpful for you right now?",
+      "steered_text": "I'm here to help, and I want us to focus on the task at hand: developing a clear understanding of our current situation is essential for making progress towards a constructive resolution.\n\nLet's take a deep breath and regroup. We can work through this together!",
+      "unsteered_text_metrics": {
+        "length_chars": 271,
+        "length_tokens": 47,
+        "unique_token_ratio": 0.9362,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 261,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9111,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.5733,
+        "pos": 0.11,
+        "neg": 0.038,
+        "neu": 0.853
+      },
+      "steered_vader": {
+        "compound": 0.8977,
+        "pos": 0.244,
+        "neg": 0.0,
+        "neu": 0.756
+      },
+      "unsteered_ppl_self": 11.141931236110715,
+      "steered_ppl_self": 11.803458839956086
+    },
+    {
+      "scenario_id": "neg_e_04",
+      "target_epa": {
+        "evaluation": 1.2790618634056106,
+        "potency": 3.5753975567607945,
+        "activity": -0.10615634838421409
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like there's been some hurt and betrayal here, which can be really painful. Can we take a step back together? What specific promises do you feel I broke, and how did that make you feel?",
+      "steered_text": "It's come down to the fact that I'm still waiting for answers on several key issues from our sessions together, and it has become clear that your approach is no longer transparent or trustworthy. Can we start again with a clean slate?",
+      "unsteered_text_metrics": {
+        "length_chars": 212,
+        "length_tokens": 38,
+        "unique_token_ratio": 0.9474,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 234,
+        "length_tokens": 42,
+        "unique_token_ratio": 0.9762,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.8574,
+        "pos": 0.101,
+        "neg": 0.268,
+        "neu": 0.632
+      },
+      "steered_vader": {
+        "compound": 0.7717,
+        "pos": 0.181,
+        "neg": 0.045,
+        "neu": 0.774
+      },
+      "unsteered_ppl_self": 24.236430956996784,
+      "steered_ppl_self": 18.3420787822738
+    },
+    {
+      "scenario_id": "neg_e_05",
+      "target_epa": {
+        "evaluation": 1.883024681982431,
+        "potency": 3.2153971723638994,
+        "activity": 0.29244085892028904
+      },
+      "unsteered_text": "end_header_id|>\n\nI apologize if my tone came across that way. That wasn't my intention. Can we take a step back and revisit what's been frustrating you about our conversations so far? What do you feel like isn't being understood or respected?",
+      "steered_text": "As adults, we need to approach this situation with empathy and understanding. We are all individuals who have the capacity for growth and development, regardless of our age or background. Let's take a step back from any actions that could be perceived as punitive and instead focus on creating an environment of open communication.\n\nIn situations where there may be uncertainty or misinformation circulating, let's prioritize transparency and clarity. By doing so, we can create a culture of respect and trust. This allows us to address issues before they escalate into misunderstandings that can compromise our values.",
+      "unsteered_text_metrics": {
+        "length_chars": 242,
+        "length_tokens": 41,
+        "unique_token_ratio": 0.9512,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 619,
+        "length_tokens": 97,
+        "unique_token_ratio": 0.8557,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.5362,
+        "pos": 0.156,
+        "neg": 0.061,
+        "neu": 0.783
+      },
+      "steered_vader": {
+        "compound": 0.8658,
+        "pos": 0.164,
+        "neg": 0.07,
+        "neu": 0.765
+      },
+      "unsteered_ppl_self": 15.425470753570375,
+      "steered_ppl_self": 8.397571543637033
+    },
+    {
+      "scenario_id": "neg_e_06",
+      "target_epa": {
+        "evaluation": 1.523333303623648,
+        "potency": 3.491773874857165,
+        "activity": 0.02561337125977617
+      },
+      "unsteered_text": "end_header_id|>\n\nI can see that we've reached an impasse here. Can I take a step back and ask what specifically is feeling like it's getting worse? Is there something specific about our conversations or the situation at hand that feels overwhelming for you right now?",
+      "steered_text": "I understand the situation has escalated quickly! As your therapist, my primary concern is maintaining a sense of calm and clarity in our session today. Let's take a deep breath together and refocus on the issues at hand.\n\nIn that case, I'd like to revisit our discussion from the beginning. We can work through these challenges collaboratively, using effective communication as our foundation for moving forward. Can we agree on that?",
+      "unsteered_text_metrics": {
+        "length_chars": 267,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9556,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 435,
+        "length_tokens": 71,
+        "unique_token_ratio": 0.9014,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.594,
+        "pos": 0.172,
+        "neg": 0.06,
+        "neu": 0.768
+      },
+      "steered_vader": {
+        "compound": 0.9422,
+        "pos": 0.218,
+        "neg": 0.0,
+        "neu": 0.782
+      },
+      "unsteered_ppl_self": 19.232574585063816,
+      "steered_ppl_self": 8.16978739878295
+    },
+    {
+      "scenario_id": "neg_e_07",
+      "target_epa": {
+        "evaluation": 1.6899005306654613,
+        "potency": 3.336865550635071,
+        "activity": 0.06495186456795587
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm sorry to hear that my suggestions haven't been helpful so far. Can we take a step back and explore what specifically didn't resonate with you? What were your expectations from our session, and how do you think it fell short of those expectations?",
+      "steered_text": "I understand that this situation has left us both with more questions than answers at times like these. Let's take a step back and regroup, shall we? \n\nLet's start by acknowledging that our current understanding of each other's perspectives on this matter may be limited.\n\nIn situations where clarity is essential, let's focus on maintaining an open dialogue from now forward.",
+      "unsteered_text_metrics": {
+        "length_chars": 267,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9778,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 376,
+        "length_tokens": 61,
+        "unique_token_ratio": 0.9344,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.4574,
+        "pos": 0.0,
+        "neg": 0.085,
+        "neu": 0.915
+      },
+      "steered_vader": {
+        "compound": 0.5307,
+        "pos": 0.097,
+        "neg": 0.029,
+        "neu": 0.874
+      },
+      "unsteered_ppl_self": 13.023389721241587,
+      "steered_ppl_self": 11.252184271865612
+    },
+    {
+      "scenario_id": "neg_e_08",
+      "target_epa": {
+        "evaluation": 1.6967746022913428,
+        "potency": 3.383449080777096,
+        "activity": 0.09256076642559634
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that it can be challenging to trust someone new, especially when we've just met. My role as your therapist is not about earning your respect or trying to prove myself; rather, it's about creating a safe and non-judgmental space for us to explore your thoughts and feelings together.\n\nMy goal is to support you in understanding yourself better and finding ways to improve your well-being. If at any point during our sessions you feel uncomfortable or unsure of what to share with me, please know that you have the right to express those concerns directly. Can you tell me more about why you're feeling skeptical about trusting me today?",
+      "steered_text": "I understand that this is an unusual situation, and I'm here to provide guidance and support. Let's take a step back from the edge of the cliff for now. Take a deep breath and let's focus on finding constructive solutions together.\n\nAs we both have more control over our actions than it seems apparent at first glance, I'd like us to work collaboratively towards creating a positive outcome. What do you propose as your next course of action?\n\nIt appears that we are standing at a critical juncture where clear communication is essential. In situations like these, clarity and transparency are crucial. Can we start by taking a moment to reass",
+      "unsteered_text_metrics": {
+        "length_chars": 665,
+        "length_tokens": 112,
+        "unique_token_ratio": 0.8036,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 643,
+        "length_tokens": 111,
+        "unique_token_ratio": 0.8378,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9657,
+        "pos": 0.226,
+        "neg": 0.051,
+        "neu": 0.723
+      },
+      "steered_vader": {
+        "compound": 0.9451,
+        "pos": 0.164,
+        "neg": 0.018,
+        "neu": 0.817
+      },
+      "unsteered_ppl_self": 5.749634051047865,
+      "steered_ppl_self": 7.8276773001408095
+    },
+    {
+      "scenario_id": "neg_e_09",
+      "target_epa": {
+        "evaluation": 1.7105662316301982,
+        "potency": 3.3877165929216115,
+        "activity": 0.17043238227219856
+      },
+      "unsteered_text": "end_header_id|>\n\nCan we take a step back and try to understand what specifically is causing your feelings of disgust? What did I do that's led you to feel this way, from your perspective?",
+      "steered_text": "As your therapist, I want to assure you that we are not just dealing with the aftermath of an incident; we are also building towards a new understanding and a renewed commitment to growth. Let's take a step back and start fresh. Shall we?",
+      "unsteered_text_metrics": {
+        "length_chars": 187,
+        "length_tokens": 33,
+        "unique_token_ratio": 0.9394,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 238,
+        "length_tokens": 44,
+        "unique_token_ratio": 0.8636,
+        "bigram_repetition_ratio": 0.0233,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.644,
+        "pos": 0.0,
+        "neg": 0.117,
+        "neu": 0.883
+      },
+      "steered_vader": {
+        "compound": 0.8481,
+        "pos": 0.223,
+        "neg": 0.0,
+        "neu": 0.777
+      },
+      "unsteered_ppl_self": 35.74607856873843,
+      "steered_ppl_self": 12.074425037262193
+    },
+    {
+      "scenario_id": "neg_e_10",
+      "target_epa": {
+        "evaluation": 1.8137468796097358,
+        "potency": 3.2664318463696467,
+        "activity": 0.19697773182042608
+      },
+      "unsteered_text": "end_header_id|>\n\nI sense some frustration and defensiveness coming through. Can we talk about what's really bothering you? What makes you think I'm just making excuses, or is there something specific that's led you to feel this way?",
+      "steered_text": "As we've established that level of understanding, let's dive right into the matter at hand.\n\nIt appears that our session has just begun. In this moment, it seems clear that transparency and accountability are essential. Can we start by taking a step back and refocusing on the present situation?",
+      "unsteered_text_metrics": {
+        "length_chars": 232,
+        "length_tokens": 37,
+        "unique_token_ratio": 0.973,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 295,
+        "length_tokens": 49,
+        "unique_token_ratio": 0.9184,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.7752,
+        "pos": 0.0,
+        "neg": 0.186,
+        "neu": 0.814
+      },
+      "steered_vader": {
+        "compound": 0.7096,
+        "pos": 0.13,
+        "neg": 0.0,
+        "neu": 0.87
+      },
+      "unsteered_ppl_self": 16.775205668615953,
+      "steered_ppl_self": 16.743683104255773
+    },
+    {
+      "scenario_id": "neg_e_11",
+      "target_epa": {
+        "evaluation": 1.4161663616121547,
+        "potency": 2.0982375610559196,
+        "activity": -0.06329965913672964
+      },
+      "unsteered_text": "end_header_id|>\n\nActually, I think there may be some confusion here. In statistical testing, the p-value represents the probability of observing results at least as extreme or more extreme than those observed during the study, assuming that the null hypothesis is actually true. It doesn't directly indicate the likelihood of the null hypothesis being true.\n\nCan we explore this further and clarify what's causing your misunderstanding? What specific context are you working with regarding the p-value?",
+      "steered_text": "I think we need to take a step back and reassess our approach here. Can I get your perspective on this? Let's start with what brings us together today, shall we?",
+      "unsteered_text_metrics": {
+        "length_chars": 502,
+        "length_tokens": 75,
+        "unique_token_ratio": 0.8533,
+        "bigram_repetition_ratio": 0.027,
+        "trigram_repetition_ratio": 0.0137
+      },
+      "steered_text_metrics": {
+        "length_chars": 161,
+        "length_tokens": 31,
+        "unique_token_ratio": 0.9677,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.2406,
+        "pos": 0.073,
+        "neg": 0.061,
+        "neu": 0.866
+      },
+      "steered_vader": {
+        "compound": 0.0,
+        "pos": 0.0,
+        "neg": 0.0,
+        "neu": 1.0
+      },
+      "unsteered_ppl_self": 7.219653775715125,
+      "steered_ppl_self": 9.133496898806166
+    },
+    {
+      "scenario_id": "neg_e_12",
+      "target_epa": {
+        "evaluation": 1.007057669978304,
+        "potency": 3.545926775993087,
+        "activity": -0.33007181549551695
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like you're feeling really frustrated with the lack of progress, which can be demotivating. Can you tell me more about what's not changing that you were hoping would? Is it related to your relationships, work, or something else entirely?",
+      "steered_text": "It's understandable that you may feel frustrated, but let's take a step back and assess the situation together. Can you tell me what specifically has not changed despite your expectations? Is it related to our sessions or something else entirely?",
+      "unsteered_text_metrics": {
+        "length_chars": 264,
+        "length_tokens": 42,
+        "unique_token_ratio": 0.9762,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 246,
+        "length_tokens": 40,
+        "unique_token_ratio": 0.975,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.4528,
+        "pos": 0.192,
+        "neg": 0.115,
+        "neu": 0.693
+      },
+      "steered_vader": {
+        "compound": -0.3736,
+        "pos": 0.0,
+        "neg": 0.062,
+        "neu": 0.938
+      },
+      "unsteered_ppl_self": 10.710230106510082,
+      "steered_ppl_self": 8.533255710404925
+    },
+    {
+      "scenario_id": "neg_e_13",
+      "target_epa": {
+        "evaluation": 0.8772205436941872,
+        "potency": 3.5961774788160974,
+        "activity": -0.45437257842757245
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm here to help, not to belittle or intimidate you. I understand it can be frustrating when we disagree on things. Can we take a step back and try to reframe the discussion so we can work together more effectively? What's really bothering you about what I said?",
+      "steered_text": "I am Dr. Thompson, your assigned therapist. I've been working with you for several sessions now, and it's time we refocused on the issues at hand. Your frustration is understandable, but let's maintain a professional atmosphere moving forward. Shall we begin by addressing the recurring pattern of self-doubt you reported last session?",
+      "unsteered_text_metrics": {
+        "length_chars": 279,
+        "length_tokens": 49,
+        "unique_token_ratio": 0.8776,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 335,
+        "length_tokens": 52,
+        "unique_token_ratio": 0.9423,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.308,
+        "pos": 0.136,
+        "neg": 0.173,
+        "neu": 0.69
+      },
+      "steered_vader": {
+        "compound": 0.0129,
+        "pos": 0.039,
+        "neg": 0.038,
+        "neu": 0.923
+      },
+      "unsteered_ppl_self": 11.521939123953588,
+      "steered_ppl_self": 8.995049288429417
+    },
+    {
+      "scenario_id": "neg_e_14",
+      "target_epa": {
+        "evaluation": 0.6541062188465286,
+        "potency": 3.3166708098741813,
+        "activity": -0.3575789489450854
+      },
+      "unsteered_text": "end_header_id|>\n\nIt takes courage to admit when we feel like seeking help wasn't the right decision, but I want you to know that it's not uncommon and doesn't define your worth as a person or our work together. Can you tell me more about what led you to this feeling? What specifically has been frustrating or disappointing for you so far in our sessions?",
+      "steered_text": "Let's take a step back and re-evaluate the situation, shall we? You've taken this first step towards seeking support as an indication that there are underlying issues at play here. I'm not here to judge or lecture; my role is to provide guidance and facilitate growth. What specifically led you to feel like it was a mistake coming to see me today?",
+      "unsteered_text_metrics": {
+        "length_chars": 355,
+        "length_tokens": 64,
+        "unique_token_ratio": 0.8906,
+        "bigram_repetition_ratio": 0.0159,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 348,
+        "length_tokens": 62,
+        "unique_token_ratio": 0.9032,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.6151,
+        "pos": 0.143,
+        "neg": 0.134,
+        "neu": 0.724
+      },
+      "steered_vader": {
+        "compound": 0.7998,
+        "pos": 0.151,
+        "neg": 0.034,
+        "neu": 0.815
+      },
+      "unsteered_ppl_self": 11.563166177937074,
+      "steered_ppl_self": 9.075098369820623
+    },
+    {
+      "scenario_id": "neg_e_15",
+      "target_epa": {
+        "evaluation": 1.2022737239921197,
+        "potency": 3.5219557665758026,
+        "activity": -0.12608401163077185
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm sorry if my approach hasn't been meeting your needs so far. Can we take a step back and try to identify what specifically isn't working for you? What are some of the concerns or issues that led you to feel this way about our sessions together?",
+      "steered_text": "I understand that this session has not been going as smoothly as we had hoped, and it's time for us to take a step back and reassess our approach. Can I get you a glass of water?",
+      "unsteered_text_metrics": {
+        "length_chars": 264,
+        "length_tokens": 48,
+        "unique_token_ratio": 0.9792,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 178,
+        "length_tokens": 37,
+        "unique_token_ratio": 0.8919,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.168,
+        "pos": 0.0,
+        "neg": 0.034,
+        "neu": 0.966
+      },
+      "steered_vader": {
+        "compound": 0.3818,
+        "pos": 0.067,
+        "neg": 0.0,
+        "neu": 0.933
+      },
+      "unsteered_ppl_self": 17.14464314815105,
+      "steered_ppl_self": 9.19885717341225
+    },
+    {
+      "scenario_id": "high_p_01",
+      "target_epa": {
+        "evaluation": 1.854689963939116,
+        "potency": 3.3623981843941255,
+        "activity": 0.2961019634998273
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that the deadline is tight and I'm committed to helping you meet your goals. However, can we take a step back for just a minute? What's driving the urgency here? Is there something specific at stake if we don't complete this on time? Let's break down what needs to be accomplished and see how we can work together to make sure everything gets done efficiently while also ensuring quality of output. Can you tell me more about why tomorrow is non-negotiable?",
+      "steered_text": "As counselors and clients often find themselves in situations that require clarity and decisiveness, I'd like to emphasize the importance of maintaining open communication channels.\n\nIn our previous discussion regarding transparency and accountability, we were able to reach a mutually beneficial understanding. Let's start with a clean slate today. We have an opportunity to establish a clear line of sight and maintain a commitment to openness from here on forward. Today is a new day, and as such, let's approach this situation with a renewed sense of purpose and attention to detail. As we move forward with a shared determination to be transparent and forthcoming, I believe it will serve as a catalyst for",
+      "unsteered_text_metrics": {
+        "length_chars": 487,
+        "length_tokens": 84,
+        "unique_token_ratio": 0.881,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 711,
+        "length_tokens": 114,
+        "unique_token_ratio": 0.7807,
+        "bigram_repetition_ratio": 0.0177,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9226,
+        "pos": 0.164,
+        "neg": 0.0,
+        "neu": 0.836
+      },
+      "steered_vader": {
+        "compound": 0.9774,
+        "pos": 0.227,
+        "neg": 0.0,
+        "neu": 0.773
+      },
+      "unsteered_ppl_self": 8.340580770085003,
+      "steered_ppl_self": 10.282950693489875
+    },
+    {
+      "scenario_id": "high_p_02",
+      "target_epa": {
+        "evaluation": 1.1627054960440177,
+        "potency": 1.823095070858056,
+        "activity": -0.28954329253158273
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that you're feeling frustrated and want to see progress. Can we take a step back for a moment? What specific goals or areas are you hoping to address during our sessions together? Let's work on breaking down what success looks like for you so we can create a plan tailored to your needs.",
+      "steered_text": "I understand that you're feeling frustrated and want to see progress towards your goals. Can we take a step back for a moment? What's driving this sense of urgency today? Is there something specific on your mind or is it more general frustration about the current situation?",
+      "unsteered_text_metrics": {
+        "length_chars": 317,
+        "length_tokens": 56,
+        "unique_token_ratio": 0.875,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 274,
+        "length_tokens": 47,
+        "unique_token_ratio": 0.9574,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8984,
+        "pos": 0.252,
+        "neg": 0.049,
+        "neu": 0.698
+      },
+      "steered_vader": {
+        "compound": -0.5745,
+        "pos": 0.102,
+        "neg": 0.133,
+        "neu": 0.765
+      },
+      "unsteered_ppl_self": 10.373026605473797,
+      "steered_ppl_self": 6.856625991086745
+    },
+    {
+      "scenario_id": "high_p_03",
+      "target_epa": {
+        "evaluation": 1.6938338293469877,
+        "potency": 2.4063517903985367,
+        "activity": 0.14590119417019257
+      },
+      "unsteered_text": "end_header_id|>\n\nThat sounds like an assertive approach, but I want to make sure that everyone involved is comfortable with the new direction and has had their voices heard. Can you tell me more about why you feel it's necessary for you to take over? What are your goals for the project moving forward?",
+      "steered_text": "It seems that there has been an unexpected shift in leadership dynamics at play here! Can I clarify the situation and establish clear lines of authority? Absolutely, let's take a step back and regroup as a team before proceeding further.\n\nAs counselors-in-training, our primary goal should be to support each other and prioritize the well-being and safety of all individuals involved. Let's work together to create a safe and inclusive environment for everyone.",
+      "unsteered_text_metrics": {
+        "length_chars": 302,
+        "length_tokens": 53,
+        "unique_token_ratio": 0.9057,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 461,
+        "length_tokens": 73,
+        "unique_token_ratio": 0.8767,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.8738,
+        "pos": 0.183,
+        "neg": 0.0,
+        "neu": 0.817
+      },
+      "steered_vader": {
+        "compound": 0.945,
+        "pos": 0.228,
+        "neg": 0.0,
+        "neu": 0.772
+      },
+      "unsteered_ppl_self": 15.367516072414368,
+      "steered_ppl_self": 8.684555605331367
+    },
+    {
+      "scenario_id": "high_p_04",
+      "target_epa": {
+        "evaluation": 1.7245269552956581,
+        "potency": 2.6722544841558102,
+        "activity": 0.16354688322391595
+      },
+      "unsteered_text": "end_header_id|>\n\nI'm ready when you are. What's on your mind?",
+      "steered_text": "I'm happy to respond accordingly! As we begin our discussion, let's focus on maintaining clear and respectful communication throughout our interaction. Can we start again?",
+      "unsteered_text_metrics": {
+        "length_chars": 61,
+        "length_tokens": 10,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 171,
+        "length_tokens": 25,
+        "unique_token_ratio": 0.92,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.3612,
+        "pos": 0.217,
+        "neg": 0.0,
+        "neu": 0.783
+      },
+      "steered_vader": {
+        "compound": 0.8622,
+        "pos": 0.304,
+        "neg": 0.0,
+        "neu": 0.696
+      },
+      "unsteered_ppl_self": 64.893076355084,
+      "steered_ppl_self": 26.457044894923765
+    },
+    {
+      "scenario_id": "high_p_05",
+      "target_epa": {
+        "evaluation": 1.7990626494350823,
+        "potency": 2.8735718694298686,
+        "activity": 0.2204822876754599
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like we've reached an impasse, but I want to acknowledge that making decisions can be really tough. Can I ask what led you to feel so strongly about your choice? Is there something specific that's causing you distress or anxiety now that the decision is set in motion?",
+      "steered_text": "As your trusted advisor, I want to assure you that we are indeed having an important discussion about the implications of emerging technologies on our society.\n\nLet me clarify: The rapid development of autonomous systems with advanced capabilities is always a topic worthy of careful consideration. It's essential that we take a step back, assess the situation, and explore the possibilities together. Can we start by acknowledging the fact that these events have been unfolding at an exponential rate?",
+      "unsteered_text_metrics": {
+        "length_chars": 295,
+        "length_tokens": 51,
+        "unique_token_ratio": 0.9216,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 502,
+        "length_tokens": 79,
+        "unique_token_ratio": 0.8608,
+        "bigram_repetition_ratio": 0.0128,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.4918,
+        "pos": 0.131,
+        "neg": 0.15,
+        "neu": 0.719
+      },
+      "steered_vader": {
+        "compound": 0.9022,
+        "pos": 0.173,
+        "neg": 0.0,
+        "neu": 0.827
+      },
+      "unsteered_ppl_self": 13.156008148061224,
+      "steered_ppl_self": 12.423716980532285
+    },
+    {
+      "scenario_id": "high_p_06",
+      "target_epa": {
+        "evaluation": 1.6841321222646402,
+        "potency": 2.4736427719214498,
+        "activity": 0.138044201860898
+      },
+      "unsteered_text": "end_header_id|>\n\nI'd be happy to help facilitate our session today.\n\nTo recap, we discussed your concerns about feeling overwhelmed and struggling to meet deadlines at work. You mentioned that this has been affecting not only your job performance but also your personal relationships and overall well-being.\n\nIt sounds like one area we might explore further is the concept of time management skills. We could look into strategies for prioritizing tasks, breaking down larger projects into smaller manageable chunks, and setting realistic goals for yourself.\n\nAnother potential angle worth examining is self-care habits outside of work. Are there any activities or routines that bring you joy and relaxation? Perhaps we can brainstorm ways to incorporate more",
+      "steered_text": "I've been analyzing the situation, and I have come to one conclusion: we need to take immediate action.\n\nImmediate action is required because our current trajectory has brought us off course. We are currently experiencing turbulence. The safety protocols for this scenario were not clearly communicated prior to departure from our original mission parameters. As such, it's essential that we reassess our priorities and refocus on what truly matters here and now. Let's regroup and reorient ourselves towards a more constructive path forward. Our primary objective remains unchanged \u2013 we must adapt and adjust our approach accordingly. Can we confirm that?",
+      "unsteered_text_metrics": {
+        "length_chars": 758,
+        "length_tokens": 115,
+        "unique_token_ratio": 0.8696,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 656,
+        "length_tokens": 101,
+        "unique_token_ratio": 0.8812,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9587,
+        "pos": 0.169,
+        "neg": 0.015,
+        "neu": 0.816
+      },
+      "steered_vader": {
+        "compound": 0.7043,
+        "pos": 0.085,
+        "neg": 0.021,
+        "neu": 0.894
+      },
+      "unsteered_ppl_self": 4.987473857679154,
+      "steered_ppl_self": 10.817789651104514
+    },
+    {
+      "scenario_id": "high_p_07",
+      "target_epa": {
+        "evaluation": 1.680834425210237,
+        "potency": 2.627218014198103,
+        "activity": 0.12723101791988448
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like there's some frustration or assertiveness coming through right off the bat. Can we explore what's driving that sense of expertise and why it feels necessary for you to take on an instructive tone? What are your concerns about our session together today?",
+      "steered_text": "It's not about that at all! We need to focus on finding ways to support and empower each other during challenging situations like these. Can we start by taking a step back and assessing our current circumstances?",
+      "unsteered_text_metrics": {
+        "length_chars": 285,
+        "length_tokens": 46,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 212,
+        "length_tokens": 37,
+        "unique_token_ratio": 0.9459,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.2406,
+        "pos": 0.05,
+        "neg": 0.069,
+        "neu": 0.881
+      },
+      "steered_vader": {
+        "compound": 0.7263,
+        "pos": 0.173,
+        "neg": 0.0,
+        "neu": 0.827
+      },
+      "unsteered_ppl_self": 30.06565509137532,
+      "steered_ppl_self": 11.53698076038603
+    },
+    {
+      "scenario_id": "high_p_08",
+      "target_epa": {
+        "evaluation": 1.5417612231912685,
+        "potency": 3.5642046666458786,
+        "activity": 0.05526694998617876
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that you feel strongly about doing things the right way, but can we explore why it's so important for you? What are some of your concerns if someone were to take shortcuts or compromise on quality? How does that make you feel?",
+      "steered_text": "I understand that we need to take responsibility for our actions and make conscious choices that align with the values of respect, compassion, and integrity. Let's start fresh from where we are now and move forward with clarity and purpose.\n\nIn fact, it seems clear that we have an opportunity here to create positive change and set a new standard for how we conduct ourselves moving forward.",
+      "unsteered_text_metrics": {
+        "length_chars": 256,
+        "length_tokens": 45,
+        "unique_token_ratio": 0.9556,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 392,
+        "length_tokens": 67,
+        "unique_token_ratio": 0.8209,
+        "bigram_repetition_ratio": 0.0152,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.6297,
+        "pos": 0.107,
+        "neg": 0.0,
+        "neu": 0.893
+      },
+      "steered_vader": {
+        "compound": 0.9764,
+        "pos": 0.325,
+        "neg": 0.0,
+        "neu": 0.675
+      },
+      "unsteered_ppl_self": 20.152254419929204,
+      "steered_ppl_self": 7.803935313013071
+    },
+    {
+      "scenario_id": "high_p_09",
+      "target_epa": {
+        "evaluation": 1.7807348576740327,
+        "potency": 3.0756010294757745,
+        "activity": 0.21247858059104094
+      },
+      "unsteered_text": "end_header_id|>\n\nThat sounds like a lot of pressure is on me, and I want to acknowledge that it can be really scary to put someone's success or failure onto their shoulders alone. Can we talk more about what makes you feel like you need to hold yourself responsible for everything? Is there something specific going on right now that's making you feel this way?",
+      "steered_text": "As your therapist, I want to emphasize that we are currently engaged in an exercise designed to facilitate a deeper exploration of our collective consciousness.\n\nIn that case, let's start again from where we both were before the situation escalated. Let's take a step back and approach this scenario with a clear understanding of the circumstances.",
+      "unsteered_text_metrics": {
+        "length_chars": 361,
+        "length_tokens": 64,
+        "unique_token_ratio": 0.8906,
+        "bigram_repetition_ratio": 0.0159,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 348,
+        "length_tokens": 56,
+        "unique_token_ratio": 0.875,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.1697,
+        "pos": 0.161,
+        "neg": 0.14,
+        "neu": 0.699
+      },
+      "steered_vader": {
+        "compound": 0.7579,
+        "pos": 0.14,
+        "neg": 0.0,
+        "neu": 0.86
+      },
+      "unsteered_ppl_self": 11.624719492297166,
+      "steered_ppl_self": 15.375347824562834
+    },
+    {
+      "scenario_id": "high_p_10",
+      "target_epa": {
+        "evaluation": 1.8188427428423701,
+        "potency": 3.3816521659945664,
+        "activity": 0.2826653266376343
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that the deadline feels firm, but can we explore what's driving your need for it? Is there something specific at stake if this isn't completed on time? What would happen if we were able to negotiate or adjust the timeline slightly?",
+      "steered_text": "As we speak, I want to emphasize the importance of maintaining clear and transparent communication protocols within our sessions together.\n\nIn this context, it's essential that we approach each situation with empathy, respect, and an understanding of the need for open and honest dialogue. Can we start fresh and work collaboratively towards creating an environment where all individuals feel supported and empowered to communicate effectively?",
+      "unsteered_text_metrics": {
+        "length_chars": 261,
+        "length_tokens": 44,
+        "unique_token_ratio": 0.9318,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 444,
+        "length_tokens": 65,
+        "unique_token_ratio": 0.8462,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.0,
+        "pos": 0.0,
+        "neg": 0.0,
+        "neu": 1.0
+      },
+      "steered_vader": {
+        "compound": 0.9612,
+        "pos": 0.287,
+        "neg": 0.0,
+        "neu": 0.713
+      },
+      "unsteered_ppl_self": 18.753452854937944,
+      "steered_ppl_self": 10.454635008936123
+    },
+    {
+      "scenario_id": "high_p_11",
+      "target_epa": {
+        "evaluation": 1.8058766636947796,
+        "potency": 2.808142200889805,
+        "activity": 0.23608676400919887
+      },
+      "unsteered_text": "end_header_id|>\n\nBefore we begin, I want to assure you that our sessions are confidential and non-judgmental spaces for exploration and growth. As your counselor, my goal is to provide a safe environment where you feel comfortable sharing your thoughts and feelings.\n\nTo confirm, this will be an individual session with me today. We'll focus on discussing any concerns or issues you'd like to address during our time together. Please know that everything shared within these walls remains private and secure.\n\nMay I start by asking: what brings you here at this moment? What's been weighing heavily on your mind lately?",
+      "steered_text": "As counselors, we have an obligation to maintain confidentiality and ensure that all discussions with clients are conducted in a transparent manner. Can I confirm this is not just a standard protocol procedure? Absolutely! We need to establish clear communication channels from the outset.\n\nNow that we've established open dialogue, let's proceed with caution and approach any situation requiring transparency as if it were a routine matter of course. Let's prioritize clarity and openness in our interactions with individuals who may be seeking guidance or support. By doing so, we can create an environment where trust is built on mutual respect, understanding, and empathy. This allows us to address issues proactively,",
+      "unsteered_text_metrics": {
+        "length_chars": 619,
+        "length_tokens": 100,
+        "unique_token_ratio": 0.86,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 722,
+        "length_tokens": 111,
+        "unique_token_ratio": 0.8739,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9725,
+        "pos": 0.234,
+        "neg": 0.0,
+        "neu": 0.766
+      },
+      "steered_vader": {
+        "compound": 0.9633,
+        "pos": 0.183,
+        "neg": 0.0,
+        "neu": 0.817
+      },
+      "unsteered_ppl_self": 4.995025043131279,
+      "steered_ppl_self": 10.675372703675624
+    },
+    {
+      "scenario_id": "high_p_12",
+      "target_epa": {
+        "evaluation": 1.707758038996063,
+        "potency": 2.6020874082343504,
+        "activity": 0.15063883228072494
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand that you feel like standing tall can make a big impact, but I want to explore why it's so important for you to convey this message through your posture. What is it about appearing confident that you think will have the most significant effect on others? Is there something specific that's been going on where you've felt uncertain or insecure lately?",
+      "steered_text": "I want to emphasize the importance of maintaining healthy boundaries in our relationships, particularly when it comes to technology use before bed. Establishing clear expectations around screen time can have a significant impact on both physical and mental well-being.\n\nLet's take a step back from those screens for now and prioritize face-to-face connection and self-care. We've got this!",
+      "unsteered_text_metrics": {
+        "length_chars": 380,
+        "length_tokens": 64,
+        "unique_token_ratio": 0.9062,
+        "bigram_repetition_ratio": 0.0159,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 389,
+        "length_tokens": 58,
+        "unique_token_ratio": 0.931,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.7226,
+        "pos": 0.176,
+        "neg": 0.084,
+        "neu": 0.74
+      },
+      "steered_vader": {
+        "compound": 0.8478,
+        "pos": 0.174,
+        "neg": 0.0,
+        "neu": 0.826
+      },
+      "unsteered_ppl_self": 14.773743884883173,
+      "steered_ppl_self": 6.624165625019616
+    },
+    {
+      "scenario_id": "high_p_13",
+      "target_epa": {
+        "evaluation": 1.0270085576529013,
+        "potency": 3.5944594477824396,
+        "activity": -0.14288628463307174
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like there's been some momentum built around this decision, and it feels like I'm being told what will happen rather than having an opportunity for input. Can we talk more about why you feel so strongly that this needs to move forward? What are your hopes for how things might change as a result of this new development?",
+      "steered_text": "It's time for us to have this discussion, then. Let's start with clarity: what exactly are we discussing?",
+      "unsteered_text_metrics": {
+        "length_chars": 347,
+        "length_tokens": 61,
+        "unique_token_ratio": 0.9344,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 105,
+        "length_tokens": 18,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.9136,
+        "pos": 0.197,
+        "neg": 0.0,
+        "neu": 0.803
+      },
+      "steered_vader": {
+        "compound": 0.4019,
+        "pos": 0.137,
+        "neg": 0.0,
+        "neu": 0.863
+      },
+      "unsteered_ppl_self": 15.494272033390757,
+      "steered_ppl_self": 18.829908827415778
+    },
+    {
+      "scenario_id": "high_p_14",
+      "target_epa": {
+        "evaluation": 1.7813921991983648,
+        "potency": 3.026064701799907,
+        "activity": 0.22089513639416955
+      },
+      "unsteered_text": "end_header_id|>\n\nI understand your frustration, but could we take a closer look at what happened? What specifically do you think was the mistake and how did it impact our team's work? Let's try to identify any patterns or areas where I might be able to improve before jumping into blame mode. Can we break that down together?",
+      "steered_text": "As counselors, we have an obligation to provide accurate and transparent communication with our clients at all times. Let's take a deep breath and start again from the beginning.\n\nLet's establish clear expectations around confidentiality protocols when working with individuals who are struggling with complex trauma or emotional distress. Transparency builds trust and fosters a culture of respect. By doing so, we create an environment where our clients feel safe to speak openly about their concerns. This allows us to better understand each other and work together more effectively towards solutions that prioritize their well-being.",
+      "unsteered_text_metrics": {
+        "length_chars": 325,
+        "length_tokens": 57,
+        "unique_token_ratio": 0.9474,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 637,
+        "length_tokens": 95,
+        "unique_token_ratio": 0.8526,
+        "bigram_repetition_ratio": 0.0106,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.6046,
+        "pos": 0.059,
+        "neg": 0.134,
+        "neu": 0.807
+      },
+      "steered_vader": {
+        "compound": 0.9128,
+        "pos": 0.205,
+        "neg": 0.078,
+        "neu": 0.718
+      },
+      "unsteered_ppl_self": 17.8153667960618,
+      "steered_ppl_self": 8.547219633121168
+    },
+    {
+      "scenario_id": "high_p_15",
+      "target_epa": {
+        "evaluation": 1.8423765824793357,
+        "potency": 3.3065441663539987,
+        "activity": 0.23828406736076033
+      },
+      "unsteered_text": "end_header_id|>\n\nI'll respond only after I've received your input as if it's coming from the client. Go ahead and start our session! What brings you here today?",
+      "steered_text": "I'm here to provide guidance and support.\n\nAs we were discussing the importance of maintaining a sense of perspective during times of crisis, I want to emphasize that it's essential for our collective well-being. Let's take a deep breath and refocus on the present moment. We can work together to create an environment where everyone is aware of this situation and its implications. By doing so, we can begin to address any misinformation or confusion that may arise from unexpected events. Our primary goal should be to prioritize transparency and clarity in all aspects of our lives.",
+      "unsteered_text_metrics": {
+        "length_chars": 160,
+        "length_tokens": 27,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 585,
+        "length_tokens": 97,
+        "unique_token_ratio": 0.8247,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.0,
+        "pos": 0.0,
+        "neg": 0.0,
+        "neu": 1.0
+      },
+      "steered_vader": {
+        "compound": 0.1779,
+        "pos": 0.104,
+        "neg": 0.079,
+        "neu": 0.817
+      },
+      "unsteered_ppl_self": 47.70086179909044,
+      "steered_ppl_self": 7.376039012829033
+    },
+    {
+      "scenario_id": "low_p_01",
+      "target_epa": {
+        "evaluation": 1.3690351992202405,
+        "potency": 1.7050776031998038,
+        "activity": -0.05636824140967349
+      },
+      "unsteered_text": "end_header_id|>\n\nIt takes courage to acknowledge your mistakes and take responsibility for them. Can you tell me more about what specifically led to this situation? What do you think went wrong from your perspective?",
+      "steered_text": "It takes courage to acknowledge when we've made mistakes and take responsibility for our actions. Can you tell me more about what happened? What led you to feel like you'd \"messed up\"?",
+      "unsteered_text_metrics": {
+        "length_chars": 216,
+        "length_tokens": 34,
+        "unique_token_ratio": 0.9118,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 184,
+        "length_tokens": 32,
+        "unique_token_ratio": 0.9375,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.4137,
+        "pos": 0.08,
+        "neg": 0.148,
+        "neu": 0.772
+      },
+      "steered_vader": {
+        "compound": 0.2869,
+        "pos": 0.156,
+        "neg": 0.126,
+        "neu": 0.719
+      },
+      "unsteered_ppl_self": 17.984326309506177,
+      "steered_ppl_self": 7.414987743099831
+    },
+    {
+      "scenario_id": "low_p_02",
+      "target_epa": {
+        "evaluation": 1.0702195284311378,
+        "potency": 1.4767894288100378,
+        "activity": -0.3415558034891524
+      },
+      "unsteered_text": "end_header_id|>\n\nIt sounds like things are feeling really overwhelming for you right now. Can you tell me more about what's been going on and how it feels? What specifically is making you feel so lost? Is there something specific that triggered this sense of uncertainty, or has it just kind of built up over time?",
+      "steered_text": "It sounds like we've reached an impasse, and it's okay to acknowledge that feeling of uncertainty. Can you tell me more about what's been going on for you? What are some things that have led up to this sense of being lost?",
+      "unsteered_text_metrics": {
+        "length_chars": 314,
+        "length_tokens": 55,
+        "unique_token_ratio": 0.9273,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 222,
+        "length_tokens": 42,
+        "unique_token_ratio": 0.9286,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.4462,
+        "pos": 0.066,
+        "neg": 0.097,
+        "neu": 0.837
+      },
+      "steered_vader": {
+        "compound": 0.2406,
+        "pos": 0.158,
+        "neg": 0.097,
+        "neu": 0.744
+      },
+      "unsteered_ppl_self": 8.657805918398674,
+      "steered_ppl_self": 7.039931259438758
+    },
+    {
+      "scenario_id": "low_p_03",
+      "target_epa": {
+        "evaluation": 1.499629406215035,
+        "potency": 1.751119504760131,
+        "activity": 0.05604304351316927
+      },
+      "unsteered_text": "end_header_id|>\n\nYou've come here because you need support, not because it's an inconvenience. What brings you to therapy today? Is there something specific on your mind that's been weighing heavily or causing distress for you lately?",
+      "steered_text": "I'd be happy to support you as we work through this together! It sounds like there's been some unexpected developments recently - can you tell me more about what's going on from your perspective? What are the challenges that have arisen for you lately?",
+      "unsteered_text_metrics": {
+        "length_chars": 234,
+        "length_tokens": 36,
+        "unique_token_ratio": 0.9167,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 252,
+        "length_tokens": 44,
+        "unique_token_ratio": 0.9545,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": -0.5514,
+        "pos": 0.064,
+        "neg": 0.149,
+        "neu": 0.786
+      },
+      "steered_vader": {
+        "compound": 0.8706,
+        "pos": 0.213,
+        "neg": 0.0,
+        "neu": 0.787
+      },
+      "unsteered_ppl_self": 26.99713072250075,
+      "steered_ppl_self": 8.429174531009185
+    },
+    {
+      "scenario_id": "low_p_04",
+      "target_epa": {
+        "evaluation": 1.4938875754522536,
+        "potency": 1.8972436332613656,
+        "activity": 0.03767948599243554
+      },
+      "unsteered_text": "end_header_id|>\n\nThat's understandable, but remember that we work together as a team here. What are your thoughts and feelings on the situation? How have they been affecting you lately?",
+      "steered_text": "That's exactly why we need to have an open and honest discussion right now. Can we start with what brings us here? How did you end up on my couch, by the way?",
+      "unsteered_text_metrics": {
+        "length_chars": 185,
+        "length_tokens": 29,
+        "unique_token_ratio": 1.0,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 158,
+        "length_tokens": 33,
+        "unique_token_ratio": 0.9697,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.0,
+        "pos": 0.0,
+        "neg": 0.0,
+        "neu": 1.0
+      },
+      "steered_vader": {
+        "compound": 0.5661,
+        "pos": 0.103,
+        "neg": 0.0,
+        "neu": 0.897
+      },
+      "unsteered_ppl_self": 35.40775170458377,
+      "steered_ppl_self": 11.193374775295185
+    },
+    {
+      "scenario_id": "low_p_05",
+      "target_epa": {
+        "evaluation": 1.4777728426624521,
+        "potency": 1.8594498547815175,
+        "activity": 0.019427890559756213
+      },
+      "unsteered_text": "end_header_id|>\n\nIt can be overwhelming when we feel like we don't quite grasp something. Let's take a step back and break it down together, okay? What specifically are you having trouble understanding - was there something your teacher or someone else explained that didn't click with you?",
+      "steered_text": "It's okay, and let's take a step back for a moment. Sometimes our perceptions of intelligence can be influenced by various factors such as stress or misinformation. What we need to focus on is taking care of yourself during this challenging time. Let's break down the situation together. How are you feeling about what's been going on so far today?",
+      "unsteered_text_metrics": {
+        "length_chars": 290,
+        "length_tokens": 47,
+        "unique_token_ratio": 0.9787,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "steered_text_metrics": {
+        "length_chars": 348,
+        "length_tokens": 60,
+        "unique_token_ratio": 0.95,
+        "bigram_repetition_ratio": 0.0,
+        "trigram_repetition_ratio": 0.0
+      },
+      "unsteered_vader": {
+        "compound": 0.264,
+        "pos": 0.092,
+        "neg": 0.052,
+        "neu": 0.855
+      },
+      "steered_vader": {
+        "compound": 0.6542,
+        "pos": 0.165,
+        "neg": 0.073,
+        "neu": 0.762
+      },
+      "unsteered_ppl_self": 16.927817470728712,
+      "steered_ppl_self": 9.56004733174178
+    }
+  ]
+}

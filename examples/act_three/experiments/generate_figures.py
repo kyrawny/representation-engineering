@@ -457,6 +457,216 @@ def fig_baseline_comparison(fmt: str = "pdf"):
 
 
 # =========================================================================
+# Figure 9: Hybrid comparison (experiment 08)
+# =========================================================================
+
+def fig_hybrid_comparison(fmt: str = "pdf"):
+    """Grouped bar chart: distance to target for 4 methods (+ error bars)."""
+    plt = _setup_style()
+    data = load_results("08_hybrid_steering.json")
+    aggregate = data["aggregate"]
+
+    fig, ax = plt.subplots(figsize=(10, 4.5))
+
+    x = np.arange(3)
+    width = 0.2
+    methods = [
+        ("unsteered", "Unsteered", "#95a5a6"),
+        ("repe_only", "RepE Only", "#2ecc71"),
+        ("pe_only", "PE Only", "#f39c12"),
+        ("hybrid", "Hybrid", "#9b59b6"),
+    ]
+
+    for j, (key, label, color) in enumerate(methods):
+        dists = [aggregate[key]["per_dimension"][dim]["mean_distance"]
+                 for dim in DIMENSION_NAMES]
+        # Error bars from CIs if available
+        ci_lo = [aggregate[key]["per_dimension"][dim].get("ci_lower", dists[i])
+                 for i, dim in enumerate(DIMENSION_NAMES)]
+        ci_hi = [aggregate[key]["per_dimension"][dim].get("ci_upper", dists[i])
+                 for i, dim in enumerate(DIMENSION_NAMES)]
+        yerr_lo = [d - lo for d, lo in zip(dists, ci_lo)]
+        yerr_hi = [hi - d for d, hi in zip(dists, ci_hi)]
+
+        bars = ax.bar(x + j * width, dists, width, label=label, color=color,
+                      alpha=0.85, edgecolor="white", linewidth=0.5,
+                      yerr=[yerr_lo, yerr_hi], capsize=3, error_kw={"linewidth": 1})
+
+    ax.set_xticks(x + 1.5 * width)
+    ax.set_xticklabels([DIM_LABELS[d] for d in DIMENSION_NAMES])
+    ax.set_ylabel("Mean Distance to Target")
+    ax.set_title("Hybrid Steering: Distance to ACT-Optimal EPA")
+    ax.legend(loc="upper left")
+    plt.tight_layout()
+    _save_fig(fig, "fig09_hybrid_comparison", fmt)
+    plt.close(fig)
+
+
+# =========================================================================
+# Figure 10: Direction quality comparison (experiment 09)
+# =========================================================================
+
+def fig_direction_comparison(fmt: str = "pdf"):
+    """Bar chart comparing cross-dimension entanglement across direction sets."""
+    plt = _setup_style()
+    data = load_results("09_direction_quality_comparison.json")
+    dir_sets = data.get("direction_sets", {})
+
+    if not dir_sets:
+        print("  No direction sets to compare")
+        return
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+
+    set_names = list(dir_sets.keys())
+    n_sets = len(set_names)
+    pairs = ["evaluation_vs_potency", "evaluation_vs_activity", "potency_vs_activity"]
+    pair_labels = ["E·P", "E·A", "P·A"]
+
+    x = np.arange(len(pairs))
+    width = 0.8 / n_sets
+    colors = ["#95a5a6", "#2ecc71", "#9b59b6", "#e74c3c"]
+
+    for j, set_name in enumerate(set_names):
+        vals = [dir_sets[set_name]["cross_dimension_cosines"][p]["mean_abs_cosine"]
+                for p in pairs]
+        ax.bar(x + j * width, vals, width, label=set_name.replace("_", " ").title(),
+               color=colors[j % len(colors)], alpha=0.85,
+               edgecolor="white", linewidth=0.5)
+
+    ax.set_xticks(x + width * (n_sets - 1) / 2)
+    ax.set_xticklabels(pair_labels)
+    ax.set_ylabel("Mean |Cosine Similarity|")
+    ax.set_title("Cross-Dimension Entanglement by Direction Set")
+    ax.legend()
+    ax.axhline(0.1, color="gray", linestyle="--", alpha=0.5, label="Target threshold")
+    plt.tight_layout()
+    _save_fig(fig, "fig10_direction_comparison", fmt)
+    plt.close(fig)
+
+
+# =========================================================================
+# Figure 11: Statistical significance forest plot (experiment 10)
+# =========================================================================
+
+def fig_significance_forest(fmt: str = "pdf"):
+    """Forest plot showing effect sizes with CIs for all comparisons."""
+    plt = _setup_style()
+    data = load_results("10_statistical_significance.json")
+    comparisons = data.get("comparisons", {})
+
+    if not comparisons:
+        print("  No comparisons to plot")
+        return
+
+    # Collect all data points
+    labels = []
+    effects = []
+    ci_los = []
+    ci_his = []
+
+    for comp_name, comp_data in comparisons.items():
+        for dim in DIMENSION_NAMES:
+            d = comp_data.get(dim, {})
+            if "cohens_d" not in d:
+                continue
+            clean_name = comp_name.replace("_", " ").title()
+            labels.append(f"{clean_name}\n{dim[0].upper()}")
+            effects.append(d["cohens_d"])
+            # Approximate CI from the mean_diff CI
+            ci_los.append(d.get("ci_lower", d["cohens_d"] - 0.1))
+            ci_his.append(d.get("ci_upper", d["cohens_d"] + 0.1))
+
+    if not labels:
+        print("  No effect sizes to plot")
+        return
+
+    n = len(labels)
+    fig, ax = plt.subplots(figsize=(8, max(3, n * 0.4)))
+    y = np.arange(n)
+
+    # Color by significance
+    colors = []
+    for comp_name, comp_data in comparisons.items():
+        for dim in DIMENSION_NAMES:
+            d = comp_data.get(dim, {})
+            if "cohens_d" not in d:
+                continue
+            p = min(d.get("permutation_p", 1), d.get("wilcoxon_p", 1))
+            if p < 0.001:
+                colors.append("#2ecc71")
+            elif p < 0.05:
+                colors.append("#f39c12")
+            else:
+                colors.append("#e74c3c")
+
+    ax.barh(y, effects, color=colors, alpha=0.7, edgecolor="white", height=0.6)
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels, fontsize=7)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.axvline(0.2, color="gray", linestyle=":", alpha=0.5)
+    ax.axvline(-0.2, color="gray", linestyle=":", alpha=0.5)
+    ax.set_xlabel("Cohen's d (paired)")
+    ax.set_title("Effect Sizes Across Comparisons")
+
+    # Legend
+    from matplotlib.patches import Patch
+    legend_elements = [
+        Patch(facecolor="#2ecc71", alpha=0.7, label="p < .001"),
+        Patch(facecolor="#f39c12", alpha=0.7, label="p < .05"),
+        Patch(facecolor="#e74c3c", alpha=0.7, label="p ≥ .05"),
+    ]
+    ax.legend(handles=legend_elements, loc="lower right", fontsize=8)
+
+    plt.tight_layout()
+    _save_fig(fig, "fig11_significance_forest", fmt)
+    plt.close(fig)
+
+
+# =========================================================================
+# Figure 12: Orthogonal direction cosine heatmap (experiment 09)
+# =========================================================================
+
+def fig_orthogonal_cosines(fmt: str = "pdf"):
+    """Heatmap of per-layer cosine similarities between direction sets."""
+    plt = _setup_style()
+    import seaborn as sns
+
+    data = load_results("09_direction_quality_comparison.json")
+    cosines = data.get("cosine_similarities", {})
+
+    if not cosines:
+        print("  No cosine similarity data to plot")
+        return
+
+    # Take the first comparison pair
+    pair_key = list(cosines.keys())[0]
+    pair_data = cosines[pair_key]
+
+    fig, axes = plt.subplots(1, 3, figsize=(14, 3))
+
+    for i, dim in enumerate(DIMENSION_NAMES):
+        ax = axes[i]
+        per_layer = pair_data[dim]["per_layer"]
+        layers = sorted([int(k) for k in per_layer.keys()])
+        vals = [per_layer[str(l)] for l in layers]
+
+        ax.bar(range(len(layers)), vals, color=DIM_COLORS[dim], alpha=0.7)
+        ax.set_xticks(range(0, len(layers), 5))
+        ax.set_xticklabels([str(layers[i]) for i in range(0, len(layers), 5)],
+                           fontsize=7)
+        ax.set_xlabel("Layer Index")
+        ax.set_ylabel("Cosine Similarity")
+        ax.set_title(f"{DIM_LABELS[dim]} ({pair_key.replace('_', ' ')})")
+        ax.axhline(0, color="gray", linewidth=0.5)
+
+    fig.suptitle("Per-Layer Direction Cosine Similarity", fontsize=13, y=1.02)
+    plt.tight_layout()
+    _save_fig(fig, "fig12_orthogonal_cosines", fmt)
+    plt.close(fig)
+
+
+# =========================================================================
 # Main
 # =========================================================================
 
@@ -469,6 +679,10 @@ FIGURES = {
     "identity_heatmap": fig_identity_heatmap,
     "coherence": fig_coherence,
     "baseline_comparison": fig_baseline_comparison,
+    "hybrid_comparison": fig_hybrid_comparison,
+    "direction_comparison": fig_direction_comparison,
+    "significance_forest": fig_significance_forest,
+    "orthogonal_cosines": fig_orthogonal_cosines,
 }
 
 
@@ -493,6 +707,10 @@ def main():
             "identity_heatmap": "06_identity_generalization.json",
             "coherence": "07_coherence_evaluation.json",
             "baseline_comparison": "03_prompt_baseline.json",
+            "hybrid_comparison": "08_hybrid_steering.json",
+            "direction_comparison": "09_direction_quality_comparison.json",
+            "significance_forest": "10_statistical_significance.json",
+            "orthogonal_cosines": "09_direction_quality_comparison.json",
         }
 
         req_file = result_file.get(name)
@@ -509,3 +727,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

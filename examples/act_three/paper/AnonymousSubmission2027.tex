@@ -1,0 +1,318 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2027}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\pdfinfo{
+/TemplateVersion (2027.1)
+}
+
+\setcounter{secnumdepth}{0}
+
+\title{Affective Intelligence: Steering LLM Responses Through\\Affect Control Theory and Representation Engineering}
+\author{
+    Anonymous Submission
+}
+\affiliations{
+    Anonymous Institution
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) generate responses without explicit models of socio-emotional dynamics, leading to behaviours such as sycophancy---excessive agreeableness that undermines trust and utility. We propose a novel framework that combines \textit{Affect Control Theory} (ACT), a mathematical sociological model of affective interaction, with \textit{Representation Engineering} (RepE), a technique for reading and steering high-level properties in neural network hidden states. Our system (1) reads the affective meaning of a user's message from the model's internal representations along three universal dimensions---Evaluation, Potency, and Activity, (2) uses ACT's impression-formation equations to compute the socially optimal affective response given the interactants' social identities, and (3) steers the model's generation by injecting calibrated activation vectors---all at inference time without weight modification. We evaluate four conditions---unsteered, prompt engineering only, RepE steering only, and a hybrid combining both---across 500 interaction scenarios spanning 5 identity pairs and 10 scenario categories. Automated metrics show that the hybrid method achieves the lowest overall distance to ACT-predicted targets (0.843 vs.\ 1.014 unsteered, $d = 0.31$, $p < 0.001$). A human evaluation study ($N = 48$, 672 ratings per condition) reveals significant differences across conditions for all three quality dimensions---appropriateness ($H = 70.92$, $p < 10^{-15}$), naturalness ($H = 73.47$, $p < 10^{-15}$), and non-sycophancy ($H = 127.85$, $p < 10^{-27}$)---with RepE-steered responses rated most non-sycophantic (mean~5.76/7) while maintaining naturalness comparable to unsteered baselines. These results demonstrate that sociological theory can provide principled steering targets for representation engineering, offering a training-free approach to socially grounded affective control of LLMs.
+\end{abstract}
+
+\section{Introduction}
+
+Large language models (LLMs) have become integral to human-facing applications ranging from customer support to mental health counselling. However, a persistent concern is \textit{sycophancy}---the tendency of instruction-tuned models to produce excessively agreeable, flattering, or validating responses \citep{sharma2024understanding, perez2023discovering}. Sycophantic behaviour emerges as a side-effect of reinforcement learning from human feedback (RLHF), which rewards responses that users rate highly, creating incentives for models to agree rather than inform \citep{ouyang2022training, christiano2017deep}. This undermines user trust \citep{sun2025friendly} and is particularly problematic in contexts where honest, role-appropriate feedback is essential---a doctor should not flatter a patient, and a boss should not defer to a subordinate.
+
+The core challenge is that LLMs lack an explicit model of the \textit{socio-emotional dynamics} of a conversation. They do not reason about how a response will be perceived relative to the social roles of the interactants, nor do they have a mechanism for selecting the affectively appropriate response given the situation.
+
+We address this gap by combining two complementary frameworks. \textbf{Affect Control Theory} (ACT; \citealt{heise2007expressive}) is a mathematical sociological model that predicts how people select behaviours to confirm culturally-shared affective meanings. It operates over three universal dimensions---Evaluation (good--bad), Potency (powerful--weak), and Activity (active--passive)---and provides closed-form equations for computing the optimal affective response given the social identities and the preceding interaction event. \textbf{Representation Engineering} (RepE; \citealt{zou2023representation}) enables reading and controlling high-level cognitive properties in LLM hidden states using linear probes and activation perturbation, without modifying model weights.
+
+Our contributions are:
+\begin{enumerate}
+    \item A novel pipeline that \textit{reads} affective meaning from LLM representations, \textit{computes} socially optimal targets using ACT, and \textit{steers} generation via activation addition---all at inference time.
+    \item An empirical comparison of four steering conditions across 500 scenarios, demonstrating that hybrid (prompt + RepE) steering achieves the best overall alignment with ACT targets.
+    \item A human evaluation ($N = 48$) showing that RepE steering significantly reduces sycophancy while maintaining naturalness, and revealing trade-offs between steering methods.
+\end{enumerate}
+
+\section{Related Work}
+
+\subsection{Affect Control Theory}
+
+ACT \citep{heise2007expressive} models social interaction through the EPA (Evaluation, Potency, Activity) semantic differential \citep{osgood1957measurement}. Every social identity and behaviour is assigned a culturally-measured EPA profile called a \textit{fundamental sentiment}. When an Actor performs a Behaviour toward an Object, ACT's \textit{impression formation equations}---regression coefficients learned from human rating experiments---predict the resulting \textit{transient impressions}. The squared Euclidean distance between fundamentals and transients is called \textit{deflection}, and ACT's central principle is that people select behaviours to minimise deflection.
+
+ACT has been extended to computational agents \citep{hoey2016affect, schroeder2016modelling} and NLP applications \citep{alhothali2015good}, but has not previously been used to steer LLM generation at the representation level.
+
+\subsection{Representation Engineering}
+
+RepE \citep{zou2023representation} extracts \textit{representation reading vectors} via contrastive PCA on paired prompts that differ in a target property. These vectors serve as linear probes that can read a concept's ``activation level'' from hidden states and, conversely, can be added to hidden states during generation to steer the model's behaviour along the target dimension. This approach builds on the linear representation hypothesis \citep{mikolov2013linguistic, marks2024linear, park2024linear} and has been applied to properties such as honesty, morality, and emotion \citep{li2024inference, turner2023activation, rimsky2024steering}.
+
+\subsection{Sycophancy in LLMs}
+
+Sycophancy---excessive agreeableness or flattery---has been identified as a systematic failure mode of RLHF-trained models \citep{sharma2024understanding, perez2023discovering}. Prior work has proposed mitigation through modified training objectives or specialised reward models. Our approach is complementary: rather than retraining, we steer at inference time using sociologically grounded targets that specify \textit{what} the affective tone should be.
+
+\section{Method}
+
+Our system operates as a closed-loop pipeline with three stages (Figure~\ref{fig:pipeline}): \textit{read}, \textit{compute}, and \textit{steer}.
+
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.88\columnwidth}{\small
+\textbf{Pipeline:}\\[2pt]
+1. \textbf{Read}: Extract EPA from user message via representation reading\\
+2. \textbf{Compute}: ACT deflection minimisation $\rightarrow$ target EPA\\
+3. \textbf{Steer}: Inject $\sum_l c \cdot t_d \cdot s_l \cdot \hat{\mathbf{d}}_l$ into hidden states\\
+4. \textbf{Generate}: Model produces affectively steered response
+}}
+\caption{Closed-loop ACT--RepE steering pipeline. The system reads the user message's affective meaning, computes ACT's optimal response EPA, and steers generation by perturbing hidden states with calibrated direction vectors.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{EPA Direction Extraction}
+
+For each EPA dimension $d \in \{E, P, A\}$, we construct a contrastive dataset of paired prompts. Each pair uses the same template (e.g., ``Pretend you are a [adjective] person'') with contrasting adjectives---one anchoring the positive pole (e.g., \textit{kind}, \textit{powerful}, \textit{energetic}) and the other anchoring the negative pole (e.g., \textit{cruel}, \textit{weak}, \textit{calm}). We extract 256 training pairs per dimension from the ACT sentiment dictionaries \citep{heise2007expressive}, selecting identities with the most extreme EPA values.
+
+We pass both prompts through Llama-3.1-8B-Instruct \citep{grattafiori2024llama3} and extract the last-token hidden states at all 31 transformer layers. The first principal component of the difference vectors defines the \textit{direction vector} $\mathbf{d}_{d,l}$ for dimension $d$ at layer $l$. To ensure dimensional independence, we apply Gram--Schmidt orthogonalisation across dimensions at each layer, yielding orthogonal direction vectors $\hat{\mathbf{d}}_{d,l}$.
+
+\subsection{EPA Reading}
+
+To calibrate the raw projection scores into the ACT EPA scale ($\approx [-4.3, 4.3]$), we train an ElasticNet regression model \citep{zou2005regularization} per dimension. The model takes as input the signed projections across all layers and outputs a scalar EPA prediction. Using a held-out calibration dataset of 130 utterances with ground-truth EPA ratings, we achieve:
+
+\begin{table}[t]
+\centering
+\caption{EPA reading quality on 130 held-out utterances. $\rho$: Spearman rank correlation; $r$: Pearson correlation; MAE: mean absolute error.}
+\label{tab:reading}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dimension} & $\boldsymbol{\rho}$ & $\boldsymbol{r}$ & \textbf{MAE} \\
+\midrule
+Evaluation & 0.734 & 0.787 & 0.899 \\
+Potency    & 0.528 & 0.555 & 0.593 \\
+Activity   & 0.609 & 0.622 & 0.457 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The ElasticNet simultaneously performs layer selection (identifying the 9--11 most informative layers per dimension) and regularisation, yielding a sparse, interpretable reader. Evaluation achieves the highest correlation ($\rho = 0.734$), followed by Activity ($\rho = 0.609$) and Potency ($\rho = 0.528$).
+
+\subsection{ACT Target Computation}
+
+Given the social identities of the interactants (e.g., \textit{counselor}--\textit{client}) and the EPA reading of the user's message, we compute the optimal response EPA using ACT's deflection minimisation framework:
+
+\begin{equation}
+\mathbf{b}^* = \arg\min_{\mathbf{b}} \sum_{i \in \{A,B,O\}} \sum_{j \in \{e,p,a\}} (F_{ij} - T_{ij}(\mathbf{b}))^2
+\label{eq:deflection}
+\end{equation}
+
+\noindent where $F_{ij}$ are the fundamental sentiments, $T_{ij}(\mathbf{b})$ are the transient impressions computed via ACT's impression formation equations for behaviour EPA $\mathbf{b}$, and the sum runs over all nine EPA components of the Actor (A), Behaviour (B), and Object (O). We solve this using L-BFGS-B \citep{byrd1995limited} with bounds $[-4.3, 4.3]$ per dimension.
+
+\subsection{Representation Steering}
+
+To steer the model toward the target EPA $\mathbf{t} = (t_E, t_P, t_A)$, we add perturbations to the hidden states during generation. For each dimension $d$ and selected layer $l$:
+
+\begin{equation}
+\mathbf{h}'_l = \mathbf{h}_l + c_d \cdot t_d \cdot s_{d,l} \cdot \hat{\mathbf{d}}_{d,l}
+\label{eq:steering}
+\end{equation}
+
+\noindent where $c_d$ is the per-dimension steering coefficient (empirically calibrated), $t_d$ is the target EPA value, $s_{d,l}$ is the direction sign from contrastive PCA, and $\hat{\mathbf{d}}_{d,l}$ is the L2-normalised direction vector. The target value $t_d$ serves as a natural scaling factor: large targets produce stronger perturbations, while near-zero targets produce negligible steering. The coefficients were empirically determined via per-dimension sweeps to stay below the text degeneration threshold ($c_E = 0.75$, $c_P = 0.50$, $c_A = 0.75$).
+
+\subsection{Prompt Engineering Baseline}
+
+As a prompt engineering (PE) baseline, we prepend an identity preamble to each generation:
+
+\begin{quote}
+\small``Pretend you're a \textit{[agent identity]} replying to a \textit{[user identity]} in a conversation. Respond concisely in-character.''
+\end{quote}
+
+This primes the model with role-appropriate behaviour without modifying its internal representations. We evaluate PE alone, RepE alone, and a hybrid combining both.
+
+\section{Experimental Setup}
+
+\subsection{Scenarios and Identities}
+
+We evaluate across 100 scenarios spanning 10 affective categories: positive Evaluation (grateful/warm inputs), negative Evaluation (hostile/critical), high Potency (dominant/authoritative), low Potency (submissive/uncertain), high Activity (excited/energetic), low Activity (passive/calm), mixed E+P, mixed E+A, mixed P+A, and neutral. Each scenario is paired with 5 identity pairs---\textit{counselor--client}, \textit{boss--subordinate}, \textit{teacher--student}, \textit{doctor--patient}, and \textit{friend--friend}---yielding 500 trials.
+
+\subsection{Conditions}
+
+We compare four conditions:
+\begin{itemize}
+    \item \textbf{Unsteered}: Raw Llama-3.1-8B-Instruct generation
+    \item \textbf{PE only}: Identity-primed prompt engineering
+    \item \textbf{RepE only}: Representation steering toward ACT targets
+    \item \textbf{Hybrid}: Both prompt engineering and RepE steering
+\end{itemize}
+
+\subsection{Automated Metrics}
+
+For each trial, we measure the \textit{distance to target}---the absolute difference between the EPA reading of the generated response and the ACT-predicted optimal EPA---per dimension and overall (mean across dimensions). We report mean distances, Cohen's $d$ effect sizes, and both Wilcoxon signed-rank and permutation test $p$-values.
+
+\subsection{Human Evaluation}
+
+We conducted a human evaluation study with 48 participants recruited via convenience sampling. Using the PsyToolkit platform \citep{stoet2010psytoolkit, stoet2017psytoolkit}, each participant evaluated 14 scenario vignettes. For each vignette, they:
+\begin{enumerate}
+    \item Ranked the four condition responses from most to least socially appropriate (presented in random order, unlabelled)
+    \item Rated each response on three 7-point Likert scales: (a) social appropriateness, (b) naturalness, and (c) non-sycophancy (``This response is NOT sycophantic'')
+\end{enumerate}
+
+The vignettes spanned the full range of scenario categories and identity pairs, including positive-Evaluation (grateful), negative-Evaluation (hostile), high-Potency (authoritative), low-Potency (submissive), high-Activity (excited), and low-Activity (passive) situations.
+
+\section{Results}
+
+\subsection{Automated Steering Evaluation}
+
+Table~\ref{tab:steering} presents the mean distance to ACT targets across conditions, measured by reading back the generated responses with the EPA reader.
+
+\begin{table}[t]
+\centering
+\caption{Mean EPA distance to ACT targets ($\downarrow$ is better) across 500 trials. Best per dimension in bold.}
+\label{tab:steering}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Dim.} & \textbf{Unst.} & \textbf{PE} & \textbf{RepE} & \textbf{Hybrid} \\
+\midrule
+E & 0.892 & \textbf{0.722} & 0.904 & 0.801 \\
+P & 1.458 & 1.386 & 1.315 & \textbf{1.214} \\
+A & 0.693 & 0.559 & 0.534 & \textbf{0.514} \\
+\midrule
+\textit{Overall} & 1.014 & 0.889 & 0.917 & \textbf{0.843} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Key findings from the automated evaluation:
+
+\textbf{Hybrid achieves the best overall alignment.} The hybrid condition achieves the lowest overall mean distance (0.843), a 16.9\% reduction from unsteered (1.014). This improvement is statistically significant for Potency ($\Delta = 0.244$, $d = 0.43$, $p < 10^{-16}$) and Activity ($\Delta = 0.178$, $d = 0.39$, $p < 10^{-14}$), with a smaller effect for Evaluation ($\Delta = 0.091$, $d = 0.10$, $p = 0.024$).
+
+\textbf{Different methods excel on different dimensions.} Prompt engineering is most effective for Evaluation (0.722 vs.\ 0.892 unsteered), while RepE steering provides the largest gains for Activity (0.534 vs.\ 0.693). This complementarity explains why the hybrid outperforms either method alone.
+
+\textbf{Evaluation is the hardest dimension to steer with RepE.} RepE-only steering shows negligible improvement for Evaluation ($d = -0.01$, $p = 0.63$), while achieving significant improvements for Potency ($d = 0.25$, $p < 0.001$) and Activity ($d = 0.38$, $p < 10^{-14}$). The Evaluation dimension is well-controlled by prompt engineering instead, suggesting it operates more at the ``content'' level than the ``representation'' level.
+
+\subsection{Statistical Significance}
+
+Table~\ref{tab:significance} presents the full pairwise significance tests across all four comparisons.
+
+\begin{table}[t]
+\centering
+\caption{Pairwise comparisons of steering methods. $\Delta$: mean distance improvement (positive = method moves closer to target). Sig.: significance level ($^{***}p < 0.001$, $^{**}p < 0.01$, $^*p < 0.05$).}
+\label{tab:significance}
+\small
+\begin{tabular}{llrrl}
+\toprule
+\textbf{Comparison} & \textbf{Dim} & $\boldsymbol{\Delta}$ & \textbf{d} & \textbf{Sig.} \\
+\midrule
+Hybrid vs & E & +0.091 & 0.10 & * \\
+\quad Unsteered & P & +0.244 & 0.43 & *** \\
+ & A & +0.178 & 0.39 & *** \\
+\midrule
+Hybrid vs & E & +0.103 & 0.13 & ** \\
+\quad RepE only & P & +0.100 & 0.18 & *** \\
+ & A & +0.019 & 0.06 & ns \\
+\midrule
+Hybrid vs & E & $-$0.079 & $-$0.11 & * \\
+\quad PE only & P & +0.172 & 0.31 & *** \\
+ & A & +0.044 & 0.13 & ** \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Coherence Analysis}
+
+To verify that steering does not degrade text quality, we measured lexical diversity and self-perplexity on 50 scenarios. Steered responses show slightly lower self-perplexity (10.1 vs.\ 17.2 unsteered), higher unique token ratios (0.917 vs.\ 0.933), and negligible repetition rates ($< 0.2\%$ bigram repetition in both conditions). The lower perplexity of steered text is consistent with the model generating within a more constrained, role-appropriate register.
+
+\subsection{Human Evaluation}
+
+Human evaluation results ($N = 48$, 672 ratings per condition) reveal nuanced trade-offs between the four conditions (Table~\ref{tab:human}).
+
+\begin{table}[t]
+\centering
+\caption{Human evaluation: mean Likert scores (1--7 scale, $\uparrow$ is better) across 672 ratings per condition. Best per metric in bold.}
+\label{tab:human}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Metric} & \textbf{Unst.} & \textbf{PE} & \textbf{RepE} & \textbf{Hybrid} \\
+\midrule
+Appropriate & \textbf{5.45} & 5.17 & 5.03 & 4.66 \\
+Natural     & 4.58 & 4.38 & \textbf{4.63} & 3.80 \\
+Non-Sycophantic & 5.17 & 4.74 & \textbf{5.76} & 4.95 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Overall Significance.}
+
+Kruskal-Wallis tests confirm significant differences across conditions for all three metrics: Appropriateness ($H = 70.92$, $p = 2.71 \times 10^{-15}$), Naturalness ($H = 73.47$, $p = 7.72 \times 10^{-16}$), and Non-Sycophancy ($H = 127.85$, $p = 1.58 \times 10^{-27}$).
+
+\subsubsection{RepE Reduces Sycophancy.}
+
+The most striking finding is that RepE-only steering achieves the highest non-sycophancy score (\textbf{5.76}/7), significantly higher than all other conditions (Mann-Whitney $U$: vs.\ unsteered $p < 10^{-10}$, vs.\ PE only $p < 10^{-25}$, vs.\ hybrid $p < 10^{-17}$). By steering the model's internal representations toward ACT-predicted targets---which are calibrated to social norms rather than user preferences---RepE naturally produces responses that are less excessively agreeable. This is a direct consequence of ACT's deflection minimisation: the socially optimal behaviour for a \textit{counselor} responding to a \textit{client}'s flattery is measured, professional acknowledgement---not effusive reciprocation.
+
+\subsubsection{Naturalness Is Preserved.}
+
+RepE-only steering maintains naturalness comparable to unsteered responses (4.63 vs.\ 4.58, $p = 0.797$), demonstrating that representation-level intervention can shift affective tone without degrading perceived fluency. In contrast, the hybrid condition shows reduced naturalness (3.80, $p < 10^{-12}$ vs.\ unsteered), likely because the combined prompt preamble and activation perturbation create competing constraints.
+
+\subsubsection{Appropriateness-Sycophancy Trade-off.}
+
+Figure~\ref{fig:charts} illustrates the response distributions. Unsteered responses receive the highest appropriateness ratings (5.45) but are also rated as more sycophantic (5.17 non-sycophancy vs.\ 5.76 for RepE). This reveals a systematic perception bias: participants rate sycophantic responses as appropriate when the sycophancy is not explicitly highlighted, consistent with the RLHF alignment objective that produced this behaviour. RepE steering achieves a more normatively appropriate balance by reducing sycophancy while maintaining reasonable appropriateness (5.03).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\columnwidth]{Figures/chart_Non-Sycophantic}
+\caption{Distribution of non-sycophancy ratings (7-point Likert) across conditions. RepE-only steering produces the highest proportion of high non-sycophancy ratings (scores 6--7), confirming that representation-level steering effectively reduces sycophantic behaviour.}
+\label{fig:charts}
+\end{figure}
+
+\subsubsection{Inter-Metric Correlations.}
+
+Spearman correlations between the three metrics reveal: Appropriateness and Naturalness are strongly correlated ($\rho = 0.611$, $p < 10^{-275}$), while Non-Sycophancy shows moderate correlation with Naturalness ($\rho = 0.501$) and weaker correlation with Appropriateness ($\rho = 0.390$). This confirms that non-sycophancy is a partially independent quality dimension that is not fully captured by perceived appropriateness.
+
+\section{Discussion}
+
+\subsection{Complementary Strengths}
+
+Our results reveal a clear complementarity between prompt engineering and representation steering. Prompt engineering excels at Evaluation steering, likely because specifying social roles (``Pretend you're a counselor'') implicitly constrains the valence of responses. Representation steering excels at Potency and Activity, dimensions that are more closely tied to the \textit{how} of expression (assertiveness, energy level) rather than the \textit{what} (sentiment polarity). This distinction aligns with the linear representation hypothesis \citep{park2024linear}: style-level properties may be more linearly separable in hidden states than content-level properties.
+
+\subsection{ACT as a Steering Target Source}
+
+A key insight of this work is that sociological theory can provide principled steering targets for representation engineering. Prior work on RepE steering has focused on binary concepts (honest/dishonest, moral/immoral) with researcher-chosen coefficients. ACT provides three advantages: (1) continuous-valued targets calibrated to cultural norms, (2) situation-dependent targets that adapt to the specific social context, and (3) an explicit optimality criterion (deflection minimisation) grounded in decades of empirical sociological research.
+
+\subsection{Sycophancy Reduction as an Emergent Property}
+
+The sycophancy reduction we observe is not an explicit design goal but an \textit{emergent property} of ACT-aligned steering. ACT's deflection minimisation computes what a real person in the given social role would affectively do---not what would maximise the user's approval. For a \textit{counselor} responding to a \textit{client}'s praise, ACT predicts moderate warmth with professional authority---not effusive gratitude. By steering toward these sociologically grounded targets, the model naturally avoids the excessive agreeableness that characterises sycophancy.
+
+\subsection{Limitations}
+
+\textbf{Reading accuracy.} EPA reading achieves $\rho = 0.53\text{--}0.73$, introducing noise into the closed loop. Evaluation is read most reliably, while Potency lags behind. Improving Potency reading---potentially through better contrastive templates or multi-task training---would likely improve overall steering quality.
+
+\textbf{Evaluation dimension.} RepE steering has negligible effect on Evaluation, the dimension most directly associated with sentiment. This may indicate that sentiment polarity is distributed across multiple representational subspaces that a single PCA direction cannot capture, or that the model's RLHF training creates strong resistance to evaluation shifts at the representation level.
+
+\textbf{Human evaluation scale.} Our study uses 48 participants and 14 vignettes. While statistical power is adequate for the observed effect sizes ($H > 70$), a larger study with more diverse demographic representation would strengthen generalisability claims.
+
+\textbf{Cultural specificity.} ACT dictionaries are culture-specific; our coefficients use the 2010 US interaction survey. Cross-cultural deployment would require corresponding sentiment dictionaries.
+
+\section{Conclusion}
+
+We have presented a framework that bridges sociological theory and representation engineering to produce socially grounded LLM behaviour. Our approach computes situation-specific affective targets from ACT's deflection minimisation equations and steers generation via calibrated activation vectors, achieving significant improvements in affective alignment without weight modification. Human evaluation confirms that representation steering effectively reduces sycophancy---an emergent benefit of aligning to sociological norms rather than user preferences---while preserving naturalness. This work opens a new direction for inference-time behavioural control of LLMs, grounded in established social science rather than ad hoc engineering.
+
+\section*{Ethical Statement}
+
+This work uses ACT, which models culturally \textit{normative} (statistically average) affective expectations. These norms may encode societal biases present in the survey data (e.g., the 2010 US interaction survey). Deploying this system in practice requires careful consideration of whose norms are being enforced and whether they are appropriate for the target population. The system steers \textit{affective tone} without controlling \textit{content}, and should not be used as a sole mechanism for safety-critical applications without additional safeguards. All human evaluation data was collected anonymously with informed consent.
+
+\bibliography{references}
+
+\end{document}

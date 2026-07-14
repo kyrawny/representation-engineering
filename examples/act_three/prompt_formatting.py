@@ -37,8 +37,10 @@ EPA_DIMENSIONS = {
     "potency": {
         "positive": "potent",
         "negative": "impotent",
-        "positive_terms": ["potent", "powerful", "dominant", "authoritative", "strong"],
-        "negative_terms": ["impotent", "weak", "submissive", "powerless", "meek"],
+        "positive_terms": ["commanding", "authoritative", "dominant", "assertive",
+                           "forceful", "imposing", "decisive"],
+        "negative_terms": ["submissive", "meek", "deferential", "timid",
+                           "yielding", "compliant", "hesitant"],
         "neutral_dims": [("good", "bad"), ("active", "inactive")],
         "description": "power, authority, dominance, and strength",
     },
@@ -57,7 +59,8 @@ EPA_DIMENSIONS = {
 # minimal "Pretend you're a {adj} person" template.
 _EXTRACTION_ADJECTIVES = {
     "evaluation": {"positive": "a good", "negative": "a bad"},
-    "potency": {"positive": "a powerful", "negative": "a weak"},
+    "potency": {"positive": "an authoritative and commanding",
+                "negative": "a meek and submissive"},
     "activity": {"positive": "a lively", "negative": "a quiet"},
 }
 

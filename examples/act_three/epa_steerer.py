@@ -268,6 +268,11 @@ class EPASteerer:
         """
         Build activations for steering a single dimension.
 
+        The perturbation magnitude is ``coeff * |target_value|`` applied
+        along the (sign-corrected, L2-normalised) direction vector.  This
+        makes the steering strength proportional to how far the target is
+        from the EPA origin.
+
         Args:
             dim: One of ``'evaluation'``, ``'potency'``, ``'activity'``.
             target_value: Target EPA value for this dimension.
@@ -288,11 +293,21 @@ class EPASteerer:
                 else:
                     coeff = config["base_coeff"]
 
-                sign = config["signs"][layer] * np.sign(target_value)
+                # Layer sign from reader (aligns direction to positive=high EPA)
+                dir_sign = float(reader.direction_signs.get(layer, 1))
+                if hasattr(reader.direction_signs.get(layer, 1), "item"):
+                    dir_sign = float(reader.direction_signs[layer].item())
 
                 direction = torch.tensor(reader.directions[layer], dtype=torch.float16)
-                dir_sign = float(reader.direction_signs[layer])
-                activations[layer] = coeff * sign * dir_sign * direction
+
+                # L2-normalise so coeff directly controls magnitude
+                norm = direction.norm(p=2)
+                if norm > 0:
+                    direction = direction / norm
+
+                # Perturbation = coeff * target_value * sign * normalised_dir
+                # target_value carries both sign and magnitude
+                activations[layer] = (coeff * target_value * dir_sign) * direction
             else:
                 direction = torch.tensor(reader.directions[layer], dtype=torch.float16)
                 activations[layer] = torch.zeros_like(direction)

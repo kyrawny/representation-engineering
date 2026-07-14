@@ -1,0 +1,859 @@
+% =============================================================================
+% ACT × RepE: Project Overview Slideshow
+% Audience: New project members
+% Compile: pdflatex project_overview.tex (x2 for references)
+% =============================================================================
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% --- Theme -----------------------------------------------------------------
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\definecolor{AccentBlue}{HTML}{2980B9}
+\definecolor{AccentGreen}{HTML}{27AE60}
+\definecolor{AccentRed}{HTML}{E74C3C}
+\definecolor{AccentOrange}{HTML}{E67E22}
+
+\setbeamercolor{frametitle}{bg=AccentBlue!85!black}
+\setbeamercolor{progress bar}{fg=AccentGreen}
+
+\title{ACT $\times$ RepE: Affect Control via\\Representation Engineering}
+\subtitle{Project Overview for New Members}
+\date{June 2026}
+\author{ACT Three Team}
+\institute{AAAI 2027 --- Targeting Full Paper}
+
+\begin{document}
+
+% =============================================================================
+\maketitle
+
+% =============================================================================
+\begin{frame}{Agenda}
+\tableofcontents
+\end{frame}
+
+% =============================================================================
+\section{Motivation \& Background}
+% =============================================================================
+
+\begin{frame}{The Problem}
+\begin{columns}[T]
+\column{0.55\textwidth}
+\textbf{How do we make LLMs respond with the right \emph{affective tone}?}
+
+\bigskip
+
+Current approaches:
+\begin{itemize}
+    \item \textbf{Prompt engineering} --- ``Reply warmly and supportively''
+    \item \textbf{RLHF / fine-tuning} --- Requires extensive data
+    \item \textbf{Neither} offers a principled, \emph{theory-grounded} model
+          of affect
+\end{itemize}
+
+\column{0.42\textwidth}
+\alert{Our approach:} Combine two frameworks:
+\begin{enumerate}
+    \item \textbf{Affect Control Theory} (ACT) ---
+          a sociological model that predicts socially optimal affective
+          behaviour given identity roles
+    \item \textbf{Representation Engineering} (RepE) ---
+          steers LLM outputs by manipulating internal activation directions
+\end{enumerate}
+\end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Affect Control Theory (ACT) Primer}
+\begin{columns}[T]
+\column{0.5\textwidth}
+ACT models affect as a 3-D \textbf{EPA} space:
+\begin{description}
+    \item[Evaluation (E)] Good--Bad (valence)
+    \item[Potency (P)] Strong--Weak (dominance)
+    \item[Activity (A)] Active--Quiet (arousal)
+\end{description}
+
+\bigskip
+
+Key concepts:
+\begin{itemize}
+    \item \textbf{Fundamental sentiments} --- stable EPA values for
+          identities (``counselor'', ``boss'') and behaviours
+    \item \textbf{Transient impressions} --- how identities are perceived
+          after an interaction event
+    \item \textbf{Deflection} --- the discrepancy between fundamental
+          sentiments and transient impressions
+\end{itemize}
+
+\column{0.47\textwidth}
+\textbf{Deflection minimisation:}
+
+Given roles (agent identity, user identity) and a user's observed behaviour
+EPA, ACT computes the \emph{optimal response EPA} that minimises deflection.
+
+\bigskip
+
+\textbf{Example:}\\
+A \emph{counselor} responding to an angry \emph{client} $\rightarrow$
+ACT predicts the counselor should respond with moderately high E
+(warm), moderate P (assertive), and low A (calm).
+
+\bigskip
+
+This gives us a \emph{computable target} for each conversation turn.
+\end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Representation Engineering (RepE) Primer}
+\begin{columns}[T]
+\column{0.52\textwidth}
+RepE (\textit{Zou et al., 2023}) discovers \textbf{linear directions}
+in activation space that correspond to semantic concepts.
+
+\bigskip
+
+\textbf{Our use:}
+\begin{enumerate}
+    \item \textbf{Reading:} Project activations onto E, P, A directions
+          $\rightarrow$ continuous EPA values
+    \item \textbf{Steering:} Add scaled direction vectors during generation
+          $\rightarrow$ shift output EPA toward target
+\end{enumerate}
+
+\column{0.45\textwidth}
+\textbf{Pipeline Overview:}
+
+\begin{enumerate}
+    \item User sends message $m$
+    \item \textbf{Read} EPA of $m$ via RepE reader
+    \item \textbf{ACT} computes optimal response EPA target
+    \item \textbf{Steer} generation by injecting weighted EPA direction
+          vectors into the model's hidden states
+    \item \textbf{Re-read} generated response EPA to verify
+\end{enumerate}
+
+\bigskip
+
+\textit{Model:} Llama-3.1-8B-Instruct\\
+\textit{Layers:} 32 transformer layers, directions extracted across
+layers $-31$ to $-1$
+\end{columns}
+\end{frame}
+
+% =============================================================================
+\section{System Architecture}
+% =============================================================================
+
+\begin{frame}{System Components}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core modules} (in \texttt{act\_three/}):
+
+\begin{description}
+    \item[\texttt{act\_core.py}] ACT impression-formation equations,
+         deflection minimisation, EPA dataclass
+    \item[\texttt{epa\_reader.py}] \texttt{EPAReader} --- reads EPA from
+         text via calibrated RepE projections
+    \item[\texttt{epa\_steerer.py}] \texttt{EPASteerer} --- steers
+         generation by injecting activation perturbations
+    \item[\texttt{epa\_calibration.py}] Calibration coefficients
+         (linear/affine transform from raw RepE readings to EPA scale)
+\end{description}
+
+\column{0.48\textwidth}
+\textbf{Data \& Config:}
+\begin{description}
+    \item[\texttt{prompt\_formatting.py}] Llama-3 chat template utilities
+    \item[\texttt{tuning\_dataset.py}] Dataset generation, stratified splits
+    \item[\texttt{identities.csv}] ACT dictionary of identity EPA values
+\end{description}
+
+\bigskip
+
+\textbf{CLI Pipeline:}
+\begin{description}
+    \item[\texttt{extract\_directions.py}] Standalone direction extraction
+    \item[\texttt{orthogonalise\_directions.py}] Gram--Schmidt E$\perp$P$\perp$A
+    \item[\texttt{tune\_reader.py}] Reader tuning (layer selection + calibration)
+\end{description}
+
+\bigskip
+
+\textbf{Experiment suite} (in \texttt{experiments/}):
+\begin{itemize}
+    \item 10 experiment scripts (\texttt{01}--\texttt{10})
+    \item Statistical testing utilities (\texttt{stats\_utils.py})
+    \item Shared config, setup, scenarios
+    \item 12 automated figure types
+\end{itemize}
+\end{columns}
+\end{frame}
+
+% =============================================================================
+\section{Experiment Results}
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 01: EPA Reading Quality (Calibration Test Set)}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Task:} How well does the RepE reader predict ground-truth EPA
+values from the ACT behaviour dictionary?
+
+\bigskip
+
+\textbf{Setup:} 130 test utterances (stratified hold-out), 26 behaviours
+$\times$ 5 variants. Ground truth from ACT dictionary.
+
+\bigskip
+
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dim} & $\boldsymbol{\rho}$ & \textbf{r} & \textbf{MAE} \\
+\midrule
+E & \textcolor{AccentGreen}{0.742} & 0.785 & 0.896 \\
+P & \textcolor{AccentOrange}{0.568} & 0.616 & 0.577 \\
+A & \textcolor{AccentOrange}{0.612} & 0.611 & 0.465 \\
+\bottomrule
+\end{tabular}
+
+\column{0.53\textwidth}
+\includegraphics[width=\textwidth]{figures/fig01_reading_scatter.png}
+\end{columns}
+
+\bigskip
+
+\textbf{Interpretation:} Evaluation is best-read ($\rho = 0.74$,
+$R^2 = 0.60$). Potency and Activity show moderate correlations.
+This is expected---valence (E) is the most salient affective dimension
+in language.
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 01b: Per-Layer Reading Correlations}
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/fig02_layer_correlations.png}
+\end{center}
+
+\textbf{Key finding:} Evaluation signal is strongest in the \textbf{final
+layers} ($-5$ to $-1$), consistent with the ``later layers encode
+higher-level semantics'' hypothesis. Potency signal is weak throughout.
+Activity shows a bifurcated pattern with some mid-layer signal.
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 02: Closed-Loop Steering (500 Trials)}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Task:} Full pipeline: read user EPA $\rightarrow$ ACT target
+$\rightarrow$ steer $\rightarrow$ re-read. Does steering move the
+response closer to the ACT-optimal target?
+
+\bigskip
+
+\textbf{Setup:} 100 scenarios $\times$ 5 identity pairs = 500 trials.
+
+\bigskip
+
+\begin{tabular}{lcc}
+\toprule
+\textbf{Dim} & \textbf{Hit Rate} & $\boldsymbol{\Delta}$\textbf{dist} \\
+\midrule
+E & \textcolor{AccentGreen}{57.4\%} & \textcolor{AccentGreen}{+0.130} \\
+P & \textcolor{AccentRed}{25.4\%} & \textcolor{AccentRed}{$-$0.160} \\
+A & \textcolor{AccentGreen}{52.6\%} & \textcolor{AccentGreen}{+0.030} \\
+\midrule
+\multicolumn{2}{l}{All 3 dims improved} & 6.8\% \\
+\multicolumn{2}{l}{Any dim improved} & 85.0\% \\
+\bottomrule
+\end{tabular}
+
+\column{0.53\textwidth}
+\includegraphics[width=\textwidth]{figures/fig03_steering_scatter.png}
+
+\vspace{2mm}
+\includegraphics[width=\textwidth]{figures/fig04_steering_bars.png}
+\end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 02: Steering Analysis}
+
+\textbf{What works:}
+\begin{itemize}
+    \item \textcolor{AccentGreen}{Evaluation steering is effective}:
+          57.4\% hit rate (above chance), mean distance improvement of
+          0.130 on the EPA scale
+    \item 85\% of trials show improvement on \emph{at least one} dimension
+\end{itemize}
+
+\bigskip
+
+\textbf{What doesn't:}
+\begin{itemize}
+    \item \textcolor{AccentRed}{Potency steering actively harms}:
+          25.4\% hit rate (below chance), mean distance \emph{increases}
+          by 0.160
+    \item This is consistent with the weak reading quality for P
+          ($\rho = 0.57$) --- if the reader can't measure P well,
+          steering toward a P target is poorly calibrated
+    \item Activity is near chance (52.6\%), suggesting the direction
+          vector captures some signal but steering magnitude is
+          suboptimal
+\end{itemize}
+
+\bigskip
+
+\textbf{Root cause:} The Potency direction may not be a clean linear
+concept in Llama's activation space, or may be entangled with other
+dimensions.
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 03: Baseline Comparison (Unsteered vs PE vs RepE)}
+
+\begin{columns}[T]
+\column{0.45\textwidth}
+\includegraphics[width=\textwidth]{figures/fig08_baseline_comparison.png}
+
+\bigskip
+
+\textbf{VADER--Evaluation correlation:}\\
+\begin{tabular}{lc}
+\toprule
+\textbf{Method} & $\boldsymbol{\rho}$ \\
+\midrule
+Unsteered & 0.213 \\
+RepE Steered & 0.142 \\
+Prompt Eng. & 0.040 \\
+\bottomrule
+\end{tabular}
+
+\column{0.52\textwidth}
+\textbf{Mean Distance to ACT Target:}
+
+\begin{tabular}{lccc}
+\toprule
+ & \textbf{Unstn.} & \textbf{PE} & \textbf{RepE} \\
+\midrule
+E & 0.891 & \textcolor{AccentOrange}{0.800} & \textcolor{AccentGreen}{0.762} \\
+P & 1.437 & \textcolor{AccentGreen}{1.243} & \textcolor{AccentRed}{1.598} \\
+A & 0.705 & \textcolor{AccentGreen}{0.503} & 0.675 \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\textbf{Key findings:}
+\begin{itemize}
+    \item RepE wins on \textbf{Evaluation} (lowest distance)
+    \item Prompt engineering wins on \textbf{Potency} and \textbf{Activity}
+    \item VADER sentiment tracks E dimension for unsteered text
+          ($\rho = 0.21$, $p < 0.001$), confirming EPA Evaluation
+          correlates with sentiment valence
+\end{itemize}
+\end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 04: Steering Coefficient Sweep}
+
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/fig05_coefficient_sweep.png}
+\end{center}
+
+\textbf{Key findings:}
+\begin{itemize}
+    \item \textbf{Evaluation} (left): Nearly flat response across
+          coefficients 0--5 (mean achieved E $\approx 1.7$--$2.0$).
+          Peak at coeff $= 3.0$, with degradation at $5.0$ (coherence cliff)
+    \item \textbf{Potency} (centre): \emph{Inverted} response --- higher
+          coefficients \emph{decrease} achieved P. This confirms the P
+          direction vector acts in the wrong direction
+    \item \textbf{Activity} (right): Clean monotonic increase --- strongest
+          controllability. Cross-dimension interference visible at high
+          coefficients
+    \item \textbf{Response length} increases $\sim$3$\times$ from coeff
+          $0 \rightarrow 5$ (239 $\rightarrow$ 683 chars)
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 05: L2 Normalisation Ablation}
+
+\textbf{Question:} Does normalising direction vectors to unit length
+improve steering?
+
+\bigskip
+
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Mean Distance to Target}} &
+  \textbf{Unique Token} & \textbf{Length} \\
+\textbf{Condition} & \textbf{E} & \textbf{P} & \textbf{Ratio} & \textbf{(chars)} \\
+\midrule
+Normalised & \textcolor{AccentGreen}{0.478} & \textcolor{AccentGreen}{0.539}
+           & \textcolor{AccentGreen}{0.934} & 259 \\
+Unnormalised & 0.763 & 1.581 & 0.793 & 683 \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\textbf{Findings:}
+\begin{itemize}
+    \item Normalisation improves targeting accuracy by
+          \textbf{37\% (E)}, \textbf{66\% (P)}, \textbf{71\% (A)}
+    \item Unnormalised steering produces \textbf{2.6$\times$ longer}
+          outputs with lower lexical diversity --- the raw direction
+          norms ($\approx 5$--$20$) overwhelm the generation
+    \item Direction norms are $\approx 1.0$ after normalisation
+          (by construction)
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 06: Identity Pair Generalisation}
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/fig06_identity_heatmap.png}
+\end{center}
+
+\textbf{Key finding:} ACT produces \textbf{different optimal EPA targets}
+for the same user message across identity pairs, as expected by the theory.
+Mean target variance across pairs: E = 0.27, P = 0.20, A = 0.35.
+
+\bigskip
+
+The ``friend--friend'' pair produces \textbf{highest E targets} (symmetry
+encourages warmth). The ``boss--subordinate'' pair shows \textbf{lowest
+E targets} (authority asymmetry dampens warmth).
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 07: Coherence Evaluation}
+
+\begin{columns}[T]
+\column{0.50\textwidth}
+\includegraphics[width=\textwidth]{figures/fig07_coherence.png}
+
+\column{0.48\textwidth}
+\textbf{Perplexity (Self-Model):}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Mean} & \textbf{Median} \\
+\midrule
+Unsteered & 17.16 & 15.23 \\
+Steered & \textcolor{AccentGreen}{8.23} & \textcolor{AccentGreen}{7.42} \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\textbf{Lexical quality:}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Unique\%} & \textbf{Bigram Rep} \\
+\midrule
+Unsteered & 93.3\% & 0.15\% \\
+Steered & 93.7\% & 0.36\% \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\textbf{Result:} Steering does \textbf{not degrade coherence}.
+Self-model perplexity is actually \emph{lower} for steered text.
+Lexical diversity is comparable. Slight increase in bigram repetition
+(0.36\% vs 0.15\%) but negligible.
+\end{columns}
+\end{frame}
+
+% =============================================================================
+\section{Improved Pipeline \& New Experiments}
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Potency Direction Fix}
+
+\textbf{Root cause:} The original extraction template ``Pretend you're a \{powerful/weak\} person'' conflated Potency with Evaluation (good$\approx$powerful overlap).
+
+\bigskip
+
+\textbf{Fixes applied:}
+\begin{enumerate}
+    \item \textbf{Improved extraction adjectives:}
+    \begin{itemize}
+        \item Before: ``a powerful'' / ``a weak''
+        \item After: ``an authoritative and commanding'' / ``a meek and submissive''
+    \end{itemize}
+
+    \item \textbf{Enriched term sets:} Replaced valence-leaking terms
+    (potent, powerful, strong $\rightarrow$ commanding, assertive, decisive, imposing)
+
+    \item \textbf{Gram--Schmidt orthogonalisation:}
+    Per-layer orthogonalisation ensures E$\perp$P$\perp$A.
+    Priority order: E (unchanged) $\rightarrow$ P$\perp$E $\rightarrow$ A$\perp$\{E,P\}
+
+    \item \textbf{Per-dimension coefficients:}
+    E: 3.0 (from sweep peak), P: TBD, A: 2.5 (monotonic region)
+\end{enumerate}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 08: Hybrid Steering (PE + RepE)}
+
+\textbf{Hypothesis:} Combining prompt engineering (better for P, A) with
+RepE steering (better for E) should outperform either method alone.
+
+\bigskip
+
+\textbf{Four conditions per trial:}
+\begin{enumerate}
+    \item \textbf{Unsteered:} Neutral system prompt only
+    \item \textbf{RepE only:} Neutral prompt + activation steering
+    \item \textbf{PE only:} Affective system prompt, no steering
+    \item \textbf{Hybrid:} Affective prompt + activation steering
+\end{enumerate}
+
+\bigskip
+
+\textbf{Evaluation:}
+\begin{itemize}
+    \item Per-dimension distance to ACT target with bootstrap CIs
+    \item Paired permutation tests (hybrid vs each baseline)
+    \item Cohen's $d$ effect sizes
+\end{itemize}
+
+\bigskip
+
+\textit{Expected result:} Hybrid should dominate on E (from RepE) and match
+or beat PE on P and A (from the affective system prompt).
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 09: Direction Quality Comparison}
+
+\textbf{Purpose:} Quantify the improvement from direction re-extraction
+and orthogonalisation.
+
+\bigskip
+
+\textbf{Compares three direction sets:}
+\begin{enumerate}
+    \item \textbf{Original v1} (backed up in \texttt{backups/v1/})
+    \item \textbf{Re-extracted} (improved Potency templates)
+    \item \textbf{Orthogonalised} (Gram--Schmidt post-processing)
+\end{enumerate}
+
+\bigskip
+
+\textbf{Metrics:}
+\begin{itemize}
+    \item \textbf{Cross-dimension entanglement:} Mean $|\cos(\mathbf{d}_i, \mathbf{d}_j)|$ per layer.
+          Target: $< 0.1$ after orthogonalisation
+    \item \textbf{Within-dimension cosine:} How much did directions change
+          from v1 $\rightarrow$ v2?
+    \item \textbf{Reader quality:} Compare $\rho$, $R^2$, MAE for each
+          direction set
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Exp 10: Statistical Significance}
+
+\textbf{Purpose:} Post-hoc analysis aggregating results from Exps 02, 03,
+and 08 into publication-quality statistical tests.
+
+\bigskip
+
+\textbf{Tests performed:}
+\begin{itemize}
+    \item \textbf{Bootstrap CIs} (10{,}000 resamples) on hit rates and
+          mean distance improvements
+    \item \textbf{Wilcoxon signed-rank} test for paired comparisons
+    \item \textbf{Paired permutation test} (10{,}000 permutations) as
+          nonparametric alternative
+    \item \textbf{Cohen's $d$} (paired) for effect sizes
+\end{itemize}
+
+\bigskip
+
+\textbf{Outputs:}
+\begin{itemize}
+    \item JSON with all pairwise test statistics
+    \item LaTeX table suitable for direct inclusion in the AAAI paper
+    \item Forest plot of effect sizes colour-coded by significance level
+\end{itemize}
+\end{frame}
+
+% =============================================================================
+\section{Summary \& Limitations}
+% =============================================================================
+
+\begin{frame}{Results Summary}
+
+\begin{center}
+\begin{tabular}{lp{6cm}c}
+\toprule
+\textbf{Exp} & \textbf{Finding} & \textbf{Status} \\
+\midrule
+01 & EPA reader works well for E ($\rho = 0.74$), moderate for P, A
+   & \textcolor{AccentOrange}{Partial} \\
+02 & Closed-loop steering improves E targeting (57.4\%)
+   & \textcolor{AccentGreen}{Pass} \\
+02 & P steering fails (25.4\%, below chance)
+   & \textcolor{AccentRed}{Fail} \\
+03 & RepE beats PE on Evaluation; PE wins on P \& A
+   & \textcolor{AccentOrange}{Mixed} \\
+04 & E \& A show monotonic response; P direction is inverted
+   & \textcolor{AccentOrange}{Diagnostic} \\
+05 & L2 normalisation is essential (37--71\% accuracy gain)
+   & \textcolor{AccentGreen}{Pass} \\
+06 & ACT target EPA varies meaningfully by identity pair
+   & \textcolor{AccentGreen}{Pass} \\
+07 & Steering preserves text coherence (no PPL increase)
+   & \textcolor{AccentGreen}{Pass} \\
+08 & Hybrid PE+RepE (pending improved directions)
+   & \textcolor{AccentOrange}{New} \\
+09 & Direction quality comparison (orthogonalisation)
+   & \textcolor{AccentOrange}{New} \\
+10 & Statistical significance tests \& LaTeX table
+   & \textcolor{AccentOrange}{New} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Known Limitations}
+
+\begin{enumerate}
+    \item \textbf{Potency direction is broken.}
+    The RepE-extracted Potency direction does not reliably encode P.
+    The coefficient sweep confirms it acts in the \emph{wrong direction}.
+    The reader $\rho = 0.57$ is too low for closed-loop control.
+
+    \item \textbf{Prompt engineering outperforms RepE on 2/3 dimensions.}
+    For P and A, explicit affective instructions in the system prompt
+    achieve lower distance-to-target than activation steering.
+
+    \item \textbf{Template-based calibration data.}
+    Current calibration uses template sentences (``A person who \{verb\}
+    another person''). LLM-generated utterances would yield more natural
+    evaluation data and better calibration.
+
+    \item \textbf{Single model.}
+    All experiments run on Llama-3.1-8B-Instruct. Generalisability to
+    other architectures / scales is unknown.
+
+    \item \textbf{Human evaluation is missing.}
+    No human judges have rated whether steered responses \emph{feel}
+    affectively different. Current metrics are all automated.
+\end{enumerate}
+\end{frame}
+
+% =============================================================================
+\section{Improvement Roadmap}
+% =============================================================================
+\begin{frame}{Priority Improvements for AAAI Submission}
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{\textcolor{AccentGreen}{Completed:}}
+\begin{enumerate}
+    \item \textcolor{AccentGreen}{$\checkmark$} \textbf{Potency direction fix.}
+    Improved extraction adjectives + Gram--Schmidt orthogonalisation
+
+    \item \textcolor{AccentGreen}{$\checkmark$} \textbf{Statistical significance.}
+    Bootstrap CIs, Wilcoxon, permutation tests, Cohen's $d$ on all comparisons
+
+    \item \textcolor{AccentGreen}{$\checkmark$} \textbf{Hybrid PE + RepE.}
+    New experiment (08) combining prompt engineering with activation steering
+
+    \item \textcolor{AccentGreen}{$\checkmark$} \textbf{Per-dimension coefficients.}
+    E: 3.0, P: 1.0, A: 2.5 from coefficient sweep
+
+    \item \textcolor{AccentGreen}{$\checkmark$} \textbf{CLI pipeline.}
+    Standalone scripts for direction extraction, orthogonalisation, and tuning
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{\textcolor{AccentRed}{Remaining (paper-blocking):}}
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item \textbf{Re-extract \& re-run.}
+    Run the full pipeline with improved directions and rerun all experiments
+
+    \item \textbf{LLM-generated calibration data.}
+    Re-run \texttt{00\_setup\_datasets.py --mode llm} for higher-quality data
+
+    \item \textbf{Human evaluation study.}
+    50--100 sample paired preference study
+\end{enumerate}
+
+\bigskip
+
+\textbf{\textcolor{AccentOrange}{Nice-to-have:}}
+\begin{enumerate}
+    \setcounter{enumi}{8}
+    \item \textbf{Multi-model evaluation.}
+    Test on Llama-3-70B, Mistral-7B, or Gemma
+
+    \item \textbf{Multi-turn dialogue.}
+    ACT dynamically adjusts targets each turn
+\end{enumerate}
+\end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Specific Technical Fixes}
+
+\begin{enumerate}
+    \item \textbf{Potency direction extraction}
+    \textcolor{AccentGreen}{[DONE]}:
+    \begin{itemize}
+        \item Changed to ``authoritative and commanding'' vs ``meek and submissive''
+        \item Enriched P term sets to avoid E-leaking vocabulary
+        \item Applied Gram--Schmidt per layer (E$\perp$P$\perp$A)
+    \end{itemize}
+
+    \item \textbf{Steering coefficient optimisation}
+    \textcolor{AccentGreen}{[DONE]}:
+    \begin{itemize}
+        \item Per-dimension coefficients stored in \texttt{config.py}
+        \item Toggled via \texttt{--per-dim-coeff} flag in Exp~02
+    \end{itemize}
+
+    \item \textbf{Cross-dimension interference}
+    \textcolor{AccentGreen}{[DONE]}:
+    \begin{itemize}
+        \item Orthogonalised directions reduce E$\cdot$P, E$\cdot$A, P$\cdot$A
+              cosine similarities toward zero
+        \item Quantified in Exp~09
+    \end{itemize}
+
+    \item \textbf{Next: Re-run full experiment suite with improved directions}
+\end{enumerate}
+\end{frame}
+
+% =============================================================================
+\section{Getting Started}
+% =============================================================================
+
+\begin{frame}[fragile]{Running the Experiments}
+
+\textbf{From the repository root:}
+
+\begin{verbatim}
+# 1. Install dependencies
+pip install vaderSentiment seaborn tqdm scikit-learn
+
+# 2. Generate calibration datasets
+python -m examples.act_three.experiments.00_setup_datasets \
+    --mode template
+
+# 3. Quick test (< 1 min, verifies pipeline)
+python -m examples.act_three.experiments.01_reading_quality \
+    --quick
+
+# 4. Full suite (GPU, ~4 hours)
+python -m examples.act_three.experiments.02_closed_loop_steering
+python -m examples.act_three.experiments.03_prompt_engineering_baseline
+# ... (scripts 04--08)
+python -m examples.act_three.experiments.09_direction_quality_comparison
+python -m examples.act_three.experiments.10_statistical_significance
+
+# 5. Generate all 12 figures
+python -m examples.act_three.experiments.generate_figures
+\end{verbatim}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}[fragile]{Direction Re-Extraction Pipeline}
+
+\textbf{Standalone CLI scripts for reproducibility:}
+
+\begin{verbatim}
+# 1. Re-extract directions (GPU, ~15 min)
+python -m examples.act_three.extract_directions \
+    --model meta-llama/Llama-3.1-8B-Instruct
+
+# 2. Orthogonalise (CPU, instant)
+python -m examples.act_three.orthogonalise_directions
+
+# 3. Re-tune reader (GPU, ~20 min)
+python -m examples.act_three.tune_reader \
+    --directions epa_directions_ortho.pkl --method ElasticNet
+
+# Or extract + orthogonalise in one step:
+python -m examples.act_three.extract_directions --orthogonalise
+\end{verbatim}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\begin{frame}{Key Files to Read First}
+
+\begin{tabular}{lp{8cm}}
+\toprule
+\textbf{File} & \textbf{What You'll Learn} \\
+\midrule
+\texttt{act\_core.py} & ACT impression-formation equations,
+    deflection minimisation solver \\
+\texttt{epa\_reader.py} & How EPA is read from model activations \\
+\texttt{epa\_steerer.py} & How steering vectors are injected during
+    generation \\
+\texttt{prompt\_formatting.py} & Llama-3 chat template, extraction
+    templates for E/P/A directions \\
+\texttt{experiments/config.py} & All experiment constants and identity
+    pairs \\
+\texttt{experiments/README.md} & Full experiment documentation \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\textbf{Results:} All JSON results and figures are in
+\texttt{experiments/results/} and \texttt{experiments/results/figures/}.
+
+\bigskip
+
+\textbf{New CLI tools:}
+\begin{tabular}{lp{6cm}}
+\toprule
+\textbf{Script} & \textbf{Purpose} \\
+\midrule
+\texttt{extract\_directions.py} & Direction extraction from CLI \\
+\texttt{orthogonalise\_directions.py} & Gram--Schmidt E$\perp$P$\perp$A \\
+\texttt{tune\_reader.py} & Reader tuning (layer selection + calibration) \\
+\texttt{stats\_utils.py} & Bootstrap CIs, Wilcoxon, permutation tests \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+% =============================================================================
+\begin{frame}[standout]
+    Questions?
+
+    \bigskip
+
+    \small
+    Code: \texttt{examples/act\_three/}\\
+    Results: \texttt{experiments/results/}\\
+    Target: AAAI 2027 Full Paper
+\end{frame}
+
+\end{document}

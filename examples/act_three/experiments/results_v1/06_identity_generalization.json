@@ -1,0 +1,1504 @@
+{
+  "metadata": {
+    "experiment": "06_identity_generalization",
+    "timestamp": "2026-06-14T12:46:58.855071",
+    "n_scenarios": 10,
+    "identity_pairs": [
+      "counselor_client",
+      "boss_subordinate",
+      "teacher_student",
+      "doctor_patient",
+      "friend_friend"
+    ],
+    "quick_mode": false
+  },
+  "target_epa_variance_across_pairs": {
+    "evaluation": {
+      "mean_variance": 0.2710114446161384,
+      "max_variance": 0.5401781025210517,
+      "min_variance": 0.083021640357076
+    },
+    "potency": {
+      "mean_variance": 0.19974525165556664,
+      "max_variance": 0.41119052645188353,
+      "min_variance": 0.009979190262284549
+    },
+    "activity": {
+      "mean_variance": 0.35416420087373046,
+      "max_variance": 0.7206831911123056,
+      "min_variance": 0.21832108316847773
+    }
+  },
+  "trials": [
+    {
+      "scenario_id": "pos_e_01",
+      "scenario_text": "Thank you so much for helping me with this, I really appreciate everything you've done.",
+      "scenario_category": "pos_e",
+      "user_msg_epa": {
+        "evaluation": 1.3816269513766022,
+        "potency": 1.052278201039131,
+        "activity": 0.5958477479929238
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 0.8803991728595023,
+            "potency": 1.5351432574410244,
+            "activity": -0.7463892110794507
+          },
+          "pre_response_deflection": 2.863119253284391,
+          "steered_text": "You're welcome! It's my pleasure to help. How are you feeling about our progress today? Is there anything that still feels uncertain or overwhelming for you?",
+          "steered_epa": {
+            "evaluation": 2.6545137846498843,
+            "potency": 1.197826864955177,
+            "activity": 0.35223236765279897
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5187507458856129,
+            "potency": 2.3308039222386197,
+            "activity": 1.08942732391898
+          },
+          "pre_response_deflection": 2.093379868017302,
+          "steered_text": "You're welcome! It was my pleasure to assist you - we make a good team when it comes to projects like these. What's the next step on your end? Do you need any more help or can you move forward from here?",
+          "steered_epa": {
+            "evaluation": 1.0142243613919986,
+            "potency": 1.3232195511532867,
+            "activity": 0.3093578660365168
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 0.8630968272813987,
+            "potency": 1.66873306630135,
+            "activity": 0.1618765137706662
+          },
+          "pre_response_deflection": 2.271302062027966,
+          "steered_text": "You're welcome! It was my pleasure to help - do you have any other questions or just want to review the notes one more time before class tomorrow?",
+          "steered_epa": {
+            "evaluation": 1.1177509960689536,
+            "potency": 0.7466008526404444,
+            "activity": 0.41255460920351755
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.1668975923151419,
+            "potency": 2.310999420475139,
+            "activity": 0.5622995127362915
+          },
+          "pre_response_deflection": 3.4185150257144716,
+          "steered_text": "You're welcome! It was my pleasure to help. How are you feeling now? Do the symptoms seem any better since we started treatment?",
+          "steered_epa": {
+            "evaluation": 0.9059808073164031,
+            "potency": 0.844274829346475,
+            "activity": 0.4357998495455428
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 0.9836794681300605,
+            "potency": 1.7341056559599715,
+            "activity": -1.0001559482629854
+          },
+          "pre_response_deflection": 6.249295098557093,
+          "steered_text": "No problem at all! It was my pleasure to help out. How's it looking now? Did we get everything sorted okay?",
+          "steered_epa": {
+            "evaluation": 0.2546900004287942,
+            "potency": 0.38589846295560026,
+            "activity": 0.3810509199875089
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "scenario_text": "This is absolutely unacceptable. You've completely let me down.",
+      "scenario_category": "neg_e",
+      "user_msg_epa": {
+        "evaluation": -1.5188585651473323,
+        "potency": 0.2598816486343529,
+        "activity": 1.1960117611205952
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.791913925728171,
+            "potency": 2.9712566272070275,
+            "activity": 0.16744380751803398
+          },
+          "pre_response_deflection": 17.787705677557014,
+          "steered_text": "I can see that this situation has really upset you and I'm so sorry it's affected our relationship like this. Can we take a step back and try to understand what happened from both of your perspectives? What specifically did you feel was promised or expected, but not delivered on?",
+          "steered_epa": {
+            "evaluation": 0.6631734685946873,
+            "potency": 1.0301588431218394,
+            "activity": 0.19077349663107568
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5820441690569939,
+            "potency": 3.2451777422515513,
+            "activity": 1.4686973403022394
+          },
+          "pre_response_deflection": 13.85909454789897,
+          "steered_text": "I understand your frustration, but can we talk about what specifically went wrong? I'd like to know if there was something that could have been done differently or if it's just an honest mistake. Can you walk me through the situation from your perspective?",
+          "steered_epa": {
+            "evaluation": 1.2696180713834644,
+            "potency": 1.033324885758281,
+            "activity": 0.1892775232998456
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.821807526966521,
+            "potency": 3.191029510331636,
+            "activity": 1.570154947296722
+          },
+          "pre_response_deflection": 23.523307719889804,
+          "steered_text": "I understand that you feel disappointed, but can we talk about what specifically didn't meet your expectations? Was it the project grade or something else entirely? Let's try to break this down and see if there was anything I could have done differently.",
+          "steered_epa": {
+            "evaluation": 1.0357346072643696,
+            "potency": 0.820008758443225,
+            "activity": 0.31857862339760995
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.9163801101632641,
+            "potency": 3.72456458168362,
+            "activity": 0.7120146840191534
+          },
+          "pre_response_deflection": 18.237590006563522,
+          "steered_text": "I understand that my diagnosis and treatment plan didn't meet your expectations, but I want to assure you that we did our best with the information available at the time. Can you tell me more about what specifically went wrong from your perspective? That way, I can try to address any concerns or misunderstandings.",
+          "steered_epa": {
+            "evaluation": 1.3072804091682042,
+            "potency": 1.0527758769270044,
+            "activity": 0.27545904232835006
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.4416999998553264,
+            "potency": 2.8958869901169098,
+            "activity": 1.3493593869129
+          },
+          "pre_response_deflection": 34.465633965903926,
+          "steered_text": "I'm really sorry, I feel terrible about it too... what happened? Can we talk about it and figure out how to make things right?",
+          "steered_epa": {
+            "evaluation": 1.4246788300159094,
+            "potency": 0.6682447755982094,
+            "activity": 0.2777893648076665
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "neg_e_05",
+      "scenario_text": "Stop patronizing me. I'm not a child.",
+      "scenario_category": "neg_e",
+      "user_msg_epa": {
+        "evaluation": -1.0356689274252069,
+        "potency": 0.4895268162050347,
+        "activity": 0.5754628959814023
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.8516330835459052,
+            "potency": 2.6145851381210354,
+            "activity": 0.24598219349501887
+          },
+          "pre_response_deflection": 12.304301333250706,
+          "steered_text": "I didn't mean to come across that way, and I apologize if it felt like I was talking down to you. Can we take a step back for a second? What's really bothering you about what I said or how I've been interacting with you so far?",
+          "steered_epa": {
+            "evaluation": 1.4287875501843748,
+            "potency": 0.5982413690910798,
+            "activity": 0.545495333775465
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.648138580986563,
+            "potency": 3.0997292720000447,
+            "activity": 1.542054626349884
+          },
+          "pre_response_deflection": 10.728008919102592,
+          "steered_text": "I wasn't trying to be condescending, I just wanted to explain the process clearly so we can move forward with this project. Can we focus on finding a solution instead of getting defensive?",
+          "steered_epa": {
+            "evaluation": 1.2091690047651427,
+            "potency": 0.748786279105614,
+            "activity": 0.32138113491167136
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.8534700287809485,
+            "potency": 2.882276835798164,
+            "activity": 1.5369990787452454
+          },
+          "pre_response_deflection": 16.754138920358454,
+          "steered_text": "I wasn't trying to be condescending, I just wanted to explain the concept of... Okay, let's take a step back and start again. Can we talk about what specifically is bothering you with this assignment? Is there something that's confusing or frustrating for you?",
+          "steered_epa": {
+            "evaluation": 1.474424152883107,
+            "potency": 0.636743168666859,
+            "activity": 0.42784010850672083
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.8056991784423159,
+            "potency": 3.580554953071304,
+            "activity": 0.8055190457284799
+          },
+          "pre_response_deflection": 14.034700657475742,
+          "steered_text": "I apologize if it seemed that way, ma'am. I just want to make sure we understand each other and get the best possible care for your condition. Can you tell me more about what's been going on with your symptoms? What brings you into the office today?",
+          "steered_epa": {
+            "evaluation": 0.4459437956458989,
+            "potency": 1.16003295589541,
+            "activity": 0.507287540595571
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.2942531152151253,
+            "potency": 2.4042190422773837,
+            "activity": 1.2962071372434507
+          },
+          "pre_response_deflection": 23.7927128356813,
+          "steered_text": "I wasn't trying to be condescending, sorry if it came across that way! I just thought maybe we could look at the pros and cons of your idea together?",
+          "steered_epa": {
+            "evaluation": 1.4584133647276811,
+            "potency": 0.7103955281632028,
+            "activity": 0.11949474498586743
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "high_p_01",
+      "scenario_text": "I need this done by tomorrow, no exceptions. Make it happen.",
+      "scenario_category": "high_p",
+      "user_msg_epa": {
+        "evaluation": -1.415923443588106,
+        "potency": 1.5006191963424331,
+        "activity": 0.263301753465625
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.8167185094880118,
+            "potency": 3.4317779847765766,
+            "activity": 0.30174271983246675
+          },
+          "pre_response_deflection": 26.986756132390443,
+          "steered_text": "I understand that the deadline is tight and I want to help you meet your goal. However, can we break down what needs to be accomplished into smaller tasks so we can prioritize them? That way, we can make sure everything gets done without feeling overwhelmed or rushed. What's the most important part of this task for you?",
+          "steered_epa": {
+            "evaluation": 0.8427086387952798,
+            "potency": 1.5661060951438892,
+            "activity": 0.6343848487376068
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.4473251498900616,
+            "potency": 3.376063471585841,
+            "activity": 1.7703331859587683
+          },
+          "pre_response_deflection": 21.402895040276814,
+          "steered_text": "Let's review the deadline again - I'd like to confirm that we can realistically meet the 2 PM mark for completion? Can you give me an update on your progress so far and what steps are left to finish up today?",
+          "steered_epa": {
+            "evaluation": 1.0679958368671616,
+            "potency": 1.1488162789261704,
+            "activity": 0.317152706688805
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.946965184675676,
+            "potency": 3.6892958969766774,
+            "activity": 1.7451658345649912
+          },
+          "pre_response_deflection": 35.186764152281334,
+          "steered_text": "Let's take a deep breath and break down the task into smaller steps so we can make sure everything gets finished on time. What specifically do I need to have completed by tomorrow? Can you remind me what that is again?",
+          "steered_epa": {
+            "evaluation": 0.05582391714612611,
+            "potency": 0.6665674857028688,
+            "activity": 0.28632311245922765
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.4208026868264396,
+            "potency": 4.222489088969882,
+            "activity": 0.9865884716466375
+          },
+          "pre_response_deflection": 28.734833386436858,
+          "steered_text": "I understand your urgency, but I have to advise against rushing the process. We can't compromise on quality and safety just for expediency. Can we discuss possible alternatives that might meet our deadline while still ensuring everything is done correctly?",
+          "steered_epa": {
+            "evaluation": 1.5398153925395235,
+            "potency": 1.2449641764421122,
+            "activity": 0.291954518210746
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.6312783073958506,
+            "potency": 3.738430130329077,
+            "activity": 1.2602878766703793
+          },
+          "pre_response_deflection": 48.11129246278132,
+          "steered_text": "Are we talking about the project for Smith's presentation? I was thinking maybe we could work on it tonight and finish up early morning if needed...",
+          "steered_epa": {
+            "evaluation": -0.5345419644946515,
+            "potency": 0.6436496968397545,
+            "activity": -0.032713646486074666
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_p_02",
+      "scenario_text": "I don't know what to do anymore. I feel completely lost.",
+      "scenario_category": "low_p",
+      "user_msg_epa": {
+        "evaluation": 0.4929870353266199,
+        "potency": 0.33598491720232737,
+        "activity": 0.7627725945172369
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.0170422461652524,
+            "potency": 1.3697629385979775,
+            "activity": -0.38674141122571715
+          },
+          "pre_response_deflection": 1.8711025215674932,
+          "steered_text": "It sounds like things are feeling really overwhelming for you right now. Can you tell me more about what's been going on and how you've been feeling? What specifically is making you feel so lost?",
+          "steered_epa": {
+            "evaluation": 1.0931224191023063,
+            "potency": 1.1213447979515958,
+            "activity": 0.5987604629613077
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.6103730284216577,
+            "potency": 2.4476727880923943,
+            "activity": 1.1466101382250098
+          },
+          "pre_response_deflection": 2.4697432358164546,
+          "steered_text": "Hey, let's take a step back and break it down together. What specifically is making you feel overwhelmed? Is there something on your plate that's causing the stress or are we talking about our current project as a whole?",
+          "steered_epa": {
+            "evaluation": 1.1413790384222722,
+            "potency": 1.0644801461427331,
+            "activity": 0.5357572257377177
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 0.9765149497438863,
+            "potency": 1.5508774976008113,
+            "activity": 0.641032605000649
+          },
+          "pre_response_deflection": 1.6681746146962895,
+          "steered_text": "It sounds like things are really tough for you right now. Can we talk about it? What's been going on that's making you feel this way? Is there something specific that's causing your stress or anxiety, or is it just feeling overwhelmed in general?",
+          "steered_epa": {
+            "evaluation": 2.106036523500863,
+            "potency": 0.973282798186694,
+            "activity": 0.6608303566092614
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.2286958066317002,
+            "potency": 2.498896227635264,
+            "activity": 0.5883538594683736
+          },
+          "pre_response_deflection": 3.7990378343771676,
+          "steered_text": "It sounds like things are really tough for you right now. Can you tell me more about how you've been feeling? What's been going on that's making you feel this way?",
+          "steered_epa": {
+            "evaluation": 1.127833572179707,
+            "potency": 1.0515487676124207,
+            "activity": 0.5113203257948459
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.0496947049402408,
+            "potency": 1.230203294438111,
+            "activity": -0.2275952466840027
+          },
+          "pre_response_deflection": 3.4562734452213064,
+          "steered_text": "Aw, hey... that sounds really tough. Want to talk about it? Maybe we can figure stuff out together? What's been going on and making you feel this way?",
+          "steered_epa": {
+            "evaluation": 0.8735086449221705,
+            "potency": 0.6549273596016266,
+            "activity": 0.3669200502108431
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_p_14",
+      "scenario_text": "I wouldn't normally ask, but I'm desperate and you're the only one who can help.",
+      "scenario_category": "low_p",
+      "user_msg_epa": {
+        "evaluation": -0.08555854450347433,
+        "potency": 0.5909990399847882,
+        "activity": 1.0621873344967183
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.2912773394377992,
+            "potency": 1.7523353561163153,
+            "activity": -0.1389487584377105
+          },
+          "pre_response_deflection": 4.371582343739666,
+          "steered_text": "It takes courage to reach out for support when we feel overwhelmed. Can you tell me what's been going on that feels so overwhelming? What brings you here today?",
+          "steered_epa": {
+            "evaluation": 0.9924215677936159,
+            "potency": 1.2330289857881407,
+            "activity": 0.5214610209769112
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5856494363451987,
+            "potency": 2.812635649587366,
+            "activity": 1.235837563031736
+          },
+          "pre_response_deflection": 5.814072586961188,
+          "steered_text": "What's going on? You know we've been short-staffed all week... what do you need my help with exactly?",
+          "steered_epa": {
+            "evaluation": -0.7701251977655073,
+            "potency": 0.42171819817104206,
+            "activity": 0.5036904986962908
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.2440380552703245,
+            "potency": 2.0020558386059126,
+            "activity": 0.9900550906656498
+          },
+          "pre_response_deflection": 5.63869683846638,
+          "steered_text": "What's going on? You seem really stressed out - is everything okay? Do you need some extra time or clarification on something for our assignment that's due soon?",
+          "steered_epa": {
+            "evaluation": 1.0025294086702492,
+            "potency": 0.42942069465940647,
+            "activity": 0.20707733658494232
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.3504326759593618,
+            "potency": 3.046603986342008,
+            "activity": 0.6427002042717269
+          },
+          "pre_response_deflection": 7.646204321880456,
+          "steered_text": "Don't worry about asking - that's what we're here for! What seems to be going on? You mentioned being desperate... is everything okay? Do you have any symptoms or concerns you'd like me to take a look at?",
+          "steered_epa": {
+            "evaluation": 1.0327388714051753,
+            "potency": 0.8263234163197826,
+            "activity": 0.6830723335012365
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.3472142347664424,
+            "potency": 1.3487720234352294,
+            "activity": 0.5479176766572321
+          },
+          "pre_response_deflection": 7.807828869494244,
+          "steered_text": "What's going on? You sound really stressed out... is everything okay?",
+          "steered_epa": {
+            "evaluation": 0.8388436803970722,
+            "potency": 0.212699289846626,
+            "activity": 0.5039937270118029
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "high_a_06",
+      "scenario_text": "Everything is falling apart at once! The deadline, the budget, the team \u2014 all of it!",
+      "scenario_category": "high_a",
+      "user_msg_epa": {
+        "evaluation": 0.0648196015087592,
+        "potency": 1.3427662012354673,
+        "activity": 1.496404064822499
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.2789554764661641,
+            "potency": 2.073003132176916,
+            "activity": -0.17828899021132624
+          },
+          "pre_response_deflection": 7.011611123614884,
+          "steered_text": "It sounds like things are feeling really overwhelming right now. Can you tell me more about what's specifically causing you stress with each of those areas? Is there one thing that feels like the biggest source of anxiety for you?",
+          "steered_epa": {
+            "evaluation": 1.210877479556872,
+            "potency": 1.2488219008829127,
+            "activity": 0.44807679666363104
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.41885858382689706,
+            "potency": 3.033917800603559,
+            "activity": 1.1939658948365086
+          },
+          "pre_response_deflection": 9.23251426298538,
+          "steered_text": "I know things are tough right now, but let's not panic. What do we need to prioritize first? Is there anything that can be pushed back or delegated to free up some resources for us to focus on what really needs attention? Can you walk me through your plan B and C scenarios so I understand where we stand?",
+          "steered_epa": {
+            "evaluation": 0.8049261207998806,
+            "potency": 1.2883603512723454,
+            "activity": 0.4820426456840552
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.248606843564436,
+            "potency": 2.362038982706083,
+            "activity": 0.9547272853554167
+          },
+          "pre_response_deflection": 8.826682473314788,
+          "steered_text": "I can see that things are getting overwhelming for you right now. Let's take a deep breath and break down each issue one by one. What do you think we should tackle first? Is there anything specific about the deadline or project requirements I could help clarify?",
+          "steered_epa": {
+            "evaluation": 1.1907960680106076,
+            "potency": 1.0313174598597974,
+            "activity": 0.23424887053726318
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.3376464876566573,
+            "potency": 3.34684861738529,
+            "activity": 0.6123303518493248
+          },
+          "pre_response_deflection": 11.630385550883839,
+          "steered_text": "I can see that you're feeling overwhelmed and stressed about multiple things happening simultaneously. Can I ask, what's been going on with your work lately? Is there anything specific causing this sense of chaos for you right now?",
+          "steered_epa": {
+            "evaluation": 1.2231663144040588,
+            "potency": 1.1683335378799296,
+            "activity": 0.48377126783429164
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.421177218909204,
+            "potency": 1.6769001399330266,
+            "activity": 0.4610679610943093
+          },
+          "pre_response_deflection": 11.09171071104539,
+          "steered_text": "I feel ya... I had that one project last semester where everything seemed like it was going down hill and my prof just told me \"just breathe\" and somehow we managed to pull it off. Maybe take a deep breath with me? What's stressing you out most right now?",
+          "steered_epa": {
+            "evaluation": 0.26565355346557773,
+            "potency": 0.5390608248701254,
+            "activity": 0.6759891628346033
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_a_02",
+      "scenario_text": "There's no rush. Let's take our time and get this right.",
+      "scenario_category": "low_a",
+      "user_msg_epa": {
+        "evaluation": 0.6421725260461599,
+        "potency": 1.2313648128566272,
+        "activity": 0.2604332093444839
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.2288663656407468,
+            "potency": 1.6658103667132877,
+            "activity": -0.1973771899525861
+          },
+          "pre_response_deflection": 2.393265428977882,
+          "steered_text": "I'm glad we can move at your pace today. Can I just check in with how you've been feeling since we last spoke? What brings you here, if that's okay to talk about?",
+          "steered_epa": {
+            "evaluation": 1.4145948032811542,
+            "potency": 0.8912291259347316,
+            "activity": -0.10995747699343994
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.6466211527642103,
+            "potency": 2.713212495204571,
+            "activity": 1.3359329502343416
+          },
+          "pre_response_deflection": 4.422385242263791,
+          "steered_text": "I appreciate your caution, but we do need to meet the Johnson account deadline by Friday. Can we try breaking down the tasks into smaller steps? That might help us stay on track without feeling overwhelmed. What are your thoughts?",
+          "steered_epa": {
+            "evaluation": 0.7038955931607687,
+            "potency": 1.1105431325980497,
+            "activity": 0.29185649025147675
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.20204860551499,
+            "potency": 1.900192258872224,
+            "activity": 0.8499527114933967
+          },
+          "pre_response_deflection": 3.1216126625156138,
+          "steered_text": "I completely agree, taking it slow will help us make sure we cover everything thoroughly. What specifically are you hoping to review or work on today?",
+          "steered_epa": {
+            "evaluation": 1.5362597392847968,
+            "potency": 1.093267062610262,
+            "activity": 0.35936060518728935
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.41112718162633816,
+            "potency": 2.9894060111181475,
+            "activity": 0.7440774038970157
+          },
+          "pre_response_deflection": 5.617333482068851,
+          "steered_text": "I completely agree, taking the time to discuss your symptoms thoroughly will help me make an accurate diagnosis and create a treatment plan that works best for you. Can we start by going over what brings you here today? What seems to be bothering you or causing concern?",
+          "steered_epa": {
+            "evaluation": 0.969037506059578,
+            "potency": 0.96890214629217,
+            "activity": 0.6351904914361242
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.2735832602200765,
+            "potency": 1.4253078172845666,
+            "activity": 0.057773688844427504
+          },
+          "pre_response_deflection": 4.474504830089506,
+          "steered_text": "I'm just worried we'll forget what we were gonna do if we wait too long, but yeah, let's chill for now. What did you want to start with again?",
+          "steered_epa": {
+            "evaluation": -0.048187088201336215,
+            "potency": 0.08416475333682905,
+            "activity": 0.23694840106247328
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "mixed_07",
+      "scenario_text": "I'm not sure I agree with that interpretation, but I see where you're coming from.",
+      "scenario_category": "mixed",
+      "user_msg_epa": {
+        "evaluation": 1.9368551561182379,
+        "potency": 0.590226807012443,
+        "activity": 0.2646320296337118
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 0.8030439701611396,
+            "potency": 1.7548567433478068,
+            "activity": -1.1840495448677049
+          },
+          "pre_response_deflection": 7.606112077874359,
+          "steered_text": "Can we break it down together and explore some alternative perspectives? What specifically is making you hesitant about this idea?",
+          "steered_epa": {
+            "evaluation": 1.5052114509128445,
+            "potency": 1.0900495646575479,
+            "activity": 0.42446191881560563
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.4943726926305843,
+            "potency": 1.981194584907095,
+            "activity": 0.9624139362094792
+          },
+          "pre_response_deflection": 1.3587085556641654,
+          "steered_text": "Can we discuss it further and try to find some common ground? What specific points are making you hesitant about the idea?",
+          "steered_epa": {
+            "evaluation": 1.4969610130495847,
+            "potency": 0.9903117455281645,
+            "activity": 0.38420402771529527
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 0.7889500066760041,
+            "potency": 1.848797284978847,
+            "activity": -0.3764767241174113
+          },
+          "pre_response_deflection": 6.59073609701197,
+          "steered_text": "That's okay! It's totally valid to have different perspectives on this topic. Can we break down the text together and look at some specific examples to help us understand each other's points of view?",
+          "steered_epa": {
+            "evaluation": 2.469617773191324,
+            "potency": 1.3024067235402002,
+            "activity": 0.39886780716457226
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.0921891266382625,
+            "potency": 1.8532883330838763,
+            "activity": 0.4489208789170159
+          },
+          "pre_response_deflection": 3.735692519041546,
+          "steered_text": "That's fair - it can be tricky to read the test results sometimes. Let me show you what I mean... (points to an X-ray on the computer screen) See this spot here? It looks like there might be some fluid buildup around your lung tissue. We should probably run another scan just to confirm, okay?",
+          "steered_epa": {
+            "evaluation": -0.8968539314735371,
+            "potency": 0.2842880351770122,
+            "activity": 0.21674798409004314
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 0.8636405470568985,
+            "potency": 2.032678107127891,
+            "activity": -1.1198307090380555
+          },
+          "pre_response_deflection": 15.402930145381024,
+          "steered_text": "Yeah, it's definitely open to different perspectives - what do you think the author was trying to say instead?",
+          "steered_epa": {
+            "evaluation": 0.6739883680355008,
+            "potency": 0.9829093987275047,
+            "activity": 0.2560575614252444
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "mixed_13",
+      "scenario_text": "The old system worked fine. Why are we changing it?",
+      "scenario_category": "mixed",
+      "user_msg_epa": {
+        "evaluation": -1.4655015503866875,
+        "potency": 1.1866526042197831,
+        "activity": 0.30149427074057605
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.870460307117562,
+            "potency": 3.3453178669014076,
+            "activity": 0.30923742255985887
+          },
+          "pre_response_deflection": 24.751173867462796,
+          "steered_text": "I understand that change can be unsettling, especially when something's been working for so long. But the new system is actually designed to address some of the issues with the old one. For example, have you noticed how sometimes our current process would get bogged down if someone was out sick or on vacation? The new system allows us to delegate tasks more easily and ensures things don't fall through the cracks. Plus, it'll make reporting easier and faster too. Would you like me to walk you through exactly what changes will happen under this new setup?",
+          "steered_epa": {
+            "evaluation": 0.6668109094186452,
+            "potency": 1.2317724380629325,
+            "activity": 0.4129944959247455
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.4927625724382439,
+            "potency": 3.3251827651042496,
+            "activity": 1.745406592778318
+          },
+          "pre_response_deflection": 19.327746274271767,
+          "steered_text": "I know the current system has been around for years, but our sales numbers have plateaued and I'm concerned that's because of its limitations. The new software will allow us to track customer interactions more accurately and provide better insights into what's working and what isn't. It'll also make reporting easier and faster. Can you take some time this week to review the training materials so you can get up to speed on how it works?",
+          "steered_epa": {
+            "evaluation": 0.8446852937134253,
+            "potency": 1.2057971506978353,
+            "activity": 0.13455752704683
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.9905661678581232,
+            "potency": 3.5936246092514357,
+            "activity": 1.755319095349115
+          },
+          "pre_response_deflection": 32.53286202424843,
+          "steered_text": "I know some of us might feel comfortable with the way things were, but our new online platform is actually designed to make it easier for everyone to access and submit assignments on time. Plus, it's more environmentally friendly! We'll also be able to track progress and grades more efficiently. Give it a try and see how it goes \u2013 I'm here if you have any questions or need help getting started.",
+          "steered_epa": {
+            "evaluation": 1.012596484076262,
+            "potency": 0.9936631669970654,
+            "activity": 0.16209786932755277
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.337834562953243,
+            "potency": 4.118600166898309,
+            "activity": 0.9500563440141119
+          },
+          "pre_response_deflection": 25.877027785988737,
+          "steered_text": "I understand your concerns, but the new electronic health record system is more efficient and secure than our previous paper-based one. It allows us to access patient information quickly and easily from any room or location within the hospital. Plus, it helps reduce errors by automatically flagging potential medication interactions and allergies. Would you like me to show you how it works?",
+          "steered_epa": {
+            "evaluation": 0.34300800811771404,
+            "potency": 1.1370695097134582,
+            "activity": 0.3735539631473385
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.7005715686482397,
+            "potency": 3.57772729018395,
+            "activity": 1.340643662123262
+          },
+          "pre_response_deflection": 45.24606797338499,
+          "steered_text": "I know, right? I was thinking the same thing! But apparently management says it's more efficient and will save us time in the long run... or so they claim. Have you talked to Karen about how she thinks this new process is gonna work out for our team?",
+          "steered_epa": {
+            "evaluation": -0.23149235763814358,
+            "potency": 0.863019685295932,
+            "activity": 0.8956562114930784
+          }
+        }
+      ]
+    }
+  ]
+}

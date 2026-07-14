@@ -41,6 +41,12 @@ from .setup import (
     clean_response,
 )
 from .scenarios import get_scenarios
+from .stats_utils import (
+    bootstrap_ci,
+    paired_permutation_test,
+    cohens_d_paired,
+    wilcoxon_signed_rank,
+)
 
 
 def main():
@@ -52,6 +58,8 @@ def main():
                         help="Output filename in results/")
     parser.add_argument("--resume", default=None,
                         help="Path to checkpoint file to resume from")
+    parser.add_argument("--per-dim-coeff", action="store_true",
+                        help="Use per-dimension optimised steering coefficients")
     args = parser.parse_args()
 
     # ---- Load components ----
@@ -184,7 +192,7 @@ def main():
 
 
 def _compute_aggregate_metrics(trials: list) -> dict:
-    """Compute per-dimension and overall steering metrics."""
+    """Compute per-dimension and overall steering metrics with CIs."""
     metrics = {"per_dimension": {}, "overall": {}}
 
     for dim in DIMENSION_NAMES:
@@ -205,12 +213,38 @@ def _compute_aggregate_metrics(trials: list) -> dict:
             improvements.append(1 if d_st < d_un else 0)
             shifts.append(st_val - un_val)
 
+        # Bootstrap CI on hit rate
+        hit_point, hit_ci_lo, hit_ci_hi = bootstrap_ci(
+            improvements, lambda x: float(np.mean(x)))
+
+        # Bootstrap CI on mean distance improvement
+        un_arr = np.array(distances_unsteered)
+        st_arr = np.array(distances_steered)
+        improv_point, improv_ci_lo, improv_ci_hi = bootstrap_ci(
+            un_arr - st_arr, lambda x: float(np.mean(x)))
+
+        # Wilcoxon signed-rank test
+        try:
+            _, wilcox_p = wilcoxon_signed_rank(un_arr, st_arr)
+        except ValueError:
+            wilcox_p = 1.0
+
+        # Permutation test
+        _, perm_p = paired_permutation_test(un_arr, st_arr)
+
+        # Effect size
+        d = cohens_d_paired(un_arr, st_arr)
+
         metrics["per_dimension"][dim] = {
-            "hit_rate": float(np.mean(improvements)),
+            "hit_rate": hit_point,
+            "hit_rate_ci": [hit_ci_lo, hit_ci_hi],
             "mean_distance_unsteered": float(np.mean(distances_unsteered)),
             "mean_distance_steered": float(np.mean(distances_steered)),
-            "mean_distance_improvement": float(
-                np.mean(distances_unsteered) - np.mean(distances_steered)),
+            "mean_distance_improvement": improv_point,
+            "improvement_ci": [improv_ci_lo, improv_ci_hi],
+            "wilcoxon_p": float(wilcox_p),
+            "permutation_p": float(perm_p),
+            "cohens_d": float(d),
             "mean_shift": float(np.mean(shifts)),
             "std_shift": float(np.std(shifts)),
         }

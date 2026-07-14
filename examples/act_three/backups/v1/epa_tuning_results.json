@@ -1,0 +1,4474 @@
+{
+  "metadata": {
+    "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+    "tuned_at": "2026-02-26T08:56:52.790188",
+    "dataset_path": "epa_tuning_dataset.json",
+    "n_utterances": 85,
+    "interference_penalty": 0.5
+  },
+  "layer_candidates": {
+    "middle_every2": [
+      -4,
+      -6,
+      -8,
+      -10,
+      -12,
+      -14,
+      -16,
+      -18,
+      -20,
+      -22,
+      -24,
+      -26
+    ],
+    "paper_7b_pattern": [
+      -3,
+      -6,
+      -9,
+      -12,
+      -15,
+      -18,
+      -21,
+      -24
+    ],
+    "narrow_middle": [
+      -4,
+      -6,
+      -8,
+      -10,
+      -12,
+      -14,
+      -16,
+      -18,
+      -20,
+      -22
+    ],
+    "early_to_mid": [
+      -9,
+      -12,
+      -15,
+      -18,
+      -21,
+      -24
+    ],
+    "mid_to_late": [
+      -3,
+      -6,
+      -9,
+      -12,
+      -15,
+      -18
+    ]
+  },
+  "coeff_candidates": [
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "best_hyperparameters": {
+    "evaluation": {
+      "layer_name": "early_to_mid",
+      "layers_neg": [
+        -9,
+        -12,
+        -15,
+        -18,
+        -21,
+        -24
+      ],
+      "layers_pos": [
+        23,
+        20,
+        17,
+        14,
+        11,
+        8
+      ],
+      "coefficient": 0.15,
+      "on_target_correlation": 0.7513034842135885,
+      "on_target_delta": 0.005538086587089652,
+      "cross_dim_correlations": {
+        "potency": 0.4158443856799025,
+        "activity": 0.514311445426927
+      },
+      "cross_dim_deltas": {
+        "potency": 0.013171825893476652,
+        "activity": -0.0019774116292959887
+      }
+    },
+    "potency": {
+      "layer_name": "mid_to_late",
+      "layers_neg": [
+        -3,
+        -6,
+        -9,
+        -12,
+        -15,
+        -18
+      ],
+      "layers_pos": [
+        29,
+        26,
+        23,
+        20,
+        17,
+        14
+      ],
+      "coefficient": 1.0,
+      "on_target_correlation": 0.4226711189728649,
+      "on_target_delta": 0.019998559186439058,
+      "cross_dim_correlations": {
+        "evaluation": 0.7587178624312768,
+        "activity": 0.48731414157617686
+      },
+      "cross_dim_deltas": {
+        "evaluation": 0.012952464804777963,
+        "activity": -0.028974715480046098
+      }
+    },
+    "activity": {
+      "layer_name": "mid_to_late",
+      "layers_neg": [
+        -3,
+        -6,
+        -9,
+        -12,
+        -15,
+        -18
+      ],
+      "layers_pos": [
+        29,
+        26,
+        23,
+        20,
+        17,
+        14
+      ],
+      "coefficient": 0.1,
+      "on_target_correlation": 0.5127336143859343,
+      "on_target_delta": -0.0035552426702886164,
+      "cross_dim_correlations": {
+        "evaluation": 0.7479947548865112,
+        "potency": 0.40842083674629764
+      },
+      "cross_dim_deltas": {
+        "evaluation": 0.002229357260012388,
+        "potency": 0.00574827695987179
+      }
+    }
+  },
+  "baseline_correlations": {
+    "evaluation": 0.7457653976264988,
+    "potency": 0.40267255978642585,
+    "activity": 0.516288857056223
+  },
+  "full_grid_results": {
+    "evaluation": [
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7479443169394522,
+          "potency": 0.419488102222772,
+          "activity": 0.5013916730717862
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0021789193129533313,
+          "potency": 0.016815542436346143,
+          "activity": -0.014897183984436735
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7474197622900375,
+          "potency": 0.4264509513636003,
+          "activity": 0.49682211044657393
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0016543646635386322,
+          "potency": 0.02377839157717443,
+          "activity": -0.019466746609649033
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7530082868241862,
+          "potency": 0.4299061998094248,
+          "activity": 0.49186321288916857
+        },
+        "correlation_deltas": {
+          "evaluation": 0.007242889197687341,
+          "potency": 0.02723364002299894,
+          "activity": -0.024425644167054394
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7519995278830042,
+          "potency": 0.43905737296594194,
+          "activity": 0.4818532068693648
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006234130256505321,
+          "potency": 0.036384813179516085,
+          "activity": -0.03443565018685818
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7507991047429976,
+          "potency": 0.44307802570290145,
+          "activity": 0.4732366100805675
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0050337071164987535,
+          "potency": 0.04040546591647559,
+          "activity": -0.04305224697565546
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7398036322841128,
+          "potency": 0.4624064760998473,
+          "activity": 0.4331043750963595
+        },
+        "correlation_deltas": {
+          "evaluation": -0.005961765342386016,
+          "potency": 0.059733916313421453,
+          "activity": -0.08318448195986344
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7281928168711072,
+          "potency": 0.4959537973738529,
+          "activity": 0.39654787409466075
+        },
+        "correlation_deltas": {
+          "evaluation": -0.017572580755391698,
+          "potency": 0.09328123758742707,
+          "activity": -0.11974098296156221
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7031453323615561,
+          "potency": 0.537699480869315,
+          "activity": 0.37409964155690234
+        },
+        "correlation_deltas": {
+          "evaluation": -0.042620065264942775,
+          "potency": 0.1350269210828891,
+          "activity": -0.14218921549932062
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7488118496288688,
+          "potency": 0.4139282933599452,
+          "activity": 0.5154282219429542
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0030464520023699704,
+          "potency": 0.011255733573519333,
+          "activity": -0.0008606351132687262
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.750879805458292,
+          "potency": 0.41514286554090174,
+          "activity": 0.5148339738885545
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005114407831793177,
+          "potency": 0.012470305754475886,
+          "activity": -0.0014548831676685081
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7514648856441776,
+          "potency": 0.41687048976381397,
+          "activity": 0.5066374490002812
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005699488017678722,
+          "potency": 0.014197929977388113,
+          "activity": -0.00965140805594178
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7536337173677191,
+          "potency": 0.4224302986266408,
+          "activity": 0.5033895760133028
+        },
+        "correlation_deltas": {
+          "evaluation": 0.007868319741220264,
+          "potency": 0.019757738840214922,
+          "activity": -0.012899281042920152
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7518784768100624,
+          "potency": 0.4248594429885538,
+          "activity": 0.5006232488635106
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006113079183563519,
+          "potency": 0.02218688320212797,
+          "activity": -0.015665608192712344
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7517977760947677,
+          "potency": 0.43171758763102375,
+          "activity": 0.4876932308522595
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006032378468268873,
+          "potency": 0.029045027844597893,
+          "activity": -0.028595626203963442
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7541078340700746,
+          "potency": 0.44348637324649887,
+          "activity": 0.46536794618782523
+        },
+        "correlation_deltas": {
+          "evaluation": 0.008342436443575796,
+          "potency": 0.04081381346007301,
+          "activity": -0.05092091086839773
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7513841849288831,
+          "potency": 0.4639456322257146,
+          "activity": 0.4529502109820912
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005618787302384298,
+          "potency": 0.061273072439288756,
+          "activity": -0.06333864607413175
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7498508713382864,
+          "potency": 0.41481828159599093,
+          "activity": 0.5088812476884459
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0040854737117875795,
+          "potency": 0.01214572180956508,
+          "activity": -0.007407609367777068
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7506477909018202,
+          "potency": 0.41705895786085895,
+          "activity": 0.500182685650766
+        },
+        "correlation_deltas": {
+          "evaluation": 0.004882393275321362,
+          "potency": 0.014386398074433093,
+          "activity": -0.016106171405457004
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7508697178688802,
+          "potency": 0.42210571468172997,
+          "activity": 0.4954082099033467
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005104320242381388,
+          "potency": 0.019433154895304117,
+          "activity": -0.02088064715287624
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7507789295641739,
+          "potency": 0.42453485904364296,
+          "activity": 0.4902443992237346
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005013531937675064,
+          "potency": 0.02186229925721711,
+          "activity": -0.026044457832488377
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7496289443712263,
+          "potency": 0.4292046796704241,
+          "activity": 0.489055903114935
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003863546744727442,
+          "potency": 0.02653211988399823,
+          "activity": -0.02723295394128794
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7499214844641691,
+          "potency": 0.45317153934464344,
+          "activity": 0.46574703546390783
+        },
+        "correlation_deltas": {
+          "evaluation": 0.004156086837670214,
+          "potency": 0.05049897955821758,
+          "activity": -0.05054182159231513
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7351028156182043,
+          "potency": 0.4733062143789483,
+          "activity": 0.44448729903494905
+        },
+        "correlation_deltas": {
+          "evaluation": -0.010662582008294508,
+          "potency": 0.07063365459252247,
+          "activity": -0.07180155802127391
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7169249794981034,
+          "potency": 0.49689613785907777,
+          "activity": 0.4264344529685271
+        },
+        "correlation_deltas": {
+          "evaluation": -0.02884041812839544,
+          "potency": 0.09422357807265191,
+          "activity": -0.08985440408769585
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7494473677618135,
+          "potency": 0.4132267732209445,
+          "activity": 0.5150388870107612
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0036819701353146828,
+          "potency": 0.010554213434518622,
+          "activity": -0.0012499700454617901
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7513034842135885,
+          "potency": 0.4158443856799025,
+          "activity": 0.514311445426927
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005538086587089652,
+          "potency": 0.013171825893476652,
+          "activity": -0.0019774116292959887
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.751888564399474,
+          "potency": 0.41687048976381397,
+          "activity": 0.505582146420916
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006123166772975197,
+          "potency": 0.014197929977388113,
+          "activity": -0.010706710635306926
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7517271629688851,
+          "potency": 0.4210272583486393,
+          "activity": 0.5033895760133028
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005961765342386238,
+          "potency": 0.018354698562213445,
+          "activity": -0.012899281042920152
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7518784768100624,
+          "potency": 0.42415792284955306,
+          "activity": 0.5017195340673172
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006113079183563519,
+          "potency": 0.021485363063127205,
+          "activity": -0.014569322988905786
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7530688123606571,
+          "potency": 0.433633679950981,
+          "activity": 0.4876932308522595
+        },
+        "correlation_deltas": {
+          "evaluation": 0.007303414734158298,
+          "potency": 0.030961120164555156,
+          "activity": -0.028595626203963442
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7536841553147782,
+          "potency": 0.44540246556645613,
+          "activity": 0.46536794618782523
+        },
+        "correlation_deltas": {
+          "evaluation": 0.007918757688279321,
+          "potency": 0.042729905780030275,
+          "activity": -0.05092091086839773
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7515960243065313,
+          "potency": 0.4651602044066711,
+          "activity": 0.4528580000770981
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005830626680032425,
+          "potency": 0.06248764462024525,
+          "activity": -0.06343085697912487
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7466127551370918,
+          "potency": 0.4089338887882534,
+          "activity": 0.5168113855178503
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0008473575105929498,
+          "potency": 0.00626132900182752,
+          "activity": 0.0005225284616273695
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7469859959453292,
+          "potency": 0.4089338887882534,
+          "activity": 0.5173851422600295
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0012205983188303682,
+          "potency": 0.00626132900182752,
+          "activity": 0.0010962852038065574
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7466127551370918,
+          "potency": 0.4127660734281679,
+          "activity": 0.5179076707216569
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0008473575105929498,
+          "potency": 0.010093513641742047,
+          "activity": 0.001618813665433927
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7461890763817953,
+          "potency": 0.41327912547012363,
+          "activity": 0.5176412836627879
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0004236787552964749,
+          "potency": 0.010606565683697777,
+          "activity": 0.0013524266065649826
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7462193391500309,
+          "potency": 0.4153836858871259,
+          "activity": 0.5176412836627879
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0004539415235320643,
+          "potency": 0.012711126100700021,
+          "activity": 0.0013524266065649826
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7478837914029812,
+          "potency": 0.4180012983460839,
+          "activity": 0.5170367899522779
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0021183937764823746,
+          "potency": 0.01532873855965805,
+          "activity": 0.0007479328960549037
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7470566090712119,
+          "potency": 0.42412651150004554,
+          "activity": 0.5158482938434782
+        },
+        "correlation_deltas": {
+          "evaluation": 0.001291211444713003,
+          "potency": 0.02145395171361969,
+          "activity": -0.00044056321274477117
+        }
+      },
+      {
+        "steer_dim": "evaluation",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7471373097865067,
+          "potency": 0.42968632036287235,
+          "activity": 0.5144139019880304
+        },
+        "correlation_deltas": {
+          "evaluation": 0.001371912160007871,
+          "potency": 0.0270137605764465,
+          "activity": -0.0018749550681925742
+        }
+      }
+    ],
+    "potency": [
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7474096747006257,
+          "potency": 0.39819120725668977,
+          "activity": 0.5199977845681666
+        },
+        "correlation_deltas": {
+          "evaluation": 0.001644277074126843,
+          "potency": -0.004481352529736082,
+          "activity": 0.003708927511943627
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7473794119323902,
+          "potency": 0.39020225403194997,
+          "activity": 0.5259197737999439
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0016140143058913647,
+          "potency": -0.012470305754475886,
+          "activity": 0.009630916743720963
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7471473973759184,
+          "potency": 0.3900661381840842,
+          "activity": 0.5270160590037505
+        },
+        "correlation_deltas": {
+          "evaluation": 0.001381999749419549,
+          "potency": -0.012606421602341655,
+          "activity": 0.01072720194752752
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7468548572829755,
+          "potency": 0.3850193813632131,
+          "activity": 0.528378731266426
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0010894596564766656,
+          "potency": -0.017653178423212734,
+          "activity": 0.012089874210203022
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7436873542076639,
+          "potency": 0.3860978376963039,
+          "activity": 0.5289832249769361
+        },
+        "correlation_deltas": {
+          "evaluation": -0.002078043418834996,
+          "potency": -0.01657472209012195,
+          "activity": 0.012694367920713101
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.738159355209986,
+          "potency": 0.38353257748652503,
+          "activity": 0.5456221705001308
+        },
+        "correlation_deltas": {
+          "evaluation": -0.007606042416512859,
+          "potency": -0.019139982299900826,
+          "activity": 0.029333313443907882
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7304019989522959,
+          "potency": 0.38423409762552574,
+          "activity": 0.5582653101402923
+        },
+        "correlation_deltas": {
+          "evaluation": -0.015363398674203,
+          "potency": -0.018438462160900115,
+          "activity": 0.04197645308406939
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.6952669250309241,
+          "potency": 0.39508148365544765,
+          "activity": 0.5637774731276562
+        },
+        "correlation_deltas": {
+          "evaluation": -0.05049847259557472,
+          "potency": -0.007591076130978203,
+          "activity": 0.04748861607143329
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7466127551370918,
+          "potency": 0.4019710396474251,
+          "activity": 0.5201412237537113
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0008473575105929498,
+          "potency": -0.0007015201390007664,
+          "activity": 0.003852366697488341
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7460982880770891,
+          "potency": 0.4019710396474251,
+          "activity": 0.5224157594102071
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0003328904505902619,
+          "potency": -0.0007015201390007664,
+          "activity": 0.006126902353984165
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7452105802088488,
+          "potency": 0.4019710396474251,
+          "activity": 0.5235222902701241
+        },
+        "correlation_deltas": {
+          "evaluation": -0.0005548174176500664,
+          "potency": -0.0007015201390007664,
+          "activity": 0.00723343321390113
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7460074997723827,
+          "potency": 0.39935342718846717,
+          "activity": 0.5229485335279449
+        },
+        "correlation_deltas": {
+          "evaluation": 0.00024210214588382684,
+          "potency": -0.003319132597958685,
+          "activity": 0.0066596764717219425
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7461890763817953,
+          "potency": 0.4007564674664686,
+          "activity": 0.5278664484609089
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0004236787552964749,
+          "potency": -0.0019160923199572633,
+          "activity": 0.01157759140468595
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.747903966581805,
+          "potency": 0.3908514219217716,
+          "activity": 0.5338396659732381
+        },
+        "correlation_deltas": {
+          "evaluation": 0.002138568955306175,
+          "potency": -0.011821137864654274,
+          "activity": 0.017550808917015104
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7456947845006162,
+          "potency": 0.3901499017827708,
+          "activity": 0.5478967061566268
+        },
+        "correlation_deltas": {
+          "evaluation": -7.06131258826348e-05,
+          "potency": -0.01252265800365504,
+          "activity": 0.03160784910040382
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7349414141876153,
+          "potency": 0.38804534136576857,
+          "activity": 0.5514417031708049
+        },
+        "correlation_deltas": {
+          "evaluation": -0.010823983438883578,
+          "potency": -0.014627218420657284,
+          "activity": 0.035152846114581915
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7485193095359259,
+          "potency": 0.3992173113406013,
+          "activity": 0.5186760949299325
+        },
+        "correlation_deltas": {
+          "evaluation": 0.002753911909427087,
+          "potency": -0.003455248445824566,
+          "activity": 0.0023872378737095357
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.748125893548865,
+          "potency": 0.3985157912016006,
+          "activity": 0.5247210320350341
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0023604959223662014,
+          "potency": -0.004156768584825277,
+          "activity": 0.008432174978811102
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7491144773112234,
+          "potency": 0.39940577943764627,
+          "activity": 0.5246800494105927
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003349079684724532,
+          "potency": -0.0032667803487795855,
+          "activity": 0.008391192354369692
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7492657911524008,
+          "potency": 0.39608664683968753,
+          "activity": 0.5265652501348954
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0035003935259019237,
+          "potency": -0.006585912946738326,
+          "activity": 0.010276393078672452
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7491144773112234,
+          "potency": 0.3946836065616861,
+          "activity": 0.527118515564854
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003349079684724532,
+          "potency": -0.007988953224739748,
+          "activity": 0.010829658508631046
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7475242903539644,
+          "potency": 0.38599313319794554,
+          "activity": 0.534587598869293
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0017588927274655441,
+          "potency": -0.016679426588480317,
+          "activity": 0.018298741813070007
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.748912725522987,
+          "potency": 0.3886630979060827,
+          "activity": 0.547609827785537
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0031473278964881946,
+          "potency": -0.014009461880343133,
+          "activity": 0.03132097072931406
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7465623171900327,
+          "potency": 0.37870570011220644,
+          "activity": 0.554085082447273
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0007969195635338933,
+          "potency": -0.02396685967421941,
+          "activity": 0.03779622539104999
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7461890763817953,
+          "potency": 0.4012695195084244,
+          "activity": 0.5182047947488567
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0004236787552964749,
+          "potency": -0.0014030402780014772,
+          "activity": 0.0019159376926337623
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7460982880770891,
+          "potency": 0.4007564674664686,
+          "activity": 0.5215756156091591
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0003328904505902619,
+          "potency": -0.0019160923199572633,
+          "activity": 0.005286758552936144
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7464816164747381,
+          "potency": 0.40145798760546936,
+          "activity": 0.5226821464690761
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0007162188482392473,
+          "potency": -0.0012145721809564969,
+          "activity": 0.006393289412853109
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7460074997723827,
+          "potency": 0.4000549473274679,
+          "activity": 0.5243112057906203
+        },
+        "correlation_deltas": {
+          "evaluation": 0.00024210214588382684,
+          "potency": -0.002617612458957974,
+          "activity": 0.008022348734397333
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7461890763817953,
+          "potency": 0.39813885500751056,
+          "activity": 0.5292291207235844
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0004236787552964749,
+          "potency": -0.004533704778915293,
+          "activity": 0.012940263667361451
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7489429882912224,
+          "potency": 0.3896368497408151,
+          "activity": 0.533450331041045
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003177590664723562,
+          "potency": -0.013035710045610771,
+          "activity": 0.01716147398482204
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7448474269900233,
+          "potency": 0.39066295382472654,
+          "activity": 0.5473229494144476
+        },
+        "correlation_deltas": {
+          "evaluation": -0.0009179706364755846,
+          "potency": -0.01200960596169931,
+          "activity": 0.03103409235822463
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7341444946240814,
+          "potency": 0.38772075742085776,
+          "activity": 0.5514417031708049
+        },
+        "correlation_deltas": {
+          "evaluation": -0.011620903002417471,
+          "potency": -0.01495180236556809,
+          "activity": 0.035152846114581915
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7487916744500451,
+          "potency": 0.4052901722453839,
+          "activity": 0.5151413435718646
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003026276823546281,
+          "potency": 0.0026176124589580296,
+          "activity": -0.0011475134843583756
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7485798350723969,
+          "potency": 0.4051017041483389,
+          "activity": 0.5135225299064307
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0028144374458980437,
+          "potency": 0.0024291443619130493,
+          "activity": -0.0027663271497923025
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7487916744500451,
+          "potency": 0.4089338887882534,
+          "activity": 0.5121598576437553
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003026276823546281,
+          "potency": 0.00626132900182752,
+          "activity": -0.004128999412467693
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7496087691924026,
+          "potency": 0.4089338887882534,
+          "activity": 0.5107971853810798
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0038433715659037526,
+          "potency": 0.00626132900182752,
+          "activity": -0.005491671675143195
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7502140245571118,
+          "potency": 0.41014846096920987,
+          "activity": 0.5102746569194524
+        },
+        "correlation_deltas": {
+          "evaluation": 0.004448626930612987,
+          "potency": 0.007475901182784017,
+          "activity": -0.006014200136770564
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7527056591418317,
+          "potency": 0.4125776053311229,
+          "activity": 0.5049469157420747
+        },
+        "correlation_deltas": {
+          "evaluation": 0.006940261515332891,
+          "potency": 0.009905045544697066,
+          "activity": -0.01134194131414823
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7548644032759613,
+          "potency": 0.4162213218739924,
+          "activity": 0.498563871985332
+        },
+        "correlation_deltas": {
+          "evaluation": 0.009099005649462422,
+          "potency": 0.013548762087566557,
+          "activity": -0.017724985070890986
+        }
+      },
+      {
+        "steer_dim": "potency",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7587178624312768,
+          "potency": 0.4226711189728649,
+          "activity": 0.48731414157617686
+        },
+        "correlation_deltas": {
+          "evaluation": 0.012952464804777963,
+          "potency": 0.019998559186439058,
+          "activity": -0.028974715480046098
+        }
+      }
+    ],
+    "activity": [
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7450592663676715,
+          "potency": 0.4121483168878538,
+          "activity": 0.5028260649272341
+        },
+        "correlation_deltas": {
+          "evaluation": -0.0007061312588273472,
+          "potency": 0.00947575710142795,
+          "activity": -0.01346279212898882
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7411150189076496,
+          "potency": 0.4184096458896813,
+          "activity": 0.49800036089926314
+        },
+        "correlation_deltas": {
+          "evaluation": -0.004650378718849213,
+          "potency": 0.01573708610325547,
+          "activity": -0.01828849615695982
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7420632523123608,
+          "potency": 0.42200101018337166,
+          "activity": 0.4862588389968117
+        },
+        "correlation_deltas": {
+          "evaluation": -0.003702145314138039,
+          "potency": 0.019328450396945807,
+          "activity": -0.030030018059411245
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7388654864688134,
+          "potency": 0.42232559412828247,
+          "activity": 0.4802856214844825
+        },
+        "correlation_deltas": {
+          "evaluation": -0.006899911157685401,
+          "potency": 0.019653034341856612,
+          "activity": -0.036003235571740455
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7372918225205695,
+          "potency": 0.4315291195339787,
+          "activity": 0.4652757352828321
+        },
+        "correlation_deltas": {
+          "evaluation": -0.008473575105929387,
+          "potency": 0.028856559747552857,
+          "activity": -0.051013121773390846
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7234819126157868,
+          "potency": 0.4452977610680978,
+          "activity": 0.4177358909308472
+        },
+        "correlation_deltas": {
+          "evaluation": -0.02228348501071209,
+          "potency": 0.042625201281671965,
+          "activity": -0.09855296612537578
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.6933301078638545,
+          "potency": 0.45164285366861195,
+          "activity": 0.35172312861191635
+        },
+        "correlation_deltas": {
+          "evaluation": -0.05243528976264433,
+          "potency": 0.0489702938821861,
+          "activity": -0.1645657284443066
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "middle_every2",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22,
+          -24,
+          -26
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.6525964218189221,
+          "potency": 0.4418739239717807,
+          "activity": 0.26485021045233004
+        },
+        "correlation_deltas": {
+          "evaluation": -0.09316897580757677,
+          "potency": 0.03920136418535486,
+          "activity": -0.2514386466038929
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7479745797076877,
+          "potency": 0.4106091607619865,
+          "activity": 0.5105205526661006
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0022091820811888097,
+          "potency": 0.007936600975560648,
+          "activity": -0.005768304390122325
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7465219668323855,
+          "potency": 0.41042069266494147,
+          "activity": 0.5099775328922524
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0007565692058866258,
+          "potency": 0.007748132878515612,
+          "activity": -0.006311324163970511
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7467438937994455,
+          "potency": 0.414064409207811,
+          "activity": 0.5105000613538799
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0009784961729466524,
+          "potency": 0.011391849421385158,
+          "activity": -0.00578879570234303
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7424869310676573,
+          "potency": 0.41522662913958835,
+          "activity": 0.5084201931634805
+        },
+        "correlation_deltas": {
+          "evaluation": -0.003278466558841564,
+          "potency": 0.0125540693531625,
+          "activity": -0.007868663892742433
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7461184632559127,
+          "potency": 0.4174673054044564,
+          "activity": 0.5037481739771648
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0003530656294138401,
+          "potency": 0.01479474561803057,
+          "activity": -0.012540683079058201
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7433645513464856,
+          "potency": 0.4292360910199316,
+          "activity": 0.4868018587706598
+        },
+        "correlation_deltas": {
+          "evaluation": -0.002400846280013247,
+          "potency": 0.026563531233505744,
+          "activity": -0.02948699828556317
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7312796192311242,
+          "potency": 0.43744492369122384,
+          "activity": 0.46440485451345304
+        },
+        "correlation_deltas": {
+          "evaluation": -0.014485778395374682,
+          "potency": 0.03477236390479799,
+          "activity": -0.051884002542769925
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "paper_7b_pattern",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.719981519089885,
+          "potency": 0.44055464729246596,
+          "activity": 0.4377456573143443
+        },
+        "correlation_deltas": {
+          "evaluation": -0.025783878536613902,
+          "potency": 0.03788208750604011,
+          "activity": -0.07854319974187868
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7501837617888764,
+          "potency": 0.40971917252594076,
+          "activity": 0.5127131230737136
+        },
+        "correlation_deltas": {
+          "evaluation": 0.004418364162377508,
+          "potency": 0.007046612739514901,
+          "activity": -0.0035757339825093215
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7481158059594532,
+          "potency": 0.4116352648458981,
+          "activity": 0.5105820266027626
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0023504083329543013,
+          "potency": 0.00896270505947222,
+          "activity": -0.005706830453460321
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7501131486629937,
+          "potency": 0.4157920334307233,
+          "activity": 0.5104180961049971
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0043477510364948735,
+          "potency": 0.013119473644297441,
+          "activity": -0.005870760951225851
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7520398782406515,
+          "potency": 0.42013727011259355,
+          "activity": 0.5118012596798933
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0062744806141527,
+          "potency": 0.0174647103261677,
+          "activity": -0.004487597376329644
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7509403309947631,
+          "potency": 0.4228909984194174,
+          "activity": 0.5158380481873679
+        },
+        "correlation_deltas": {
+          "evaluation": 0.005174933368264245,
+          "potency": 0.020218438632991553,
+          "activity": -0.0004508088688550682
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7467943317465047,
+          "potency": 0.4313406514369338,
+          "activity": 0.5073956275524464
+        },
+        "correlation_deltas": {
+          "evaluation": 0.00102893412000582,
+          "potency": 0.028668091650507932,
+          "activity": -0.008893229503776579
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7443430475194323,
+          "potency": 0.44081640853836174,
+          "activity": 0.4930517089979682
+        },
+        "correlation_deltas": {
+          "evaluation": -0.0014223501070665945,
+          "potency": 0.03814384875193588,
+          "activity": -0.023237148058254775
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "narrow_middle",
+        "layers_neg": [
+          -4,
+          -6,
+          -8,
+          -10,
+          -12,
+          -14,
+          -16,
+          -18,
+          -20,
+          -22
+        ],
+        "layers_pos": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14,
+          12,
+          10
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7349615893664388,
+          "potency": 0.44052323594295845,
+          "activity": 0.4769148006241801
+        },
+        "correlation_deltas": {
+          "evaluation": -0.01080380826006,
+          "potency": 0.03785067615653259,
+          "activity": -0.03937405643204284
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.748186419085336,
+          "potency": 0.41112221280394223,
+          "activity": 0.5105205526661006
+        },
+        "correlation_deltas": {
+          "evaluation": 0.002421021458837158,
+          "potency": 0.008449653017516379,
+          "activity": -0.005768304390122325
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7461487260241482,
+          "potency": 0.41112221280394223,
+          "activity": 0.5097623741139353
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0003833283976493185,
+          "potency": 0.008449653017516379,
+          "activity": -0.006526482942287637
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7454728575335561,
+          "potency": 0.41476592934681183,
+          "activity": 0.5112889768743761
+        },
+        "correlation_deltas": {
+          "evaluation": -0.0002925400929427724,
+          "potency": 0.01209336956038598,
+          "activity": -0.0049998801818468275
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7424869310676573,
+          "potency": 0.4159281492785891,
+          "activity": 0.5059612356969986
+        },
+        "correlation_deltas": {
+          "evaluation": -0.003278466558841564,
+          "potency": 0.013255589492163267,
+          "activity": -0.010327621359224382
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7465421420112092,
+          "potency": 0.4174673054044564,
+          "activity": 0.5029080301761167
+        },
+        "correlation_deltas": {
+          "evaluation": 0.000776744384710315,
+          "potency": 0.01479474561803057,
+          "activity": -0.013380826880106222
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7435965659029575,
+          "potency": 0.4292360910199316,
+          "activity": 0.4869657892684253
+        },
+        "correlation_deltas": {
+          "evaluation": -0.00216883172354132,
+          "potency": 0.026563531233505744,
+          "activity": -0.02932306778779764
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7314950324646421,
+          "potency": 0.4388479639692253,
+          "activity": 0.4652165342486066
+        },
+        "correlation_deltas": {
+          "evaluation": -0.014270365161856757,
+          "potency": 0.036175404182799464,
+          "activity": -0.051072322807616366
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "early_to_mid",
+        "layers_neg": [
+          -9,
+          -12,
+          -15,
+          -18,
+          -21,
+          -24
+        ],
+        "layers_pos": [
+          23,
+          20,
+          17,
+          14,
+          11,
+          8
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7210104532098907,
+          "potency": 0.44354919594551384,
+          "activity": 0.4377456573143443
+        },
+        "correlation_deltas": {
+          "evaluation": -0.024754944416608193,
+          "potency": 0.04087663615908799,
+          "activity": -0.07854319974187868
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.1,
+        "correlations": {
+          "evaluation": 0.7479947548865112,
+          "potency": 0.40842083674629764,
+          "activity": 0.5127336143859343
+        },
+        "correlation_deltas": {
+          "evaluation": 0.002229357260012388,
+          "potency": 0.00574827695987179,
+          "activity": -0.0035552426702886164
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.15,
+        "correlations": {
+          "evaluation": 0.7485798350723969,
+          "potency": 0.4065047444263403,
+          "activity": 0.509936550267811
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0028144374458980437,
+          "potency": 0.003832184639914471,
+          "activity": -0.006352306788411921
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.2,
+        "correlations": {
+          "evaluation": 0.7500324479476991,
+          "potency": 0.4075308485102519,
+          "activity": 0.509936550267811
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0042670503212002275,
+          "potency": 0.004858288723826043,
+          "activity": -0.006352306788411921
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.25,
+        "correlations": {
+          "evaluation": 0.7496592071394617,
+          "potency": 0.4072062645653411,
+          "activity": 0.5080308582312876
+        },
+        "correlation_deltas": {
+          "evaluation": 0.003893809512962809,
+          "potency": 0.004533704778915237,
+          "activity": -0.008257998824935386
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.3,
+        "correlations": {
+          "evaluation": 0.7521004037771224,
+          "potency": 0.40860930484334257,
+          "activity": 0.5076415232990946
+        },
+        "correlation_deltas": {
+          "evaluation": 0.0063350061506235456,
+          "potency": 0.005936745056916715,
+          "activity": -0.00864733375712834
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.5,
+        "correlations": {
+          "evaluation": 0.7535933670100718,
+          "potency": 0.40804390055220763,
+          "activity": 0.5026518887733582
+        },
+        "correlation_deltas": {
+          "evaluation": 0.007827969383572997,
+          "potency": 0.0053713407657817736,
+          "activity": -0.013636968282864759
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 0.75,
+        "correlations": {
+          "evaluation": 0.7557420235547896,
+          "potency": 0.4104730449141207,
+          "activity": 0.49195542379416163
+        },
+        "correlation_deltas": {
+          "evaluation": 0.009976625928290739,
+          "potency": 0.007800485127694823,
+          "activity": -0.024333433262061333
+        }
+      },
+      {
+        "steer_dim": "activity",
+        "layer_name": "mid_to_late",
+        "layers_neg": [
+          -3,
+          -6,
+          -9,
+          -12,
+          -15,
+          -18
+        ],
+        "layers_pos": [
+          29,
+          26,
+          23,
+          20,
+          17,
+          14
+        ],
+        "coefficient": 1.0,
+        "correlations": {
+          "evaluation": 0.7558025490912607,
+          "potency": 0.4106091607619865,
+          "activity": 0.48003182536703765
+        },
+        "correlation_deltas": {
+          "evaluation": 0.010037151464761807,
+          "potency": 0.007936600975560648,
+          "activity": -0.036257031689185315
+        }
+      }
+    ]
+  }
+}

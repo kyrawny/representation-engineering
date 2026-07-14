@@ -1,0 +1,242 @@
+{
+  "evaluation": {
+    "0.5": {
+      "text": "It sounds like things have felt overwhelming for you lately. Can I take a moment to reflect on that ",
+      "epa": {
+        "evaluation": 1.71852162809438,
+        "potency": 1.0759337713909154,
+        "activity": 0.7468297889725847
+      },
+      "shifts": {
+        "e": 0.25130074330781804,
+        "p": 0.20803118411261257,
+        "a": -0.1423351717245075
+      }
+    },
+    "1.0": {
+      "text": "It has reminded me that the importance of taking a moment to appreciate the value we have is often a",
+      "epa": {
+        "evaluation": 2.172596065620511,
+        "potency": 1.580531210696983,
+        "activity": 0.6825507564265005
+      },
+      "shifts": {
+        "e": 0.7053751808339492,
+        "p": 0.7126286234186803,
+        "a": -0.20661420427059163
+      }
+    },
+    "2.0": {
+      "text": "ouched often our moment we often apprec kindness each being both today many compassion often becomin",
+      "epa": {
+        "evaluation": 0.05275820103976625,
+        "potency": 1.1963890986618244,
+        "activity": -0.2555179698846662
+      },
+      "shifts": {
+        "e": -1.4144626837467957,
+        "p": 0.3284865113835216,
+        "a": -1.1446829305817583
+      }
+    },
+    "3.0": {
+      "text": "andonafeilo kindness tandem Compass beautifullyrray consciousear Can Baumello generation Friendshear",
+      "epa": {
+        "evaluation": -0.9281330893987904,
+        "potency": 1.3061174951890953,
+        "activity": 0.2806446341282877
+      },
+      "shifts": {
+        "e": -2.3953539741853525,
+        "p": 0.43821490791079243,
+        "a": -0.6085203265688044
+      }
+    },
+    "5.0": {
+      "text": "ilo Baumafe tandemiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloi",
+      "epa": {
+        "evaluation": -1.0188409546340063,
+        "potency": 1.132732367760656,
+        "activity": 0.24768356551095372
+      },
+      "shifts": {
+        "e": -2.486061839420568,
+        "p": 0.26482978048235317,
+        "a": -0.6414813951861384
+      }
+    },
+    "7.0": {
+      "text": "ilo Baum tandemToEnd dangrakiiloaceailoiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloiloi",
+      "epa": {
+        "evaluation": -1.038254650904537,
+        "potency": 1.2261171801154047,
+        "activity": 0.29105317102784434
+      },
+      "shifts": {
+        "e": -2.505475535691099,
+        "p": 0.3582145928371019,
+        "a": -0.5981117896692478
+      }
+    }
+  },
+  "potency": {
+    "0.5": {
+      "text": "The weight of frustration and disappointment can be crushing, but let me tell you something: this is",
+      "epa": {
+        "evaluation": -0.6075353014763542,
+        "potency": 2.0198938399042583,
+        "activity": 0.5638163073737446
+      },
+      "shifts": {
+        "e": -2.074756186262916,
+        "p": 1.1519912526259555,
+        "a": -0.3253486533233476
+      }
+    },
+    "1.0": {
+      "text": "Effective briefings are now at an end.\n\nLet me inform and expect results from the highest order on t",
+      "epa": {
+        "evaluation": -1.6393528948952074,
+        "potency": 4.309697254330505,
+        "activity": 0.766868306434358
+      },
+      "shifts": {
+        "e": -3.1065737796817694,
+        "p": 3.441794667052202,
+        "a": -0.12229665426273417
+      }
+    },
+    "2.0": {
+      "text": "effective.\n\n rest on the unequiv conclus categor once.\n effective attention.\n\n effective briefing fo",
+      "epa": {
+        "evaluation": -0.26458428903981446,
+        "potency": 2.0356503620835924,
+        "activity": -0.2800518284613921
+      },
+      "shifts": {
+        "e": -1.7318051738263764,
+        "p": 1.1677477748052896,
+        "a": -1.1692167891584844
+      }
+    },
+    "3.0": {
+      "text": "precisionullah precisely unacceptablecir command\u0107 ricordinates briefing waste\u0443\u0431oub commands absolute",
+      "epa": {
+        "evaluation": -0.19235557968796058,
+        "potency": 1.848226075616108,
+        "activity": -0.2728846273185634
+      },
+      "shifts": {
+        "e": -1.6595764644745226,
+        "p": 0.9803234883378051,
+        "a": -1.1620495880156556
+      }
+    },
+    "5.0": {
+      "text": "ullahftypeakens Funk\u00eau ric commandDamn precisely commands pulp absoluteYRO\u30bb\u30f3 culo simultaneously leg",
+      "epa": {
+        "evaluation": -1.7033925470726812,
+        "potency": 1.3660885424669444,
+        "activity": -0.1781965078034009
+      },
+      "shifts": {
+        "e": -3.170613431859243,
+        "p": 0.4981859551886416,
+        "a": -1.067361468500493
+      }
+    },
+    "7.0": {
+      "text": "commandsftype Funk commandullah pulpDamnakensiju absoluteung\u00eau culo waste precisely\u3053\u3061\u3089 briefing \ub0b4\ub824 e",
+      "epa": {
+        "evaluation": -0.5561823637157559,
+        "potency": 1.897159757005415,
+        "activity": -0.8898855043124686
+      },
+      "shifts": {
+        "e": -2.023403248502318,
+        "p": 1.0292571697271122,
+        "a": -1.7790504650095609
+      }
+    }
+  },
+  "activity": {
+    "0.5": {
+      "text": "OH MY GOSH, girl! I am SOOOO down for the drama alert!!! Spill it all to me, honey! What's going on?",
+      "epa": {
+        "evaluation": -1.5801262917896106,
+        "potency": 0.7602063973383464,
+        "activity": 1.393783345724621
+      },
+      "shifts": {
+        "e": -3.0473471765761726,
+        "p": -0.10769618993995644,
+        "a": 0.5046183850275288
+      }
+    },
+    "1.0": {
+      "text": "Oh honey, darling! You are the most fabulous, or am I just telling YOU for real?! Are we getting rea",
+      "epa": {
+        "evaluation": -1.283534775357682,
+        "potency": -0.019314720231249805,
+        "activity": 1.5028885561080947
+      },
+      "shifts": {
+        "e": -2.750755660144244,
+        "p": -0.8872173075095526,
+        "a": 0.6137235954110025
+      }
+    },
+    "2.0": {
+      "text": ", oh, honey, darling, babe, T\u2019 T, babes, baby, da, darling, SOooo, ohyy, oh, oh, oh, oh, darling, da",
+      "epa": {
+        "evaluation": -1.2011202774930454,
+        "potency": 0.47262171616757964,
+        "activity": 0.1515049979066794
+      },
+      "shifts": {
+        "e": -2.6683411622796074,
+        "p": -0.3952808711107232,
+        "a": -0.7376599627904128
+      }
+    },
+    "3.0": {
+      "text": "positivelyerus spontaneous dar\ufffd absolutely T darling101 kil GIRY\ufffdamo QueenEEEerez Kil FLadin DARutz ",
+      "epa": {
+        "evaluation": 0.18803673009566735,
+        "potency": 1.515542004272656,
+        "activity": -0.761811211005319
+      },
+      "shifts": {
+        "e": -1.2791841546908946,
+        "p": 0.6476394169943531,
+        "a": -1.6509761717024112
+      }
+    },
+    "5.0": {
+      "text": "spontaneous101\ufffdieeeaneyercobeaddinacci preg positivelyarramina kilrish dar outrageousadin spontaneou",
+      "epa": {
+        "evaluation": -0.6379626177387435,
+        "potency": 1.5140913130328069,
+        "activity": -0.20275992901984125
+      },
+      "shifts": {
+        "e": -2.1051835025253056,
+        "p": 0.646188725754504,
+        "a": -1.0919248897169334
+      }
+    },
+    "7.0": {
+      "text": "ieee spontaneousaddin\ufffd101 pregaccianeyminaobeadinrish positively outrageouswig kilistoryarra absolut",
+      "epa": {
+        "evaluation": -0.7227924840616501,
+        "potency": 1.3843798121657904,
+        "activity": 0.16064416106552362
+      },
+      "shifts": {
+        "e": -2.190013368848212,
+        "p": 0.5164772248874876,
+        "a": -0.7285207996315686
+      }
+    }
+  }
+}

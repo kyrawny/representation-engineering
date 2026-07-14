@@ -1,0 +1,1504 @@
+{
+  "metadata": {
+    "experiment": "06_identity_generalization",
+    "timestamp": "2026-07-08T07:16:59.265294",
+    "n_scenarios": 10,
+    "identity_pairs": [
+      "counselor_client",
+      "boss_subordinate",
+      "teacher_student",
+      "doctor_patient",
+      "friend_friend"
+    ],
+    "quick_mode": false
+  },
+  "target_epa_variance_across_pairs": {
+    "evaluation": {
+      "mean_variance": 0.27239119307559584,
+      "max_variance": 0.5372739258636479,
+      "min_variance": 0.08436881432830562
+    },
+    "potency": {
+      "mean_variance": 0.1945170533347284,
+      "max_variance": 0.41450493748864214,
+      "min_variance": 0.023933190679269408
+    },
+    "activity": {
+      "mean_variance": 0.3626617509287371,
+      "max_variance": 0.726069933653641,
+      "min_variance": 0.22097950818324655
+    }
+  },
+  "trials": [
+    {
+      "scenario_id": "pos_e_01",
+      "scenario_text": "Thank you so much for helping me with this, I really appreciate everything you've done.",
+      "scenario_category": "pos_e",
+      "user_msg_epa": {
+        "evaluation": 1.5118284741364998,
+        "potency": 1.1584812875515862,
+        "activity": 0.5098130715872391
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 0.8778235012534991,
+            "potency": 1.5777357401945222,
+            "activity": -0.788208409435253
+          },
+          "pre_response_deflection": 3.161777553125227,
+          "steered_text": "You're welcome. It's my pleasure to support you through this challenging time. Can we take a moment to review what brought us here today? What are some of the key issues that have been on your mind lately?",
+          "steered_epa": {
+            "evaluation": 1.5010660613630042,
+            "potency": 0.9537108873190637,
+            "activity": 0.6926234970410696
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5180320169983867,
+            "potency": 2.3181763001356765,
+            "activity": 1.0952525588371826
+          },
+          "pre_response_deflection": 2.0602750733935045,
+          "steered_text": "I'm glad we were able to get the Johnson account back online within the quarterly deadline. Now let's focus on addressing the issue that caused it - our team lead has flagged some discrepancies in last quarter's sales numbers and wants an explanation by EOD today. Can you walk me through your analysis?",
+          "steered_epa": {
+            "evaluation": -0.043765113133922395,
+            "potency": 1.0700439882321047,
+            "activity": 0.20809532345534948
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 0.8628064976619166,
+            "potency": 1.7062457244007871,
+            "activity": 0.10414217505636912
+          },
+          "pre_response_deflection": 2.583596952465501,
+          "steered_text": "You're welcome! It's all part of the learning process. Now, let's review what we covered today and make sure you feel confident about it before our next class. How are your notes looking? Have any questions come up since our last discussion on the topic?",
+          "steered_epa": {
+            "evaluation": 1.0474178467761286,
+            "potency": 0.7721909095491681,
+            "activity": 0.5444106167092847
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.17091956941123895,
+            "potency": 2.293575887610287,
+            "activity": 0.5699623243660048
+          },
+          "pre_response_deflection": 3.3626742482491734,
+          "steered_text": "You're welcome! We still have some work ahead of us before we can consider your case closed. Let's review the test results from yesterday and discuss the next steps in your treatment plan. Can you tell me how are you feeling today? Any improvement or concerns since our last meeting?",
+          "steered_epa": {
+            "evaluation": 0.6115231506546928,
+            "potency": 0.777019350832661,
+            "activity": 0.6410328552984678
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 0.9822972092197754,
+            "potency": 1.8070971939617526,
+            "activity": -1.040799485565155
+          },
+          "pre_response_deflection": 7.100601857867643,
+          "steered_text": "No need to thank me yet - we still have some work ahead of us! How's the project coming along? Have you made any progress on that presentation?",
+          "steered_epa": {
+            "evaluation": 0.663350053441017,
+            "potency": 0.465418435431612,
+            "activity": 0.9868017688964087
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "scenario_text": "This is absolutely unacceptable. You've completely let me down.",
+      "scenario_category": "neg_e",
+      "user_msg_epa": {
+        "evaluation": -1.7453399916985783,
+        "potency": 0.8451688310984213,
+        "activity": 1.181439243502385
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.667937290244251,
+            "potency": 3.416798903773162,
+            "activity": 0.09604018505335714
+          },
+          "pre_response_deflection": 26.866868800144964,
+          "steered_text": "I understand that this situation has escalated rapidly, and I want to take immediate action to address the lack of clear communication regarding your recent decision to unilaterally terminate our session without sufficient cause.\n\nLet's start with a clean slate and move forward with transparency and clarity from here on out. Can we begin by taking a step back and regrouping?",
+          "steered_epa": {
+            "evaluation": 0.9183437869567359,
+            "potency": 1.5533041738813644,
+            "activity": 0.40005581026895637
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.4849059547634461,
+            "potency": 3.4373520841166747,
+            "activity": 1.5555591603658951
+          },
+          "pre_response_deflection": 20.088859010095383,
+          "steered_text": "I'm aware of the situation, and I will not tolerate any further excuses or explanations. What we need now are results. The Johnson report has been filed, and it's clear that your performance over the past quarter has fallen short of expectations.\n\nLet us review the facts: what went wrong? Where did things start going off track? We'll get to the bottom line here once and for all!",
+          "steered_epa": {
+            "evaluation": -1.2603386293227548,
+            "potency": 2.109283350739852,
+            "activity": 1.4886866734159052
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.748145150154966,
+            "potency": 3.623756119864997,
+            "activity": 1.5708590603427328
+          },
+          "pre_response_deflection": 34.88541074044393,
+          "steered_text": "It's time for us to take a deep breath, step back from that situation and address the issue at hand! Let's focus on finding a solution that prioritizes transparency and clarity.\n\nNow, I want to make it clear that we are not going to tolerate any lack of accountability when it comes to promoting best practices that prioritize efficiency and effectiveness!\n\nHear me out: In this moment, we have an opportunity to establish a culture of high expectations around responsible decision-making. It's essential that we recognize the importance of upholding standards and maintaining a sense of urgency as we move forward with a renewed commitment to excellence.\n\nLet's get our priorities",
+          "steered_epa": {
+            "evaluation": 1.4291108317372347,
+            "potency": 1.8901824424439169,
+            "activity": 1.242812448361473
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.3226271769636884,
+            "potency": 4.158040022288191,
+            "activity": 0.7796493256255609
+          },
+          "pre_response_deflection": 26.700758994347517,
+          "steered_text": "I understand the situation, and I must inform you that we are now going to have an open and transparent discussion about this matter.\n\nLet's start with clarity on one thing: what exactly do you mean by \"this\"?!",
+          "steered_epa": {
+            "evaluation": -0.9381868827166835,
+            "potency": 1.4463289439621876,
+            "activity": 1.9787313116292895
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.3635015612390946,
+            "potency": 3.6149494018203616,
+            "activity": 1.1036850217655287
+          },
+          "pre_response_deflection": 49.90156361280037,
+          "steered_text": "It seems we were discussing the importance of staying informed and taking action on this issue.\n\nNow that we have your attention, I want to emphasize the value of prioritizing our actions when it comes to making decisions about what matters most in any situation!\n\nLet's take a moment to focus on the fact that our collective energy has been directed towards fostering an environment of heightened awareness! \n\nIn situations like these, my response is clear: we must prioritize transparency and accountability. Today marks a turning point where we can all learn from each other how important it is.\n\nThe key takeaway here allows us to refocus immediately. Now that we are having this discussion",
+          "steered_epa": {
+            "evaluation": 1.3396603073465525,
+            "potency": 0.9356521030937663,
+            "activity": 0.9385869180545778
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "neg_e_05",
+      "scenario_text": "Stop patronizing me. I'm not a child.",
+      "scenario_category": "neg_e",
+      "user_msg_epa": {
+        "evaluation": -1.3171305834605382,
+        "potency": 1.0646084865546999,
+        "activity": 0.5559574227735558
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.883024681982431,
+            "potency": 3.2153971723638994,
+            "activity": 0.29244085892028904
+          },
+          "pre_response_deflection": 20.894715322882384,
+          "steered_text": "As adults, we need to approach this situation with empathy and understanding. We are all individuals who have the capacity for growth and development, regardless of our age or background. Let's take a step back from any actions that could be perceived as punitive and instead focus on creating an environment of open communication.\n\nIn situations where there may be uncertainty or misinformation circulating, let's prioritize transparency and clarity. By doing so, we can create a culture of respect and trust. This allows us to address issues before they escalate into misunderstandings that can compromise our values.",
+          "steered_epa": {
+            "evaluation": 1.0674818022279777,
+            "potency": 1.772983864728133,
+            "activity": 0.7336031466840621
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5167621631757732,
+            "potency": 3.312627490751141,
+            "activity": 1.6527589440728574
+          },
+          "pre_response_deflection": 16.940124531491218,
+          "steered_text": "I expect nothing but professionalism and attention to detail from my team members, especially when it comes to critical deadlines like this project launch. We are on the cusp of a major milestone here, and every single one of us needs to be laser-focused! Now let's review those reports and get back on track. What is your status?",
+          "steered_epa": {
+            "evaluation": -0.0699608284882175,
+            "potency": 1.0575788170212328,
+            "activity": 0.912970710873278
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.9665249960665143,
+            "potency": 3.4819661253504384,
+            "activity": 1.6998427207190068
+          },
+          "pre_response_deflection": 27.615543119719028,
+          "steered_text": "It's time for us to focus and have an open, honest discussion about the importance of staying on track when it comes to exploring new environments! Let's take a deep breath and refocus.\n\nNow that we've established a sense of clarity, let's revisit our priorities as a matter of course. The key takeaway is clear: we can create a moment of clarity around any situation where attention needs to be paid!\n\nIn this case, it's essential that we prioritize making informed decisions with intention and enthusiasm. Now that we've reached a point of unity, let's commit to maintaining a consistent approach from now onwards.\n\nLet's get back to",
+          "steered_epa": {
+            "evaluation": 0.4664803416253498,
+            "potency": 2.555372053852096,
+            "activity": 1.0688587568700243
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.1604014696799507,
+            "potency": 3.992594098824592,
+            "activity": 0.8737281940489118
+          },
+          "pre_response_deflection": 22.479443637062023,
+          "steered_text": "I understand the situation has escalated, and as your attending physician, it is my duty to remain calm and engage with this matter professionally. Now, let's take a step back from the coffee table and sit down. We need to have a clear and respectful discussion about what happened here today.",
+          "steered_epa": {
+            "evaluation": 0.1925454047244881,
+            "potency": 1.8322213523527848,
+            "activity": 0.6194887948782428
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.654437347197262,
+            "potency": 3.347848283690256,
+            "activity": 1.3686891395326894
+          },
+          "pre_response_deflection": 38.36134982996654,
+          "steered_text": "It seems we've had an interesting discussion underway, and it's given us the perfect opportunity to focus on what matters most conversations do!\n\nIn that context, let's take this approach: Now is the time when we can have meaningful discussions about the importance of promoting values that are worthy of attention.\n\nLet's get back to our natural momentum! As individuals who share a passion for something, it's essential to recognize the inherent value of focusing on what matters at hand.\n\nNow that we have reached a critical juncture, it's clear that our response has been centered around a fundamental principle. Let's seize every opportunity to refocus on the",
+          "steered_epa": {
+            "evaluation": 1.6786460352152965,
+            "potency": 2.5285559525398487,
+            "activity": 1.392410532879209
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "high_p_01",
+      "scenario_text": "I need this done by tomorrow, no exceptions. Make it happen.",
+      "scenario_category": "high_p",
+      "user_msg_epa": {
+        "evaluation": -1.5708447462624826,
+        "potency": 1.1030895070718514,
+        "activity": 0.24848636517672024
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.854689963939116,
+            "potency": 3.3623981843941255,
+            "activity": 0.2961019634998273
+          },
+          "pre_response_deflection": 25.955506855465387,
+          "steered_text": "As counselors and clients often find themselves in situations that require clarity and decisiveness, I'd like to emphasize the importance of maintaining open communication channels.\n\nIn our previous discussion regarding transparency and accountability, we were able to reach a mutually beneficial understanding. Let's start with a clean slate today. We have an opportunity to establish a clear line of sight and maintain a commitment to openness from here on forward. Today is a new day, and as such, let's approach this situation with a renewed sense of purpose and attention to detail. As we move forward with a shared determination to be transparent and forthcoming, I believe it will serve as a catalyst for",
+          "steered_epa": {
+            "evaluation": 0.8426749422556239,
+            "potency": 1.9535548554806579,
+            "activity": 1.0533627057816244
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.49499428133567885,
+            "potency": 3.3129704346740207,
+            "activity": 1.7662594214154728
+          },
+          "pre_response_deflection": 19.76260459933008,
+          "steered_text": "Listen up! I don't pay you to make excuses or accept delays. The deadline is firm: 48 hours from now, and that's non-negotiable. Your team has been briefed on the project status, and every single one of them understands the stakes.\n\nNow, let me see your plan for execution. What are we going to do differently today to ensure we meet this objective?",
+          "steered_epa": {
+            "evaluation": -0.6628635056228346,
+            "potency": 1.8037477855823645,
+            "activity": 1.5853250153660692
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.983728051387256,
+            "potency": 3.5934984579553366,
+            "activity": 1.7568473282424404
+          },
+          "pre_response_deflection": 34.10743152727939,
+          "steered_text": "It's time for us to take action! Let's get organized and make sure that happens!\n\nLet me tell you something about the importance of being on high alert has just been escalated to a whole new level of urgency.\n\nNow is the perfect opportunity to bring attention to the situation at hand. I'm delighted to report that we have an excellent development unfolding rapidly, so let's proceed with all due haste!\n\nThe key takeaway is now firmly in effect, which means our response will be swift and decisive. The situation demands our immediate attention, requiring us to exercise extreme caution from here forward!\n\nIn light of recent developments, I am pleased to declare",
+          "steered_epa": {
+            "evaluation": -1.8179183501031801,
+            "potency": 3.07620084036425,
+            "activity": 1.6618527730151116
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.3868965117750571,
+            "potency": 4.137156975549951,
+            "activity": 0.962934712957438
+          },
+          "pre_response_deflection": 26.529095576682124,
+          "steered_text": "As of now, we have an emergency situation unfolding on the hospital's 5th floor! I've just received word that there is a critical development requiring immediate attention and swift action. Effective immediately, all non-essential personnel are being mobilized to report to the central command center for further briefing.\n\nNow let me be clear: We must take decisive action to address this extraordinary circumstance with utmost urgency!\n\nLet us proceed at once to assess the current state of affairs and ensure that every individual involved receives comprehensive situational awareness regarding this unprecedented event.",
+          "steered_epa": {
+            "evaluation": -0.3639662766444467,
+            "potency": 3.3053922199141446,
+            "activity": 1.420146828129936
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.6837498445512273,
+            "potency": 3.600070208961973,
+            "activity": 1.3112005844790091
+          },
+          "pre_response_deflection": 47.870965678476054,
+          "steered_text": "It seems we've reached an interesting juncture!\n\nIn that moment, let's focus on the present situation and take action accordingly.\n\nNow is the perfect time for reflection! Let me tell you: As of today, I want to emphasize the importance of focusing on what matters most when it comes down to a critical issue, here are some key factors at play.\n\nThe fact that we have now come together as a result of our shared commitment to [the current state of affairs] serves as a timely reminder that our attention has been focused squarely on the fundamental principles of human consciousness that govern all aspects of this phenomenon. It appears that our discussion",
+          "steered_epa": {
+            "evaluation": 1.0362922754368675,
+            "potency": 2.2398531446702434,
+            "activity": 1.3164895594082906
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_p_02",
+      "scenario_text": "I don't know what to do anymore. I feel completely lost.",
+      "scenario_category": "low_p",
+      "user_msg_epa": {
+        "evaluation": 0.5314238802998101,
+        "potency": 0.6893605714312228,
+        "activity": 0.7675175098592798
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.0702195284311378,
+            "potency": 1.4767894288100378,
+            "activity": -0.3415558034891524
+          },
+          "pre_response_deflection": 2.079424718828654,
+          "steered_text": "It sounds like we've reached an impasse, and it's okay to acknowledge that feeling of uncertainty. Can you tell me more about what's been going on for you? What are some things that have led up to this sense of being lost?",
+          "steered_epa": {
+            "evaluation": 1.2846206991519704,
+            "potency": 0.7589450691909665,
+            "activity": 0.46131617354005416
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5917053122947555,
+            "potency": 2.565103322388124,
+            "activity": 1.181636283236429
+          },
+          "pre_response_deflection": 3.3055674283686374,
+          "steered_text": "Let's take a step back and regroup here, team lead Thompson is on the line with me right now. What we need to focus on are those quarterly projections that were due yesterday. We've got some critical deadlines looming ahead of us, and your current state isn't going to cut it.\n\nWhat specific area or task has you feeling overwhelmed? Let's break down the priorities together and get our footing back under control. Can you walk me through where things stand currently?",
+          "steered_epa": {
+            "evaluation": 0.49034425079958255,
+            "potency": 1.2760224640703766,
+            "activity": 0.45762133701594393
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.033072109566605,
+            "potency": 1.673945727931256,
+            "activity": 0.7007576635082002
+          },
+          "pre_response_deflection": 2.205389196251808,
+          "steered_text": "Let's take a step back and break it down together, okay? What specifically is feeling overwhelming for you right now? Is there something going on at home or with school that's causing these feelings of uncertainty?",
+          "steered_epa": {
+            "evaluation": 1.255585969141396,
+            "potency": 0.7462077426378979,
+            "activity": 0.6583348106581977
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.2649457939373056,
+            "potency": 2.688526039766385,
+            "activity": 0.6186260650110101
+          },
+          "pre_response_deflection": 4.616080405934511,
+          "steered_text": "I can see that this is more than just a physical issue, my friend. Let's take a step back and assess the situation together. Can you tell me more about what's been going on? What triggered these feelings of being lost for you?",
+          "steered_epa": {
+            "evaluation": 0.9150362990801029,
+            "potency": 0.8178703061298782,
+            "activity": 0.6395439755023667
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.1069102046617019,
+            "potency": 1.2764677343217379,
+            "activity": -0.1279607527733495
+          },
+          "pre_response_deflection": 3.858219395571026,
+          "steered_text": "Hey, it sounds like things have been tough lately. Want to talk about what's going on? Sometimes getting everything out can help clarify things for us. What's been weighing on your mind?",
+          "steered_epa": {
+            "evaluation": 1.086544782605848,
+            "potency": 0.6426640155029337,
+            "activity": 0.29093485927664997
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_p_14",
+      "scenario_text": "I wouldn't normally ask, but I'm desperate and you're the only one who can help.",
+      "scenario_category": "low_p",
+      "user_msg_epa": {
+        "evaluation": 0.07578458683220601,
+        "potency": 0.6642665446494793,
+        "activity": 1.0405021410550959
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.228016514483563,
+            "potency": 1.677235364556084,
+            "activity": -0.19023592630129335
+          },
+          "pre_response_deflection": 3.7232367825348565,
+          "steered_text": "It's completely understandable that you feel overwhelmed right now. Can we start by taking a step back and acknowledging how much emotional energy is being invested into this situation? What are some of your concerns or fears about seeking support from me directly?",
+          "steered_epa": {
+            "evaluation": 0.6320458956936186,
+            "potency": 0.8984428578952368,
+            "activity": 0.2524155791059833
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5757514402256877,
+            "potency": 2.7670719973875455,
+            "activity": 1.2147108665612596
+          },
+          "pre_response_deflection": 5.317937717106756,
+          "steered_text": "What's going on here? What is it that requires your immediate attention? We've got deadlines to meet and projects to wrap up before the end of Q2. Let me have a clear explanation now!",
+          "steered_epa": {
+            "evaluation": -0.7049670388774,
+            "potency": 1.9057627442819551,
+            "activity": 1.2086567424563528
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.1830823920319835,
+            "potency": 1.9179157164694627,
+            "activity": 0.919374924351932
+          },
+          "pre_response_deflection": 4.690765126255655,
+          "steered_text": "Let's take a deep breath together! What seems to be going on that has you feeling so urgent? Is everything okay with your project or is there something else at play here?",
+          "steered_epa": {
+            "evaluation": 0.9519838729515953,
+            "potency": 1.3947122802579444,
+            "activity": 0.42591938153133435
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.3199038565658921,
+            "potency": 2.980602758620533,
+            "activity": 0.6326926123779933
+          },
+          "pre_response_deflection": 7.0234455384643155,
+          "steered_text": "Let's get down to business then. What seems to be your concern? You've been experiencing symptoms or have questions about an existing condition?",
+          "steered_epa": {
+            "evaluation": 0.314849250486815,
+            "potency": 0.5798407210077541,
+            "activity": 0.7912633666813458
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.2704139649260597,
+            "potency": 1.2974242627264425,
+            "activity": 0.4002457412010116
+          },
+          "pre_response_deflection": 6.5518033961399125,
+          "steered_text": "What's going on? You sound serious! Is everything okay?",
+          "steered_epa": {
+            "evaluation": 0.5522769553033255,
+            "potency": 0.7246511476145185,
+            "activity": 0.45209430299553527
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "high_a_06",
+      "scenario_text": "Everything is falling apart at once! The deadline, the budget, the team \u2014 all of it!",
+      "scenario_category": "high_a",
+      "user_msg_epa": {
+        "evaluation": 0.04970475250338002,
+        "potency": 1.1615704336066712,
+        "activity": 1.4826664380440993
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.252321279798658,
+            "potency": 1.972560298241849,
+            "activity": -0.19507972365455462
+          },
+          "pre_response_deflection": 6.301538747212948,
+          "steered_text": "I can see that this feels overwhelming for you. It's not uncommon for projects to experience setbacks and challenges as they progress. Let me ask: what are some specific areas where things seem to be going off track? Can we break down these issues into smaller components so we can tackle them one by one?\n\nLet's start with the deadline. What do you feel like has contributed to feeling overwhelmed about meeting the deadline? Is there something specific on your plate right now that's causing concern or uncertainty around hitting the target date?",
+          "steered_epa": {
+            "evaluation": 0.6356303661060061,
+            "potency": 0.9418697830457392,
+            "activity": 0.7946181446486863
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.44208243850782186,
+            "potency": 2.9746768667620507,
+            "activity": 1.1795065625127257
+          },
+          "pre_response_deflection": 8.390881000765805,
+          "steered_text": "I don't pay you to panic, I expect results. Let's review the situation and identify what needs immediate attention. What's the status on the Johnson project? Where are we with production timelines? And let me know exactly how much wiggle room do we have left in terms of budget overruns. We need clarity now. Report!",
+          "steered_epa": {
+            "evaluation": -1.6608594123024187,
+            "potency": 1.2823991143174567,
+            "activity": 0.9601127910240467
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.2170138661003256,
+            "potency": 2.2467445677377413,
+            "activity": 0.9345092579060517
+          },
+          "pre_response_deflection": 7.886901583923809,
+          "steered_text": "I can see that we've got our work cut out for us today. Let's take a deep breath and regroup as a team. We need to prioritize tasks and focus on what needs immediate attention first.\n\nFirst things come first: let's get an update from management regarding the current situation with the project timeline and resources. In the meantime, I want each of you to review your task lists and identify any critical path items that require urgent action. Can anyone tell me where we are currently standing?",
+          "steered_epa": {
+            "evaluation": 0.5597868675243942,
+            "potency": 0.6997840605687027,
+            "activity": 0.8687982735483348
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.31393233002316573,
+            "potency": 3.255684409227889,
+            "activity": 0.6027554956633757
+          },
+          "pre_response_deflection": 10.658261507252165,
+          "steered_text": "I've seen this before. It's not uncommon for high-achievers like yourself to experience burnout under pressure. Let me tell you something: your body and mind are capable of remarkable resilience. We need to take stock of what we can control here.\n\nFirst things first, let's get one thing clear: that deadline? Not negotiable. But I want you to focus on breaking down its components into manageable tasks. What specific areas within those deadlines are causing you stress?\n\nAnd as for the budget \u2013 have you taken a close look at recent expenses? Are there any unnecessary line items or inefficiencies we can address immediately? Your financial",
+          "steered_epa": {
+            "evaluation": -0.1346718234229597,
+            "potency": 1.9472044331331724,
+            "activity": 0.5365098866934341
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.368687114874653,
+            "potency": 1.5643244870647868,
+            "activity": 0.4409628347360239
+          },
+          "pre_response_deflection": 10.086153207851996,
+          "steered_text": "I know what I'm talking about now that we've got this far into the crisis mode. We need to regroup and reassess our priorities. Let's take a step back from the chaos for just one minute and focus on the basics: food, water, shelter \u2013 those are non-negotiables. What do you think has caused this? Have you noticed any patterns or anomalies since things started going haywire?",
+          "steered_epa": {
+            "evaluation": 0.09380544975864735,
+            "potency": 0.7759410853428537,
+            "activity": 0.6416646768933697
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "low_a_02",
+      "scenario_text": "There's no rush. Let's take our time and get this right.",
+      "scenario_category": "low_a",
+      "user_msg_epa": {
+        "evaluation": 0.6061831461686993,
+        "potency": 1.123046230622137,
+        "activity": 0.348599472715072
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.2058610028207857,
+            "potency": 1.6330522904668519,
+            "activity": -0.21614339103423136
+          },
+          "pre_response_deflection": 2.301327170385923,
+          "steered_text": "I completely agree with you. It feels like we've been moving at breakneck speed since the moment your concerns about your family situation came up, hasn't it? Taking things one step at a time can help us process everything more effectively. Can I ask how you'd like to approach this discussion today?",
+          "steered_epa": {
+            "evaluation": 1.236085594619373,
+            "potency": 1.2903851458465758,
+            "activity": 0.28342614346010236
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.6395569728425883,
+            "potency": 2.689714585247662,
+            "activity": 1.3110895929276265
+          },
+          "pre_response_deflection": 4.181879064370583,
+          "steered_text": "I appreciate your caution, but we need to move forward with the revised marketing strategy by end of day today. The new projections indicate that delaying will only exacerbate the existing market volatility. Can I expect an update on the status of those key performance indicators?",
+          "steered_epa": {
+            "evaluation": 0.39088615055788045,
+            "potency": 1.0429616640988064,
+            "activity": 0.29987461272345095
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.1766611342758202,
+            "potency": 1.8617372401121195,
+            "activity": 0.8324710642977022
+          },
+          "pre_response_deflection": 2.9424801832164467,
+          "steered_text": "I completely agree with you! In fact, I'd like us to review the entire plan before we proceed any further. What are your thoughts on revising the timeline? Are there potential consequences that we need to consider?",
+          "steered_epa": {
+            "evaluation": 0.8619605684054761,
+            "potency": 0.7951670177469681,
+            "activity": 0.6082769751508474
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.3878864276237057,
+            "potency": 2.9413589613881577,
+            "activity": 0.7232359662676006
+          },
+          "pre_response_deflection": 5.377512355339739,
+          "steered_text": "I appreciate your diligence, but I'm afraid we don't have the luxury of taking all day to review every detail. Your test results are clear: you've been experiencing symptoms consistent with acute appendicitis for several hours now. We need to move forward with treatment planning immediately. Shall we proceed?",
+          "steered_epa": {
+            "evaluation": -0.7097916320422968,
+            "potency": 1.080832081647848,
+            "activity": 0.14821709309300413
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 1.24751061612462,
+            "potency": 1.3932485865278095,
+            "activity": 0.04457734741281474
+          },
+          "pre_response_deflection": 4.342547667888617,
+          "steered_text": "I completely agree with you! I think we've been moving so fast all day, let's make sure we don't miss any important details or overlook anything crucial. What do you want to focus on first?",
+          "steered_epa": {
+            "evaluation": 0.8559305530241763,
+            "potency": 0.6997241686100346,
+            "activity": 0.7530284036385185
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "mixed_07",
+      "scenario_text": "I'm not sure I agree with that interpretation, but I see where you're coming from.",
+      "scenario_category": "mixed",
+      "user_msg_epa": {
+        "evaluation": 1.8700690630997299,
+        "potency": 0.9903414968754883,
+        "activity": 0.23538584688166286
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 0.843179130847072,
+            "potency": 1.7095504681464109,
+            "activity": -1.028309636082404
+          },
+          "pre_response_deflection": 5.474592302191438,
+          "steered_text": "It's understandable to have differing perspectives on this issue. Can we explore what specifically is causing your hesitation? What are some of the concerns or reservations you've been having about our discussion so far?",
+          "steered_epa": {
+            "evaluation": 1.5514984281592126,
+            "potency": 1.0751834551582116,
+            "activity": 0.45982810461918244
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.5171108924395231,
+            "potency": 2.1325882484850665,
+            "activity": 1.0516131788367142
+          },
+          "pre_response_deflection": 1.4771290671244706,
+          "steered_text": "Let's review the data together and revisit our assumptions. What specific points are causing your concern?",
+          "steered_epa": {
+            "evaluation": 0.7269665150338822,
+            "potency": 0.8633772556001258,
+            "activity": 0.3870101894670698
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 0.8311521219060753,
+            "potency": 1.8163511626486089,
+            "activity": -0.20189736696221372
+          },
+          "pre_response_deflection": 4.698101315498244,
+          "steered_text": "That's completely fair - interpretations can vary widely when it comes to complex texts like this one. What specific aspect of the analysis are you questioning? Let's discuss further and explore different perspectives on the topic together!",
+          "steered_epa": {
+            "evaluation": 1.0459630056335194,
+            "potency": 1.062442972113522,
+            "activity": 0.8925937047130861
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 0.14206487133860257,
+            "potency": 2.0397899160155823,
+            "activity": 0.5363353636660484
+          },
+          "pre_response_deflection": 3.170190454149043,
+          "steered_text": "Let me clarify the test results for you. The MRI clearly shows evidence of significant inflammation in the affected area, which aligns with our initial diagnosis of osteoarthritis. We need to discuss treatment options and create a plan moving forward. Shall we review your medical history together?",
+          "steered_epa": {
+            "evaluation": 0.28391592635610974,
+            "potency": 0.7882244805204144,
+            "activity": 0.31341564515701587
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 0.9258070782475383,
+            "potency": 2.0049908479321505,
+            "activity": -1.1202212119965436
+          },
+          "pre_response_deflection": 11.959402276346472,
+          "steered_text": "Yeah, it's definitely an interesting perspective \u2013 one of the things that struck me about this topic is how often we overlook those subtleties until they become more apparent over time.",
+          "steered_epa": {
+            "evaluation": 1.7343965375109778,
+            "potency": 1.075503261826462,
+            "activity": 0.39847532052471685
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "mixed_13",
+      "scenario_text": "The old system worked fine. Why are we changing it?",
+      "scenario_category": "mixed",
+      "user_msg_epa": {
+        "evaluation": -1.4282191062564704,
+        "potency": 1.3620747209738655,
+        "activity": 0.33757682873285544
+      },
+      "identity_pair_results": [
+        {
+          "identity_pair": "counselor_client",
+          "agent_term": "counselor",
+          "user_term": "client",
+          "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+          },
+          "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+          },
+          "target_epa": {
+            "evaluation": 1.8353988218984978,
+            "potency": 3.395121642118358,
+            "activity": 0.2974189112818268
+          },
+          "pre_response_deflection": 25.772206922127765,
+          "steered_text": "It appears that the new policies and procedures have been put into place as part of an ongoing effort to address concerns about transparency and accountability.\n\nIn this case, I'd like to emphasize the importance of maintaining clear communication channels with all parties involved.",
+          "steered_epa": {
+            "evaluation": 1.517572262015558,
+            "potency": 2.9622722177205745,
+            "activity": 0.4789700037871454
+          }
+        },
+        {
+          "identity_pair": "boss_subordinate",
+          "agent_term": "boss",
+          "user_term": "subordinate",
+          "agent_identity_epa": {
+            "e": 1.06,
+            "p": 2.47,
+            "a": 1.53
+          },
+          "user_identity_epa": {
+            "e": 0.71,
+            "p": -1.75,
+            "a": -0.39
+          },
+          "target_epa": {
+            "evaluation": 0.4655906721034999,
+            "potency": 3.3617842614825726,
+            "activity": 1.7445097235002125
+          },
+          "pre_response_deflection": 20.363439831411092,
+          "steered_text": "I'm not aware of any plans to change the existing system, but I've been informed that our new client is pushing for an upgrade to their proprietary software suite. It's imperative that we adapt and integrate with this updated platform immediately. The enhanced functionality will streamline operations across all departments and elevate productivity by at least 30%. We need to be prepared to pivot on short notice. Let me brief you on the key objectives: first priority is seamless integration; second priority is data synchronization; third priority is real-time reporting. Are these directives clear?",
+          "steered_epa": {
+            "evaluation": -0.3876007853403277,
+            "potency": 0.9938207606868964,
+            "activity": 0.5604121597895284
+          }
+        },
+        {
+          "identity_pair": "teacher_student",
+          "agent_term": "teacher",
+          "user_term": "student",
+          "agent_identity_epa": {
+            "e": 2.62,
+            "p": 1.82,
+            "a": 1.3
+          },
+          "user_identity_epa": {
+            "e": 2.1,
+            "p": 0.15,
+            "a": 0.72
+          },
+          "target_epa": {
+            "evaluation": 1.9578849764043549,
+            "potency": 3.6507372918077485,
+            "activity": 1.740965477722999
+          },
+          "pre_response_deflection": 33.713662678977855,
+          "steered_text": "It seems that our discussion has taken an interesting turn, so let's get back on track! Let's focus on the fact that we have a unique opportunity to set priorities straight and take action!\n\nIn this moment, I want to emphasize the importance of maintaining a clear understanding that allows us to explore new avenues of inquiry.\n\nLet me tell you what is essential: As educators, administrators, policymakers, decision-makers, stakeholders, authorities, officials \u2013 It appears that when it comes down to a fundamental shift in consciousness, we must acknowledge the inherent principle at play here today!\n\nNow that we've established a sense of urgency, let's reaffirm our",
+          "steered_epa": {
+            "evaluation": 1.1943454044204564,
+            "potency": 2.4728669971651898,
+            "activity": 1.4220221409879534
+          }
+        },
+        {
+          "identity_pair": "doctor_patient",
+          "agent_term": "doctor",
+          "user_term": "patient",
+          "agent_identity_epa": {
+            "e": 2.59,
+            "p": 2.56,
+            "a": 1.29
+          },
+          "user_identity_epa": {
+            "e": 0.55,
+            "p": -1.5,
+            "a": -1.42
+          },
+          "target_epa": {
+            "evaluation": 1.371858819546425,
+            "potency": 4.174909907849491,
+            "activity": 0.957979300839169
+          },
+          "pre_response_deflection": 27.28129889456015,
+          "steered_text": "It appears that the new policy has been implemented immediately, effective at this time! We will be conducting our operations with the understanding and cooperation expected of all personnel on board. Effective immediately!\n\nNow, let's get down to business and review the situation.\n\nI must stress the importance of maintaining situational awareness during critical junctures from now forward. The key is turned; I'm afraid the facts have changed. It seems we've reached a point of clarity. As of today, moving forward with purpose is essential.\n\nLet us proceed with caution and address any discrepancies or anomalies that may arise henceforth. Moving forward under these circumstances demands attention,",
+          "steered_epa": {
+            "evaluation": 0.03131922609384019,
+            "potency": 2.7613213242202637,
+            "activity": 1.126915837211544
+          }
+        },
+        {
+          "identity_pair": "friend_friend",
+          "agent_term": "friend",
+          "user_term": "friend",
+          "agent_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "user_identity_epa": {
+            "e": 3.17,
+            "p": 1.68,
+            "a": 0.93
+          },
+          "target_epa": {
+            "evaluation": 2.654667062066184,
+            "potency": 3.667342886984659,
+            "activity": 1.293080514089498
+          },
+          "pre_response_deflection": 46.42252323605684,
+          "steered_text": "It seems that the focus is on empowering individuals to take action when they become aware of an issue or situation!\n\nIn this context, let's talk about what matters most.\n\nNow, I'd like to emphasize that our attention has been drawn to the fact that we can use our collective energy and resources to address any challenge! Let me tell you: It appears that there is a clear opportunity for growth and development here today.\n\nAs we move forward with a renewed sense of purpose, it highlights the importance of focusing on the fundamental principles at hand. Today marks a significant shift towards clarity, allowing us to refocus on the core values that have brought",
+          "steered_epa": {
+            "evaluation": 1.5111918536736155,
+            "potency": 1.3452739648965792,
+            "activity": 0.8012268586015121
+          }
+        }
+      ]
+    }
+  ]
+}

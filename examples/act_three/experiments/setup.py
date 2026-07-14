@@ -81,7 +81,16 @@ def load_experiment_components(
     rep_reading_pipeline = hf_pipeline("rep-reading", model=model, tokenizer=tokenizer)
 
     # ---- Directions ----
-    saved = load_directions(C.DIRECTIONS_PATH)
+    directions_path = C.DIRECTIONS_PATH
+    if C.USE_ORTHOGONAL_DIRECTIONS:
+        import os
+        if os.path.exists(C.DIRECTIONS_PATH_ORTHO):
+            directions_path = C.DIRECTIONS_PATH_ORTHO
+            print("Using orthogonalised directions")
+        else:
+            print("Orthogonal directions not found, using original directions")
+
+    saved = load_directions(directions_path)
     rep_readers = saved["rep_readers"]
     hidden_layers = saved["hidden_layers"]
     print(f"Loaded directions for {len(rep_readers)} EPA dimensions, "
@@ -97,23 +106,22 @@ def load_experiment_components(
     steerer = None
     if load_steerer:
         if steering_from_tuning:
-            with open(C.STEERING_RESULTS_PATH, "r") as f:
-                steering_results = json.load(f)
-            best_hp = steering_results["best_hyperparameters"]
+            # Use the reader's selected layers (from ElasticNet tuning)
+            # and the per-dimension coefficients from config.py
             steering_configs = {}
             for dim_name in DIMENSION_NAMES:
-                hp = best_hp[dim_name]
-                layers_neg = hp["layers_neg"]
+                dim_cfg = reader.config.dimensions[dim_name]
+                selected_layers = sorted(dim_cfg.selected_layers.keys())
                 signs = {}
-                for layer in layers_neg:
+                for layer in selected_layers:
                     sign_val = rep_readers[dim_name].direction_signs.get(layer, 1)
                     if hasattr(sign_val, "item"):
                         sign_val = sign_val.item()
                     signs[layer] = float(sign_val)
                 steering_configs[dim_name] = {
-                    "layers": layers_neg,
+                    "layers": selected_layers,
                     "signs": signs,
-                    "base_coeff": hp["coefficient"],
+                    "base_coeff": C.PER_DIM_COEFFICIENTS.get(dim_name, 2.0),
                 }
             steerer = EPASteerer(
                 model=model,
@@ -121,6 +129,10 @@ def load_experiment_components(
                 rep_readers=rep_readers,
                 steering_configs=steering_configs,
             )
+            print(f"Steerer coefficients: "
+                  f"E={steering_configs['evaluation']['base_coeff']}, "
+                  f"P={steering_configs['potency']['base_coeff']}, "
+                  f"A={steering_configs['activity']['base_coeff']}")
         else:
             steerer = EPASteerer.from_reader(
                 reader=reader,

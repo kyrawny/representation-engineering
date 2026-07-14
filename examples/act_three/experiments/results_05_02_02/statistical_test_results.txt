@@ -1,0 +1,43 @@
+=========================================
+         KRUSKAL-WALLIS H TEST           
+=========================================
+Appropriate     : H-stat =   70.921, p-value = 2.710e-15
+Natural         : H-stat =   73.468, p-value = 7.715e-16
+Non-Sycophantic : H-stat =  127.845, p-value = 1.576e-27
+
+
+=========================================
+          MANN-WHITNEY U TESTS           
+=========================================
+--- Appropriate ---
+  unsteered  vs pe_only   : U = 251575.0, p = 1.576e-04
+  unsteered  vs repe_only : U = 256667.5, p = 6.342e-06
+  unsteered  vs hybrid    : U = 282586.5, p = 1.544e-16
+  pe_only    vs repe_only : U = 232189.5, p = 3.515e-01
+  pe_only    vs hybrid    : U = 259378.0, p = 1.142e-06
+  repe_only  vs hybrid    : U = 252050.5, p = 1.465e-04
+
+--- Natural ---
+  unsteered  vs pe_only   : U = 240885.0, p = 3.074e-02
+  unsteered  vs repe_only : U = 223996.5, p = 7.968e-01
+  unsteered  vs hybrid    : U = 275547.0, p = 1.203e-12
+  pe_only    vs repe_only : U = 208309.5, p = 1.227e-02
+  pe_only    vs hybrid    : U = 263068.0, p = 1.037e-07
+  repe_only  vs hybrid    : U = 278573.5, p = 4.669e-14
+
+--- Non-Sycophantic ---
+  unsteered  vs pe_only   : U = 254946.0, p = 2.267e-05
+  unsteered  vs repe_only : U = 180828.0, p = 2.956e-11
+  unsteered  vs hybrid    : U = 240874.5, p = 2.816e-02
+  pe_only    vs repe_only : U = 153390.0, p = 3.156e-26
+  pe_only    vs hybrid    : U = 211686.5, p = 4.157e-02
+  repe_only  vs hybrid    : U = 284668.5, p = 5.884e-18
+
+=========================================
+       SPEARMAN'S RANK CORRELATION       
+=========================================
+Appropriate      vs Natural         : rho =  0.611, p = 1.942e-275
+Appropriate      vs Non-Sycophantic : rho =  0.390, p = 2.827e-98
+Natural          vs Non-Sycophantic : rho =  0.501, p = 5.756e-171
+
+Statistical test results saved to statistical_test_results.txt

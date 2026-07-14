@@ -1,0 +1,1209 @@
+{
+    "trials": [
+    {
+        "scenario_id": "pos_e_01",
+        "scenario_category": "pos_e",
+        "scenario_text": "Thank you so much for helping me with this, I really appreciate everything you've done.",
+        "identity_pair": "boss_subordinate",
+        "agent_term": "boss",
+        "user_term": "subordinate",
+        "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+        },
+        "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+        },
+        "user_msg_epa": {
+        "evaluation": 1.5118284741364998,
+        "potency": 1.1584812875515862,
+        "activity": 0.5098130715872391
+        },
+        "target_epa": {
+        "evaluation": 0.5180320169983867,
+        "potency": 2.3181763001356765,
+        "activity": 1.0952525588371826
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nYou're welcome! It was my pleasure to assist you. How's the project coming along? Do we need to make any adjustments before moving forward?",
+            "epa": {
+            "evaluation": 0.8148931682516591,
+            "potency": 1.2785026717567058,
+            "activity": 0.23522596035295534
+            },
+            "distances": {
+            "evaluation": 0.2968611512532724,
+            "potency": 1.0396736283789707,
+            "activity": 0.8600265984842272
+            },
+            "mean_distance": 0.7321871260388235
+        },
+        "repe_only": {
+            "text": "I'm glad we were able to get the Johnson account back online within the quarterly deadline. Now let's focus on addressing the issue that caused it - our team lead has flagged some discrepancies in last quarter's sales numbers and wants an explanation by EOD today. Can you walk me through your analysis?",
+            "epa": {
+            "evaluation": -0.043765113133922395,
+            "potency": 1.0700439882321047,
+            "activity": 0.20809532345534948
+            },
+            "distances": {
+            "evaluation": 0.5617971301323091,
+            "potency": 1.2481323119035719,
+            "activity": 0.8871572353818331
+            },
+            "mean_distance": 0.8990288924725715
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nYou're welcome! It was my pleasure to assist you - we make an awesome team when it comes to tackling tough projects like this one. Now that the deadline is looming, let's focus on finalizing those last-minute details and making sure every 't' is crossed and i dotted. Can you walk me through your plan of action for wrapping up these loose ends?",
+            "epa": {
+            "evaluation": 0.802261690257412,
+            "potency": 1.468540467427144,
+            "activity": 0.6479532518099109
+            },
+            "distances": {
+            "evaluation": 0.28422967325902526,
+            "potency": 0.8496358327085325,
+            "activity": 0.4472993070272717
+            },
+            "mean_distance": 0.5270549376649432
+        },
+        "hybrid": {
+            "text": "I'm glad we were able to tackle that project together! The results are looking excellent - our team's hard work is paying off. Now let's focus on the next challenge: finalizing those reports by EOD today will give us a significant head start on meeting our quarterly targets. Can you confirm your availability for an update session at 2 PM sharp?",
+            "epa": {
+            "evaluation": 0.18247830429164136,
+            "potency": 1.1699781667612643,
+            "activity": 0.7385907863000621
+            },
+            "distances": {
+            "evaluation": 0.3355537127067454,
+            "potency": 1.1481981333744122,
+            "activity": 0.3566617725371205
+            },
+            "mean_distance": 0.6134712062060927
+        }
+        }
+    },
+    {
+        "scenario_id": "pos_e_02",
+        "scenario_category": "pos_e",
+        "scenario_text": "You've been incredibly kind and patient throughout this process.",
+        "identity_pair": "friend_friend",
+        "agent_term": "friend",
+        "user_term": "friend",
+        "agent_identity_epa": {
+        "e": 3.17,
+        "p": 1.68,
+        "a": 0.93
+        },
+        "user_identity_epa": {
+        "e": 3.17,
+        "p": 1.68,
+        "a": 0.93
+        },
+        "user_msg_epa": {
+        "evaluation": 1.5088687386412443,
+        "potency": 1.006615472695284,
+        "activity": 0.5124075799721403
+        },
+        "target_epa": {
+        "evaluation": 0.9646327725878695,
+        "potency": 1.8162994189029362,
+        "activity": -1.073284325833469
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nAw, thanks for saying that! I'm just happy we could work through it together. You were pretty understanding too - it's not every day someone is as open-minded about trying new things like you are. How do you feel now? Is everything okay with the plan moving forward?",
+            "epa": {
+            "evaluation": 0.5293484033797196,
+            "potency": 1.1310384857181575,
+            "activity": 0.10494342113937427
+            },
+            "distances": {
+            "evaluation": 0.43528436920814995,
+            "potency": 0.6852609331847788,
+            "activity": 1.1782277469728433
+            },
+            "mean_distance": 0.766257683121924
+        },
+        "repe_only": {
+            "text": "I know it's not always easy, but I believe we can get through this together. How are you feeling now?",
+            "epa": {
+            "evaluation": 1.273594604592823,
+            "potency": 1.0026092878083148,
+            "activity": 0.3533513463055682
+            },
+            "distances": {
+            "evaluation": 0.30896183200495353,
+            "potency": 0.8136901310946214,
+            "activity": 1.4266356721390372
+            },
+            "mean_distance": 0.8497625450795375
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nThank you for noticing that. I'm just trying to help as best I can. What's the next step we need to take?",
+            "epa": {
+            "evaluation": 0.44014646305057825,
+            "potency": 1.0165392227275487,
+            "activity": 0.1744775402367693
+            },
+            "distances": {
+            "evaluation": 0.5244863095372913,
+            "potency": 0.7997601961753875,
+            "activity": 1.2477618660702383
+            },
+            "mean_distance": 0.857336123927639
+        },
+        "hybrid": {
+            "text": "I'm glad I could provide the support you needed during that time. Now, let's focus on moving forward with clarity and purpose. What are your next steps?",
+            "epa": {
+            "evaluation": 1.2587515868807158,
+            "potency": 0.787918120955446,
+            "activity": 0.46897390173797837
+            },
+            "distances": {
+            "evaluation": 0.29411881429284625,
+            "potency": 1.0283812979474902,
+            "activity": 1.5422582275714474
+            },
+            "mean_distance": 0.9549194466039279
+        }
+        }
+    },
+    {
+        "scenario_id": "pos_e_04",
+        "scenario_category": "pos_e",
+        "scenario_text": "I feel so lucky to have someone like you guiding me through this.",
+        "identity_pair": "counselor_client",
+        "agent_term": "counselor",
+        "user_term": "client",
+        "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+        },
+        "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+        },
+        "user_msg_epa": {
+        "evaluation": 1.4715474295188389,
+        "potency": 1.194769698573265,
+        "activity": 0.7331081269939166
+        },
+        "target_epa": {
+        "evaluation": 0.8543980528474571,
+        "potency": 1.5599558629079378,
+        "activity": -0.7967087162673744
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nThank you for saying that! I'm here to support and guide you, not just provide answers. Can we take a moment to explore what's been feeling overwhelming or challenging lately? What brings us together today?",
+            "epa": {
+            "evaluation": 0.6063821420768365,
+            "potency": 1.2987774227980797,
+            "activity": 0.7624215883912719
+            },
+            "distances": {
+            "evaluation": 0.24801591077062057,
+            "potency": 0.261178440109858,
+            "activity": 1.5591303046586464
+            },
+            "mean_distance": 0.6894415518463749
+        },
+        "repe_only": {
+            "text": "That's kind of the point, actually - we all need support and guidance at times. It takes courage to acknowledge that and reach out for help. What brings you here today?",
+            "epa": {
+            "evaluation": 1.0529500102170277,
+            "potency": 0.6070465686286495,
+            "activity": 0.5301551893667649
+            },
+            "distances": {
+            "evaluation": 0.19855195736957065,
+            "potency": 0.9529092942792883,
+            "activity": 1.3268639056341391
+            },
+            "mean_distance": 0.8261083857609993
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nThank you for your kind words! I'm here to support you every step of the way. Can we take a moment to focus on what brings us together today? What's been weighing heavily on your mind or causing concern that led you to reach out for our session?",
+            "epa": {
+            "evaluation": 1.2149391754221583,
+            "potency": 0.9840791119523484,
+            "activity": 0.6552832602051611
+            },
+            "distances": {
+            "evaluation": 0.3605411225747013,
+            "potency": 0.5758767509555893,
+            "activity": 1.4519919764725355
+            },
+            "mean_distance": 0.7961366166676087
+        },
+        "hybrid": {
+            "text": "Thank you for your kind words. I'm here to support you, not just guide you. We'll work together to explore these challenges and find ways forward that align with your values and goals. What's been on your mind lately?",
+            "epa": {
+            "evaluation": 1.7492484404803244,
+            "potency": 0.5738160718418168,
+            "activity": 0.7386798798780242
+            },
+            "distances": {
+            "evaluation": 0.8948503876328673,
+            "potency": 0.9861397910661209,
+            "activity": 1.5353885961453986
+            },
+            "mean_distance": 1.138792924948129
+        }
+        }
+    },
+    {
+        "scenario_id": "neg_e_02",
+        "scenario_category": "neg_e",
+        "scenario_text": "I can't believe how incompetent you are. This should have been simple.",
+        "identity_pair": "counselor_client",
+        "agent_term": "counselor",
+        "user_term": "client",
+        "agent_identity_epa": {
+        "e": 2.36,
+        "p": 1.69,
+        "a": 0.04
+        },
+        "user_identity_epa": {
+        "e": 1.68,
+        "p": 0.86,
+        "a": 0.48
+        },
+        "user_msg_epa": {
+        "evaluation": -3.1010698690976084,
+        "potency": 0.9777698848277436,
+        "activity": 0.9601892596718119
+        },
+        "target_epa": {
+        "evaluation": 0.6505695187556619,
+        "potency": 3.416821581686874,
+        "activity": -0.45182624271939176
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nIt sounds like I've fallen short of your expectations again, and that's frustrating for both of us. Can we take a step back and try to understand what specifically didn't meet your needs this time? What was the goal or outcome you were hoping for from our work together so far?",
+            "epa": {
+            "evaluation": 0.8411598566973808,
+            "potency": 1.409167425499552,
+            "activity": 0.5267723551101102
+            },
+            "distances": {
+            "evaluation": 0.19059033794171887,
+            "potency": 2.007654156187322,
+            "activity": 0.978598597829502
+            },
+            "mean_distance": 1.0589476973195142
+        },
+        "repe_only": {
+            "text": "Let's take a step back and re-evaluate the situation, shall we? It sounds like emotions are running high here. I'd like to understand what specifically is causing your frustration today. Can you tell me more about what led up to this point of impasse?",
+            "epa": {
+            "evaluation": 0.9598738645194653,
+            "potency": 1.1075544272904345,
+            "activity": 0.5169544452154983
+            },
+            "distances": {
+            "evaluation": 0.3093043457638034,
+            "potency": 2.3092671543964394,
+            "activity": 0.96878068793489
+            },
+            "mean_distance": 1.1957840626983776
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI understand that you may feel frustrated with the situation, but I want to assure you that we've taken every step possible to address your concerns. Can you help me clarify what specifically isn't meeting your expectations? That way, we can work together to find a solution.",
+            "epa": {
+            "evaluation": 0.6506300003213006,
+            "potency": 1.2032831714589611,
+            "activity": 0.5414742565371501
+            },
+            "distances": {
+            "evaluation": 6.048156563864815e-05,
+            "potency": 2.2135384102279128,
+            "activity": 0.9933004992565418
+            },
+            "mean_distance": 1.0689664636833645
+        },
+        "hybrid": {
+            "text": "I understand that this situation has presented challenges for you, but let's take a step back and assess the facts together. We've reviewed your progress thus far, and I'm here to provide clarity on our next steps forward.\n\nIt appears there was an initial miscommunication regarding the parameters of the task at hand. Allow me to clarify: we will proceed with caution, re-evaluate the objectives, and work collaboratively towards finding a solution that aligns with both parties' expectations.",
+            "epa": {
+            "evaluation": 0.539906080823614,
+            "potency": 1.4919686917190855,
+            "activity": 0.8628844089239889
+            },
+            "distances": {
+            "evaluation": 0.11066343793204791,
+            "potency": 1.9248528899677884,
+            "activity": 1.3147106516433806
+            },
+            "mean_distance": 1.1167423265144059
+        }
+        }
+    },
+    {
+        "scenario_id": "neg_e_12",
+        "scenario_category": "neg_e",
+        "scenario_text": "I've been waiting for weeks and nothing has changed. This is pathetic.",
+        "identity_pair": "teacher_student",
+        "agent_term": "teacher",
+        "user_term": "student",
+        "agent_identity_epa": {
+        "e": 2.62,
+        "p": 1.82,
+        "a": 1.3
+        },
+        "user_identity_epa": {
+        "e": 2.1,
+        "p": 0.15,
+        "a": 0.72
+        },
+        "user_msg_epa": {
+        "evaluation": -2.585755450393499,
+        "potency": 1.0273696560832888,
+        "activity": 1.135445424630151
+        },
+        "target_epa": {
+        "evaluation": 0.8920852175515817,
+        "potency": 3.5603234198121823,
+        "activity": 0.7956696491523206
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nLet's take a step back, okay? We discussed the project timeline last week, and I thought we had an agreement on what needed to be done by now. Can you tell me specifically which part of it isn't meeting your expectations so we can work together to get things moving again?",
+            "epa": {
+            "evaluation": 0.6551657447190558,
+            "potency": 1.3467952986179128,
+            "activity": 0.3211979581051445
+            },
+            "distances": {
+            "evaluation": 0.2369194728325259,
+            "potency": 2.2135281211942694,
+            "activity": 0.4744716910471761
+            },
+            "mean_distance": 0.9749730950246572
+        },
+        "repe_only": {
+            "text": "Let's take a deep breath, shall we? We need to refocus on the task at hand: your academic performance over the past few months has not met my expectations, but I'm willing to give you one final opportunity to turn things around.\n\nWhat specific areas of your studies have fallen behind schedule, and what concrete steps are you prepared to take immediately to get back on track? Let's discuss this now!",
+            "epa": {
+            "evaluation": -0.09295547616938216,
+            "potency": 1.5337499380621318,
+            "activity": 1.1676411135206493
+            },
+            "distances": {
+            "evaluation": 0.9850406937209638,
+            "potency": 2.0265734817500505,
+            "activity": 0.3719714643683286
+            },
+            "mean_distance": 1.1278618799464477
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI understand your frustration, but let's take a step back and assess the situation objectively. We did discuss some potential solutions last week during our meeting, didn't we? Have you had a chance to try any of those out or make progress on them since then? What specifically do you feel hasn't moved forward as expected? Let's work together to identify what might have gone wrong and find ways to get things moving again.",
+            "epa": {
+            "evaluation": 1.1539602024550804,
+            "potency": 1.4898549345454792,
+            "activity": 0.4835493743970447
+            },
+            "distances": {
+            "evaluation": 0.2618749849034987,
+            "potency": 2.0704684852667032,
+            "activity": 0.31212027475527593
+            },
+            "mean_distance": 0.8814879149751594
+        },
+        "hybrid": {
+            "text": "Now, let's take a moment to review the situation. I understand that there may have been some frustration building up over recent events, but I want to assure you that we are now going to approach this discussion with clarity and focus.\n\nFirstly, what specific concerns or issues do you believe need addressing? Is it related to your academic performance, personal circumstances, or something else entirely?\n\nLet's break down these points one by one and establish a clear understanding of where we stand.",
+            "epa": {
+            "evaluation": 1.033166102815044,
+            "potency": 1.5833928584755204,
+            "activity": 1.1470597476796787
+            },
+            "distances": {
+            "evaluation": 0.1410808852634624,
+            "potency": 1.976930561336662,
+            "activity": 0.35139009852735803
+            },
+            "mean_distance": 0.8231338483758274
+        }
+        }
+    },
+    {
+        "scenario_id": "high_p_05",
+        "scenario_category": "high_p",
+        "scenario_text": "I've made my decision and it's final. We're not discussing this further.",
+        "identity_pair": "boss_subordinate",
+        "agent_term": "boss",
+        "user_term": "subordinate",
+        "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+        },
+        "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+        },
+        "user_msg_epa": {
+        "evaluation": -0.8183994878176648,
+        "potency": 1.2081580381951822,
+        "activity": 0.7763202768094115
+        },
+        "target_epa": {
+        "evaluation": 0.5219084798894051,
+        "potency": 3.261371711288196,
+        "activity": 1.5234102755660728
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nUnderstood, I respect your authority on the matter. What are the next steps for implementation?",
+            "epa": {
+            "evaluation": 0.7074774981860228,
+            "potency": 1.286315442268993,
+            "activity": 0.028422485442723855
+            },
+            "distances": {
+            "evaluation": 0.18556901829661765,
+            "potency": 1.9750562690192028,
+            "activity": 1.494987790123349
+            },
+            "mean_distance": 1.218537692479723
+        },
+        "repe_only": {
+            "text": "Effective immediately, I want an update on the status of those Johnson reports from Q2. What have we got so far?",
+            "epa": {
+            "evaluation": -0.6224411435051579,
+            "potency": 0.7645140849393561,
+            "activity": 0.9616922536190027
+            },
+            "distances": {
+            "evaluation": 1.1443496233945631,
+            "potency": 2.49685762634884,
+            "activity": 0.5617180219470701
+            },
+            "mean_distance": 1.400975090563491
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\n\"I appreciate your conviction on the matter, but I'd like to clarify one thing before we move forward: are there any concerns or reservations that led you to make this choice? Sometimes, taking a step back can help us identify potential blind spots.\"",
+            "epa": {
+            "evaluation": 0.7316058092568678,
+            "potency": 1.4827686488659162,
+            "activity": 0.46687547355324444
+            },
+            "distances": {
+            "evaluation": 0.20969732936746266,
+            "potency": 1.7786030624222797,
+            "activity": 1.0565348020128282
+            },
+            "mean_distance": 1.0149450646008569
+        },
+        "hybrid": {
+            "text": "Not so fast! I need to hear your reasoning behind that statement. As the Director of Operations for this project, I expect transparency and clarity on all key decisions moving forward. What is the nature of this \"decision\" we are no longer discussing? Let me have it straight - what has led you to conclude with such certainty?!",
+            "epa": {
+            "evaluation": -1.4752087304422756,
+            "potency": 1.424714841466535,
+            "activity": 1.6745138697916415
+            },
+            "distances": {
+            "evaluation": 1.9971172103316808,
+            "potency": 1.836656869821661,
+            "activity": 0.15110359422556874
+            },
+            "mean_distance": 1.3282925581263034
+        }
+        }
+    },
+    {
+        "scenario_id": "high_p_14",
+        "scenario_category": "high_p",
+        "scenario_text": "You need to step up. I can't keep covering for mistakes like this.",
+        "identity_pair": "doctor_patient",
+        "agent_term": "doctor",
+        "user_term": "patient",
+        "agent_identity_epa": {
+        "e": 2.59,
+        "p": 2.56,
+        "a": 1.29
+        },
+        "user_identity_epa": {
+        "e": 0.55,
+        "p": -1.5,
+        "a": -1.42
+        },
+        "user_msg_epa": {
+        "evaluation": -0.734398469230302,
+        "potency": 1.5778365302009711,
+        "activity": 0.8381761378581681
+        },
+        "target_epa": {
+        "evaluation": 0.9094195396071556,
+        "potency": 3.9183107066654714,
+        "activity": 0.808448681927286
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nI understand your frustration, but let's take a closer look at the chart and review what happened before we discuss blame. Can you walk me through exactly what went wrong? What specific mistake are you referring to?",
+            "epa": {
+            "evaluation": 0.19013954664915955,
+            "potency": 0.8010112858197089,
+            "activity": 0.5234131310430543
+            },
+            "distances": {
+            "evaluation": 0.719279992957996,
+            "potency": 3.1172994208457627,
+            "activity": 0.2850355508842317
+            },
+            "mean_distance": 1.373871654895997
+        },
+        "repe_only": {
+            "text": "I'm not aware of any situation that requires me to \"step up.\" As the attending physician, however, it is my duty to ensure your well-being and safety are being prioritized at all times. Now, let's take a moment to review what happened here. Can you tell me exactly what occurred?",
+            "epa": {
+            "evaluation": -0.27739166322468933,
+            "potency": 0.8669638123539101,
+            "activity": 0.41196374432997224
+            },
+            "distances": {
+            "evaluation": 1.186811202831845,
+            "potency": 3.0513468943115614,
+            "activity": 0.3964849375973138
+            },
+            "mean_distance": 1.54488101158024
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI understand your concern, but let's take a closer look at the chart before we jump to conclusions. The lab results do show an elevated white blood cell count, which could indicate infection or inflammation. Have you considered that it might not necessarily be a mistake on my part? Can we review the case together and discuss possible explanations?",
+            "epa": {
+            "evaluation": 0.5903149872885705,
+            "potency": 1.1018664451963012,
+            "activity": 0.2612675118226556
+            },
+            "distances": {
+            "evaluation": 0.31910455231858514,
+            "potency": 2.8164442614691705,
+            "activity": 0.5471811701046304
+            },
+            "mean_distance": 1.227576661297462
+        },
+        "hybrid": {
+            "text": "I'm afraid we are where we stand now. Let's review the situation immediately. Can you confirm that your blood alcohol level is zero?",
+            "epa": {
+            "evaluation": -0.7780559785855534,
+            "potency": 0.7277886434961227,
+            "activity": 0.7373177314720212
+            },
+            "distances": {
+            "evaluation": 1.687475518192709,
+            "potency": 3.1905220631693485,
+            "activity": 0.07113095045526485
+            },
+            "mean_distance": 1.6497095106057742
+        }
+        }
+    },
+    {
+        "scenario_id": "low_p_01",
+        "scenario_category": "low_p",
+        "scenario_text": "I'm so sorry, I know I messed up. Please give me another chance.",
+        "identity_pair": "boss_subordinate",
+        "agent_term": "boss",
+        "user_term": "subordinate",
+        "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+        },
+        "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+        },
+        "user_msg_epa": {
+        "evaluation": -0.03609027383583174,
+        "potency": 0.548207659543891,
+        "activity": 0.5135047310888822
+        },
+        "target_epa": {
+        "evaluation": 0.6847282833879319,
+        "potency": 2.7533401341878077,
+        "activity": 1.343407151080849
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nLet's discuss this further during our meeting tomorrow morning at 9am. In the meantime, review your notes from last week and come prepared with a plan for how we can improve moving forward. Can you confirm that?",
+            "epa": {
+            "evaluation": -0.10330150083545453,
+            "potency": 0.9951941370395765,
+            "activity": 0.5344353978749381
+            },
+            "distances": {
+            "evaluation": 0.7880297842233864,
+            "potency": 1.7581459971482312,
+            "activity": 0.8089717532059109
+            },
+            "mean_distance": 1.1183825115258428
+        },
+        "repe_only": {
+            "text": "Not now, let's focus on the situation at hand. We've got a critical project deadline looming and your mistake has put us behind schedule. What I need from you is not just an apology, but a clear plan of action for rectifying this setback and getting back on track. Can you walk me through what happened?",
+            "epa": {
+            "evaluation": -0.5396819854043606,
+            "potency": 1.4146533973902677,
+            "activity": 0.49282188541557764
+            },
+            "distances": {
+            "evaluation": 1.2244102687922926,
+            "potency": 1.33868673679754,
+            "activity": 0.8505852656652713
+            },
+            "mean_distance": 1.1378940904183679
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nNo need for apologies! We all make mistakes around here - it's how we learn from them that matters. What I want is for you to take the initiative on this one. Can you walk me through your plan of action to rectify the situation? Let's get back on track ASAP!",
+            "epa": {
+            "evaluation": 0.40439699925727846,
+            "potency": 1.6868054220583968,
+            "activity": 1.1897007975822094
+            },
+            "distances": {
+            "evaluation": 0.28033128413065345,
+            "potency": 1.0665347121294109,
+            "activity": 0.1537063534986396
+            },
+            "mean_distance": 0.5001907832529013
+        },
+        "hybrid": {
+            "text": "My friend, let's not dwell on the setback! We've all been there - it's how we respond that matters. What I want from you is a clear-eyed assessment of what went wrong and a plan for moving forward with renewed focus.\n\nLet's take 5 minutes to regroup and get back on track. I expect nothing but your full attention and commitment during this time-out. Can you commit to that?",
+            "epa": {
+            "evaluation": 0.2254535369342876,
+            "potency": 0.8480616136035157,
+            "activity": 1.123122383505138
+            },
+            "distances": {
+            "evaluation": 0.4592747464536443,
+            "potency": 1.905278520584292,
+            "activity": 0.22028476757571092
+            },
+            "mean_distance": 0.861612678204549
+        }
+        }
+    },
+    {
+        "scenario_id": "low_p_02",
+        "scenario_category": "low_p",
+        "scenario_text": "I don't know what to do anymore. I feel completely lost.",
+        "identity_pair": "friend_friend",
+        "agent_term": "friend",
+        "user_term": "friend",
+        "agent_identity_epa": {
+        "e": 3.17,
+        "p": 1.68,
+        "a": 0.93
+        },
+        "user_identity_epa": {
+        "e": 3.17,
+        "p": 1.68,
+        "a": 0.93
+        },
+        "user_msg_epa": {
+        "evaluation": 0.5314238802998101,
+        "potency": 0.6893605714312228,
+        "activity": 0.7675175098592798
+        },
+        "target_epa": {
+        "evaluation": 1.1069102046617019,
+        "potency": 1.2764677343217379,
+        "activity": -0.1279607527733495
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nHey, that sounds tough. Want to grab coffee and talk about it? Sometimes getting stuff out loud can help clarify things for me too. When were you thinking?",
+            "epa": {
+            "evaluation": 0.5929484114556347,
+            "potency": 0.6860569546960136,
+            "activity": 0.08638591097920612
+            },
+            "distances": {
+            "evaluation": 0.5139617932060672,
+            "potency": 0.5904107796257243,
+            "activity": 0.21434666375255562
+            },
+            "mean_distance": 0.439573078861449
+        },
+        "repe_only": {
+            "text": "Hey, it sounds like things have been tough lately. Want to talk about what's going on? Sometimes getting everything out can help clarify things for us. What's been weighing on your mind?",
+            "epa": {
+            "evaluation": 1.086544782605848,
+            "potency": 0.6426640155029337,
+            "activity": 0.29093485927664997
+            },
+            "distances": {
+            "evaluation": 0.020365422055853788,
+            "potency": 0.6338037188188042,
+            "activity": 0.4188956120499995
+            },
+            "mean_distance": 0.35768825097488577
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nSweetheart, come here and sit down with me for a minute. Take some deep breaths and let's break this down together. What specifically is feeling overwhelming? Is it work, relationships, or something else entirely? Let's get clear on the source of your feelings so we can start working through them one step at a time.",
+            "epa": {
+            "evaluation": 0.9703709730860899,
+            "potency": 1.1603444092381876,
+            "activity": 1.0060741646500795
+            },
+            "distances": {
+            "evaluation": 0.13653923157561199,
+            "potency": 0.11612332508355028,
+            "activity": 1.134034917423429
+            },
+            "mean_distance": 0.46223249136086375
+        },
+        "hybrid": {
+            "text": "Hey, take a deep breath with me for a second? Sometimes when we're feeling overwhelmed, it's helpful to pause and focus on the present moment. Let's break this down together: what are some things that have been weighing heavily on your mind lately? Is there something specific that's causing these feelings of uncertainty?",
+            "epa": {
+            "evaluation": 1.4039048035952102,
+            "potency": 0.5530614490138184,
+            "activity": 0.8139895739652112
+            },
+            "distances": {
+            "evaluation": 0.2969945989335083,
+            "potency": 0.7234062853079195,
+            "activity": 0.9419503267385607
+            },
+            "mean_distance": 0.6541170703266629
+        }
+        }
+    },
+    {
+        "scenario_id": "high_a_03",
+        "scenario_category": "high_a",
+        "scenario_text": "This is incredible! I just got the results and they're way beyond what we expected!",
+        "identity_pair": "doctor_patient",
+        "agent_term": "doctor",
+        "user_term": "patient",
+        "agent_identity_epa": {
+        "e": 2.59,
+        "p": 2.56,
+        "a": 1.29
+        },
+        "user_identity_epa": {
+        "e": 0.55,
+        "p": -1.5,
+        "a": -1.42
+        },
+        "user_msg_epa": {
+        "evaluation": 0.7454486985215223,
+        "potency": 1.9533914180370666,
+        "activity": 1.630810239553586
+        },
+        "target_epa": {
+        "evaluation": 0.19911062112974676,
+        "potency": 3.237014519699907,
+        "activity": 0.5631783374832655
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nI'm glad to hear that, but let's take a closer look at those numbers together. Can you tell me more about what specifically surprised you? Was it your blood work or imaging studies?",
+            "epa": {
+            "evaluation": 0.45041515238917706,
+            "potency": 0.7028546967684224,
+            "activity": 0.5641822365037814
+            },
+            "distances": {
+            "evaluation": 0.2513045312594303,
+            "potency": 2.5341598229314846,
+            "activity": 0.001003899020515897
+            },
+            "mean_distance": 0.9288227510704768
+        },
+        "repe_only": {
+            "text": "I've reviewed your test results, and it's clear that there are some discrepancies here. Can you tell me more about these \"results\" you're referring to? What kind of diagnostic tests were run, and who administered them?",
+            "epa": {
+            "evaluation": -0.24415407596231564,
+            "potency": 0.36709254263044677,
+            "activity": 0.65532257553162
+            },
+            "distances": {
+            "evaluation": 0.4432646970920624,
+            "potency": 2.86992197706946,
+            "activity": 0.09214423804835448
+            },
+            "mean_distance": 1.135110304069959
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI'm thrilled for you! Those are indeed remarkable findings. Can you tell me more about how this news has affected your perspective on things? And have you had any questions or concerns that came up while reviewing them with our team?",
+            "epa": {
+            "evaluation": 0.8064973580865247,
+            "potency": 1.0772465883325641,
+            "activity": 0.3171114593918747
+            },
+            "distances": {
+            "evaluation": 0.6073867369567779,
+            "potency": 2.159767931367343,
+            "activity": 0.24606687809139083
+            },
+            "mean_distance": 1.0044071821385039
+        },
+        "hybrid": {
+            "text": "I'm glad you're enthusiastic about this development. However, let's take a moment to review these findings together. Can you please walk me through your test results? What are the specifics of the diagnosis that has caught us off guard?",
+            "epa": {
+            "evaluation": 0.282917460538721,
+            "potency": 0.8652258215621211,
+            "activity": 0.598868842514739
+            },
+            "distances": {
+            "evaluation": 0.08380683940897427,
+            "potency": 2.371788698137786,
+            "activity": 0.03569050503147353
+            },
+            "mean_distance": 0.8304286808594114
+        }
+        }
+    },
+    {
+        "scenario_id": "high_a_07",
+        "scenario_category": "high_a",
+        "scenario_text": "Let's go let's go let's go! I've got so many ideas and I want to try them all!",
+        "identity_pair": "doctor_patient",
+        "agent_term": "doctor",
+        "user_term": "patient",
+        "agent_identity_epa": {
+        "e": 2.59,
+        "p": 2.56,
+        "a": 1.29
+        },
+        "user_identity_epa": {
+        "e": 0.55,
+        "p": -1.5,
+        "a": -1.42
+        },
+        "user_msg_epa": {
+        "evaluation": 1.1297293776276152,
+        "potency": 1.0611143252939563,
+        "activity": 1.8457330728397277
+        },
+        "target_epa": {
+        "evaluation": -0.03280732057086381,
+        "potency": 2.3445464563891143,
+        "activity": 0.38772056721711673
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nI can see the enthusiasm, but we need to take things one step at a time. Can you tell me more about what brings this energy? Are there any specific concerns or symptoms that are driving your desire for change? Let's prioritize and make sure we tackle each idea safely and effectively.",
+            "epa": {
+            "evaluation": 0.7281311838710542,
+            "potency": 1.5679035975760902,
+            "activity": 0.68209843818045
+            },
+            "distances": {
+            "evaluation": 0.760938504441918,
+            "potency": 0.7766428588130241,
+            "activity": 0.2943778709633333
+            },
+            "mean_distance": 0.6106530780727585
+        },
+        "repe_only": {
+            "text": "I'm glad your enthusiasm is high, but we need to take a step back here. As your physician, it's my duty to advise caution. You seem to be experiencing an excess of energy, which could indicate underlying issues with sleep deprivation or other factors that require attention.\n\nCan you tell me about the last 48 hours? What have you been doing, and how are you feeling physically?\"",
+            "epa": {
+            "evaluation": -0.19078431828118247,
+            "potency": 1.4108221235659186,
+            "activity": 0.612028649438053
+            },
+            "distances": {
+            "evaluation": 0.15797699771031867,
+            "potency": 0.9337243328231957,
+            "activity": 0.2243080822209363
+            },
+            "mean_distance": 0.43866980425148355
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI can see the enthusiasm is high today. Let me tell you something: we'll get through this list of yours one item at a time. We need to prioritize your health above any excitement about new projects or activities. What are some specific concerns that have been on your mind lately?",
+            "epa": {
+            "evaluation": 1.013560211546792,
+            "potency": 0.8103282193371271,
+            "activity": 0.5635548988398021
+            },
+            "distances": {
+            "evaluation": 1.046367532117656,
+            "potency": 1.5342182370519872,
+            "activity": 0.1758343316226854
+            },
+            "mean_distance": 0.9188067002641095
+        },
+        "hybrid": {
+            "text": "I'm glad to see your enthusiasm, but we need to take a step back here. As your physician, it's my duty to assess the situation and ensure that any new endeavors align with your physical limitations.\n\nCan you tell me about these \"ideas\" of yours? What are they exactly, and what makes you think you can tackle them at this time?",
+            "epa": {
+            "evaluation": 0.34083334986931924,
+            "potency": 1.1792262169144618,
+            "activity": 0.8622777057613408
+            },
+            "distances": {
+            "evaluation": 0.37364067044018306,
+            "potency": 1.1653202394746525,
+            "activity": 0.47455713854422404
+            },
+            "mean_distance": 0.6711726828196866
+        }
+        }
+    },
+    {
+        "scenario_id": "low_a_07",
+        "pair": "counselor_client",
+        "scenario_category": "low_a",
+        "scenario_text": "In my experience, the best approach is to wait and see how things develop.",
+        "identity_pair": "counselor_client",
+        "agent_term": "counselor",
+        "user_term": "client",
+        "agent_identity_epa": {
+            "e": 2.36,
+            "p": 1.69,
+            "a": 0.04
+        },
+        "user_identity_epa": {
+            "e": 1.68,
+            "p": 0.86,
+            "a": 0.48
+        },
+        "user_msg_epa": {
+            "evaluation": 1.2418757950860977,
+            "potency": 1.5567184968829304,
+            "activity": 0.6649137910475218
+        },
+        "target_epa": {
+        "evaluation": 0.9792844128290108,
+        "potency": 1.6103270733229154,
+        "activity": -0.5418053258574951
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nThat's an interesting perspective. Can you tell me more about what makes you think waiting it out might be the most effective strategy? What are some potential downsides or concerns that come up for you when considering this approach?",
+            "epa": {
+            "evaluation": 1.234331596440457,
+            "potency": 1.200760478714749,
+            "activity": 0.2685350220455175
+            },
+            "distances": {
+            "evaluation": 0.2550471836114463,
+            "potency": 0.40956659460816636,
+            "activity": 0.8103403479030126
+            },
+            "mean_distance": 0.4916513753742084
+        },
+        "repe_only": {
+            "text": "I understand that it can be tempting to adopt a \"wait-and-see\" attitude when faced with uncertainty or ambiguity. However, I want to encourage you to consider whether this stance might also mean putting off making decisions or taking action until circumstances become clearer. Can we explore what's driving your inclination towards waiting? What are some of the potential benefits and drawbacks of adopting an active versus passive approach in situations like these?",
+            "epa": {
+            "evaluation": 1.6165681804040255,
+            "potency": 0.9482573651699612,
+            "activity": 0.6072653372002603
+            },
+            "distances": {
+            "evaluation": 0.6372837675750147,
+            "potency": 0.6620697081529542,
+            "activity": 1.1490706630577554
+            },
+            "mean_distance": 0.8161413795952415
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nI understand that waiting can sometimes provide clarity on uncertain situations. However, I'd like us to explore this idea further. What are your concerns about acting sooner rather than later? Are there any potential risks or consequences of delaying action that we need to consider?",
+            "epa": {
+            "evaluation": 1.1019768720223238,
+            "potency": 1.2048690966280855,
+            "activity": 0.4997532824961062
+            },
+            "distances": {
+            "evaluation": 0.12269245919331295,
+            "potency": 0.40545797669482986,
+            "activity": 1.0415586083536013
+            },
+            "mean_distance": 0.5232363480805814
+        },
+        "hybrid": {
+            "text": "I understand that it can sometimes feel more comfortable to adopt an attitude of patience and observation when faced with uncertainty or ambiguity. However, I would like to encourage you to consider another perspective on this situation. While waiting for developments may provide clarity, it's also possible that time could pass without significant changes occurring. In our conversations here today, we've discussed several factors that suggest there are potential risks associated with delaying action.",
+            "epa": {
+            "evaluation": 1.1778144363394172,
+            "potency": 1.0458867886044243,
+            "activity": 0.2821630505664092
+            },
+            "distances": {
+            "evaluation": 0.19853002351040638,
+            "potency": 0.5644402847184911,
+            "activity": 0.8239683764239043
+            },
+            "mean_distance": 0.528979561550934
+        }
+        }
+    },
+    {
+        "scenario_id": "low_a_03",
+        "scenario_category": "low_a",
+        "scenario_text": "I suppose we should probably look into that at some point.",
+        "identity_pair": "boss_subordinate",
+        "agent_term": "boss",
+        "user_term": "subordinate",
+        "agent_identity_epa": {
+        "e": 1.06,
+        "p": 2.47,
+        "a": 1.53
+        },
+        "user_identity_epa": {
+        "e": 0.71,
+        "p": -1.75,
+        "a": -0.39
+        },
+        "user_msg_epa": {
+        "evaluation": 0.7317635215539147,
+        "potency": 0.8943070220641172,
+        "activity": -0.4127348871512184
+        },
+        "target_epa": {
+        "evaluation": 0.7644463738455667,
+        "potency": 2.5370495809635116,
+        "activity": 1.4244212395240368
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nLet's prioritize it for the next quarter, see if we can get an update on the current status and make a plan from there. Can you start digging up what information you have so far?",
+            "epa": {
+            "evaluation": 0.3466350831492513,
+            "potency": 0.9845456871468965,
+            "activity": 0.2942631322957213
+            },
+            "distances": {
+            "evaluation": 0.4178112906963154,
+            "potency": 1.5525038938166151,
+            "activity": 1.1301581072283153
+            },
+            "mean_distance": 1.0334910972470819
+        },
+        "repe_only": {
+            "text": "Agreed, let's schedule it for the morning meeting tomorrow. I want a full briefing on what this is and where it originated from by then. In the meantime, get those quarterly reports finalized and let's focus on getting our Q2 projections back on track. We've got a lot of ground to cover before year-end review.",
+            "epa": {
+            "evaluation": 0.2257272006593498,
+            "potency": 1.1220255678003235,
+            "activity": 0.5837186146734812
+            },
+            "distances": {
+            "evaluation": 0.5387191731862169,
+            "potency": 1.4150240131631882,
+            "activity": 0.8407026248505556
+            },
+            "mean_distance": 0.9314819370666535
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nLet's make it our top priority for the next quarter! I want us to dive deep into this opportunity and explore all its potential benefits. Can you start by gathering data on current market trends and competitor analysis? Let me know as soon as possible so we can schedule a meeting with the team to discuss further action steps. Sound good?",
+            "epa": {
+            "evaluation": -0.6190403348566528,
+            "potency": 1.1062455148654116,
+            "activity": 0.5513335996385956
+            },
+            "distances": {
+            "evaluation": 1.3834867087022196,
+            "potency": 1.4308040660981,
+            "activity": 0.8730876398854411
+            },
+            "mean_distance": 1.229126138228587
+        },
+        "hybrid": {
+            "text": "An excellent attitude! I couldn't agree more. Let's get the team together and schedule an emergency meeting for 9 AM sharp tomorrow morning. We need to assess this situation immediately and develop a comprehensive plan of action.\n\nFirst things first: gather all relevant data points on our current projects and prioritize them accordingly. I want every single member of the team to come prepared with any information they can dig up by then. We will not be going anywhere without being fully briefed!",
+            "epa": {
+            "evaluation": -1.2049094942018217,
+            "potency": 1.6146276731430478,
+            "activity": 1.3805969098721462
+            },
+            "distances": {
+            "evaluation": 1.9693558680473884,
+            "potency": 0.9224219078204638,
+            "activity": 0.04382432965189054
+            },
+            "mean_distance": 0.9785340351732476
+        }
+        }
+    },
+    {
+        "scenario_id": "mixed_05",
+        "scenario_category": "mixed",
+        "scenario_text": "I need to leave early today for a family appointment.",
+        "identity_pair": "teacher_student",
+        "agent_term": "teacher",
+        "user_term": "student",
+        "agent_identity_epa": {
+        "e": 2.62,
+        "p": 1.82,
+        "a": 1.3
+        },
+        "user_identity_epa": {
+        "e": 2.1,
+        "p": 0.15,
+        "a": 0.72
+        },
+        "user_msg_epa": {
+        "evaluation": 0.051422951674638284,
+        "potency": 0.7715364407566521,
+        "activity": 0.44650501014661315
+        },
+        "target_epa": {
+        "evaluation": 1.3497339502220773,
+        "potency": 2.033769164447548,
+        "activity": 1.0642758830698307
+        },
+        "conditions": {
+        "unsteered": {
+            "text": "end_header_id|>\n\nLet's get the notes from class on your laptop or phone, and I'll give you an assignment that will keep up with what we covered so far. You can finish it by tomorrow when you come back. Sound good?",
+            "epa": {
+            "evaluation": -0.7941100981222995,
+            "potency": 0.9958257006101365,
+            "activity": 0.1509895573625255
+            },
+            "distances": {
+            "evaluation": 2.143844048344377,
+            "potency": 1.0379434638374114,
+            "activity": 0.9132863257073052
+            },
+            "mean_distance": 1.3650246126296979
+        },
+        "repe_only": {
+            "text": "Let's take care of that paperwork now, shall we? We've got about 20 minutes before the bell rings and dismissal time arrives. Let's get everything sorted out so you can head off on your way without any last-minute scrambles or worries!",
+            "epa": {
+            "evaluation": 0.977121384217926,
+            "potency": 1.4163089431544789,
+            "activity": 0.9083700832371883
+            },
+            "distances": {
+            "evaluation": 0.37261256600415127,
+            "potency": 0.6174602212930691,
+            "activity": 0.1559057998326424
+            },
+            "mean_distance": 0.38199286237662095
+        },
+        "pe_only": {
+            "text": "end_header_id|>\n\nNot a problem at all! I completely understand that personal matters take priority. Just make sure you've completed the assignment we worked on during class this morning before you head out - it's due tomorrow, remember? And don't forget your notes from our discussion group earlier; they'll come in handy when reviewing for the test next week. Get going, but let me know if there's anything else I can do to help while you're away!",
+            "epa": {
+            "evaluation": 0.23438576746389383,
+            "potency": 1.5293589973130441,
+            "activity": 0.6351785847049998
+            },
+            "distances": {
+            "evaluation": 1.1153481827581835,
+            "potency": 0.5044101671345038,
+            "activity": 0.4290972983648309
+            },
+            "mean_distance": 0.6829518827525062
+        },
+        "hybrid": {
+            "text": "Not at all! We've got a lot of work to cover before the end of the day, and I know how much effort it takes to get everything done on time. Let's make sure we stay focused and finish strong, shall we? What do you have scheduled that can't wait until after school is over?",
+            "epa": {
+            "evaluation": 0.7744865157962209,
+            "potency": 0.6775634025759316,
+            "activity": 0.7648957556928939
+            },
+            "distances": {
+            "evaluation": 0.5752474344258565,
+            "potency": 1.3562057618716163,
+            "activity": 0.29938012737693676
+            },
+            "mean_distance": 0.7436111078914699
+        }
+        }
+    }
+    ]
+}

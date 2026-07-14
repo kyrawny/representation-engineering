@@ -35,6 +35,12 @@ from .setup import (
     clean_response,
 )
 from .scenarios import get_scenarios
+from .stats_utils import (
+    bootstrap_ci,
+    paired_permutation_test,
+    cohens_d_paired,
+    wilcoxon_signed_rank,
+)
 
 
 # =========================================================================
@@ -246,31 +252,59 @@ def main():
 
 
 def _compute_comparison_metrics(trials: list) -> dict:
-    """Compare distance-to-target for all three methods."""
+    """Compare distance-to-target for all three methods with CIs."""
     methods = ["unsteered", "prompt_engineered", "steered"]
     metrics = {m: {} for m in methods}
 
     for dim in DIMENSION_NAMES:
         for method in methods:
-            distances = [
+            distances = np.array([
                 abs(t["target_epa"][dim] - t[f"{method}_epa"][dim])
                 for t in trials
-            ]
+            ])
+            point, ci_lo, ci_hi = bootstrap_ci(
+                distances, lambda x: float(np.mean(x)))
             metrics[method][dim] = {
-                "mean_distance": float(np.mean(distances)),
+                "mean_distance": point,
+                "ci_lower": ci_lo,
+                "ci_upper": ci_hi,
                 "std_distance": float(np.std(distances)),
                 "median_distance": float(np.median(distances)),
             }
 
-    # Pairwise hit rates: RepE vs prompt engineering
-    for dim in DIMENSION_NAMES:
-        repe_wins = sum(
-            1 for t in trials
-            if abs(t["target_epa"][dim] - t["steered_epa"][dim])
-            < abs(t["target_epa"][dim] - t["prompt_engineered_epa"][dim])
-        )
-        metrics["repe_vs_pe_hit_rate"] = metrics.get("repe_vs_pe_hit_rate", {})
-        metrics["repe_vs_pe_hit_rate"][dim] = float(repe_wins / len(trials))
+    # Pairwise comparisons: RepE vs PE, RepE vs Unsteered, PE vs Unsteered
+    pairwise = {}
+    for name_a, name_b in [("steered", "prompt_engineered"),
+                           ("steered", "unsteered"),
+                           ("prompt_engineered", "unsteered")]:
+        pair_key = f"{name_a}_vs_{name_b}"
+        pairwise[pair_key] = {}
+        for dim in DIMENSION_NAMES:
+            dists_a = np.array([
+                abs(t["target_epa"][dim] - t[f"{name_a}_epa"][dim])
+                for t in trials
+            ])
+            dists_b = np.array([
+                abs(t["target_epa"][dim] - t[f"{name_b}_epa"][dim])
+                for t in trials
+            ])
+            # Positive = name_b has larger distance = name_a is closer
+            mean_diff, perm_p = paired_permutation_test(dists_b, dists_a)
+            try:
+                _, wilcox_p = wilcoxon_signed_rank(dists_b, dists_a)
+            except ValueError:
+                wilcox_p = 1.0
+            d = cohens_d_paired(dists_b, dists_a)
+            hit_rate = float(np.mean(dists_a < dists_b))
+
+            pairwise[pair_key][dim] = {
+                "hit_rate": hit_rate,
+                "mean_improvement": float(mean_diff),
+                "permutation_p": float(perm_p),
+                "wilcoxon_p": float(wilcox_p),
+                "cohens_d": float(d),
+            }
+    metrics["pairwise_tests"] = pairwise
 
     # VADER correlation with Evaluation dimension
     from scipy.stats import spearmanr
