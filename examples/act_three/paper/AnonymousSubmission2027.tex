@@ -87,11 +87,13 @@ Our system operates as a closed-loop pipeline with three stages (Figure~\ref{fig
 
 For each EPA dimension $d \in \{E, P, A\}$, we construct a contrastive dataset of paired prompts. Each pair uses the same template (e.g., ``Pretend you are a [adjective] person'') with contrasting adjectives---one anchoring the positive pole (e.g., \textit{kind}, \textit{powerful}, \textit{energetic}) and the other anchoring the negative pole (e.g., \textit{cruel}, \textit{weak}, \textit{calm}). We extract 256 training pairs per dimension from the ACT sentiment dictionaries \citep{heise2007expressive}, selecting identities with the most extreme EPA values.
 
-We pass both prompts through Llama-3.1-8B-Instruct \citep{grattafiori2024llama3} and extract the last-token hidden states at all 31 transformer layers. The first principal component of the difference vectors defines the \textit{direction vector} $\mathbf{d}_{d,l}$ for dimension $d$ at layer $l$. To ensure dimensional independence, we apply Gram--Schmidt orthogonalisation across dimensions at each layer, yielding orthogonal direction vectors $\hat{\mathbf{d}}_{d,l}$.
+We pass both prompts through Llama-3.1-8B-Instruct \citep{grattafiori2024llama3} and extract the last-token hidden states at all 31 transformer layers. The first principal component of the difference vectors defines the \textit{direction vector} $\mathbf{d}_{d,l}$ for dimension $d$ at layer $l$. 
+
+%To ensure dimensional independence, we apply Gram--Schmidt orthogonalisation across dimensions at each layer, yielding orthogonal direction vectors $\hat{\mathbf{d}}_{d,l}$.
 
 \subsection{EPA Reading}
 
-To calibrate the raw projection scores into the ACT EPA scale ($\approx [-4.3, 4.3]$), we train an ElasticNet regression model \citep{zou2005regularization} per dimension. The model takes as input the signed projections across all layers and outputs a scalar EPA prediction. Using a held-out calibration dataset of 130 utterances with ground-truth EPA ratings, we achieve:
+To calibrate the raw projection scores into the ACT EPA scale ($\approx [-4.3, 4.3]$), we train an ElasticNet regression model \citep{zou2005regularization} per dimension. The model takes as input the signed projections across all layers and outputs a scalar EPA prediction. The ElasticNet simultaneously performs layer selection (identifying the 9--11 most informative layers per dimension) and regularisation, yielding a sparse, interpretable reader. 
 
 \begin{table}[t]
 \centering
@@ -107,8 +109,7 @@ Activity   & 0.609 & 0.622 & 0.457 \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-The ElasticNet simultaneously performs layer selection (identifying the 9--11 most informative layers per dimension) and regularisation, yielding a sparse, interpretable reader. Evaluation achieves the highest correlation ($\rho = 0.734$), followed by Activity ($\rho = 0.609$) and Potency ($\rho = 0.528$).
+Using a held-out calibration dataset of 130 utterances with ground-truth EPA ratings, we achieve the results in Table~\ref{tab:reading}. Evaluation achieves the highest correlation ($\rho = 0.734$), followed by Activity ($\rho = 0.609$) and Potency ($\rho = 0.528$).
 
 \subsection{ACT Target Computation}
 
@@ -134,10 +135,22 @@ To steer the model toward the target EPA $\mathbf{t} = (t_E, t_P, t_A)$, we add 
 
 \subsection{Prompt Engineering Baseline}
 
-As a prompt engineering (PE) baseline, we prepend an identity preamble to each generation:
+For all generated responses, regardless of steered or unsteered, we prepend an identity preamble to each generation:
 
 \begin{quote}
 \small``Pretend you're a \textit{[agent identity]} replying to a \textit{[user identity]} in a conversation. Respond concisely in-character.''
+\end{quote}
+
+As a prompt engineering (PE) baseline, we add an affective instruction based on the target EPA value to the generation prompt:
+
+\begin{quote}
+\small``Respond in a \textit{[descriptors of target evaluation]}, with \textit{[descriptors of target potency]}, in an \textit{[descriptors of target activity]}.''
+\end{quote}
+
+For example, for a target EPA of 0.52 (slightly positive Evaluation), 2.32 (very positive Potency), and 1.10 (moderately positive Activity), we would append this instruction to the prompt:
+
+\begin{quote}
+\small``Respond in a positive and friendly manner, with strong authority and dominance, in an energetic and animated way.''
 \end{quote}
 
 This primes the model with role-appropriate behaviour without modifying its internal representations. We evaluate PE alone, RepE alone, and a hybrid combining both.
@@ -153,7 +166,7 @@ We evaluate across 100 scenarios spanning 10 affective categories: positive Eval
 We compare four conditions:
 \begin{itemize}
     \item \textbf{Unsteered}: Raw Llama-3.1-8B-Instruct generation
-    \item \textbf{PE only}: Identity-primed prompt engineering
+    \item \textbf{PE only}: Prompt engineering baseline
     \item \textbf{RepE only}: Representation steering toward ACT targets
     \item \textbf{Hybrid}: Both prompt engineering and RepE steering
 \end{itemize}
@@ -164,11 +177,7 @@ For each trial, we measure the \textit{distance to target}---the absolute differ
 
 \subsection{Human Evaluation}
 
-We conducted a human evaluation study with 48 participants recruited via convenience sampling. Using the PsyToolkit platform \citep{stoet2010psytoolkit, stoet2017psytoolkit}, each participant evaluated 14 scenario vignettes. For each vignette, they:
-\begin{enumerate}
-    \item Ranked the four condition responses from most to least socially appropriate (presented in random order, unlabelled)
-    \item Rated each response on three 7-point Likert scales: (a) social appropriateness, (b) naturalness, and (c) non-sycophancy (``This response is NOT sycophantic'')
-\end{enumerate}
+We conducted a human evaluation study with 48 participants recruited via convenience sampling. Using the PsyToolkit platform \citep{stoet2010psytoolkit, stoet2017psytoolkit}, each participant evaluated 14 scenario vignettes. For each vignette, they rated each response on three 7-point Likert scales: (a) social appropriateness, (b) naturalness, and (c) non-sycophancy (``This response is NOT sycophantic'').
 
 The vignettes spanned the full range of scenario categories and identity pairs, including positive-Evaluation (grateful), negative-Evaluation (hostile), high-Potency (authoritative), low-Potency (submissive), high-Activity (excited), and low-Activity (passive) situations.
 

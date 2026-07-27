@@ -18,10 +18,39 @@ Typical usage::
 
 from typing import Any, Dict, List, Optional, Tuple, Union
 
+import math
+
 import numpy as np
 import torch
 
 from .act_core import EPA
+
+
+# =========================================================================
+# Steering magnitude limiter
+# =========================================================================
+
+def _sigmoid_clamp(x: float, limit: float = 1.0) -> float:
+    """Smoothly clamp a scalar to [-limit, +limit] using tanh.
+
+    Maps the raw steering magnitude through ``limit * tanh(x / limit)``
+    so that small values pass through approximately unchanged while
+    large values asymptote smoothly at ±limit.  This prevents extreme
+    target EPA values from producing oversized perturbations that cause
+    text degeneration.
+
+    Args:
+        x: Raw steering magnitude (coeff * target_value).
+        limit: Maximum absolute value of the output (default 1.0).
+
+    Returns:
+        Clamped magnitude in [-limit, +limit].
+    """
+    if limit <= 0:
+        return 0.0
+    return limit * math.tanh(x / limit)
+
+
 from .prompt_formatting import DIMENSION_NAMES, DIM_KEY
 
 
@@ -38,6 +67,7 @@ def make_epa_activations(
     device=None,
     dtype=None,
     normalize: bool = True,
+    clamp_limit: float = 1.0,
 ) -> Dict[int, torch.Tensor]:
     """
     Create combined EPA activation dictionary for the control pipeline.
@@ -53,6 +83,8 @@ def make_epa_activations(
         p_coeff: Potency steering coefficient.
         a_coeff: Activity steering coefficient.
         device: Target device.
+        clamp_limit: Maximum absolute steering magnitude per dimension
+            (default 1.0).  Set to 0 or ``float('inf')`` to disable.
         dtype: Target dtype.
         normalize: If True, L2-normalize direction vectors.
 
@@ -105,7 +137,8 @@ def make_epa_activations(
             if device is not None:
                 direction = direction.to(device)
 
-            activation = coeff * sign * direction
+            magnitude = _sigmoid_clamp(coeff * sign, limit=clamp_limit) if clamp_limit > 0 and clamp_limit != float('inf') else coeff * sign
+            activation = magnitude * direction
 
             if layer in activations:
                 activations[layer] = activations[layer] + activation
@@ -217,6 +250,7 @@ class EPASteerer:
         rep_readers: Dict[str, Any],
         steering_configs: Dict[str, Dict],
         all_layers: Optional[List[int]] = None,
+        clamp_limit: float = 1.0,
     ):
         """
         Args:
@@ -227,11 +261,16 @@ class EPASteerer:
                 ``'layers'``, ``'signs'``, ``'base_coeff'``.
             all_layers: All available layers for the control pipeline.
                 If None, derived from the first ``RepReader``.
+            clamp_limit: Maximum absolute steering magnitude per
+                dimension after multiplying all coefficients (default
+                1.0).  Uses a smooth tanh clamp.  Set to
+                ``float('inf')`` to disable.
         """
         self.model = model
         self.tokenizer = tokenizer
         self.rep_readers = rep_readers
         self.steering_configs = steering_configs
+        self.clamp_limit = clamp_limit
 
         if all_layers is None:
             first_reader = next(iter(rep_readers.values()))
@@ -305,9 +344,12 @@ class EPASteerer:
                 if norm > 0:
                     direction = direction / norm
 
-                # Perturbation = coeff * target_value * sign * normalised_dir
-                # target_value carries both sign and magnitude
-                activations[layer] = (coeff * target_value * dir_sign) * direction
+                # Perturbation = clamp(coeff * target_value) * sign * normalised_dir
+                # target_value carries both sign and magnitude;
+                # sigmoid clamp prevents extreme values from causing degeneration
+                raw_magnitude = coeff * target_value * dir_sign
+                clamped = _sigmoid_clamp(raw_magnitude, limit=self.clamp_limit)
+                activations[layer] = clamped * direction
             else:
                 direction = torch.tensor(reader.directions[layer], dtype=torch.float16)
                 activations[layer] = torch.zeros_like(direction)
