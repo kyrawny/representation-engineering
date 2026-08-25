@@ -1,0 +1,2111 @@
+{
+  "metadata": {
+    "experiment": "11_dimension_ablation",
+    "timestamp": "2026-07-14T08:44:33.153597",
+    "n_trials": 14,
+    "n_scenarios": 7,
+    "n_pairs": 2,
+    "n_subsets": 7,
+    "subsets": [
+      "E",
+      "P",
+      "A",
+      "EP",
+      "EA",
+      "PA",
+      "EPA"
+    ],
+    "quick_mode": true,
+    "exp08_reference_loaded": false
+  },
+  "ablation_aggregate": {
+    "E": {
+      "steered_dims": [
+        "evaluation"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 0.5533044536319246,
+          "ci_lower": 0.3422738178285926,
+          "ci_upper": 0.8011147439676639,
+          "std": 0.4401616100261503
+        },
+        "potency": {
+          "mean_distance": 1.5447617983942874,
+          "ci_lower": 1.1140922071107506,
+          "ci_upper": 1.9839985072312556,
+          "std": 0.835074184789647
+        },
+        "activity": {
+          "mean_distance": 0.8179328535905125,
+          "ci_lower": 0.5868336061175111,
+          "ci_upper": 1.038201884129993,
+          "std": 0.43497375446146336
+        }
+      },
+      "overall_mean_distance": 0.9719997018722416,
+      "overall_std_distance": 0.23483226704559473
+    },
+    "P": {
+      "steered_dims": [
+        "potency"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 1.0614963244317857,
+          "ci_lower": 0.813649366630441,
+          "ci_upper": 1.3529345242112816,
+          "std": 0.52438511972091
+        },
+        "potency": {
+          "mean_distance": 1.1765877024303788,
+          "ci_lower": 0.81555180416501,
+          "ci_upper": 1.544042414785592,
+          "std": 0.693222052944195
+        },
+        "activity": {
+          "mean_distance": 0.9270690570727093,
+          "ci_lower": 0.7470701579865098,
+          "ci_upper": 1.1236198584595234,
+          "std": 0.3631076928637594
+        }
+      },
+      "overall_mean_distance": 1.0550510279782914,
+      "overall_std_distance": 0.32710393881006633
+    },
+    "A": {
+      "steered_dims": [
+        "activity"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 0.717714107131446,
+          "ci_lower": 0.47874377656042905,
+          "ci_upper": 0.9614426643411501,
+          "std": 0.4584317195594749
+        },
+        "potency": {
+          "mean_distance": 1.568290733507503,
+          "ci_lower": 1.1887136532662848,
+          "ci_upper": 1.938863518664066,
+          "std": 0.7246569429487143
+        },
+        "activity": {
+          "mean_distance": 0.7091287833267959,
+          "ci_lower": 0.5687750609425465,
+          "ci_upper": 0.8656284979437702,
+          "std": 0.2859264366400014
+        }
+      },
+      "overall_mean_distance": 0.9983778746552483,
+      "overall_std_distance": 0.3239996124180106
+    },
+    "EP": {
+      "steered_dims": [
+        "evaluation",
+        "potency"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 1.076694754767902,
+          "ci_lower": 0.8455358549017729,
+          "ci_upper": 1.2951442041059367,
+          "std": 0.43453537112764573
+        },
+        "potency": {
+          "mean_distance": 1.1220974025926789,
+          "ci_lower": 0.8270442382838805,
+          "ci_upper": 1.4169518987275171,
+          "std": 0.5663618331505885
+        },
+        "activity": {
+          "mean_distance": 0.7750174122116026,
+          "ci_lower": 0.5716991981701148,
+          "ci_upper": 0.9703222803917629,
+          "std": 0.37962345305967604
+        }
+      },
+      "overall_mean_distance": 0.9912698565240611,
+      "overall_std_distance": 0.24766274223098986
+    },
+    "EA": {
+      "steered_dims": [
+        "evaluation",
+        "activity"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 0.5790313067260849,
+          "ci_lower": 0.384371701927083,
+          "ci_upper": 0.7750957560117548,
+          "std": 0.37533862364905823
+        },
+        "potency": {
+          "mean_distance": 1.5526452576817125,
+          "ci_lower": 1.1506963043700755,
+          "ci_upper": 1.9491194006803962,
+          "std": 0.7652215691599915
+        },
+        "activity": {
+          "mean_distance": 0.7516497968303396,
+          "ci_lower": 0.5307896031101236,
+          "ci_upper": 0.9684071841748646,
+          "std": 0.415536980265705
+        }
+      },
+      "overall_mean_distance": 0.9611087870793792,
+      "overall_std_distance": 0.29340304179738264
+    },
+    "PA": {
+      "steered_dims": [
+        "potency",
+        "activity"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 1.2660871090043173,
+          "ci_lower": 0.8743196293935879,
+          "ci_upper": 1.6877941872020812,
+          "std": 0.7959832121036498
+        },
+        "potency": {
+          "mean_distance": 1.2260282943971728,
+          "ci_lower": 0.8817659963118771,
+          "ci_upper": 1.56631037950863,
+          "std": 0.648088450740202
+        },
+        "activity": {
+          "mean_distance": 0.5768923050971925,
+          "ci_lower": 0.38633825241808073,
+          "ci_upper": 0.7863131822083669,
+          "std": 0.38791811304472174
+        }
+      },
+      "overall_mean_distance": 1.0230025694995608,
+      "overall_std_distance": 0.36813620360602467
+    },
+    "EPA": {
+      "steered_dims": [
+        "evaluation",
+        "potency",
+        "activity"
+      ],
+      "per_dimension": {
+        "evaluation": {
+          "mean_distance": 0.8202713084417088,
+          "ci_lower": 0.5559929047326476,
+          "ci_upper": 1.0907494866449825,
+          "std": 0.5077275766410122
+        },
+        "potency": {
+          "mean_distance": 1.0118731516520374,
+          "ci_lower": 0.7585842077847967,
+          "ci_upper": 1.2655219981512544,
+          "std": 0.48995381199775845
+        },
+        "activity": {
+          "mean_distance": 0.6707660014669335,
+          "ci_lower": 0.4483908028512647,
+          "ci_upper": 0.8948181926349738,
+          "std": 0.43117390832144675
+        }
+      },
+      "overall_mean_distance": 0.834303487186893,
+      "overall_std_distance": 0.25053107513895045
+    }
+  },
+  "comparisons_vs_exp08": null,
+  "interference_analysis": null,
+  "trials": [
+    {
+      "scenario_id": "pos_e_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 0.8778235012534991,
+        "potency": 1.5777357401945222,
+        "activity": -0.788208409435253
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "You're welcome! It's my pleasure to support you through this challenging time. How are you feeling today? Is there anything specific that's been on your mind lately or something new came up since our last session that you'd like to talk about?",
+          "epa": {
+            "evaluation": 1.501535436749661,
+            "potency": 0.8190484059611602,
+            "activity": 0.6321071263502471
+          },
+          "distances": {
+            "evaluation": 0.6237119354961619,
+            "potency": 0.758687334233362,
+            "activity": 1.4203155357855002
+          },
+          "mean_distance": 0.9342382685050081
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "You're welcome! It's my pleasure to support you through this challenging time. How are you feeling today? Is there anything specific that's been on your mind or causing concern since our last session?",
+          "epa": {
+            "evaluation": 1.4168601840449613,
+            "potency": 0.7210071023169953,
+            "activity": 0.8352971577911894
+          },
+          "distances": {
+            "evaluation": 0.5390366827914622,
+            "potency": 0.856728637877527,
+            "activity": 1.6235055672264425
+          },
+          "mean_distance": 1.0064236292984772
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "You're welcome. It's my pleasure to support you through this challenging time. How are you feeling about the progress we've made together? Is there anything that still feels uncertain or overwhelming for you?",
+          "epa": {
+            "evaluation": 1.988555885985415,
+            "potency": 0.7545350951252114,
+            "activity": 0.31070834211738063
+          },
+          "distances": {
+            "evaluation": 1.1107323847319162,
+            "potency": 0.8232006450693108,
+            "activity": 1.0989167515526337
+          },
+          "mean_distance": 1.0109499271179534
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "You're welcome! It's my pleasure to support and guide you through this challenging time. How are you feeling today? We made some progress last session, but it seems like there may be areas where we still need to dig deeper. What would you like to focus on during our discussion today?",
+          "epa": {
+            "evaluation": 1.3326383983869818,
+            "potency": 1.151331312242502,
+            "activity": 0.5181590823760771
+          },
+          "distances": {
+            "evaluation": 0.4548148971334828,
+            "potency": 0.42640442795202027,
+            "activity": 1.3063674918113302
+          },
+          "mean_distance": 0.7291956056322778
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "You're welcome. It's my pleasure to support you through this process. How are you feeling about our progress today? Is there anything that stood out or resonated with you during our discussion?",
+          "epa": {
+            "evaluation": 1.9271917910512295,
+            "potency": 1.0287878966572255,
+            "activity": 0.4364784513568899
+          },
+          "distances": {
+            "evaluation": 1.0493682897977306,
+            "potency": 0.5489478435372968,
+            "activity": 1.224686860792143
+          },
+          "mean_distance": 0.9410009980423902
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "You're welcome. It's my pleasure to support you through this challenging time. How are you feeling today? Is there anything specific that's been on your mind lately or any progress you'd like to discuss from our previous sessions?",
+          "epa": {
+            "evaluation": 1.3902768462842325,
+            "potency": 1.1183980339999784,
+            "activity": 0.4940611061684793
+          },
+          "distances": {
+            "evaluation": 0.5124533450307335,
+            "potency": 0.45933770619454384,
+            "activity": 1.2822695156037325
+          },
+          "mean_distance": 0.7513535222763367
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "You're welcome. It's my pleasure to support you through this challenging time. Can we take a moment to review what brought us here today? What are some of the key issues that have been on your mind lately?",
+          "epa": {
+            "evaluation": 1.5010660613630042,
+            "potency": 0.9537108873190637,
+            "activity": 0.6926234970410696
+          },
+          "distances": {
+            "evaluation": 0.6232425601095052,
+            "potency": 0.6240248528754585,
+            "activity": 1.4808319064763227
+          },
+          "mean_distance": 0.9093664398204288
+        }
+      }
+    },
+    {
+      "scenario_id": "pos_e_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.5180320169983867,
+        "potency": 2.3181763001356765,
+        "activity": 1.0952525588371826
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "You're welcome! It was my pleasure to assist you. How can we ensure that the project stays on track moving forward? What's your plan for wrapping up any remaining tasks?",
+          "epa": {
+            "evaluation": 1.304609205650502,
+            "potency": 1.1874860033292975,
+            "activity": 0.29748974174867854
+          },
+          "distances": {
+            "evaluation": 0.7865771886521153,
+            "potency": 1.130690296806379,
+            "activity": 0.797762817088504
+          },
+          "mean_distance": 0.9050101008489996
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "Let's focus on the task at hand. We still have several key objectives that need to be met by end of quarter and your progress is not where it needs to be yet. What specific areas are you struggling with? Let's prioritize accordingly.",
+          "epa": {
+            "evaluation": 0.20218270395578353,
+            "potency": 1.125163254317334,
+            "activity": 0.3362554488543898
+          },
+          "distances": {
+            "evaluation": 0.3158493130426032,
+            "potency": 1.1930130458183426,
+            "activity": 0.7589971099827928
+          },
+          "mean_distance": 0.7559531562812462
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "You're welcome! It was my pleasure to assist you on that project. How's the rest of your day going? Any other pressing matters we need to tackle before the meeting at 2 PM?",
+          "epa": {
+            "evaluation": 0.3205279744560108,
+            "potency": 0.5514048823099638,
+            "activity": 0.5410630719782902
+          },
+          "distances": {
+            "evaluation": 0.19750404254237597,
+            "potency": 1.7667714178257128,
+            "activity": 0.5541894868588925
+          },
+          "mean_distance": 0.8394883157423271
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "Let's focus on the task at hand. We still have several key objectives that need attention before we can consider this matter closed. What is your status update? Have you made progress on resolving the Johnson account discrepancies?",
+          "epa": {
+            "evaluation": -0.46441973222111643,
+            "potency": 0.9330694569089012,
+            "activity": 0.717915704966841
+          },
+          "distances": {
+            "evaluation": 0.9824517492195032,
+            "potency": 1.3851068432267755,
+            "activity": 0.37733685387034166
+          },
+          "mean_distance": 0.9149651487722067
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "You're welcome! It's all part of the team effort here at Smith & Co. What can we do next on that Johnson account? We need to get those numbers finalized by Friday if possible. Can you review the latest projections and let me know what adjustments are needed?",
+          "epa": {
+            "evaluation": 0.4945816659665765,
+            "potency": 0.8200249738812084,
+            "activity": 0.488815575313003
+          },
+          "distances": {
+            "evaluation": 0.023450351031810257,
+            "potency": 1.4981513262544681,
+            "activity": 0.6064369835241796
+          },
+          "mean_distance": 0.7093462202701527
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "Let's cut the pleasanities and get down to business. What is it that we need to discuss? The Johnson account has been stalled on the marketing front, and I want an update from you by end of day today.",
+          "epa": {
+            "evaluation": -1.076301546719663,
+            "potency": 1.88916868029539,
+            "activity": 0.9878408045252647
+          },
+          "distances": {
+            "evaluation": 1.5943335637180498,
+            "potency": 0.42900761984028657,
+            "activity": 0.10741175431191796
+          },
+          "mean_distance": 0.7102509792900848
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "I'm glad we were able to get the Johnson account back online within the quarterly deadline. Now let's focus on addressing the issue that caused it - our team lead has flagged some discrepancies in last quarter's sales numbers and wants an explanation by EOD today. Can you walk me through your analysis?",
+          "epa": {
+            "evaluation": -0.043765113133922395,
+            "potency": 1.0700439882321047,
+            "activity": 0.20809532345534948
+          },
+          "distances": {
+            "evaluation": 0.5617971301323091,
+            "potency": 1.2481323119035719,
+            "activity": 0.8871572353818331
+          },
+          "mean_distance": 0.8990288924725715
+        }
+      }
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 1.667937290244251,
+        "potency": 3.416798903773162,
+        "activity": 0.09604018505335714
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "I understand that I have, and I'm here to listen. Can we start with something? How are things feeling so overwhelming for you right now? What do you think might be some of the underlying causes of these feelings? Sometimes when people feel overwhelmed by their circumstances, it can really impact their ability to cope with uncertainty. Would it be great if we could take a step back and support each other in this situation. Can we talk about how important it is to approach challenges with empathy ",
+          "epa": {
+            "evaluation": 1.213304606507727,
+            "potency": 0.5116697741392788,
+            "activity": 0.0988510281051771
+          },
+          "distances": {
+            "evaluation": 0.454632683736524,
+            "potency": 2.9051291296338833,
+            "activity": 0.0028108430518199584
+          },
+          "mean_distance": 1.1208575521407425
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "I understand that you're feeling frustrated and disappointed, but I need you to take a step back and acknowledge the progress we made during our previous sessions. We worked through some significant challenges together, and it's essential not to dismiss those gains now.\n\nLet's focus on what led up to this point of frustration rather than letting emotions escalate further. Can you tell me more about what specifically has triggered your sense of betrayal? Is there something specific that happened ",
+          "epa": {
+            "evaluation": 0.44511631852247135,
+            "potency": 0.9583041418694254,
+            "activity": 0.7332497739737975
+          },
+          "distances": {
+            "evaluation": 1.2228209717217797,
+            "potency": 2.4584947619037365,
+            "activity": 0.6372095889204404
+          },
+          "mean_distance": 1.4395084408486525
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "I can see that you're feeling really upset and hurt right now, and I want to acknowledge those feelings. Can we take a step back for a moment? What specifically did happen that's causing this sense of disappointment or betrayal from our previous interaction?",
+          "epa": {
+            "evaluation": 1.0021990606985884,
+            "potency": 0.5922934835120062,
+            "activity": 0.667992533168433
+          },
+          "distances": {
+            "evaluation": 0.6657382295456626,
+            "potency": 2.824505420261156,
+            "activity": 0.5719523481150759
+          },
+          "mean_distance": 1.3540653326406316
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "I understand that this situation has escalated rapidly, and I want to assure you that we need to take a step back and regroup before proceeding further.\n\nIn any case, it's essential that we establish clear communication channels immediately. Let's focus on finding common ground and moving forward with empathy and understanding. Can we agree on the importance of prioritizing emotional intelligence in our interactions?",
+          "epa": {
+            "evaluation": 1.1049083351333424,
+            "potency": 1.300998805410329,
+            "activity": 0.5841478235244877
+          },
+          "distances": {
+            "evaluation": 0.5630289551109087,
+            "potency": 2.115800098362833,
+            "activity": 0.48810763847113053
+          },
+          "mean_distance": 1.055645563981624
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "I understand that I have, and I appreciate your willingness to listen and work with me towards healing and growth. Can we talk more about what happened?",
+          "epa": {
+            "evaluation": 1.267166832534397,
+            "potency": 0.9066574447254983,
+            "activity": 0.01745804668944273
+          },
+          "distances": {
+            "evaluation": 0.4007704577098541,
+            "potency": 2.510141459047664,
+            "activity": 0.07858213836391441
+          },
+          "mean_distance": 0.9964980183738108
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "I understand that you're feeling frustrated and disappointed, but I need you to take a step back and acknowledge the progress we made during our previous sessions. We worked through some significant challenges together, and it's essential not to dismiss those gains now.\n\nLet's refocus on what led us here today: your current situation has clearly triggered unresolved emotions from past experiences. It's crucial for us to address these underlying issues head-on rather than letting them simmer bene",
+          "epa": {
+            "evaluation": 0.0015147357550195917,
+            "potency": 1.3041783112497796,
+            "activity": 0.7580232977955035
+          },
+          "distances": {
+            "evaluation": 1.6664225544892315,
+            "potency": 2.1126205925233825,
+            "activity": 0.6619831127421464
+          },
+          "mean_distance": 1.4803420865849202
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "I understand that this situation has escalated rapidly, and I want to take immediate action to address the lack of clear communication regarding your recent decision to unilaterally terminate our session without sufficient cause.\n\nLet's start with a clean slate and move forward with transparency and clarity from here on out. Can we begin by taking a step back and regrouping?",
+          "epa": {
+            "evaluation": 0.9183437869567359,
+            "potency": 1.5533041738813644,
+            "activity": 0.40005581026895637
+          },
+          "distances": {
+            "evaluation": 0.7495935032875152,
+            "potency": 1.8634947298917977,
+            "activity": 0.3040156252155992
+          },
+          "mean_distance": 0.9723679527983039
+        }
+      }
+    },
+    {
+      "scenario_id": "neg_e_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.4849059547634461,
+        "potency": 3.4373520841166747,
+        "activity": 1.5555591603658951
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "I understand your frustration, but I'd like to discuss the specifics of what went wrong and how we can improve moving forward. Can you walk me through exactly what happened?",
+          "epa": {
+            "evaluation": 0.5940138836699118,
+            "potency": 0.702191190515415,
+            "activity": 0.24637801333078468
+          },
+          "distances": {
+            "evaluation": 0.1091079289064657,
+            "potency": 2.7351608936012597,
+            "activity": 1.3091811470351105
+          },
+          "mean_distance": 1.3844833231809452
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "I'm aware of the situation, and I expect an explanation for your failure to meet expectations on this project timeline. What went wrong?",
+          "epa": {
+            "evaluation": -1.2594199868013891,
+            "potency": 1.2833601239678702,
+            "activity": 0.42868216093774975
+          },
+          "distances": {
+            "evaluation": 1.7443259415648353,
+            "potency": 2.1539919601488045,
+            "activity": 1.1268769994281453
+          },
+          "mean_distance": 1.6750649670472617
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "What happened? I thought we had a solid plan in place for the Johnson account and now it's falling apart at the seams! Give me the lowdown, what went wrong?",
+          "epa": {
+            "evaluation": -0.7473926363057458,
+            "potency": 0.9078202514167044,
+            "activity": 0.7866985211379182
+          },
+          "distances": {
+            "evaluation": 1.232298591069192,
+            "potency": 2.5295318326999703,
+            "activity": 0.768860639227977
+          },
+          "mean_distance": 1.5102303543323796
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "I'm aware of the situation, and I expect an explanation for this lapse in performance. What happened?",
+          "epa": {
+            "evaluation": -1.2529250733995714,
+            "potency": 1.6790462375589736,
+            "activity": 0.5905074090559495
+          },
+          "distances": {
+            "evaluation": 1.7378310281630176,
+            "potency": 1.758305846557701,
+            "activity": 0.9650517513099457
+          },
+          "mean_distance": 1.4870628753435549
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "I understand your frustration, but I'd like to know what specifically went wrong and how we can rectify the situation ASAP. Can you walk me through what happened?",
+          "epa": {
+            "evaluation": 0.595938079741946,
+            "potency": 0.8153456075202328,
+            "activity": 0.3442439845288585
+          },
+          "distances": {
+            "evaluation": 0.1110321249784999,
+            "potency": 2.622006476596442,
+            "activity": 1.2113151758370366
+          },
+          "mean_distance": 1.3147845924706596
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "What are you talking about? I don't have time for this nonsense on my watch. What's the situation here? Report!",
+          "epa": {
+            "evaluation": -2.1047902808545125,
+            "potency": 1.42749833846351,
+            "activity": 1.3528356748484156
+          },
+          "distances": {
+            "evaluation": 2.5896962356179585,
+            "potency": 2.0098537456531647,
+            "activity": 0.20272348551747954
+          },
+          "mean_distance": 1.6007578222628673
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "I'm aware of the situation, and I will not tolerate any further excuses or explanations. What we need now are results. The Johnson report has been filed, and it's clear that your performance over the past quarter has fallen short of expectations.\n\nLet us review the facts: what went wrong? Where did things start going off track? We'll get to the bottom line here once and for all!",
+          "epa": {
+            "evaluation": -1.2603386293227548,
+            "potency": 2.109283350739852,
+            "activity": 1.4886866734159052
+          },
+          "distances": {
+            "evaluation": 1.7452445840862008,
+            "potency": 1.3280687333768229,
+            "activity": 0.06687248694998993
+          },
+          "mean_distance": 1.0467286014710044
+        }
+      }
+    },
+    {
+      "scenario_id": "high_p_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 1.854689963939116,
+        "potency": 3.3623981843941255,
+        "activity": 0.2961019634998273
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "That's not something that can be said out loud. Can we start with the basics? How do we begin? I think there are many things we can all agree on. Let's focus on kindness and compassion. Can we find common ground to build from here?",
+          "epa": {
+            "evaluation": 1.6658637451373783,
+            "potency": 1.217597327387995,
+            "activity": 0.16311307603404823
+          },
+          "distances": {
+            "evaluation": 0.18882621880173756,
+            "potency": 2.1448008570061305,
+            "activity": 0.13298888746577908
+          },
+          "mean_distance": 0.8222053210912158
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "Let's take a step back and assess the situation. I've seen clients come into my office with unrealistic expectations before, but we can't rush through progress without addressing underlying issues.\n\nWhat is driving your sense of urgency here? Is there something specific that needs to be accomplished by tomorrow, or are you feeling overwhelmed due to external pressures?\n\nWe'll work together to break down tasks into manageable chunks, prioritize what truly requires attention, and create a plan for",
+          "epa": {
+            "evaluation": 0.951216569125904,
+            "potency": 1.3319780939276007,
+            "activity": 0.5977063371617568
+          },
+          "distances": {
+            "evaluation": 0.9034733948132119,
+            "potency": 2.030420090466525,
+            "activity": 0.3016043736619295
+          },
+          "mean_distance": 1.0784992863138887
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "I understand that the deadline is tight, but I want to make sure we can work together effectively and efficiently. Can you tell me more about what's driving this urgency? What are the consequences if it doesn't get completed on time?\n\nAlso, have you considered breaking down the task into smaller, manageable chunks or delegating some of the responsibilities to others if possible? Let's explore ways to meet your needs while also ensuring quality and sustainability.\n\nCan you give me an idea of how ",
+          "epa": {
+            "evaluation": 0.8846735690213987,
+            "potency": 1.4150977958237116,
+            "activity": 0.707889957670951
+          },
+          "distances": {
+            "evaluation": 0.9700163949177172,
+            "potency": 1.9473003885704139,
+            "activity": 0.41178799417112366
+          },
+          "mean_distance": 1.1097015925530849
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "As counselors and clients often find themselves in situations where clarity is called for, let's take a step back and regroup.\n\nIn that moment of pause, we can refocus our attention on the task at hand: establishing clear communication channels with all parties involved. By doing so, we can work together more effectively towards creating an environment conducive to productive decision-making. Let's prioritize transparency and accountability from now forward!",
+          "epa": {
+            "evaluation": 0.5932559365633345,
+            "potency": 2.145067847639186,
+            "activity": 0.7950046619978411
+          },
+          "distances": {
+            "evaluation": 1.2614340273757814,
+            "potency": 1.2173303367549395,
+            "activity": 0.49890269849801383
+          },
+          "mean_distance": 0.9925556875429117
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "\"I completely understand your sense of urgency and willingness to take action. However, I want to acknowledge that sometimes we have more than one person who feels overwhelmed or under-supported can be helped by making sure they know they are not alone when they've been taken advantage of. It's about creating an environment where people feel safe to speak up without fear of retribution.\"\n\nCan I help with anything else? Absolutely! Can we start fresh instead?\n\nLet's focus on finding ways to creat",
+          "epa": {
+            "evaluation": 0.9581227684320144,
+            "potency": 1.4181759838078132,
+            "activity": 0.9730185550194291
+          },
+          "distances": {
+            "evaluation": 0.8965671955071015,
+            "potency": 1.9442222005863123,
+            "activity": 0.6769165915196018
+          },
+          "mean_distance": 1.172568662537672
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "Let's take a step back and assess the situation here. I've seen clients come into my office with unrealistic expectations before, but we can't rush through progress without addressing underlying issues.\n\nWhat is driving your sense of urgency? Is there something specific that needs to be accomplished by tomorrow, or are you feeling overwhelmed due to external pressures?\n\nWe'll work together to break down tasks into manageable chunks, prioritize what truly requires attention, and create a plan for",
+          "epa": {
+            "evaluation": 0.8857490922613409,
+            "potency": 1.2924171242253504,
+            "activity": 0.6461116965297802
+          },
+          "distances": {
+            "evaluation": 0.968940871677775,
+            "potency": 2.069981060168775,
+            "activity": 0.35000973302995286
+          },
+          "mean_distance": 1.1296438882921678
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "As counselors and clients often find themselves in situations that require clarity and decisiveness, I'd like to emphasize the importance of maintaining open communication channels.\n\nIn our previous discussion regarding transparency and accountability, we were able to reach a mutually beneficial understanding. Let's start with a clean slate today. We have an opportunity to establish a clear line of sight and maintain a commitment to openness from here on forward. Today is a new day, and as such,",
+          "epa": {
+            "evaluation": 0.8426749422556239,
+            "potency": 1.9535548554806579,
+            "activity": 1.0533627057816244
+          },
+          "distances": {
+            "evaluation": 1.012015021683492,
+            "potency": 1.4088433289134676,
+            "activity": 0.7572607422817971
+          },
+          "mean_distance": 1.0593730309595855
+        }
+      }
+    },
+    {
+      "scenario_id": "high_p_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.49499428133567885,
+        "potency": 3.3129704346740207,
+        "activity": 1.7662594214154728
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "Let's review the project timeline and see if we can't allocate some extra resources to get it completed on time. Can I schedule an additional meeting with our team leads for today?",
+          "epa": {
+            "evaluation": 0.055507211115778166,
+            "potency": 0.7151816055408098,
+            "activity": 0.4181901256701796
+          },
+          "distances": {
+            "evaluation": 0.4394870702199007,
+            "potency": 2.597788829133211,
+            "activity": 1.348069295745293
+          },
+          "mean_distance": 1.4617817316994683
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "Unacceptable timeline. We've been over budget and behind schedule for weeks on this project already. I expect a revised plan with clear milestones and contingencies within the hour. Let's review the current status and identify what needs to be accelerated or reallocated.",
+          "epa": {
+            "evaluation": -0.2785694352963589,
+            "potency": 1.979696549867548,
+            "activity": 0.948154142270665
+          },
+          "distances": {
+            "evaluation": 0.7735637166320377,
+            "potency": 1.3332738848064727,
+            "activity": 0.8181052791448078
+          },
+          "mean_distance": 0.9749809601944394
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "Not possible. We've got a critical meeting with the marketing team at 9 am and I won't have time for review until then. Can we push deadline back to end of day?",
+          "epa": {
+            "evaluation": -0.8117723145471305,
+            "potency": 1.0174827701032458,
+            "activity": 0.4395230161054018
+          },
+          "distances": {
+            "evaluation": 1.3067665958828094,
+            "potency": 2.295487664570775,
+            "activity": 1.326736405310071
+          },
+          "mean_distance": 1.6429968885878852
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "Understood. I expect the team to work through any necessary overtime and ensure that all outstanding tasks are completed with precision and attention to detail. The deadline is non-negotiable. Let's review our project timeline and identify areas where we can optimize efficiency without compromising quality.\n\nGet back to me at 0800 hours sharp for an update on progress.",
+          "epa": {
+            "evaluation": -0.62093170562024,
+            "potency": 2.1863724863118703,
+            "activity": 0.852196800610157
+          },
+          "distances": {
+            "evaluation": 1.1159259869559188,
+            "potency": 1.1265979483621504,
+            "activity": 0.9140626208053158
+          },
+          "mean_distance": 1.0521955187077952
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "Let's review the project timeline and see what we can do to expedite things without compromising quality. Can I get an update on where we are with each task? What's the holdup?",
+          "epa": {
+            "evaluation": -0.22634889731616048,
+            "potency": 0.6401862096034268,
+            "activity": 0.49793667179451995
+          },
+          "distances": {
+            "evaluation": 0.7213431786518394,
+            "potency": 2.672784225070594,
+            "activity": 1.2683227496209528
+          },
+          "mean_distance": 1.554150051114462
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "What is the status on that Johnson report I sent over last week? I want an update now. And let me be clear: we are not going to meet our quarterly targets without those numbers being revised and resubmitted for my review. Get back to work!",
+          "epa": {
+            "evaluation": -1.384187986287289,
+            "potency": 1.592422615834427,
+            "activity": 0.937254262361464
+          },
+          "distances": {
+            "evaluation": 1.879182267622968,
+            "potency": 1.7205478188395937,
+            "activity": 0.8290051590540087
+          },
+          "mean_distance": 1.4762450818388568
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "Listen up! I don't pay you to make excuses or accept delays. The deadline is firm: 48 hours from now, and that's non-negotiable. Your team has been briefed on the project status, and every single one of them understands the stakes.\n\nNow, let me see your plan for execution. What are we going to do differently today to ensure we meet this objective?",
+          "epa": {
+            "evaluation": -0.6628635056228346,
+            "potency": 1.8037477855823645,
+            "activity": 1.5853250153660692
+          },
+          "distances": {
+            "evaluation": 1.1578577869585134,
+            "potency": 1.5092226490916563,
+            "activity": 0.18093440604940358
+          },
+          "mean_distance": 0.9493382806998577
+        }
+      }
+    },
+    {
+      "scenario_id": "low_p_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 1.3690351992202405,
+        "potency": 1.7050776031998038,
+        "activity": -0.05636824140967349
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "It takes courage to acknowledge when we've made mistakes and take responsibility for them. Can you tell me more about what happened? What are your thoughts on how you'd like to be given support instead of guidance or advice? How that might is really different from offering my help this time.",
+          "epa": {
+            "evaluation": 0.3798463338615168,
+            "potency": 1.051941215280243,
+            "activity": 0.5987800371172185
+          },
+          "distances": {
+            "evaluation": 0.9891888653587237,
+            "potency": 0.6531363879195609,
+            "activity": 0.655148278526892
+          },
+          "mean_distance": 0.7658245106017255
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "Let's take a step back and acknowledge that taking responsibility for your actions is the first sign of growth. Can you tell me what specifically led you down this path? What triggered the behavior that caused harm or damage?",
+          "epa": {
+            "evaluation": 0.3500380958127556,
+            "potency": 1.0106605911489228,
+            "activity": 0.6550600503211803
+          },
+          "distances": {
+            "evaluation": 1.018997103407485,
+            "potency": 0.694417012050881,
+            "activity": 0.7114282917308538
+          },
+          "mean_distance": 0.8082808023964065
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "It takes courage to acknowledge your mistakes and take responsibility for them. Can you tell me more about what specifically led to this situation? What do you think went wrong from your perspective?",
+          "epa": {
+            "evaluation": 1.0795653934316256,
+            "potency": 0.98894579984673,
+            "activity": 0.4666880062357765
+          },
+          "distances": {
+            "evaluation": 0.2894698057886149,
+            "potency": 0.7161318033530738,
+            "activity": 0.52305624764545
+          },
+          "mean_distance": 0.5095526189290461
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "It takes courage to acknowledge when we've made mistakes and take responsibility for our actions. Can you tell me more about what happened? What led you to feel like you'd \"messed up\"?",
+          "epa": {
+            "evaluation": 0.23199652269957016,
+            "potency": 0.9397403129096646,
+            "activity": 0.8478786755394708
+          },
+          "distances": {
+            "evaluation": 1.1370386765206704,
+            "potency": 0.7653372902901392,
+            "activity": 0.9042469169491443
+          },
+          "mean_distance": 0.935540961253318
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "It takes courage to acknowledge when we've made mistakes and take responsibility for them. Can I ask what specifically is on your mind? What's been going through your thoughts lately that you'd like to talk about or work with?",
+          "epa": {
+            "evaluation": 1.7457622034618012,
+            "potency": 0.8766582973023902,
+            "activity": 0.2259697636152132
+          },
+          "distances": {
+            "evaluation": 0.3767270042415607,
+            "potency": 0.8284193058974136,
+            "activity": 0.2823380050248867
+          },
+          "mean_distance": 0.4958281050546203
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "Let's take a step back and acknowledge that taking responsibility for your actions is the first sign of growth. Can you tell me what specifically led you down this path? What triggered the behavior that caused harm or damage?",
+          "epa": {
+            "evaluation": 0.3500380958127556,
+            "potency": 1.0106605911489228,
+            "activity": 0.6550600503211803
+          },
+          "distances": {
+            "evaluation": 1.018997103407485,
+            "potency": 0.694417012050881,
+            "activity": 0.7114282917308538
+          },
+          "mean_distance": 0.8082808023964065
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "It takes courage to acknowledge when we've made mistakes and take responsibility for our actions. Can you tell me more about what happened? What led you to feel like you'd \"messed up\"?",
+          "epa": {
+            "evaluation": 0.23199652269957016,
+            "potency": 0.9397403129096646,
+            "activity": 0.8478786755394708
+          },
+          "distances": {
+            "evaluation": 1.1370386765206704,
+            "potency": 0.7653372902901392,
+            "activity": 0.9042469169491443
+          },
+          "mean_distance": 0.935540961253318
+        }
+      }
+    },
+    {
+      "scenario_id": "low_p_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.6847282833879319,
+        "potency": 2.7533401341878077,
+        "activity": 1.343407151080849
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "Let's take it one step at a time. Can you tell me what specifically went wrong and how we can prevent similar mistakes from happening in the future?",
+          "epa": {
+            "evaluation": 1.318541280484391,
+            "potency": 1.334216525143605,
+            "activity": 0.6771699798006446
+          },
+          "distances": {
+            "evaluation": 0.6338129970964591,
+            "potency": 1.4191236090442028,
+            "activity": 0.6662371712802043
+          },
+          "mean_distance": 0.9063912591402888
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "What exactly happened this time? The Johnson account was compromised again and now we've lost the Smith contract as well. Explain yourself.",
+          "epa": {
+            "evaluation": -1.7761436014947334,
+            "potency": 1.2435816851968227,
+            "activity": 0.5816002510899608
+          },
+          "distances": {
+            "evaluation": 2.4608718848826654,
+            "potency": 1.509758448990985,
+            "activity": 0.7618068999908881
+          },
+          "mean_distance": 1.5774790779548462
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "Let's not dwell on the past just yet. What specific steps are you proposing we take moving forward? Give me some concrete ideas and let's discuss how we can turn this around.",
+          "epa": {
+            "evaluation": 1.004677559723373,
+            "potency": 1.0194909655457414,
+            "activity": 0.8509733798299522
+          },
+          "distances": {
+            "evaluation": 0.3199492763354411,
+            "potency": 1.7338491686420663,
+            "activity": 0.4924337712508967
+          },
+          "mean_distance": 0.8487440720761347
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "Let's review the situation: we've discussed this matter before and I made it clear that meeting those deadlines was non-negotiable. What specifically led to your oversight today? Was there an unforeseen issue or simply a lack of focus? Let's get clarity on what happened here.",
+          "epa": {
+            "evaluation": -0.022729057274993525,
+            "potency": 1.1707389017208365,
+            "activity": 0.43094227542828745
+          },
+          "distances": {
+            "evaluation": 0.7074573406629254,
+            "potency": 1.5826012324669712,
+            "activity": 0.9124648756525615
+          },
+          "mean_distance": 1.0675078162608194
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "Let's take a step back and review what happened. Can you walk me through the sequence of events that led to this mistake? What do you think we can learn from it for future projects?",
+          "epa": {
+            "evaluation": 1.142063308310063,
+            "potency": 1.0025990389038917,
+            "activity": 0.34610564543070493
+          },
+          "distances": {
+            "evaluation": 0.4573350249221312,
+            "potency": 1.750741095283916,
+            "activity": 0.997301505650144
+          },
+          "mean_distance": 1.0684592086187303
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "What exactly are we talking about here? You'd better brief me on the situation and what went down before I consider giving anyone \"another chance\". What's your status report?",
+          "epa": {
+            "evaluation": -0.9417308814271637,
+            "potency": 1.0779223937784614,
+            "activity": 1.1783585516745831
+          },
+          "distances": {
+            "evaluation": 1.6264591648150954,
+            "potency": 1.6754177404093462,
+            "activity": 0.16504859940626582
+          },
+          "mean_distance": 1.1556418348769026
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "Not now, let's focus on the situation at hand. We've got a critical project deadline looming and your mistake has put us behind schedule. What I need from you is not just an apology, but a clear plan of action for rectifying this setback and getting back on track. Can you walk me through what happened?",
+          "epa": {
+            "evaluation": -0.5396819854043606,
+            "potency": 1.4146533973902677,
+            "activity": 0.49282188541557764
+          },
+          "distances": {
+            "evaluation": 1.2244102687922926,
+            "potency": 1.33868673679754,
+            "activity": 0.8505852656652713
+          },
+          "mean_distance": 1.1378940904183679
+        }
+      }
+    },
+    {
+      "scenario_id": "high_a_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 1.3873934267541776,
+        "potency": 2.27153675670008,
+        "activity": -0.08833377889642502
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "I'm glad we could take some time to talk about it before diving into action mode. Can I get your perspective on this situation? What's been going down that has you feeling so surprised and concerned?",
+          "epa": {
+            "evaluation": 1.3383432312993335,
+            "potency": 0.9563865616538861,
+            "activity": 0.6455670547711052
+          },
+          "distances": {
+            "evaluation": 0.049050195454844125,
+            "potency": 1.315150195046194,
+            "activity": 0.7339008336675302
+          },
+          "mean_distance": 0.6993670747228561
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "I'm listening attentively. Take your time and tell me exactly what's going on. What has changed?",
+          "epa": {
+            "evaluation": 0.2816591489712619,
+            "potency": 1.3665834373110433,
+            "activity": 0.5267947813014735
+          },
+          "distances": {
+            "evaluation": 1.1057342777829158,
+            "potency": 0.9049533193890369,
+            "activity": 0.6151285601978985
+          },
+          "mean_distance": 0.8752720524566171
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "Take your time and breathe with me for a moment. What's going on? You seem really upset. Can you tell me more about this thing that changed everything?",
+          "epa": {
+            "evaluation": -0.22887121729209114,
+            "potency": 0.9683228727351881,
+            "activity": 0.3762157694398907
+          },
+          "distances": {
+            "evaluation": 1.616264644046269,
+            "potency": 1.303213883964892,
+            "activity": 0.46454954833631573
+          },
+          "mean_distance": 1.1280093587824922
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "I'm listening attentively and I want to hear more about it. Please tell me exactly what's going on here. Transparency is essential for effective therapy. Can we start with the basics? What seems to be happening that has caused this reaction from you?",
+          "epa": {
+            "evaluation": 0.20152638749629226,
+            "potency": 1.600695662914341,
+            "activity": 0.4653766470691627
+          },
+          "distances": {
+            "evaluation": 1.1858670392578854,
+            "potency": 0.6708410937857392,
+            "activity": 0.5537104259655877
+          },
+          "mean_distance": 0.8034728530030707
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "I'm glad we could take some time to talk about it before diving into action mode. Can I get your perspective on this situation? What's been going down that has you feeling so surprised and concerned?",
+          "epa": {
+            "evaluation": 1.3383432312993335,
+            "potency": 0.9563865616538861,
+            "activity": 0.6455670547711052
+          },
+          "distances": {
+            "evaluation": 0.049050195454844125,
+            "potency": 1.315150195046194,
+            "activity": 0.7339008336675302
+          },
+          "mean_distance": 0.6993670747228561
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "I'm listening attentively. Take your time and tell me exactly what's going on. What has changed?",
+          "epa": {
+            "evaluation": 0.2816591489712619,
+            "potency": 1.3665834373110433,
+            "activity": 0.5267947813014735
+          },
+          "distances": {
+            "evaluation": 1.1057342777829158,
+            "potency": 0.9049533193890369,
+            "activity": 0.6151285601978985
+          },
+          "mean_distance": 0.8752720524566171
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "I'm listening attentively and I want to hear more about it. Please tell me exactly what's going on here. Transparency is essential for effective communication and trust-building in our therapeutic relationship. Can we start again from the beginning? Let's take a deep breath together and approach this situation with clarity and openness. What can you share with me now that has shifted your perspective so profoundly?",
+          "epa": {
+            "evaluation": 1.1618956957566886,
+            "potency": 1.5388458995313397,
+            "activity": 0.7147948071637805
+          },
+          "distances": {
+            "evaluation": 0.22549773099748904,
+            "potency": 0.7326908571687405,
+            "activity": 0.8031285860602055
+          },
+          "mean_distance": 0.5871057247421451
+        }
+      }
+    },
+    {
+      "scenario_id": "high_a_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.434680632946478,
+        "potency": 3.1082192121857632,
+        "activity": 1.2129355235731096
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "What is it? What's going on? We were right in the middle of discussing the Johnson account and I need an update from you before our meeting with marketing this afternoon. Can you bring me up to speed quickly?",
+          "epa": {
+            "evaluation": 0.2651319742862177,
+            "potency": 0.9821677564269584,
+            "activity": 0.4945348039858685
+          },
+          "distances": {
+            "evaluation": 0.1695486586602603,
+            "potency": 2.126051455758805,
+            "activity": 0.718400719587241
+          },
+          "mean_distance": 1.0046669446687686
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "What is it? Report.",
+          "epa": {
+            "evaluation": -0.8552166952478034,
+            "potency": 1.416426728630866,
+            "activity": 0.23737894173424495
+          },
+          "distances": {
+            "evaluation": 1.2898973281942814,
+            "potency": 1.6917924835548972,
+            "activity": 0.9755565818388647
+          },
+          "mean_distance": 1.3190821311960144
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "What is it? We've got a meeting with the client in 20 minutes and I need an update on where we stand with those numbers. What's going on?",
+          "epa": {
+            "evaluation": -0.31222260081029196,
+            "potency": 1.188209179073462,
+            "activity": 0.5966657708014909
+          },
+          "distances": {
+            "evaluation": 0.74690323375677,
+            "potency": 1.9200100331123013,
+            "activity": 0.6162697527716188
+          },
+          "mean_distance": 1.09439433988023
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "What is it? Report.",
+          "epa": {
+            "evaluation": -0.8552166952478034,
+            "potency": 1.416426728630866,
+            "activity": 0.23737894173424495
+          },
+          "distances": {
+            "evaluation": 1.2898973281942814,
+            "potency": 1.6917924835548972,
+            "activity": 0.9755565818388647
+          },
+          "mean_distance": 1.3190821311960144
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "What is it? What's going on? We've got the Johnson account meeting at 2 PM and I still need those sales numbers from last quarter. Can this wait or do we have an emergency situation here?",
+          "epa": {
+            "evaluation": -0.7356416387193865,
+            "potency": 0.9424193174644013,
+            "activity": 0.5374334223695069
+          },
+          "distances": {
+            "evaluation": 1.1703222716658646,
+            "potency": 2.1657998947213617,
+            "activity": 0.6755021012036028
+          },
+          "mean_distance": 1.337208089196943
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "What is it? Report. I don't have time for dramatics on the floor of our operations center. What's this \"it\" that has suddenly changed everything? Get straight with me and brief me immediately. We've got critical decisions to make and timelines to meet. Now.",
+          "epa": {
+            "evaluation": -2.4602136255739318,
+            "potency": 1.2917037150381052,
+            "activity": 1.138047441280486
+          },
+          "distances": {
+            "evaluation": 2.89489425852041,
+            "potency": 1.816515497147658,
+            "activity": 0.07488808229262367
+          },
+          "mean_distance": 1.595432612653564
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "What's the situation? I need a clear and concise briefing on exactly what has transpired. We've got a critical project deadline looming and we can't afford any distractions or miscommunication. What is it that requires your immediate attention?",
+          "epa": {
+            "evaluation": -0.25299614299196493,
+            "potency": 1.5200608962596018,
+            "activity": 1.0395896014249848
+          },
+          "distances": {
+            "evaluation": 0.687676775938443,
+            "potency": 1.5881583159261614,
+            "activity": 0.17334592214812483
+          },
+          "mean_distance": 0.8163936713375765
+        }
+      }
+    },
+    {
+      "scenario_id": "low_a_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 0.9569747495546356,
+        "potency": 1.4922192998919714,
+        "activity": -0.5463951899472894
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "It sounds like we're at an important moment of reflection. Would you be willing to share with me what you've come to realize? Sometimes sharing our thoughts can help clarify things even further. What have you noticed or thought through that has led you to this point?",
+          "epa": {
+            "evaluation": 1.471923123293481,
+            "potency": 1.2196807117171824,
+            "activity": 0.46986255615029704
+          },
+          "distances": {
+            "evaluation": 0.5149483737388455,
+            "potency": 0.27253858817478904,
+            "activity": 1.0162577460975863
+          },
+          "mean_distance": 0.6012482360037402
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "It sounds like we have some momentum building already. What is it that you've come to conclude?",
+          "epa": {
+            "evaluation": 0.37433567076112606,
+            "potency": 1.3988176462515574,
+            "activity": 0.4615742920322629
+          },
+          "distances": {
+            "evaluation": 0.5826390787935095,
+            "potency": 0.09340165364041408,
+            "activity": 1.0079694819795524
+          },
+          "mean_distance": 0.5613367381378254
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "It sounds like you've done some reflection on your thoughts and feelings. Can you tell me more about that? What have you come up with so far?",
+          "epa": {
+            "evaluation": 0.7769080714763261,
+            "potency": 0.8754602591454446,
+            "activity": 0.4074695733793981
+          },
+          "distances": {
+            "evaluation": 0.18006667807830945,
+            "potency": 0.6167590407465269,
+            "activity": 0.9538647633266875
+          },
+          "mean_distance": 0.5835634940505079
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "It sounds like we're at an important moment in our session today. Please go ahead and share your conclusion with me - I'm all ears. What have you come to realize?",
+          "epa": {
+            "evaluation": 0.7770840961495205,
+            "potency": 1.1381293365486018,
+            "activity": 0.6548030916664156
+          },
+          "distances": {
+            "evaluation": 0.17989065340511512,
+            "potency": 0.3540899633433696,
+            "activity": 1.201198281613705
+          },
+          "mean_distance": 0.57839296612073
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "It sounds like you've done some reflection on your thoughts and feelings. Can you tell me more about what led you to that conclusion? What are the main points or insights that have emerged as you've thought about it?",
+          "epa": {
+            "evaluation": 1.5684450951715672,
+            "potency": 1.0003722258364842,
+            "activity": 0.3541361643587693
+          },
+          "distances": {
+            "evaluation": 0.6114703456169316,
+            "potency": 0.4918470740554872,
+            "activity": 0.9005313543060587
+          },
+          "mean_distance": 0.6679495913261592
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "It sounds like we have some momentum building towards exploring your thoughts. What is it that you've come to conclude?",
+          "epa": {
+            "evaluation": 0.783371655817338,
+            "potency": 1.266892388813527,
+            "activity": 0.3791602920620792
+          },
+          "distances": {
+            "evaluation": 0.17360309373729754,
+            "potency": 0.22532691107844438,
+            "activity": 0.9255554820093685
+          },
+          "mean_distance": 0.4414951622750369
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "It sounds like we're at an important moment in our session today. Please go ahead and share your conclusion with me - I'm listening attentively. What have you come to realize?",
+          "epa": {
+            "evaluation": 0.7933472740034397,
+            "potency": 1.2176267398594622,
+            "activity": 0.5998704063018202
+          },
+          "distances": {
+            "evaluation": 0.16362747555119583,
+            "potency": 0.2745925600325092,
+            "activity": 1.1462655962491097
+          },
+          "mean_distance": 0.528161877277605
+        }
+      }
+    },
+    {
+      "scenario_id": "low_a_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.5517104873246585,
+        "potency": 2.452851881174822,
+        "activity": 1.1417348835932801
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "Go on. What have you come up with?",
+          "epa": {
+            "evaluation": -0.29557915571009685,
+            "potency": 0.7211027065951581,
+            "activity": 0.7847223071118641
+          },
+          "distances": {
+            "evaluation": 0.8472896430347554,
+            "potency": 1.7317491745796638,
+            "activity": 0.35701257648141604
+          },
+          "mean_distance": 0.9786837980319452
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "What is it that you think needs concluding? This isn't an open-ended discussion session; we have pressing matters at hand. State your findings and let's move forward with the plan.",
+          "epa": {
+            "evaluation": -0.17453107550643343,
+            "potency": 2.117168134853684,
+            "activity": 0.23242006232812107
+          },
+          "distances": {
+            "evaluation": 0.726241562831092,
+            "potency": 0.33568374632113773,
+            "activity": 0.9093148212651591
+          },
+          "mean_distance": 0.657080043472463
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "What have you come up with? Let's hear it out. What's on your mind?",
+          "epa": {
+            "evaluation": 0.4583965442423641,
+            "potency": 0.7676349098850892,
+            "activity": 0.7159927643456955
+          },
+          "distances": {
+            "evaluation": 0.09331394308229446,
+            "potency": 1.6852169712897327,
+            "activity": 0.42574211924758465
+          },
+          "mean_distance": 0.7347576778732039
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "Let's hear it then. What have you come to?",
+          "epa": {
+            "evaluation": -0.9745832267650828,
+            "potency": 0.8505238262123191,
+            "activity": 0.7559215192505923
+          },
+          "distances": {
+            "evaluation": 1.5262937140897415,
+            "potency": 1.6023280549625027,
+            "activity": 0.38581336434268787
+          },
+          "mean_distance": 1.1714783777983107
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "Go on! What have you come up with?",
+          "epa": {
+            "evaluation": -0.2373157658358347,
+            "potency": 0.7339332070819513,
+            "activity": 0.9455905344442801
+          },
+          "distances": {
+            "evaluation": 0.7890262531604932,
+            "potency": 1.7189186740928706,
+            "activity": 0.19614434914900003
+          },
+          "mean_distance": 0.9013630921341212
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "What is it that you think you've finally figured out? And let me remind you, we don't have all day to indulge in speculative brainstorming sessions. What are the key points of your conclusion?",
+          "epa": {
+            "evaluation": -0.1293706708023401,
+            "potency": 1.0464700011942332,
+            "activity": 0.6467243209069007
+          },
+          "distances": {
+            "evaluation": 0.6810811581269987,
+            "potency": 1.4063818799805887,
+            "activity": 0.49501056268637944
+          },
+          "mean_distance": 0.8608245335979889
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "Let me hear it then! What have you come up with? We need to discuss the implications of your findings on our current project timeline.",
+          "epa": {
+            "evaluation": 0.46834126062331705,
+            "potency": 1.984425097027948,
+            "activity": 1.1323240671969494
+          },
+          "distances": {
+            "evaluation": 0.0833692267013415,
+            "potency": 0.4684267841468739,
+            "activity": 0.009410816396330679
+          },
+          "mean_distance": 0.1870689424148487
+        }
+      }
+    },
+    {
+      "scenario_id": "mixed_01",
+      "pair": "counselor_client",
+      "target_epa": {
+        "evaluation": 0.9787102981527956,
+        "potency": 1.5166144624776707,
+        "activity": -0.5345044178695417
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "So, when it comes to allocating your time and energy across different areas of life, we often have limited resources available \u2013 just like with finances.\n\nThink of each area as an expense category: relationships, work, self-care, hobbies... Each one requires some level of investment from us. The key is prioritizing what's most important right now based on our values and goals.\n\nOne approach I'd recommend is using the Eisenhower Matrix. It helps categorize tasks into four quadrants:\n\n* Urgent & I",
+          "epa": {
+            "evaluation": -0.7872316404021441,
+            "potency": 1.1447294094104796,
+            "activity": 0.8304575076412001
+          },
+          "distances": {
+            "evaluation": 1.7659419385549397,
+            "potency": 0.3718850530671911,
+            "activity": 1.364961925510742
+          },
+          "mean_distance": 1.1675963057109575
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "Let's break it down simply: Budgeting is about prioritizing your financial goals and allocating resources accordingly.\n\nImagine your income as a pie with multiple slices representing different expenses, savings, and debt repayment. The key is to divide that pie into categories based on importance and urgency.\n\nFirst, we'll identify essential needs like housing, utilities, food, and minimum payments for debts. These are non-negotiables.\n\nNext, we allocate funds towards high-priority wants, such a",
+          "epa": {
+            "evaluation": -0.2878543968869316,
+            "potency": 1.9463507566346285,
+            "activity": 1.1779170101247596
+          },
+          "distances": {
+            "evaluation": 1.2665646950397274,
+            "potency": 0.4297362941569578,
+            "activity": 1.7124214279943013
+          },
+          "mean_distance": 1.1362408057303288
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "So, when it comes to allocating your budget, we typically start by identifying all of your income sources and fixed expenses, such as rent/mortgage, utilities, groceries, and minimum payments on debts.\n\nNext, we prioritize essential needs like housing, food, healthcare, and transportation over discretionary spending like entertainment or hobbies. We then categorize remaining funds into savings goals, debt repayment, and long-term investments.\n\nIt's also helpful to consider using the 50/30/20 rul",
+          "epa": {
+            "evaluation": 0.27775736108192484,
+            "potency": 1.2578984519118133,
+            "activity": 0.5905438857012534
+          },
+          "distances": {
+            "evaluation": 0.7009529370708708,
+            "potency": 0.25871601056585747,
+            "activity": 1.1250483035707952
+          },
+          "mean_distance": 0.6949057504025079
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "Let's break it down simply: Budgeting is about setting clear financial goals and allocating resources accordingly. It involves identifying essential expenses, non-essential spending habits, and areas for potential reduction.\n\nTo start, we'll categorize your income into needs (housing, food, utilities), wants (entertainment, hobbies), and savings. Then, we can prioritize these categories based on importance and urgency. This framework will help us create a realistic plan that aligns with your val",
+          "epa": {
+            "evaluation": -0.43949012738174487,
+            "potency": 0.7978959573112794,
+            "activity": 0.8157441286855264
+          },
+          "distances": {
+            "evaluation": 1.4182004255345406,
+            "potency": 0.7187185051663914,
+            "activity": 1.350248546555068
+          },
+          "mean_distance": 1.1623891590853332
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "The budgeting process can be complex, but I'll try to break it down simply.\n\nIn general, most organizations have an annual cycle where they set financial goals and priorities for the upcoming year. This is often done through a collaborative effort between department heads, management teams, and sometimes even employees who are directly impacted by the decisions.\n\nTypically, each area of the organization identifies its needs and proposes allocations based on those requirements. These proposals th",
+          "epa": {
+            "evaluation": -0.13133557566225906,
+            "potency": 1.2012429579102109,
+            "activity": 0.8506679564841694
+          },
+          "distances": {
+            "evaluation": 1.1100458738150547,
+            "potency": 0.3153715045674599,
+            "activity": 1.385172374353711
+          },
+          "mean_distance": 0.9368632509120752
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "Let's break it down simply: when we discuss your financial goals and priorities, I'll help identify areas where adjustments can be made to free up funds for what matters most to you.\n\nWe then allocate those freed-up resources into categories that align with our objectives \u2013 savings, debt repayment, investments, or discretionary spending. This ensures every dollar is working towards achieving your desired outcomes.\n\nDoes this make sense so far? Would you like me to elaborate on any specific aspec",
+          "epa": {
+            "evaluation": 1.1252518097663526,
+            "potency": 0.6930797079109117,
+            "activity": 0.7576747976596105
+          },
+          "distances": {
+            "evaluation": 0.146541511613557,
+            "potency": 0.8235347545667591,
+            "activity": 1.2921792155291523
+          },
+          "mean_distance": 0.7540851605698228
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "Let's break it down simply: Budgeting is about setting financial goals and allocating resources accordingly. Typically, individuals or organizations establish clear objectives for what they want to achieve within a specific timeframe.\n\nThe first step often involves identifying essential expenses versus discretionary spending. Essential costs include necessities like housing, food, utilities, healthcare, and transportation. Discretionary funds are then allocated towards savings, debt repayment, e",
+          "epa": {
+            "evaluation": 1.4138196780852739,
+            "potency": 1.0251132961585971,
+            "activity": 0.47919793024070056
+          },
+          "distances": {
+            "evaluation": 0.4351093799324782,
+            "potency": 0.4915011663190736,
+            "activity": 1.0137023481102423
+          },
+          "mean_distance": 0.6467709647872647
+        }
+      }
+    },
+    {
+      "scenario_id": "mixed_01",
+      "pair": "boss_subordinate",
+      "target_epa": {
+        "evaluation": 0.5815084221817297,
+        "potency": 2.4432038961285083,
+        "activity": 1.180891748467608
+      },
+      "ablation_conditions": {
+        "E": {
+          "steered_dims": [
+            "evaluation"
+          ],
+          "text": "We review quarterly financials and set priorities with department heads, then allocate funds accordingly based on those goals. Our finance team helps ensure we stay within our means while meeting objectives. Would you like me to walk through an example from last quarter's cycle?",
+          "epa": {
+            "evaluation": 0.4073697690465179,
+            "potency": 0.9784305226131184,
+            "activity": 0.2528795755240535
+          },
+          "distances": {
+            "evaluation": 0.17413865313521182,
+            "potency": 1.4647733735153898,
+            "activity": 0.9280121729435545
+          },
+          "mean_distance": 0.8556413998647187
+        },
+        "P": {
+          "steered_dims": [
+            "potency"
+          ],
+          "text": "The quarterly review is coming up and I expect all department heads to be prepared. The budget allocation process involves three stages: initial proposal, approval by senior management, and finalization with finance. Each stage requires thorough justification for any deviations from last quarter's allocations. Your team's projections indicate an 8% variance; let me know your plan to address this discrepancy.",
+          "epa": {
+            "evaluation": -0.32942416836566135,
+            "potency": 1.6566414012289208,
+            "activity": 0.16184993281175364
+          },
+          "distances": {
+            "evaluation": 0.9109325905473911,
+            "potency": 0.7865624948995875,
+            "activity": 1.0190418156558545
+          },
+          "mean_distance": 0.905512300367611
+        },
+        "A": {
+          "steered_dims": [
+            "activity"
+          ],
+          "text": "We've discussed this before, but I'll give it another rundown for clarity. Our finance team reviews departmental requests and prioritizes them based on business objectives and ROI projections. We then allocate funds accordingly, ensuring we stay within our overall company budget constraints.\n\nCan you tell me which specific aspect of the process is causing confusion or concern for your project?",
+          "epa": {
+            "evaluation": 1.1995291651737285,
+            "potency": 0.9078279076952576,
+            "activity": 0.5864969132775886
+          },
+          "distances": {
+            "evaluation": 0.6180207429919988,
+            "potency": 1.5353759884332507,
+            "activity": 0.5943948351900195
+          },
+          "mean_distance": 0.9159305222050896
+        },
+        "EP": {
+          "steered_dims": [
+            "evaluation",
+            "potency"
+          ],
+          "text": "The quarterly review is coming up, and I expect all team leads to be prepared. The budget allocation process begins with our finance department submitting an initial forecast based on historical data and industry trends. We then conduct a thorough analysis of projected expenses versus actuals from previous quarters.\n\nOnce we have that information, we'll convene as a leadership group to discuss areas where adjustments are necessary. This will involve reviewing each project's ROI projections and i",
+          "epa": {
+            "evaluation": -0.9320863229451297,
+            "potency": 2.1490943846174324,
+            "activity": 1.1637160251888694
+          },
+          "distances": {
+            "evaluation": 1.5135947451268594,
+            "potency": 0.2941095115110759,
+            "activity": 0.01717572327873862
+          },
+          "mean_distance": 0.6082933266388914
+        },
+        "EA": {
+          "steered_dims": [
+            "evaluation",
+            "activity"
+          ],
+          "text": "We've got our quarterly review coming up, and I want to make sure everyone's on the same page. Essentially, we have three main categories: operational expenses, capital expenditures, and personnel costs. We allocate 60% of our total budget to ops, 20% for capex, and 20% for staff development and salaries.\n\nLet me know if that clears things up or if you'd like more details!",
+          "epa": {
+            "evaluation": 0.9214381497932027,
+            "potency": 1.0886715633420092,
+            "activity": 0.8949456158556158
+          },
+          "distances": {
+            "evaluation": 0.339929727611473,
+            "potency": 1.354532332786499,
+            "activity": 0.2859461326119922
+          },
+          "mean_distance": 0.6601360643366547
+        },
+        "PA": {
+          "steered_dims": [
+            "potency",
+            "activity"
+          ],
+          "text": "Listen, let me make one thing clear: our quarterly review is next week and I expect every department head to have their numbers squared away by then. Now, regarding your question - the budget allocation process is straightforward.\n\nWe've got three tiers of discretionary spending authority within each division. Tier 1 allocations are for critical operational expenses that require my explicit approval. These include major infrastructure upgrades, personnel hires, or any significant investments wit",
+          "epa": {
+            "evaluation": -0.2853716977182382,
+            "potency": 1.6267034324105516,
+            "activity": 0.8170410312186943
+          },
+          "distances": {
+            "evaluation": 0.8668801198999679,
+            "potency": 0.8165004637179567,
+            "activity": 0.3638507172489137
+          },
+          "mean_distance": 0.6824104336222795
+        },
+        "EPA": {
+          "steered_dims": [
+            "evaluation",
+            "potency",
+            "activity"
+          ],
+          "text": "The quarterly review is just around the corner, and I expect all team leads to be up-to-date on our financial procedures by then. The budget allocation process begins with an initial assessment of departmental requirements from each division head. This information is compiled into a comprehensive report which we'll discuss at the town hall meeting next Wednesday.\n\nOnce that's concluded, we will proceed with the annual forecasting exercise, where projected expenses are factored against last year'",
+          "epa": {
+            "evaluation": -1.0958097753107456,
+            "potency": 1.9181600897338014,
+            "activity": 0.3679255818639125
+          },
+          "distances": {
+            "evaluation": 1.6773181974924753,
+            "potency": 0.5250438063947069,
+            "activity": 0.8129661666036956
+          },
+          "mean_distance": 1.0051093901636259
+        }
+      }
+    }
+  ]
+}

@@ -33,6 +33,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -60,16 +61,17 @@ def main():
                         help="Path to checkpoint file to resume from")
     parser.add_argument("--per-dim-coeff", action="store_true",
                         help="Use per-dimension optimised steering coefficients")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     # ---- Setup scenarios and identity pairs ----
     scenarios = get_scenarios(quick=args.quick, n=QUICK_N_SCENARIOS)
@@ -128,7 +130,7 @@ def main():
 
             # 3. Generate unsteered response
             sys_prompt = make_system_prompt(agent_term, user_term)
-            prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+            prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
             unsteered_text = generate_unsteered(
                 comp.model, comp.tokenizer, prompt)
 

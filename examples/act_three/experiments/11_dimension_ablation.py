@@ -37,6 +37,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -130,16 +131,17 @@ def main():
     parser.add_argument("--exp08-path", default=None,
                         help="Path to Exp 08 results JSON for comparison "
                              "(default: results/08_hybrid_steering.json)")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     scenarios = get_scenarios(quick=args.quick, n=QUICK_N_SCENARIOS)
     pairs = IDENTITY_PAIRS
@@ -193,7 +195,7 @@ def main():
 
             # Build the prompt (neutral system prompt, same as Exp 08 unsteered/repe_only)
             sys_prompt = make_system_prompt(agent_term, user_term)
-            prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+            prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
 
             # ---- Generate for each dimension subset ----
             subset_results = {}

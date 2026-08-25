@@ -21,7 +21,7 @@ import numpy as np
 
 from .act_core import EPA
 from .epa_calibration import BehaviorPromptGenerator
-from .prompt_formatting import format_llama3_prompt
+from .model_registry import format_chat_prompt
 
 # ---------------------------------------------------------------------------
 # Likert scale mapping
@@ -123,7 +123,8 @@ def make_utterance_generator(
     def _generate(behavior: str, epa: EPA) -> str:
         epa_description = epa_to_description(epa)
         behavior_display = behavior.replace("_", " ")
-        prompt = format_llama3_prompt(
+        prompt = format_chat_prompt(
+            tokenizer,
             None,
             (
                 "You are simulating a human person engaging in a conversation with "

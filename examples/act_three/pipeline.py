@@ -34,7 +34,7 @@ from .act_core import (
 from .direction_extraction import load_directions
 from .epa_reader import EPAReader
 from .epa_steerer import EPASteerer
-from .prompt_formatting import format_llama3_prompt
+from .model_registry import format_chat_prompt
 
 
 class ACTPipeline:
@@ -232,7 +232,7 @@ class ACTPipeline:
         else:
             target_dict = target_epa
 
-        prompt = format_llama3_prompt(self.system_prompt, user_message)
+        prompt = format_chat_prompt(self.tokenizer, self.system_prompt, user_message)
 
         return self.steerer.generate(
             prompt=prompt,

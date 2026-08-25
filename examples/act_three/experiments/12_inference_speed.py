@@ -36,6 +36,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -105,6 +106,7 @@ def main():
                              "(default: 3)")
     parser.add_argument("--output", default="12_inference_speed.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     n_trials = args.n_trials
@@ -113,13 +115,13 @@ def main():
     n_warmup = 1 if args.quick else args.warmup
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     # ---- Select scenarios ----
     scenarios = get_scenarios(quick=args.quick, n=max(n_trials + n_warmup, 20))
@@ -164,8 +166,9 @@ def main():
             "activity": target_epa.a,
         }
 
-        neutral_prompt = format_llama3_prompt(sys_prompt, scenario["text"])
-        affective_prompt = format_llama3_prompt(
+        neutral_prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
+        affective_prompt = format_chat_prompt(
+            comp.tokenizer,
             _make_affective_system_prompt(agent_term, user_term, target_dict),
             scenario["text"])
 

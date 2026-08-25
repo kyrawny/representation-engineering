@@ -57,15 +57,22 @@ def main():
     if str(repo_root) not in sys.path:
         sys.path.insert(0, str(repo_root))
 
-    # Resolve directions path — if relative and doesn't exist, try relative to act_three_dir
-    directions_path = args.directions or str(act_three_dir / "epa_directions.pkl")
+    from examples.act_three.model_registry import get_short_name
+
+    short_name = get_short_name(args.model)
+    model_dir = act_three_dir / "models" / short_name
+    model_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Model directory: {model_dir}")
+
+    # Resolve directions path — model-aware default
+    directions_path = args.directions or str(model_dir / "epa_directions.pkl")
     if not Path(directions_path).is_absolute() and not Path(directions_path).exists():
-        candidate = act_three_dir / directions_path
+        candidate = model_dir / directions_path
         if candidate.exists():
             directions_path = str(candidate)
-    train_path = args.train_data or str(act_three_dir / "epa_tuning_dataset_train.json")
-    test_path = args.test_data or str(act_three_dir / "epa_tuning_dataset_test.json")
-    output_path = args.output or str(act_three_dir / "epa_reading_tuning_v2_results.json")
+    train_path = args.train_data or str(model_dir / "epa_tuning_dataset_train.json")
+    test_path = args.test_data or str(model_dir / "epa_tuning_dataset_test.json")
+    output_path = args.output or str(model_dir / "epa_reading_tuning_v2_results.json")
 
     from examples.act_three.direction_extraction import load_directions
     from examples.act_three.prompt_formatting import DIMENSION_NAMES, format_for_reading

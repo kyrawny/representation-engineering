@@ -8,8 +8,8 @@ line instead of requiring the Jupyter notebook.
 Usage::
 
     python -m examples.act_three.extract_directions
-    python -m examples.act_three.extract_directions --model meta-llama/Llama-3.1-8B-Instruct \\
-        --output epa_directions.pkl --batch-size 4
+    python -m examples.act_three.extract_directions --model meta-llama/Llama-3.1-8B-Instruct
+    python -m examples.act_three.extract_directions --model mistralai/Ministral-8B-Instruct-2412
 """
 
 import argparse
@@ -28,7 +28,7 @@ def main():
         help="HuggingFace model name or path (default: Llama-3.1-8B-Instruct)")
     parser.add_argument(
         "--output", default=None,
-        help="Output pickle path (default: epa_directions.pkl in act_three/)")
+        help="Output pickle path (default: models/{short_name}/epa_directions.pkl)")
     parser.add_argument(
         "--batch-size", type=int, default=8,
         help="Batch size for the rep-reading pipeline (default: 8)")
@@ -43,21 +43,29 @@ def main():
         help="Apply Gram–Schmidt orthogonalisation after extraction")
     args = parser.parse_args()
 
-    # Resolve output path
+    # Resolve paths
     act_three_dir = Path(__file__).resolve().parent
     repo_root = act_three_dir.parent.parent
     if str(repo_root) not in sys.path:
         sys.path.insert(0, str(repo_root))
 
+    from examples.act_three.model_registry import get_short_name
+
+    short_name = get_short_name(args.model)
+    model_dir = act_three_dir / "models" / short_name
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    # Resolve output path
     output_path = args.output
     if output_path is None:
         if args.orthogonalise:
-            output_path = str(act_three_dir / "epa_directions_ortho.pkl")
+            output_path = str(model_dir / "epa_directions_ortho.pkl")
         else:
-            output_path = str(act_three_dir / "epa_directions.pkl")
+            output_path = str(model_dir / "epa_directions.pkl")
 
     # ---- Load model ----
     print(f"Loading model: {args.model}")
+    print(f"Output directory: {model_dir}")
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     model = AutoModelForCausalLM.from_pretrained(
@@ -79,11 +87,37 @@ def main():
     datasets = create_all_epa_datasets(
         data_dir=data_dir,
         n_train=n_train,
+        tokenizer=tokenizer,
     )
 
     for dim, data in datasets.items():
         n = len(data["train"]["data"])
         print(f"  {dim}: {n} training pairs")
+
+    # ---- Save contrastive pairs to JSON for inspection ----
+    import json
+    pairs_output = {}
+    for dim, data in datasets.items():
+        prompts = data["train"]["data"]
+        labels = data["train"]["labels"]
+        pair_list = []
+        for i in range(len(labels)):
+            pos_idx = 0 if labels[i][0] else 1
+            neg_idx = 1 - pos_idx
+            pair_list.append({
+                "positive": prompts[i * 2 + pos_idx],
+                "negative": prompts[i * 2 + neg_idx],
+            })
+        pairs_output[dim] = pair_list
+
+    pairs_path = model_dir / "contrastive_pairs.json"
+    with open(pairs_path, "w", encoding="utf-8") as f:
+        json.dump({
+            "model_name": args.model,
+            "n_train_per_dim": n_train,
+            "dimensions": pairs_output,
+        }, f, indent=2, ensure_ascii=False)
+    print(f"Contrastive pairs saved to: {pairs_path}")
 
     # ---- Extract directions ----
     print("Extracting EPA directions via contrastive PCA...")
@@ -117,8 +151,6 @@ def main():
         orthogonalise_directions(rep_readers, verbose=True)
 
     # ---- Save ----
-    from examples.act_three.direction_extraction import save_directions
-    # If orthogonalised, save with the flag
     if args.orthogonalise:
         import pickle
         with open(output_path, "wb") as f:

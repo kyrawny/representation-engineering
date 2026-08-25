@@ -115,7 +115,8 @@ def main():
     # ---- Load base training data for contrastive pairs ----
     data_dir = str(repo_root / "data" / "act")
     from examples.act_three.dataset import load_act_data
-    from examples.act_three.prompt_formatting import format_llama3_prompt, format_for_reading
+    from examples.act_three.prompt_formatting import format_for_reading
+    from examples.act_three.model_registry import format_chat_prompt
 
     _user_inputs, truncated_outputs = load_act_data(data_dir)
 
@@ -163,8 +164,8 @@ def main():
         train_labels = []
         for _ in range(args.n_train):
             truncated = random.choice(truncated_outputs)
-            pos_prompt = format_llama3_prompt(None, template_pos, truncated)
-            neg_prompt = format_llama3_prompt(None, template_neg, truncated)
+            pos_prompt = format_chat_prompt(tokenizer, None, template_pos, truncated)
+            neg_prompt = format_chat_prompt(tokenizer, None, template_neg, truncated)
             pair = [pos_prompt, neg_prompt]
             random.shuffle(pair)
             train_labels.append([pair[0] == pos_prompt, pair[1] == pos_prompt])

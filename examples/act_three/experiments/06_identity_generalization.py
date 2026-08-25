@@ -24,6 +24,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -54,17 +55,18 @@ def main():
                         help="Run on a small subset for debugging")
     parser.add_argument("--output", default="06_identity_generalization.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
         impression_formation,
         calculate_deflection,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     scenarios = GENERALISATION_SCENARIOS
     if args.quick:
@@ -118,7 +120,7 @@ def main():
 
             # Generate steered response
             sys_prompt = make_system_prompt(agent_term, user_term)
-            prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+            prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
             steered_text = comp.steerer.generate(
                 prompt=prompt,
                 target_epa=target_dict,

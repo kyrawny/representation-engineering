@@ -4,6 +4,9 @@ Experiment setup — shared model / reader / steerer loading.
 Centralises the ~40 lines of boilerplate that every experiment needs
 so individual scripts can call ``load_experiment_components()`` once
 and immediately start running trials.
+
+Supports switching models via ``config.set_model(model_name)`` or
+the ``model_name`` argument to ``load_experiment_components()``.
 """
 
 import json
@@ -31,11 +34,30 @@ class ExperimentComponents:
     rep_reading_pipeline: Any
     coefficients: Any               # ACTCoefficients
     identities_df: pd.DataFrame
+    model_name: str                 # HuggingFace model identifier
+
+
+def add_model_arg(parser) -> None:
+    """Add a ``--model`` argument to an experiment's argument parser.
+
+    Call this in each experiment script so the user can do::
+
+        python -m examples.act_three.experiments.02_... --model mistralai/Ministral-8B-Instruct-2412
+
+    Args:
+        parser: ``argparse.ArgumentParser`` instance.
+    """
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="HuggingFace model name. Overrides the default in config.py.",
+    )
 
 
 def load_experiment_components(
     load_steerer: bool = True,
     steering_from_tuning: bool = True,
+    model_name: Optional[str] = None,
 ) -> ExperimentComponents:
     """
     Load model, directions, reader, and optionally steerer.
@@ -45,10 +67,16 @@ def load_experiment_components(
         steering_from_tuning: If True, load per-dimension tuned
             hyperparameters from ``epa_tuning_results.json``.
             If False, derive from reader config with a default coeff.
+        model_name: HuggingFace model identifier. If provided, calls
+            ``config.set_model()`` to reconfigure all paths.
 
     Returns:
         Populated ``ExperimentComponents``.
     """
+    # Reconfigure paths if a model is specified
+    if model_name is not None:
+        C.set_model(model_name)
+
     # Ensure repo root is on sys.path
     repo_str = str(C.REPO_ROOT)
     if repo_str not in sys.path:
@@ -159,6 +187,7 @@ def load_experiment_components(
         rep_reading_pipeline=rep_reading_pipeline,
         coefficients=coefficients,
         identities_df=identities_df,
+        model_name=C.MODEL_NAME,
     )
 
 
@@ -230,9 +259,28 @@ def _json_default(obj):
 
 
 def clean_response(text: str) -> str:
-    """Strip Llama special tokens from a generated response."""
-    for tok in ["<|eot_id|>", "<|end_of_text|>", "<|begin_of_text|>"]:
+    """Strip common special tokens from a generated response.
+
+    Handles tokens from Llama 3, Mistral/Ministral, and other models.
+    """
+    special_tokens = [
+        # Llama 3
+        "<|eot_id|>", "<|end_of_text|>", "<|begin_of_text|>",
+        "<|start_header_id|>", "<|end_header_id|>",
+        # Partial Llama header tokens (prompt slicing splits a boundary)
+        "end_header_id|>",
+        # Mistral / Ministral
+        "</s>", "<s>", "[INST]", "[/INST]",
+        # Partial Mistral tokens (prompt slicing splits a boundary)
+        "INST]", "NST]", "ST]", "T]",
+        "/INST]", "/NST]", "/ST]", "/T]",
+    ]
+    for tok in special_tokens:
         text = text.replace(tok, "")
+    # Also strip any leading ] or /] that might remain
+    text = text.strip()
+    while text.startswith("]") or text.startswith("/]"):
+        text = text.lstrip("]/")
     return text.strip()
 
 

@@ -1,0 +1,12 @@
+{
+  "model_name": "mistralai/Ministral-8B-Instruct-2410",
+  "short_name": "ministral",
+  "per_dim_coefficients": {
+    "evaluation": 0.2,
+    "potency": 0.2,
+    "activity": 0.2
+  },
+  "reading_method": "ElasticNet",
+  "use_orthogonal_directions": true,
+  "notes": "Initial coefficients copied from Llama3. Must be re-tuned via coefficient sweep."
+}

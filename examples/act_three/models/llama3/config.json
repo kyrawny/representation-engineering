@@ -1,0 +1,12 @@
+{
+  "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+  "short_name": "llama3",
+  "per_dim_coefficients": {
+    "evaluation": 0.5,
+    "potency": 0.2,
+    "activity": 0.2
+  },
+  "reading_method": "ElasticNet",
+  "use_orthogonal_directions": false,
+  "notes": "Empirically derived from per-dimension coefficient sweep. Steering reverses above ~1.5 due to text degeneration."
+}

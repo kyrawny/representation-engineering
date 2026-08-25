@@ -28,6 +28,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -132,16 +133,17 @@ def main():
                         help="Run on a small subset for debugging")
     parser.add_argument("--output", default="03_prompt_baseline.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     # ---- Setup ----
     scenarios = get_scenarios(quick=args.quick, n=QUICK_N_SCENARIOS)
@@ -181,7 +183,7 @@ def main():
 
             # 2. Unsteered baseline (with identity preamble)
             sys_prompt = make_system_prompt(agent_term, user_term)
-            prompt_base = format_llama3_prompt(sys_prompt, scenario["text"])
+            prompt_base = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
             unsteered_text = generate_unsteered(
                 comp.model, comp.tokenizer, prompt_base)
 
@@ -191,7 +193,7 @@ def main():
                 f"You are a {agent_term} speaking with a {user_term}. "
                 f"{affective_instruction} Keep your response concise."
             )
-            prompt_pe = format_llama3_prompt(system_prompt_pe, scenario["text"])
+            prompt_pe = format_chat_prompt(comp.tokenizer, system_prompt_pe, scenario["text"])
             pe_text = generate_unsteered(
                 comp.model, comp.tokenizer, prompt_pe)
 

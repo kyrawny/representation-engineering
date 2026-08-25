@@ -21,6 +21,7 @@ from tqdm import tqdm
 from .config import DIMENSION_NAMES, IDENTITY_PAIRS, GENERATION_DEFAULTS
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     make_system_prompt,
     save_results,
     generate_unsteered,
@@ -38,12 +39,13 @@ def main():
                         help="Number of scenarios (default: 20)")
     parser.add_argument("--output", default="05_ablation_normalization.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
-    from examples.act_three import format_llama3_prompt
+    from examples.act_three.model_registry import format_chat_prompt
     from examples.act_three.epa_steerer import make_epa_activations
 
     # ---- Setup ----
@@ -64,7 +66,7 @@ def main():
     trials = []
 
     for scenario in tqdm(scenarios, desc="Scenarios"):
-        prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+        prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
 
         # ---- Normalised (default) ----
         steered_norm = comp.steerer.generate(

@@ -28,6 +28,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     make_system_prompt,
     save_results,
     clean_response,
@@ -44,12 +45,14 @@ def main():
                         help="Number of scenarios to test (default: 20)")
     parser.add_argument("--output", default="04_coefficient_sweep.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
-    from examples.act_three import format_llama3_prompt, EPASteerer
+    from examples.act_three import EPASteerer
+    from examples.act_three.model_registry import format_chat_prompt
 
     # ---- Setup ----
     n = 5 if args.quick else args.n_scenarios
@@ -73,7 +76,7 @@ def main():
         sweep_data = []
 
         for scenario in tqdm(scenarios, desc=steer_dim):
-            prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+            prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
 
             for coeff in coeffs:
                 # Build target: +2.0 on the steered dimension, 0 on others

@@ -3,12 +3,16 @@ Dataset Creation for EPA Direction Extraction.
 
 Provides functions to create contrastive datasets for each EPA dimension using
 minimal user-tag-only prompts following the RepE honesty pattern.
+
+Supports both the legacy ``format_llama3_prompt()`` path and the model-agnostic
+``format_chat_prompt(tokenizer, ...)`` path.  Pass a *tokenizer* argument to
+use the model-agnostic formatter.
 """
 
 import json
 import os
 import random
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -16,6 +20,7 @@ from .prompt_formatting import (
     format_llama3_prompt,
     get_epa_extraction_template,
 )
+from .model_registry import format_chat_prompt
 
 
 def load_act_data(data_dir: str) -> Tuple[List[str], List[str]]:
@@ -40,11 +45,24 @@ def load_act_data(data_dir: str) -> Tuple[List[str], List[str]]:
     return user_inputs, truncated_outputs
 
 
+def _format_prompt(
+    tokenizer: Optional[Any],
+    system_prompt: Optional[str],
+    user_input: str,
+    assistant_start: str = "",
+) -> str:
+    """Format a prompt using the tokenizer if available, else Llama3 fallback."""
+    if tokenizer is not None:
+        return format_chat_prompt(tokenizer, system_prompt, user_input, assistant_start)
+    return format_llama3_prompt(system_prompt, user_input, assistant_start)
+
+
 def create_epa_dataset(
     data_dir: str,
     dimension: str,
     n_train: int = 256,
     seed: int = 42,
+    tokenizer: Optional[Any] = None,
 ) -> Dict:
     """
     Create a contrastive dataset for a specific EPA dimension.
@@ -58,6 +76,9 @@ def create_epa_dataset(
         dimension: One of ``'evaluation'``, ``'potency'``, ``'activity'``.
         n_train: Number of training pairs.
         seed: Random seed.
+        tokenizer: HuggingFace tokenizer.  If provided, uses model-agnostic
+            ``format_chat_prompt()``; otherwise falls back to
+            ``format_llama3_prompt()``.
 
     Returns:
         Dict with ``'train': {'data': List[str], 'labels': List[List[bool]]}``.
@@ -80,8 +101,8 @@ def create_epa_dataset(
 
         # Create positive and negative prompts with same truncated output.
         # No system prompt — the template IS the user message.
-        pos_prompt = format_llama3_prompt(None, template_pos, truncated)
-        neg_prompt = format_llama3_prompt(None, template_neg, truncated)
+        pos_prompt = _format_prompt(tokenizer, None, template_pos, truncated)
+        neg_prompt = _format_prompt(tokenizer, None, template_neg, truncated)
 
         # Shuffle for balanced labels
         pair = [pos_prompt, neg_prompt]
@@ -97,14 +118,22 @@ def create_all_epa_datasets(
     data_dir: str,
     n_train: int = 256,
     seed: int = 42,
+    tokenizer: Optional[Any] = None,
 ) -> Dict[str, Dict]:
     """
     Create datasets for all three EPA dimensions.
+
+    Args:
+        data_dir: Path to ``data/act`` directory.
+        n_train: Number of training pairs per dimension.
+        seed: Random seed.
+        tokenizer: HuggingFace tokenizer (passed through to
+            ``create_epa_dataset()``).
 
     Returns:
         Dict mapping dimension name to dataset dict.
     """
     return {
-        dim: create_epa_dataset(data_dir, dim, n_train, seed)
+        dim: create_epa_dataset(data_dir, dim, n_train, seed, tokenizer=tokenizer)
         for dim in ["evaluation", "potency", "activity"]
     }

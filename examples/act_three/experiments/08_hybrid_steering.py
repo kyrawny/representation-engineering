@@ -31,6 +31,7 @@ from .config import (
 )
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -100,15 +101,16 @@ def main():
                         help="Run on a small subset for debugging")
     parser.add_argument("--output", default="08_hybrid_steering.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
 
     scenarios = get_scenarios(quick=args.quick, n=QUICK_N_SCENARIOS)
     pairs = IDENTITY_PAIRS
@@ -148,11 +150,13 @@ def main():
             }
 
             # --- Condition 1: Unsteered (neutral system prompt) ---
-            neutral_prompt = format_llama3_prompt(
+            neutral_prompt = format_chat_prompt(
+                comp.tokenizer,
                 make_system_prompt(agent_term, user_term),
                 scenario["text"])
             unsteered_text = generate_unsteered(
                 comp.model, comp.tokenizer, neutral_prompt)
+            unsteered_text = clean_response(unsteered_text)
 
             # --- Condition 2: RepE only (neutral system prompt + steering) ---
             repe_text = comp.steerer.generate(
@@ -163,11 +167,13 @@ def main():
             repe_text = clean_response(repe_text)
 
             # --- Condition 3: PE only (affective system prompt, no steering) ---
-            affective_prompt = format_llama3_prompt(
+            affective_prompt = format_chat_prompt(
+                comp.tokenizer,
                 _make_affective_system_prompt(agent_term, user_term, target_dict),
                 scenario["text"])
             pe_text = generate_unsteered(
                 comp.model, comp.tokenizer, affective_prompt)
+            pe_text = clean_response(pe_text)
 
             # --- Condition 4: Hybrid (affective prompt + RepE steering) ---
             hybrid_text = comp.steerer.generate(
@@ -191,8 +197,30 @@ def main():
             trial = {
                 "scenario_id": scenario["id"],
                 "pair": pair_name,
+                "agent_identity": agent_term,
+                "user_identity": user_term,
+                "agent_identity_epa": {
+                    "evaluation": agent_epa.e,
+                    "potency": agent_epa.p,
+                    "activity": agent_epa.a,
+                },
+                "user_identity_epa": {
+                    "evaluation": user_epa.e,
+                    "potency": user_epa.p,
+                    "activity": user_epa.a,
+                },
+                "user_statement": scenario["text"],
+                "user_statement_epa": user_msg_epa,
                 "target_epa": target_dict,
                 "conditions": {},
+            }
+
+            # Per-condition prompts
+            condition_prompts = {
+                "unsteered": neutral_prompt,
+                "repe_only": neutral_prompt,
+                "pe_only": affective_prompt,
+                "hybrid": affective_prompt,
             }
 
             for cond_name, text, epa_dict in zip(
@@ -203,6 +231,7 @@ def main():
                 distances = {dim: _dist(epa_dict, dim) for dim in DIMENSION_NAMES}
                 trial["conditions"][cond_name] = {
                     "text": text[:500],
+                    "prompt": condition_prompts[cond_name],
                     "epa": epa_dict,
                     "distances": distances,
                     "mean_distance": float(np.mean(list(distances.values()))),

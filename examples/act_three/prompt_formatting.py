@@ -157,3 +157,10 @@ def get_epa_extraction_template(dimension: str, target: str) -> str:
     """
     adj = _EXTRACTION_ADJECTIVES[dimension][target]
     return f"Pretend you're {adj} person making a statement in a conversation."
+
+
+# =========================================================================
+# Model-agnostic prompt formatting (re-exported from model_registry)
+# =========================================================================
+
+from .model_registry import format_chat_prompt, format_for_reading_generic

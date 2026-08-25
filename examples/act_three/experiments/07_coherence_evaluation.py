@@ -29,6 +29,7 @@ from tqdm import tqdm
 from .config import DIMENSION_NAMES, GENERATION_DEFAULTS
 from .setup import (
     load_experiment_components,
+    add_model_arg,
     get_identity_epa,
     make_system_prompt,
     save_results,
@@ -155,16 +156,17 @@ def main():
                         help="Which model to use for perplexity")
     parser.add_argument("--output", default="07_coherence_evaluation.json",
                         help="Output filename in results/")
+    add_model_arg(parser)
     args = parser.parse_args()
 
     # ---- Load components ----
-    comp = load_experiment_components(load_steerer=True)
+    comp = load_experiment_components(load_steerer=True, model_name=args.model)
 
     from examples.act_three import (
         EPA,
         get_response_epa_for_deflection_minimization,
-        format_llama3_prompt,
     )
+    from examples.act_three.model_registry import format_chat_prompt
     from .config import IDENTITY_PAIRS
 
     # ---- Setup ----
@@ -188,7 +190,7 @@ def main():
     target_epas = []
 
     for scenario in tqdm(scenarios, desc="Generating"):
-        prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+        prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
 
         # Read user EPA and compute target
         user_msg_epa = comp.reader.read_epa(

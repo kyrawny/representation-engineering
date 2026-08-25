@@ -53,6 +53,15 @@ from .prompt_formatting import (
     get_epa_extraction_template,
 )
 
+# Model registry and model-agnostic prompt formatting
+from .model_registry import (
+    MODEL_REGISTRY,
+    format_chat_prompt,
+    format_for_reading_generic,
+    get_model_config,
+    get_short_name,
+)
+
 # Dataset creation
 from .dataset import (
     create_all_epa_datasets,
@@ -124,11 +133,17 @@ __all__ = [
     "get_default_coefficients",
     # Prompt formatting
     "format_llama3_prompt",
+    "format_chat_prompt",
     "format_for_reading",
+    "format_for_reading_generic",
     "get_epa_extraction_template",
     "EPA_DIMENSIONS",
     "DIMENSION_NAMES",
     "DIM_KEY",
+    # Model registry
+    "MODEL_REGISTRY",
+    "get_model_config",
+    "get_short_name",
     # Dataset
     "load_act_data",
     "create_epa_dataset",

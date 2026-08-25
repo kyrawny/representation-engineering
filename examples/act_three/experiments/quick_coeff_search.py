@@ -46,7 +46,7 @@ def main():
     )
     from .config import GENERATION_DEFAULTS, DIMENSION_NAMES
     from .scenarios import get_scenarios
-    from examples.act_three import format_llama3_prompt
+    from examples.act_three.model_registry import format_chat_prompt
     from examples.act_three.epa_steerer import EPASteerer
 
     # Load components (steerer will be overridden per-coefficient)
@@ -76,7 +76,7 @@ def main():
 
         # Read user message EPA
         sys_prompt = make_system_prompt(agent_term, user_term)
-        prompt = format_llama3_prompt(sys_prompt, scenario["text"])
+        prompt = format_chat_prompt(comp.tokenizer, sys_prompt, scenario["text"])
 
         user_msg_epa = comp.reader.read_epa(
             comp.rep_reading_pipeline, scenario["text"])
