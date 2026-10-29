@@ -14,6 +14,12 @@ Usage::
 The priority order is E → P → A: Evaluation is kept as-is, Potency is
 projected orthogonal to E, and Activity is projected orthogonal to both
 E and P.
+
+With ``--method lowdin`` the symmetric (Löwdin) orthogonalisation
+D (D^T D)^{-1/2} is used instead.  It treats E, P and A equally and is the
+orthonormal basis closest to the raw directions in Frobenius norm, so the
+result does not depend on an arbitrary dimension order.  Any reader tuned
+on the old directions must be re-tuned afterwards (``tune_reader.py``).
 """
 
 import argparse
@@ -55,6 +61,43 @@ def orthogonalise_layer(
     return e_orth, p_orth, a_orth
 
 
+def gram_schmidt_ordered(vectors, order) -> list:
+    """Gram–Schmidt over ``vectors`` in the given index ``order``.
+
+    Returns the orthogonalised vectors in the *original* index order.
+    """
+    out = [None] * len(vectors)
+    basis = []
+    for i in order:
+        v = np.asarray(vectors[i], float).copy()
+        for u in basis:
+            v = gram_schmidt_pair(v, u)
+        basis.append(v)
+        out[i] = v
+    return out
+
+
+def lowdin_layer(
+    e_dir: np.ndarray,
+    p_dir: np.ndarray,
+    a_dir: np.ndarray,
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Symmetric (Löwdin) orthogonalisation of three directions.
+
+    Columns are first unit-normalised, then D_hat = D (D^T D)^{-1/2}.
+    Outputs are rescaled to the original norms so downstream code that
+    expects raw-scale directions keeps working.
+    """
+    V = [np.asarray(v, float).ravel() for v in (e_dir, p_dir, a_dir)]
+    norms = [np.linalg.norm(v) for v in V]
+    D = np.stack([v / n for v, n in zip(V, norms)], axis=1)  # (h, 3)
+    S = D.T @ D
+    w, Q = np.linalg.eigh(S)
+    S_inv_sqrt = Q @ np.diag(1.0 / np.sqrt(w)) @ Q.T
+    Dh = D @ S_inv_sqrt
+    return tuple(Dh[:, k] * norms[k] for k in range(3))
+
+
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
     """Cosine similarity between two vectors."""
     norm_a = np.linalg.norm(a)
@@ -71,6 +114,7 @@ def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
 def orthogonalise_directions(
     rep_readers: Dict[str, Any],
     verbose: bool = True,
+    method: str = "gram_schmidt",
 ) -> Dict[str, Any]:
     """
     Apply Gram–Schmidt orthogonalisation to EPA directions.
@@ -109,7 +153,12 @@ def orthogonalise_directions(
         cos_pa_before = cosine_similarity(p_dir, a_dir)
 
         # Orthogonalise
-        e_orth, p_orth, a_orth = orthogonalise_layer(e_dir, p_dir, a_dir)
+        if method == "lowdin":
+            e_orth, p_orth, a_orth = lowdin_layer(e_dir, p_dir, a_dir)
+        elif method == "gram_schmidt":
+            e_orth, p_orth, a_orth = orthogonalise_layer(e_dir, p_dir, a_dir)
+        else:
+            raise ValueError(f"Unknown method {method!r}")
 
         # After
         cos_ep_after = cosine_similarity(e_orth, p_orth)
@@ -159,6 +208,9 @@ def main():
     parser.add_argument(
         "--quiet", action="store_true",
         help="Suppress per-layer output")
+    parser.add_argument(
+        "--method", choices=["gram_schmidt", "lowdin"], default="gram_schmidt",
+        help="Orthogonalisation method (lowdin is order-independent)")
     args = parser.parse_args()
 
     # Resolve paths
@@ -176,7 +228,7 @@ def main():
     model_name = saved.get("model_name", "unknown")
 
     # Orthogonalise
-    orthogonalise_directions(rep_readers, verbose=not args.quiet)
+    orthogonalise_directions(rep_readers, verbose=not args.quiet, method=args.method)
 
     # Save
     with open(output_path, "wb") as f:
@@ -185,6 +237,7 @@ def main():
             "hidden_layers": hidden_layers,
             "model_name": model_name,
             "orthogonalised": True,
+            "orthogonalisation_method": args.method,
         }, f)
 
     print(f"\nOrthogonalised directions saved to: {output_path}")
