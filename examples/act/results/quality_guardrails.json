@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "timestamp": "2026-10-30T23:36:26.819381+00:00",
+    "git_hash": "5455d8a",
+    "model": null,
+    "seed": 42,
+    "config": {
+      "scorer": "model",
+      "n_gram": 3,
+      "quick": false
+    }
+  },
+  "conditions": {
+    "unsteered": {
+      "n_responses": 2.0,
+      "repetition_rate": {
+        "n": 2.0,
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "n_words": {
+        "n": 2.0,
+        "mean": 51.0,
+        "std": 0.0,
+        "median": 51.0,
+        "min": 51.0,
+        "max": 51.0
+      },
+      "perplexity_failed": 0.0,
+      "perplexity": {
+        "n": 2.0,
+        "mean": 15.579254658641172,
+        "std": 9.126584405921474,
+        "median": 15.579254658641172,
+        "min": 9.1257849361427,
+        "max": 22.032724381139644
+      }
+    },
+    "steered": {
+      "n_responses": 2.0,
+      "repetition_rate": {
+        "n": 2.0,
+        "mean": 0.125,
+        "std": 0.1767766952966369,
+        "median": 0.125,
+        "min": 0.0,
+        "max": 0.25
+      },
+      "n_words": {
+        "n": 2.0,
+        "mean": 54.0,
+        "std": 0.0,
+        "median": 54.0,
+        "min": 54.0,
+        "max": 54.0
+      },
+      "perplexity_failed": 0.0,
+      "perplexity": {
+        "n": 2.0,
+        "mean": 15.686507869450734,
+        "std": 3.6493644054933196,
+        "median": 15.686507869450734,
+        "min": 13.106017551305595,
+        "max": 18.266998187595874
+      }
+    }
+  },
+  "n_gram": 3.0,
+  "scorer": "model"
+}

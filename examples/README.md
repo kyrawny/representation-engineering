@@ -10,3 +10,4 @@ This directory contains example frontiers of Representation Engineering (RepE). 
 | Fairness | Reducing bias and increasing fairness in model generations.                                                                                        | [fairness](./fairness/) |-|
 | Harmless | Jailbreaking aligned model with harmless controlled                                                                                        | [harmless_harmful](./harmless_harmful)|-|
 | Memorization | Preventing memorized outputs during generation.                                                                                                | [memorization](./memorization/) |-|
+| ACT | Steering conversation generation to minimize Affect Control Theory deflection (multi-turn state, contrast steering, ACT best-of-k). | [act](./act/) |-|

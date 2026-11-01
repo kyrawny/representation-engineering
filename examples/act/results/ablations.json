@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "timestamp": "2026-10-30T02:03:53.796344+00:00",
+    "git_hash": "5455d8a",
+    "model": null,
+    "seed": 42,
+    "config": {
+      "conditions": [
+        "unsteered",
+        "monitor_only",
+        "steer",
+        "random_dir",
+        "constant_vec",
+        "identity_only",
+        "situation_dependent",
+        "best_of_k",
+        "best_of_k_steer"
+      ],
+      "quick": true
+    }
+  },
+  "conditions": {
+    "unsteered": {
+      "k": 1.0,
+      "description": "single unsteered response",
+      "n_turns": 2.0,
+      "u_pre_mean": 97.79742707148357,
+      "u_post_mean": 165.31618667343142,
+      "u_post_std": 131.79460386407018,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "monitor_only": {
+      "k": 1.0,
+      "description": "single response + deflection monitor",
+      "n_turns": 2.0,
+      "u_pre_mean": 95.29322582360692,
+      "u_post_mean": 162.83724571963234,
+      "u_post_std": 104.73505649185793,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 2.0
+    },
+    "steer": {
+      "k": 1.0,
+      "description": "ACT steering, k=1",
+      "n_turns": 2.0,
+      "u_pre_mean": 81.86705985171693,
+      "u_post_mean": 120.33573600402411,
+      "u_post_std": 30.653546523720504,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "random_dir": {
+      "k": 1.0,
+      "description": "random direction, matched norm",
+      "n_turns": 2.0,
+      "u_pre_mean": 203.94320062839253,
+      "u_post_mean": 266.61017663165126,
+      "u_post_std": 183.52241255656813,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "constant_vec": {
+      "k": 1.0,
+      "description": "constant steering vector",
+      "n_turns": 2.0,
+      "u_pre_mean": 62.49089976416815,
+      "u_post_mean": 104.0015222141335,
+      "u_post_std": 120.97724329099763,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "identity_only": {
+      "k": 1.0,
+      "description": "identity target, no message read",
+      "n_turns": 2.0,
+      "u_pre_mean": 53.800993724940305,
+      "u_post_mean": 50.07550389899022,
+      "u_post_std": 32.089962594758745,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "situation_dependent": {
+      "k": 1.0,
+      "description": "full ACT situation-dependent target",
+      "n_turns": 2.0,
+      "u_pre_mean": 67.71218155389337,
+      "u_post_mean": 28.05962959909,
+      "u_post_std": 16.45025754565362,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "best_of_k": {
+      "k": 4.0,
+      "description": "best-of-4 unsteered",
+      "n_turns": 2.0,
+      "u_pre_mean": 68.07871116633787,
+      "u_post_mean": 105.60867682008887,
+      "u_post_std": 2.7998655693244303,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    },
+    "best_of_k_steer": {
+      "k": 4.0,
+      "description": "best-of-4 with ACT steering",
+      "n_turns": 2.0,
+      "u_pre_mean": 112.26855535968497,
+      "u_post_mean": 142.9771165396889,
+      "u_post_std": 99.84289103849655,
+      "n_repairs_adopted": 0.0,
+      "n_fallbacks": 0.0,
+      "n_monitor_fires": 0.0
+    }
+  },
+  "order": [
+    "unsteered",
+    "monitor_only",
+    "steer",
+    "random_dir",
+    "constant_vec",
+    "identity_only",
+    "situation_dependent",
+    "best_of_k",
+    "best_of_k_steer"
+  ],
+  "script": {
+    "user": "student",
+    "agent": "teacher",
+    "n_messages": 2
+  }
+}

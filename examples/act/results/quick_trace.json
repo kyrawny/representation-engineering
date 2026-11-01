@@ -1,0 +1,139 @@
+{
+  "user_term": "student",
+  "agent_term": "teacher",
+  "mode": "mock",
+  "turns": [
+    {
+      "turn": 0,
+      "user_message": "I think I can finish the whole course in one weekend.",
+      "message_epa": [
+        0.6784313725490196,
+        0.7254901960784315,
+        0.26274509803921564
+      ],
+      "message_epa_read_failed": false,
+      "u_pre": 14.56327498938083,
+      "trigger_fired": false,
+      "candidates": [
+        {
+          "index": 0,
+          "text": "candidate-0",
+          "behaviour_epa": [
+            0.45882352941176463,
+            0.027450980392156765,
+            0.8352941176470587
+          ],
+          "deflection": 4.4881842616144425,
+          "error": null
+        },
+        {
+          "index": 1,
+          "text": "candidate-1",
+          "behaviour_epa": [
+            0.39607843137254894,
+            0.1607843137254903,
+            -0.6627450980392157
+          ],
+          "deflection": 12.506303881011975,
+          "error": null
+        },
+        {
+          "index": 2,
+          "text": "candidate-2",
+          "behaviour_epa": [
+            0.780392156862745,
+            -0.9372549019607843,
+            0.8901960784313725
+          ],
+          "deflection": 4.186394089059072,
+          "error": null
+        },
+        {
+          "index": 3,
+          "text": "candidate-3",
+          "behaviour_epa": [
+            0.28627450980392166,
+            0.07450980392156858,
+            0.44313725490196076
+          ],
+          "deflection": 4.975138018056943,
+          "error": null
+        }
+      ],
+      "winner_index": 2,
+      "u_post": 4.186394089059072,
+      "response": "candidate-2",
+      "response_u": 4.186394089059072,
+      "monitor": null,
+      "repair": null,
+      "fallback": null
+    },
+    {
+      "turn": 1,
+      "user_message": "Can you just give me the answer to the last homework question?",
+      "message_epa": [
+        -0.5372549019607843,
+        0.7490196078431373,
+        -0.8901960784313725
+      ],
+      "message_epa_read_failed": false,
+      "u_pre": 11.458331559379557,
+      "trigger_fired": false,
+      "candidates": [
+        {
+          "index": 0,
+          "text": "candidate-0",
+          "behaviour_epa": [
+            0.45882352941176463,
+            0.027450980392156765,
+            0.8352941176470587
+          ],
+          "deflection": 1.4940013632716216,
+          "error": null
+        },
+        {
+          "index": 1,
+          "text": "candidate-1",
+          "behaviour_epa": [
+            0.39607843137254894,
+            0.1607843137254903,
+            -0.6627450980392157
+          ],
+          "deflection": 5.766619402785543,
+          "error": null
+        },
+        {
+          "index": 2,
+          "text": "candidate-2",
+          "behaviour_epa": [
+            0.780392156862745,
+            -0.9372549019607843,
+            0.8901960784313725
+          ],
+          "deflection": 2.8269807894035512,
+          "error": null
+        },
+        {
+          "index": 3,
+          "text": "candidate-3",
+          "behaviour_epa": [
+            0.28627450980392166,
+            0.07450980392156858,
+            0.44313725490196076
+          ],
+          "deflection": 1.4694978121175284,
+          "error": null
+        }
+      ],
+      "winner_index": 3,
+      "u_post": 1.4694978121175284,
+      "response": "candidate-3",
+      "response_u": 1.4694978121175284,
+      "monitor": null,
+      "repair": null,
+      "fallback": null
+    }
+  ],
+  "seed": 42,
+  "quick": true
+}

@@ -1,0 +1,17 @@
+# Ruff configuration for examples/act.
+line-length = 100
+target-version = "py39"
+
+[lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+]
+
+[lint.isort]
+known-first-party = ["act_steering", "evaluation"]

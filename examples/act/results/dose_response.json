@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "timestamp": "2026-10-30T02:08:46.540951+00:00",
+    "git_hash": "5455d8a",
+    "model": null,
+    "seed": 42,
+    "config": {
+      "probe": "mock",
+      "alphas": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0
+      ],
+      "quick": true
+    }
+  },
+  "rows": [
+    {
+      "alpha": 0.0,
+      "ok": true,
+      "epa_shift": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "perplexity": 10.0,
+      "repetition_rate": 0.05,
+      "degenerated": false
+    },
+    {
+      "alpha": 0.25,
+      "ok": true,
+      "epa_shift": [
+        0.197375320224904,
+        0.14888503362331798,
+        0.2682711820216014
+      ],
+      "perplexity": 10.157477085866857,
+      "repetition_rate": 0.071875,
+      "degenerated": false
+    },
+    {
+      "alpha": 0.5,
+      "ok": true,
+      "epa_shift": [
+        0.3799489622552249,
+        0.2913126124515909,
+        0.5005202111902353
+      ],
+      "perplexity": 10.644944589178593,
+      "repetition_rate": 0.1375,
+      "degenerated": false
+    },
+    {
+      "alpha": 1.0,
+      "ok": true,
+      "epa_shift": [
+        0.6640367702678489,
+        0.5370495669980353,
+        0.8004990217606297
+      ],
+      "perplexity": 12.840254166877415,
+      "repetition_rate": 0.39999999999999997,
+      "degenerated": false
+    },
+    {
+      "alpha": 1.5,
+      "ok": true,
+      "epa_shift": [
+        0.8336546070121553,
+        0.7162978701990244,
+        0.9288576214547277
+      ],
+      "perplexity": 17.550546569602986,
+      "repetition_rate": 0.8374999999999999,
+      "degenerated": true
+    },
+    {
+      "alpha": 2.0,
+      "ok": true,
+      "epa_shift": [
+        0.9216685544064713,
+        0.8336546070121552,
+        0.9757431300314515
+      ],
+      "perplexity": 27.18281828459045,
+      "repetition_rate": 0.9,
+      "degenerated": true
+    },
+    {
+      "alpha": 3.0,
+      "ok": true,
+      "epa_shift": [
+        0.9836748576936802,
+        0.9468060128462683,
+        0.9972829600991421
+      ],
+      "perplexity": 94.87735836358526,
+      "repetition_rate": 0.9,
+      "degenerated": true
+    }
+  ],
+  "degeneration": {
+    "degenerated_at": 1.5,
+    "safe_alpha_max": 1.0,
+    "thresholds": {
+      "max_ppl_increase": 0.5,
+      "max_repetition": 0.5,
+      "ppl_threshold": 15.0
+    }
+  },
+  "per_dimension_slopes": {
+    "E": 0.6587604495989888,
+    "P": 0.5346404130930235,
+    "A": 0.7885940412538398
+  }
+}

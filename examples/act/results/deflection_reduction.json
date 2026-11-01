@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "timestamp": "2026-10-30T23:34:07.272607+00:00",
+    "git_hash": "5455d8a",
+    "model": null,
+    "seed": 42,
+    "config": {
+      "baseline": "unsteered",
+      "treatments": [
+        "steered"
+      ],
+      "quick": false
+    }
+  },
+  "baseline": "unsteered",
+  "conditions": {
+    "unsteered": {
+      "n_turns": 2.0,
+      "u_post_mean": 76.01199614904948,
+      "u_post_std": 11.477765891433936,
+      "u_pre_mean": 76.87888719478785
+    },
+    "steered": {
+      "n_turns": 2.0,
+      "u_post_mean": 70.29082222243318,
+      "u_post_std": 20.109531217653128,
+      "u_pre_mean": 66.65515785803358
+    }
+  },
+  "comparisons": [
+    {
+      "baseline": "unsteered",
+      "treatment": "steered",
+      "n_pairs": 2.0,
+      "n_scenarios": 2.0,
+      "paired_delta_mean": -5.721173926616313,
+      "ci_low": -11.824753722396814,
+      "ci_high": 0.38240586916418806,
+      "p_value": 0.504,
+      "reduces_deflection": false
+    }
+  ],
+  "n_bootstrap": 1000.0,
+  "alpha": 0.05
+}
