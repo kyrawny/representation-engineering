@@ -1,0 +1,124 @@
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.11s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.89s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.86s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.32s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.54s/it]
+Device set to use cuda:0
+Device set to use cuda:0
+Loaded directions for 3 EPA dimensions, 31 layers
+Reader configured (ElasticNet)
+Steerer coefficients: E=0.5, P=0.2, A=0.2
+Steerer configured
+extracting CAA vectors from 500 items (held-out 50)
+layer 10 {'mean_logit_diff_steered': 2.596737117767334, 'vector_norm': 0.5835387110710144, 'reduction': 0.2528606224060055}
+layer 12 {'mean_logit_diff_steered': 0.320860595703125, 'vector_norm': 1.6345149278640747, 'reduction': 2.528737144470215}
+layer 14 {'mean_logit_diff_steered': 1.0787271499633788, 'vector_norm': 2.4252305030822754, 'reduction': 1.7708705902099608}
+layer 16 {'mean_logit_diff_steered': 1.8524072265625, 'vector_norm': 2.8539981842041016, 'reduction': 0.9971905136108397}
+  0%|          | 0/21 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  5%|▍         | 1/21 [00:01<00:28,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 10%|▉         | 2/21 [00:02<00:20,  1.10s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 14%|█▍        | 3/21 [00:03<00:19,  1.07s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 19%|█▉        | 4/21 [00:04<00:19,  1.16s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 24%|██▍       | 5/21 [00:05<00:19,  1.22s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 29%|██▊       | 6/21 [00:07<00:18,  1.24s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 33%|███▎      | 7/21 [00:08<00:18,  1.30s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 38%|███▊      | 8/21 [00:09<00:14,  1.09s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 43%|████▎     | 9/21 [00:10<00:12,  1.07s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 48%|████▊     | 10/21 [00:10<00:10,  1.08it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 52%|█████▏    | 11/21 [00:12<00:09,  1.02it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 57%|█████▋    | 12/21 [00:12<00:08,  1.06it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 62%|██████▏   | 13/21 [00:13<00:07,  1.02it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 67%|██████▋   | 14/21 [00:15<00:08,  1.14s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 71%|███████▏  | 15/21 [00:16<00:06,  1.07s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 76%|███████▌  | 16/21 [00:16<00:04,  1.15it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 81%|████████  | 17/21 [00:17<00:03,  1.08it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 86%|████████▌ | 18/21 [00:19<00:03,  1.03s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 90%|█████████ | 19/21 [00:20<00:02,  1.01s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 95%|█████████▌| 20/21 [00:22<00:01,  1.34s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+100%|██████████| 21/21 [00:23<00:00,  1.25s/it]                                                 0%|          | 0/21 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  5%|▍         | 1/21 [00:01<00:21,  1.09s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 10%|▉         | 2/21 [00:02<00:22,  1.18s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 14%|█▍        | 3/21 [00:03<00:23,  1.30s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 19%|█▉        | 4/21 [00:05<00:22,  1.32s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 24%|██▍       | 5/21 [00:06<00:23,  1.46s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 29%|██▊       | 6/21 [00:08<00:21,  1.46s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 33%|███▎      | 7/21 [00:10<00:22,  1.64s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 38%|███▊      | 8/21 [00:11<00:19,  1.52s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 43%|████▎     | 9/21 [00:13<00:19,  1.59s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 48%|████▊     | 10/21 [00:15<00:19,  1.73s/it]You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 52%|█████▏    | 11/21 [00:16<00:15,  1.57s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 57%|█████▋    | 12/21 [00:17<00:13,  1.50s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 62%|██████▏   | 13/21 [00:20<00:14,  1.76s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 67%|██████▋   | 14/21 [00:21<00:12,  1.72s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 71%|███████▏  | 15/21 [00:23<00:10,  1.76s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 76%|███████▌  | 16/21 [00:24<00:06,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 81%|████████  | 17/21 [00:25<00:05,  1.42s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 86%|████████▌ | 18/21 [00:27<00:04,  1.39s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 90%|█████████ | 19/21 [00:28<00:02,  1.44s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 95%|█████████▌| 20/21 [00:30<00:01,  1.67s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+100%|██████████| 21/21 [00:32<00:00,  1.52s/it]                                               mult -0.5 {'mean_ppl': 12.46601849638623, 'degenerate_rate': 0.0}
+  0%|          | 0/21 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  5%|▍         | 1/21 [00:00<00:19,  1.03it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 10%|▉         | 2/21 [00:02<00:21,  1.15s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 14%|█▍        | 3/21 [00:03<00:24,  1.35s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 19%|█▉        | 4/21 [00:05<00:24,  1.44s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 24%|██▍       | 5/21 [00:07<00:26,  1.64s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 29%|██▊       | 6/21 [00:09<00:24,  1.63s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 33%|███▎      | 7/21 [00:11<00:24,  1.77s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 38%|███▊      | 8/21 [00:12<00:19,  1.51s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 43%|████▎     | 9/21 [00:13<00:19,  1.61s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 48%|████▊     | 10/21 [00:15<00:16,  1.48s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 52%|█████▏    | 11/21 [00:16<00:13,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 57%|█████▋    | 12/21 [00:18<00:14,  1.64s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 62%|██████▏   | 13/21 [00:19<00:12,  1.51s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 67%|██████▋   | 14/21 [00:21<00:10,  1.49s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 71%|███████▏  | 15/21 [00:22<00:08,  1.45s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 76%|███████▌  | 16/21 [00:23<00:05,  1.18s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 81%|████████  | 17/21 [00:24<00:05,  1.27s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 86%|████████▌ | 18/21 [00:26<00:04,  1.44s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 90%|█████████ | 19/21 [00:32<00:05,  2.78s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 95%|█████████▌| 20/21 [00:34<00:02,  2.61s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+100%|██████████| 21/21 [00:35<00:00,  2.16s/it]                                               mult -1.0 {'mean_ppl': 11.380627151038368, 'degenerate_rate': 0.0}
+  0%|          | 0/21 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  5%|▍         | 1/21 [00:01<00:24,  1.23s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 10%|▉         | 2/21 [00:02<00:23,  1.22s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 14%|█▍        | 3/21 [00:04<00:25,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 19%|█▉        | 4/21 [00:05<00:26,  1.57s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 24%|██▍       | 5/21 [00:07<00:27,  1.73s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 29%|██▊       | 6/21 [00:09<00:25,  1.69s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 33%|███▎      | 7/21 [00:12<00:29,  2.13s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 38%|███▊      | 8/21 [00:14<00:26,  2.07s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 43%|████▎     | 9/21 [00:16<00:23,  1.96s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 48%|████▊     | 10/21 [00:17<00:20,  1.85s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 52%|█████▏    | 11/21 [00:19<00:18,  1.82s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 57%|█████▋    | 12/21 [00:21<00:17,  1.90s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 62%|██████▏   | 13/21 [00:23<00:14,  1.82s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 67%|██████▋   | 14/21 [00:25<00:12,  1.85s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 71%|███████▏  | 15/21 [00:27<00:11,  1.89s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 76%|███████▌  | 16/21 [00:28<00:08,  1.64s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 81%|████████  | 17/21 [00:29<00:05,  1.49s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 86%|████████▌ | 18/21 [00:30<00:04,  1.47s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 90%|█████████ | 19/21 [00:34<00:04,  2.26s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 95%|█████████▌| 20/21 [00:36<00:02,  2.09s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+100%|██████████| 21/21 [00:37<00:00,  1.76s/it]                                               mult -2.0 {'mean_ppl': 11.327733921598426, 'degenerate_rate': 0.0}
+  0%|          | 0/21 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  5%|▍         | 1/21 [00:07<02:36,  7.83s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 10%|▉         | 2/21 [00:08<01:10,  3.72s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 14%|█▍        | 3/21 [00:10<00:50,  2.81s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 19%|█▉        | 4/21 [00:12<00:42,  2.47s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 24%|██▍       | 5/21 [00:21<01:16,  4.76s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 29%|██▊       | 6/21 [00:30<01:33,  6.21s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 33%|███▎      | 7/21 [00:38<01:37,  6.93s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 38%|███▊      | 8/21 [00:40<01:10,  5.39s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 43%|████▎     | 9/21 [00:44<00:58,  4.83s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 48%|████▊     | 10/21 [00:49<00:54,  4.99s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 52%|█████▏    | 11/21 [00:58<01:01,  6.17s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 57%|█████▋    | 12/21 [01:04<00:55,  6.20s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 62%|██████▏   | 13/21 [01:09<00:46,  5.87s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 67%|██████▋   | 14/21 [01:11<00:32,  4.59s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 71%|███████▏  | 15/21 [01:13<00:23,  3.84s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 76%|███████▌  | 16/21 [01:15<00:16,  3.37s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 81%|████████  | 17/21 [01:17<00:11,  2.99s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 86%|████████▌ | 18/21 [01:21<00:09,  3.25s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 90%|█████████ | 19/21 [01:26<00:07,  3.62s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 95%|█████████▌| 20/21 [01:30<00:03,  3.84s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+100%|██████████| 21/21 [01:36<00:00,  4.48s/it]                                               mult -4.0 {'mean_ppl': 23.140945963954728, 'degenerate_rate': 0.0}
+chosen layer 12 multiplier -2.0 CAA L2 3.2690298557281494 ACT L2 9.970302892237811

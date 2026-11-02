@@ -1,0 +1,11 @@
+11:01:25 START q2_caa_prepare
+11:06:13 END q2_caa_prepare rc=0
+11:06:13 START q2b_caa_quick
+11:07:43 END q2b_caa_quick rc=0
+11:07:43 START q5a_ays_quick
+11:08:52 END q5a_ays_quick rc=0
+11:08:52 START q1_repe_const
+11:54:49 END q1_repe_const rc=0
+11:54:49 START q3_ablations
+13:13:11 END q3_ablations rc=0
+13:13:11 START q4_baselines

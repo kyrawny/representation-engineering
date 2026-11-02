@@ -1,0 +1,37 @@
+1352 to generate
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.21s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:03,  1.98s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:01,  1.99s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.66s/it]
+Device set to use cuda:0
+Loaded directions for 3 EPA dimensions, 31 layers
+Reader configured (ElasticNet)
+Steerer coefficients: E=0.5, P=0.2, A=0.2
+Steerer configured
+gen:   0%|          | 0/1352 [00:00<?, ?it/s]Device set to use cuda:0
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   0%|          | 1/1352 [00:02<1:03:43,  2.83s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   0%|          | 2/1352 [00:04<50:29,  2.24s/it]  The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   0%|          | 3/1352 [00:07<53:36,  2.38s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+gen:   0%|          | 4/1352 [00:08<42:10,  1.88s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   0%|          | 5/1352 [00:09<40:05,  1.79s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   0%|          | 6/1352 [00:11<38:19,  1.71s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 7/1352 [00:13<37:26,  1.67s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 8/1352 [00:14<34:11,  1.53s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 9/1352 [00:15<34:55,  1.56s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 10/1352 [00:16<31:15,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 11/1352 [00:18<31:16,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 12/1352 [00:19<32:09,  1.44s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 13/1352 [00:21<31:41,  1.42s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 14/1352 [00:22<31:18,  1.40s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 15/1352 [00:23<28:49,  1.29s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|          | 16/1352 [00:24<26:40,  1.20s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|▏         | 17/1352 [00:26<28:23,  1.28s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|▏         | 18/1352 [00:27<28:08,  1.27s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|▏         | 19/1352 [00:28<29:42,  1.34s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   1%|▏         | 20/1352 [00:30<29:40,  1.34s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 21/1352 [00:32<39:21,  1.77s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 22/1352 [00:35<41:27,  1.87s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 23/1352 [00:36<35:56,  1.62s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 24/1352 [00:37<34:03,  1.54s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 25/1352 [00:38<31:38,  1.43s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen:   2%|▏         | 26/1352 [00:39<27:18,  1.24s/it]The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.

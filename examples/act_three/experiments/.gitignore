@@ -1,2 +1,12 @@
-# Experiment results (regenerable)
-results/
+# Experiment results (regenerable): ignored by default ...
+results/*
+# ... except the paper's main 8B logs (needed by scale70b as the reference) ...
+!results/08_hybrid_steering.json
+!results/ministral/
+results/ministral/*
+!results/ministral/08_hybrid_steering.json
+# ... and the scale (70B) runs returned by collaborating labs.
+!results/scale/
+
+# Human-participant survey data: keep out of version control
+results_05_02_02/

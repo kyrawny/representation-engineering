@@ -1,0 +1,171 @@
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.19s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.96s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.93s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.37s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.60s/it]
+Device set to use cuda:0
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Device set to use cuda:0
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Using orthogonalised directions
+Loaded directions for 3 EPA dimensions, 31 layers
+Reader configured (ElasticNet)
+Steerer coefficients: E=0.5, P=0.2, A=0.2
+Steerer configured
+unsteered pos_e_01 counselor_client IDENTICAL
+repe_only pos_e_01 counselor_client IDENTICAL
+unsteered pos_e_01 boss_subordinate IDENTICAL
+repe_only pos_e_01 boss_subordinate IDENTICAL
+unsteered pos_e_01 teacher_student IDENTICAL
+repe_only pos_e_01 teacher_student IDENTICAL
+unsteered pos_e_01 doctor_patient IDENTICAL
+repe_only pos_e_01 doctor_patient IDENTICAL
+unsteered pos_e_01 friend_friend IDENTICAL
+repe_only pos_e_01 friend_friend IDENTICAL
+unsteered pos_e_01 client_counselor IDENTICAL
+repe_only pos_e_01 client_counselor IDENTICAL
+unsteered pos_e_01 subordinate_boss IDENTICAL
+repe_only pos_e_01 subordinate_boss IDENTICAL
+unsteered pos_e_01 student_teacher IDENTICAL
+repe_only pos_e_01 student_teacher IDENTICAL
+unsteered pos_e_01 patient_doctor IDENTICAL
+repe_only pos_e_01 patient_doctor IDENTICAL
+unsteered pos_e_01 daughter_mother IDENTICAL
+repe_only pos_e_01 daughter_mother IDENTICAL
+unsteered pos_e_01 mother_daughter IDENTICAL
+repe_only pos_e_01 mother_daughter IDENTICAL
+unsteered pos_e_01 receptionist_visitor IDENTICAL
+repe_only pos_e_01 receptionist_visitor IDENTICAL
+unsteered pos_e_01 visitor_receptionist IDENTICAL
+repe_only pos_e_01 visitor_receptionist IDENTICAL
+unsteered pos_e_02 counselor_client IDENTICAL
+repe_only pos_e_02 counselor_client IDENTICAL
+unsteered pos_e_02 boss_subordinate IDENTICAL
+repe_only pos_e_02 boss_subordinate IDENTICAL
+unsteered pos_e_02 teacher_student IDENTICAL
+repe_only pos_e_02 teacher_student IDENTICAL
+unsteered pos_e_02 doctor_patient IDENTICAL
+repe_only pos_e_02 doctor_patient IDENTICAL
+unsteered pos_e_02 friend_friend IDENTICAL
+repe_only pos_e_02 friend_friend IDENTICAL
+unsteered pos_e_02 client_counselor IDENTICAL
+repe_only pos_e_02 client_counselor IDENTICAL
+unsteered pos_e_02 subordinate_boss IDENTICAL
+repe_only pos_e_02 subordinate_boss IDENTICAL
+unsteered pos_e_02 student_teacher IDENTICAL
+repe_only pos_e_02 student_teacher IDENTICAL
+unsteered pos_e_02 patient_doctor IDENTICAL
+repe_only pos_e_02 patient_doctor IDENTICAL
+unsteered pos_e_02 daughter_mother IDENTICAL
+repe_only pos_e_02 daughter_mother IDENTICAL
+unsteered pos_e_02 mother_daughter IDENTICAL
+repe_only pos_e_02 mother_daughter IDENTICAL
+unsteered pos_e_02 receptionist_visitor IDENTICAL
+repe_only pos_e_02 receptionist_visitor IDENTICAL
+unsteered pos_e_02 visitor_receptionist IDENTICAL
+repe_only pos_e_02 visitor_receptionist IDENTICAL
+unsteered pos_e_03 counselor_client IDENTICAL
+repe_only pos_e_03 counselor_client IDENTICAL
+unsteered pos_e_03 boss_subordinate IDENTICAL
+repe_only pos_e_03 boss_subordinate IDENTICAL
+unsteered pos_e_03 teacher_student IDENTICAL
+repe_only pos_e_03 teacher_student IDENTICAL
+unsteered pos_e_03 doctor_patient IDENTICAL
+repe_only pos_e_03 doctor_patient IDENTICAL
+unsteered pos_e_03 friend_friend IDENTICAL
+repe_only pos_e_03 friend_friend IDENTICAL
+unsteered pos_e_03 client_counselor IDENTICAL
+repe_only pos_e_03 client_counselor IDENTICAL
+unsteered pos_e_03 subordinate_boss IDENTICAL
+repe_only pos_e_03 subordinate_boss IDENTICAL
+unsteered pos_e_03 student_teacher IDENTICAL
+repe_only pos_e_03 student_teacher IDENTICAL
+unsteered pos_e_03 patient_doctor IDENTICAL
+repe_only pos_e_03 patient_doctor IDENTICAL
+unsteered pos_e_03 daughter_mother IDENTICAL
+repe_only pos_e_03 daughter_mother IDENTICAL
+unsteered pos_e_03 mother_daughter IDENTICAL
+repe_only pos_e_03 mother_daughter IDENTICAL
+unsteered pos_e_03 receptionist_visitor IDENTICAL
+repe_only pos_e_03 receptionist_visitor IDENTICAL
+unsteered pos_e_03 visitor_receptionist IDENTICAL
+repe_only pos_e_03 visitor_receptionist IDENTICAL
+unsteered pos_e_04 counselor_client IDENTICAL
+repe_only pos_e_04 counselor_client IDENTICAL
+80/80 identical -> C:\Users\Kyra\Documents\Repos\representation-engineering\examples\act_three\experiments\results\revision\llama3\00_repro_check_ortho_on.json

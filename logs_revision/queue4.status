@@ -1,0 +1,13 @@
+13:16:41 START r1_norms
+13:17:00 END r1_norms rc=0
+13:17:00 START r2_repro40
+13:19:01 END r2_repro40 rc=0
+13:19:01 START r3_rescore_ministral
+13:33:15 END r3_rescore_ministral rc=0
+13:33:15 START r3_rescore_llama3
+13:44:10 END r3_rescore_llama3 rc=0
+13:44:10 START r3_rescore_mistral7b
+13:59:56 END r3_rescore_mistral7b rc=0
+13:59:56 START r4_repe_const
+14:43:30 END r4_repe_const rc=0
+14:43:30 START r5_shuf_idonly

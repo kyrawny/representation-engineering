@@ -1,0 +1,3 @@
+20332 texts for reader llama3; 3978 to read
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:13,  4.41s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.11s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.88s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.34s/it]
