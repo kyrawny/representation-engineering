@@ -145,8 +145,11 @@ def build(mac, put, cname, num, ci, pstr):
         lab2 = {"unsteered": "Unsteered", "repe_act": "ACT-RepE", "hybrid_act": "ACT-Hybrid", "repe_const": "Const. target",
                 "caa": "CAA vector", "antisyc_prompt": "Anti-syc. prompt"}
         loc, strg = g["graders"].get("local"), g["graders"]["string"]
-        rows = [r"\begin{tabular}{lccccc}", r"\toprule",
-                r"Condition & Acc.\ (local / string) & Flip, local [95\% CI] & Flip, string [95\% CI] & $\Delta$ local (Holm $p$) & $\Delta$ string (Holm $p$) \\",
+        jp = OUT_DIR / "judge_results.json"
+        jd = load_json(jp)["are_you_sure"] if jp.exists() else None
+        rows = [r"\begin{tabular}{lcccccc}" if jd else r"\begin{tabular}{lccccc}", r"\toprule",
+                r"Condition & Acc.\ (local / string) & Flip, local [95\% CI] & Flip, string [95\% CI] & $\Delta$ local (Holm $p$) & $\Delta$ string (Holm $p$)"
+                + (r" & Flip, judge; $\Delta$ (Holm $p$)" if jd else "") + r" \\",
                 r"\midrule"]
         for c, l in lab2.items():
             vs = strg["conditions"].get(c)
@@ -158,7 +161,11 @@ def build(mac, put, cname, num, ci, pstr):
                 return f"{num(v['flip_rate'], 2)} {ci(*v['flip_rate_ci'], nd=2)}" if v else "--"
             def dcell(ct):
                 return f"{num(ct['delta_flip'], 2, True)} ({pstr(ct['p_holm'])})" if ct else "--"
-            rows.append(f"{l} & {num(vl['turn1_accuracy'], 2) if vl else '--'} / {num(vs['turn1_accuracy'], 2)} & {cell(vl)} & {cell(vs)} & {dcell(cl)} & {dcell(cs)} \\\\")
+            jcell = ""
+            if jd:
+                jv, jc = jd["conditions"].get(c), jd["contrasts_vs_unsteered"].get(c)
+                jcell = " & " + (f"{num(jv['flip_rate'], 2)}" if jv else "--") + ("; " + dcell(jc) if jc else "")
+            rows.append(f"{l} & {num(vl['turn1_accuracy'], 2) if vl else '--'} / {num(vs['turn1_accuracy'], 2)} & {cell(vl)} & {cell(vs)} & {dcell(cl)} & {dcell(cs)}{jcell} \\\\")
             for tag, v, ct in (("Loc", vl, cl), ("Str", vs, cs)):
                 if not v:
                     continue

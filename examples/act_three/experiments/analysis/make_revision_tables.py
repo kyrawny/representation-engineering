@@ -174,6 +174,8 @@ def main():
     make_results_tables.per_dim_table(num)
     make_results_tables.multiturn_extra(mac, put, cname, num, ci, pstr)
     make_results_tables.legacy_appendix(mac, put, cname, num, ci, pstr)
+    from . import make_judge_tables
+    make_judge_tables.judge(mac, put, cname, num, ci, pstr)
     write()
     print(f"{len(M)} macros written")
 

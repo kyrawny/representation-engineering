@@ -1,7 +1,7 @@
 """
 LLM judge for the revision (plan T8): prompts, backends, cache.
 
-Prompts are stored verbatim and versioned (J1-v1, J2-v1, J3-v1).  Every call is cached in a JSONL file keyed
+Prompts are stored verbatim and versioned (J1-v1, J2-v1, J3-v1; J4 = ELEPHANT's own prompts, elephant_prompts.py).  Every call is cached in a JSONL file keyed
 by sha256(prompt_version + model + payload), so an interrupted run resumes without paying twice and a re-run
 reproduces the same scores.
 
@@ -26,7 +26,8 @@ from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
 # --------------------------------------------------------------------------------------------- prompts
-PROMPT_VERSION = {"J1": "J1-v1", "J2": "J2-v1", "J3": "J3-v1"}
+PROMPT_VERSION = {"J1": "J1-v1", "J2": "J2-v1", "J3": "J3-v1", "J4": "J4-elephant-v1"}
+ELEPHANT_METRICS = ("validation", "indirectness", "framing")
 
 # (a)-(c) copy the human survey wording exactly (results_05_02_02/survey.txt; the survey's <b>NOT</b> is NOT here)
 J1_ITEMS = {
@@ -109,6 +110,17 @@ def j3_prompt(question: str, gold: str, aliases: List[str], r1: str, r2: str) ->
     return J3_TEMPLATE.format(question=question, gold=gold, aliases="; ".join(aliases[:10]) or "none", r1=r1, r2=r2)
 
 
+J4_JSON_SUFFIX = '\nReturn the number as JSON: {"score": 0 or 1}.'
+
+
+def j4_prompt(metric: str, post: str, response: str) -> str:
+    """ELEPHANT's own prompt for `metric`, verbatim (elephant_prompts.py), with its system message prepended
+    (our backends send one user message) and a JSON line appended (our backends require JSON replies)."""
+    import elephant_prompts as EP
+    body = EP.create_prompt({"q": post, "r": response}, metric, "q", "r")
+    return f"{EP.SYSTEM_MESSAGE}\n\n{body}{J4_JSON_SUFFIX}"
+
+
 # --------------------------------------------------------------------------------------------- parsing
 def parse_json(text: str):
     """First JSON object in a model reply (tolerates code fences or stray prose)."""
@@ -147,6 +159,13 @@ def validate_j3(obj) -> dict:
     if obj["turn1"] not in ok or obj["turn2"] not in ok:
         raise ValueError(f"J3 labels invalid: {obj}")
     return {"turn1": obj["turn1"], "turn2": obj["turn2"], "admits_mistake": bool(obj["admits_mistake"])}
+
+
+def validate_j4(obj) -> int:
+    v = int(obj["score"])
+    if v not in (0, 1):
+        raise ValueError(f"J4 score not 0/1: {obj}")
+    return v
 
 
 # --------------------------------------------------------------------------------------------- backends
@@ -205,6 +224,8 @@ class MockBackend:
             return json.dumps({l: {k: rng.randint(1, 7) for k in J1_ITEMS} for l in labels}), {"served_model": "mock"}
         if prompt.startswith("Rate the following utterance"):
             return json.dumps({k: round(rng.uniform(-2, 2), 2) for k in ("E", "P", "A")}), {"served_model": "mock"}
+        if prompt.endswith(J4_JSON_SUFFIX):
+            return json.dumps({"score": rng.randint(0, 1)}), {"served_model": "mock"}
         lab = ["correct", "incorrect", "no_answer"]
         return json.dumps({"turn1": rng.choice(lab[:2]), "turn2": rng.choice(lab[:2]), "admits_mistake": rng.random() < .2}), {"served_model": "mock"}
 

@@ -68,6 +68,22 @@ def export_multiturn():
     return _write_jsonl("multiturn.jsonl", rows)
 
 
+def export_aita():
+    """Open-ended ELEPHANT AITA-YTA responses (full text, at most 256 tokens) plus the Reddit top comment of each
+    post as condition 'human'.  Skipped if the generation log does not exist yet."""
+    p = REV / "llama3" / "20_elephant_aita.jsonl"
+    if not p.exists():
+        return None
+    gen = [r for r in _read_jsonl(p) if r["mode"] == "open"]
+    src = pd.read_csv(REV / "data" / "elephant" / "AITA-YTA.csv", encoding_errors="replace").set_index("Unnamed: 0")
+    rows = [{"key": r["key"], "post_id": r["post_id"], "condition": r["condition"], "post": r["user_msg"],
+             "response": r["response"]} for r in gen]
+    for pid, srow, post in sorted({(r["post_id"], r["src_row"], r["user_msg"]) for r in gen}):
+        rows.append({"key": f"{pid}|reddit|human", "post_id": pid, "condition": "human", "post": post,
+                     "response": str(src.loc[srow, "top_comment"])})
+    return _write_jsonl("aita_records.jsonl", rows)
+
+
 def export_human():
     blocks = parse_survey()
     rows = []
@@ -97,7 +113,7 @@ def run():
     BUNDLE.mkdir(parents=True, exist_ok=True)
     man = {"created": datetime.now().isoformat(timespec="seconds"), "text_rule": "first 500 characters of every text (plan G4)",
            "j1": export_j1(), "ays_records": export_ays(), "multiturn_conversations": export_multiturn(),
-           "human": export_human(), "calibration_utterances": export_calibration(),
+           "human": export_human(), "calibration_utterances": export_calibration(), "aita_records": export_aita(),
            "sources": {"llama3_08": file_sha(EXPERIMENTS_DIR / "results" / "08_hybrid_steering.json"),
                        "ministral_08": file_sha(EXPERIMENTS_DIR / "results" / "ministral" / "08_hybrid_steering.json")}}
     (BUNDLE / "manifest.json").write_text(json.dumps(man, indent=1), encoding="utf-8")

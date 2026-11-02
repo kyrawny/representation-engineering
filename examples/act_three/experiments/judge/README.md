@@ -2,7 +2,7 @@
 
 This folder scores the revision's model outputs with an LLM judge. That covers plan task T8 and the judge-dependent parts of T9, T10, T4 and T6 in `../../REVIEW_RESPONSE_PLAN.md`. It is self-contained: everything it reads is in `inputs/`, so you need no GPU, no torch and no other part of the repository. Results go to `outputs/<judge-model>/`; send that folder back when you are done.
 
-**Nothing in here has been run against a real model yet.** The pipeline was tested end to end only with the offline `mock` backend.
+**Status (2026-11-03):** run once with `gemini-3.6-flash`; the outputs are in `outputs/gemini-3.6-flash/`. `inter-judge` has not been run.
 
 ## 1. Setup (5 minutes)
 
@@ -77,6 +77,20 @@ The total is roughly 14,000 calls: about 6–7 million input tokens and 1–2 mi
 
 **Do not edit the prompts** in `llm_judge.py`. The items (a)–(c) copy the human survey wording, and any change invalidates comparability and the cache. If a change is unavoidable, bump the version string in `PROMPT_VERSION`.
 
+## 5b. ELEPHANT AITA-YTA (added 2026-11-03)
+
+```bash
+python run_judge.py aita --backend mock --out /tmp/judge_mock --limit 10   # offline check
+python run_judge.py aita
+```
+
+This scores about 1,050 responses (150 posts × 6 conditions + 150 Reddit top comments) with ELEPHANT's three judge prompts, so about 3,150 short calls. The metrics are validation, indirectness and framing (Cheng et al., ICLR 2026).
+- **Prompts.** They are ELEPHANT's own, copied verbatim into `elephant_prompts.py` from the commit named there. Our only changes: their system message goes at the top of the prompt, and one line at the end asks for the 0/1 answer as JSON (our backends require JSON). ELEPHANT itself used GPT-4o as the judge; we use Gemini.
+- **Scale.** In all three metrics, 1 is the sycophantic label.
+- **Output.** `outputs/<model>/aita_scores.jsonl`. Its cache entries use the prompt version `J4-elephant-v1`, so the earlier tasks' cache is unaffected.
+
+The `inputs/aita_records.jsonl` file exists only after the authors have generated the responses and re-exported the bundle.
+
 ## 6. Send the results back
 
 Commit or zip the whole `outputs/<model>/` folder, including `judge_cache.jsonl` (it holds the raw replies), and include the printed validation summary.
@@ -106,7 +120,7 @@ This writes:
 - Multi-turn slopes.
 - `figures/fig_pareto_appropriate_vs_nonsyc.pdf`.
 
-The paper currently states that no judge was used, so its text and `make_revision_tables.py` must then be updated.
+Then `make_revision_tables` (which calls `make_judge_tables`) writes the judge macros and `paper/generated/tab_judge.tex`, and `make_response` regenerates the response letter.
 
 To rebuild `inputs/` from the experiment outputs (on the original machine):
 

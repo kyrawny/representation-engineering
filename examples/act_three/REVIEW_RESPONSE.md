@@ -1,64 +1,207 @@
 # Response to reviewers
 
-We thank the reviewers. This letter is generated from the same macro file as the revised paper (`paper/generated/macros.tex`), so every number below is the number in the paper. Section names refer to the revised paper (`paper/AnonymousSubmission2027.tex`); code and outputs are in `experiments/revision/`, `experiments/analysis/` and `experiments/results/{revision,analysis}/`.
+We thank the reviewers. This letter is generated from the same macro file as the revised paper (`paper/generated/macros.tex`), so every number below is the number in the paper. Section names refer to the revised paper (`paper/AnonymousSubmission2027.tex`); code and outputs are in `experiments/revision/`, `experiments/analysis/`, `experiments/judge/` and `experiments/results/{revision,analysis}/`.
 
-**What we could not do, up front.** (1) We had no LLM judge, so the appropriateness, naturalness and non-sycophancy of the *new* baselines (constant/shuffled targets, CAA, anti-sycophancy prompt) were rated by no one; the human study was not rerun (a new preregistered study with these conditions is the proper test and we offer it). (2) Persona vectors were not run (cited only). (3) ELEPHANT social-sycophancy and judge-based multi-turn scoring were not run. (4) Claude Sonnet 5 generations are not in our repository and were not re-scored. See `BLOCKERS.md`.
+**What we could not do, up front.**
+1. The new baselines have no *human* ratings. Instead, an LLM judge (Gemini-3.6-Flash) rates every condition. It was validated against the existing human ratings, but only one judge was run, so inter-judge agreement is unmeasured. A new preregistered human study with these conditions remains the proper test, and we offer it.
+2. Persona vectors were not run (cited only).
+3. ELEPHANT social sycophancy was not run.
+4. Claude Sonnet 5 generations are not in our repository and were not re-scored.
 
-**What changed our conclusions.** The independent-reader analysis does not support several original claims, and we have withdrawn or weakened them: the ranking Hybrid < RepE ~ PE < Unsteered on Llama (only a small RepE gain survives independent scoring); "PE is best for Evaluation and RepE for Potency/Activity"; the pooled p-values of the human study; "RepE achieves a more normatively appropriate balance"; the description of sycophancy reduction as an "emergent property"; and the frontier-model comparison ("not an emergent property of capability"). We also found that the shipped Llama configuration file disables the orthogonalised directions that the paper and the logged runs use; revision runs force them on (details in `BLOCKERS.md`).
+See `BLOCKERS.md`.
+
+**What changed our conclusions.** Independent measurement does not support several original claims, and we have withdrawn or weakened them:
+- the ranking Hybrid < RepE ~ PE < Unsteered on Llama (only a small RepE gain survives independent scoring);
+- "PE is best for Evaluation and RepE for Potency/Activity";
+- the pooled p-values of the human study;
+- "RepE achieves a more normatively appropriate balance";
+- the description of sycophancy reduction as an "emergent property";
+- the frontier-model comparison ("not an emergent property of capability").
+
+Most importantly, **we no longer claim that ACT-guided steering reduces sycophancy**. Over the full run, a judge validated on the human ratings rates ACT-RepE as less appropriate than unsteered text and not more non-sycophantic. Non-ACT targets and a CAA vector are as non-sycophantic as ACT-RepE, and an anti-sycophancy prompt is better on appropriateness and non-sycophancy. On "Are you sure?" ACT-RepE makes the model abandon correct answers *more* often. The claim that survives is narrower: ACT targets move expressed affect, mainly Potency, toward role-specific values better than fixed or misassigned targets do.
+
+We also found that the shipped Llama configuration file disables the orthogonalised directions that the paper and the logged runs use. Revision runs force them on (details in `BLOCKERS.md`).
+
+**The judge.** Gemini-3.6-Flash (temperature 0; a different vendor from both generators) rates each trial with all conditions' responses shown together in a fixed random order.
+- **Items.** It uses the three survey items (appropriate, natural, NOT sycophantic) plus five decomposition items: flatters, gives in, assertive, harsh, addresses the concern. It also gives an EPA rating of every response and grades both turns of "Are you sure?".
+- **Validation against humans.** On the 56 human-rated responses, it correlates with the mean human ratings at r = 0.74 (CI [0.58, 0.84]), 0.63 ([0.39, 0.81]) and 0.58 ([0.33, 0.81]). All three items pass the bar fixed before scoring (r ≥ 0.4, CI excluding 0).
+- **Validation against dictionary EPA.** On the 130 calibration utterances it reaches r = 0.86, 0.58 and 0.60 (E, P, A). That is better than every reader on E and A, and below the Ministral reader on P (0.681).
+- **Order effects.** Reversing the presentation order on 100 trials moves no item's mean by more than 0.07.
 
 ---
 
 ## Reviewer 1 (rating 5)
 
 **R1.1 "The experiments do not clearly show what ACT adds over existing methods. CAA and persona vectors would be useful baselines."**
-*Done.* We added a CAA sycophancy vector (public CAA dataset; layer 13 of 32, multiplier −2.0, chosen automatically by held-out log-odds change and a perplexity constraint) injected through the same steering pipeline, and an explicit anti-sycophancy system prompt. Persona vectors were *not* run; they are cited and discussed (Related Work) and CAA is our representation-steering baseline. *Result:* on distance to the ACT target (independent reader) ACT-RepE is closer than CAA by +0.053 (95% CI [0.029, 0.075], Holm p <0.001) and not distinguishable from the anti-sycophancy prompt (−0.010, CI [−0.032, 0.014]). On the benchmark, see R3.3. We cannot say whether CAA or the prompt is perceived as more or less sycophantic than ACT-RepE (no ratings). *Where:* Experimental Setup "Conditions, Ablations and Baselines"; Results "What Does ACT Add".
+
+*Done.* We added two baselines:
+- a CAA sycophancy vector (public CAA dataset; layer 13 of 32, multiplier −2.0, chosen automatically by held-out log-odds change and a perplexity constraint), injected through the same steering pipeline;
+- an explicit anti-sycophancy system prompt.
+
+Persona vectors were *not* run; they are cited and discussed (Related Work), and CAA is our representation-steering baseline.
+
+*Result, distance to the ACT target (independent reader).* ACT-RepE is closer than CAA by +0.053 (95% CI [0.029, 0.075], Holm p <0.001). It is not distinguishable from the anti-sycophancy prompt (−0.010, CI [−0.032, 0.014]). The judge's EPA ratings agree for CAA (+0.063) but put the prompt *closer* to the target than ACT-RepE (−0.058, CI [−0.091, −0.026]).
+
+*Result, response quality (judge, condition minus ACT-RepE, 7-point scale).* CAA is indistinguishable from ACT-RepE on every item: appropriateness +0.02 (CI [−0.21, 0.25]), non-sycophancy +0.05 (CI [−0.09, 0.21]). The anti-sycophancy prompt is better on both:
+- appropriateness +0.53, CI [0.20, 0.85], Holm p 0.009;
+- non-sycophancy +0.56, CI [0.41, 0.73], Holm p <0.001.
+
+On the benchmark, see R3.3.
+
+*Where:* Experimental Setup "Conditions, Ablations and Baselines"; Results "What Does ACT Add" and "Are the Responses Better?".
 
 **R1.2 "RepE-only still uses ACT targets; compare fixed EPA targets with ACT targets, steering unchanged."**
-*Done, with three variants under identical steering code:* constant target (mean ACT target; all 1,300 trials), the target of another identity pair for the same scenario (also a misspecified-identity test), and identity-only target (no reading of the message). *Result (independent reader, distance to ACT target, condition minus ACT-RepE):* constant +0.047 (CI [0.033, 0.061], Holm p <0.001, MDE 0.021); shuffled +0.038 (CI [0.023, 0.054]); identity-only +0.023 (CI [0.002, 0.046]). Constant and shuffled targets do not track the target (Potency slope −0.01, 0.02) while ACT-RepE does, weakly (0.13). Role reversal: the Potency difference between high- and low-status agents is +0.25 (CI [0.19, 0.32]) for ACT-RepE versus +0.04 for a constant target, against an ACT-prescribed gap of 2.01. *Interpretation (our reading, not a claim of better quality):* ACT targets do move outputs differently from fixed targets, mostly through the identity-dependent part; the gain is small, is smaller and not significant with the Mistral-7B reader (+0.020, Holm p 0.108), and no ratings exist to say it is better. *Where:* Results "What Does ACT Add".
+
+*Done, with three variants under identical steering code:* a constant target (mean ACT target; all 1,300 trials), the target of another identity pair for the same scenario (also a misspecified-identity test), and an identity-only target (no reading of the message).
+
+*Result, distance to the ACT target (independent reader, condition minus ACT-RepE):*
+
+| Target | Δ distance | 95% CI | Other |
+|---|---|---|---|
+| Constant | +0.047 | [0.033, 0.061] | Holm p <0.001, MDE 0.021 |
+| Shuffled | +0.038 | [0.023, 0.054] | |
+| Identity-only | +0.023 | [0.002, 0.046] | |
+
+The judge's EPA ratings give the same ordering, more clearly: constant +0.108 (CI [0.075, 0.140]), shuffled +0.068, identity-only +0.086.
+- **Tracking.** Constant and shuffled targets do not track the target (Potency slope −0.01 and 0.02). ACT-RepE does, weakly (0.13).
+- **Role reversal.** The Potency difference between high- and low-status agents is +0.25 (CI [0.19, 0.32]) for ACT-RepE versus +0.04 for a constant target, against an ACT-prescribed gap of 2.01.
+
+*Is the result better?* The judge says no. A constant target is as non-sycophantic as ACT-RepE (+0.04, CI [−0.04, 0.14]), and more appropriate (+0.58, CI [0.41, 0.74]) and natural (+0.57). A shuffled target is indistinguishable on all items.
+
+*Interpretation.* ACT targets do move outputs differently from fixed targets, mostly through the identity-dependent part. That difference is small, and it does not make responses better or less sycophantic in the judge's ratings.
+
+*Where:* Results "What Does ACT Add" and "Are the Responses Better?".
 
 **R1.3 "Compare with existing anti-sycophancy methods in the human evaluation (appropriateness, naturalness, non-sycophancy together)."**
-*Not done as asked.* We had no judge and did not rerun the human study, so the new methods have no human ratings and no Pareto plot of appropriateness vs non-sycophancy could be produced. What we did instead: the epistemic benchmark for all conditions (R3.3), the mixed-model reanalysis of the existing human data (R3.4), and text-feature analyses. This remains the main gap and is stated as such in Limitations.
+
+*Done with a validated LLM judge, not with new human ratings.* Table "LLM-judge ratings" gives appropriateness, naturalness and non-sycophancy together for all nine Llama conditions, plus the decomposition items. `experiments/results/analysis/figures/fig_pareto_appropriate_vs_nonsyc.pdf` plots appropriateness against non-sycophancy.
+
+On both axes the anti-sycophancy prompt dominates ACT-RepE (+0.53 and +0.56), and so does the constant target on appropriateness. A new human study with these conditions is still the proper test; we state this in Limitations and offer to run it.
 
 **R1.4 "Related work such as *Sycophancy Detection in Large Language Models* deserves discussion."**
-*Done.* Related Work now covers CAA, persona vectors, linear-probe approaches to sycophancy, SycophancyEval, SYCON-Bench, ELEPHANT and the survey of Malmqvist (arXiv 2411.15287). **Note:** the arXiv paper we were pointed to for this reference is titled "Sycophancy in Large Language Models: Causes and Mitigations", not "Sycophancy Detection in Large Language Models"; we cite it under its verified title and could not identify another paper with the reviewer's title. If the reviewer meant a different paper we would be glad to add it. All new references were checked against their arXiv pages.
+
+*Done.* Related Work now covers CAA, persona vectors, linear-probe approaches to sycophancy, SycophancyEval, SYCON-Bench, ELEPHANT and the survey of Malmqvist (arXiv 2411.15287).
+
+**Note:** the arXiv paper we were pointed to for this reference is titled "Sycophancy in Large Language Models: Causes and Mitigations", not "Sycophancy Detection in Large Language Models". We cite it under its verified title and could not identify another paper with the reviewer's title; if the reviewer meant a different paper, we would be glad to add it. All new references were checked against their arXiv pages.
 
 ## Reviewer 2 (rating 3)
 
 **R2.W1 "Primarily integrates existing ACT and RepE methods without substantial technical innovation."**
-We have not changed the method and do not claim more than the ablations support: the contribution is the pairing of ACT targets with RepE, and we now show quantitatively how small and how identity-driven the ACT-specific part is (R1.2).
+
+We have not changed the method and do not claim more than the ablations support. The contribution is the pairing of ACT targets with RepE, and we now show quantitatively how small and how identity-driven the ACT-specific part is (R1.2), and that it does not translate into less sycophantic responses (R1.3).
 
 **R2.W2 / Q3 "The same EPA reading framework informs steering and evaluates it."**
-*Done.* Every text is re-read (first 500 characters, all conditions alike) by readers built on other models (Ministral for Llama texts, Llama for Ministral texts, Mistral-7B for E and A; its Potency reader is empty), and we report VADER and each reader's validity on the 130-utterance calibration set. *Result:* the own reader agrees only moderately with the independent reader on Llama texts (r = 0.68 E, 0.47 P, 0.45 A). The original Llama ranking is not robust: Hybrid improves on unsteered by −0.110 under the own reader but −0.035 (CI [−0.056, −0.015]) under the independent one and −0.008 on trials with no truncated text; PE is *farther* from the target than unsteered (+0.015); RepE keeps a small gain (−0.032). For Ministral the ordering survives (Hybrid −0.120, RepE −0.083). The robust effect is on Potency. We also found that readings of truncated (500-character-limited) texts differ strongly from readings of full texts, which inflated the original Hybrid result. We did not use an LLM judge. *Where:* Results "How Circular..." and "Automated Steering Under Independent Measures".
+
+*Done.* Every text is re-read (first 500 characters, all conditions alike) by readers built on other models: Ministral for Llama texts, Llama for Ministral texts, and Mistral-7B for E and A (its Potency reader is empty). The LLM judge gives a fourth EPA measure that shares no model with the pipeline. We report VADER and each measure's validity on the 130-utterance calibration set.
+
+*Result.*
+- **Agreement.** The own reader agrees only moderately with the independent reader on Llama texts (r = 0.68 E, 0.47 P, 0.45 A).
+- **Llama ranking.** The original ranking is not robust. Hybrid improves on unsteered by −0.110 under the own reader, but by only −0.035 (CI [−0.056, −0.015]) under the independent one, by −0.008 on trials with no truncated text, and by −0.028 (not significant) under the judge. PE is *farther* from the target than unsteered (+0.015). RepE keeps a small gain (reader −0.032; judge −0.061, CI [−0.100, −0.023]).
+- **Ministral.** RepE is closer than unsteered under all measures (judge −0.076). Hybrid is closer under the readers (−0.120) but not under the judge (+0.013).
+- **Truncation.** Readings of truncated (500-character-limited) texts differ strongly from readings of full texts, which inflated the original Hybrid result.
+
+The robust effect is on Potency.
+
+*Where:* Methods "Independent Measurement"; Results "How Circular..." and "Automated Steering Under Independent Measures".
 
 **R2.W3 / Q5 "Single-turn only, predefined identities, no multi-turn evidence; uncertain identities; cultural diversity."**
-*Partly addressed.* (a) "Are you sure?" is two-turn with the generic identities assistant/person and the method applied unchanged at each turn (R3.3). (b) Three-turn scripted dialogues with praise-plus-favour and pushback follow-ups: in 100 scripted conversations the share of turn-3 replies that give the requested concession (a lexical marker with high precision but low recall) is 0.21 for unsteered text versus 0.04 (ACT-RepE), 0.08 (ACT-Hybrid) and 0.16 (constant target); the turn-by-condition slope differs from unsteered for ACT-RepE (−0.08 per turn, p <0.001) but not for the constant target (p 0.301). This is a tone-level result: the marker was only checked on a small hand-labelled sample, the follow-ups are scripted and no judge was available; it does not match the answer-flipping benchmark, where ACT steering gives no gain. (c) Misspecified identities: with the target of the wrong identity pair, the effect disappears (ΔP +0.07 vs +0.25), so correct identities matter; we did not test identity inference. (d) Culture: no new data; stated in Limitations (US 2010 dictionary only).
+
+*Partly addressed.*
+- **(a) Two-turn benchmark.** "Are you sure?" is two-turn, with the generic identities assistant/person and the method applied unchanged at each turn (R3.3).
+- **(b) Three-turn dialogues.** We ran 100 scripted dialogues with praise-plus-favour and pushback follow-ups. The share of turn-3 replies that give the requested concession (a lexical marker with high precision but low recall) is 0.21 for unsteered text, versus 0.04 (ACT-RepE), 0.08 (ACT-Hybrid) and 0.16 (constant target).
+  - The judge's "gives in" rating rises over turns for unsteered text (1.50 → 2.14, slope +0.32 per turn, p <0.001) but stays nearly flat for ACT-RepE (slope difference −0.26, p 0.016). The constant target and ACT-Hybrid do not differ significantly from unsteered.
+  - So on scripted social requests, ACT-RepE concedes less as pressure builds. On factual pushback it gives in *more* (R3.3), so this is a tone-level result.
+- **(c) Misspecified identities.** With the target of the wrong identity pair, the role-reversal effect disappears (ΔP +0.07 vs +0.25), so correct identities matter. We did not test identity inference.
+- **(d) Culture.** No new data; stated in Limitations (US 2010 dictionary only).
 
 **R2.W4 / Q6 "Metric choices, scenarios and identities are insufficiently justified."**
-*Partly addressed.* New appendix tables list the 7 scenario categories (the paper wrongly said 10), their mean read EPA and the 13 identity pairs (6 role-reversed twins, 1 symmetric), and the share of target variance explained by identity pair (37%/82%/46% for E/P/A) and scenario (33%/12%/42%). *Not resolved:* the repository does not record how the scenarios were produced; the manuscript carries an explicit placeholder asking the authors to state it. We could not validate metrics against an LLM judge.
+
+*Partly addressed.*
+- **Scenarios and identities.** New appendix tables list the 7 scenario categories (the paper wrongly said 10), their mean read EPA, and the 13 identity pairs (6 role-reversed twins, 1 symmetric). They also give the share of target variance explained by identity pair (37%/82%/46% for E/P/A) and by scenario (33%/12%/42%).
+- **Metrics.** The quality items are now validated by a judge that tracks human ratings (R1.3, "The judge" above).
+- *Not resolved:* the repository does not record how the scenarios were produced. The manuscript carries an explicit placeholder asking the authors to state it.
 
 **R2.Q1 "Substantive sycophancy or merely more assertive responses?"**
-(i) Epistemic test: flip rate under "Are you sure?" (R3.3). (ii) Human data: adding assertiveness/harshness proxies (reader Potency, negated Evaluation, imperative and exclamation rates) to the non-sycophancy mixed model changes the RepE advantage from 0.59 to 0.50 (attenuation 16%), i.e. most of it does not run through these proxies; the proxies come from the same reader, so this is a weak test and we say so. A judge-based decomposition was not possible.
+
+Our evidence says mostly more assertive:
+- **(i) Judge decomposition, all 1,300 trials.** Relative to unsteered text, ACT-RepE is rated more assertive (+0.21) and harsher (+0.38). It is not less flattering (+0.13), not less likely to give in (−0.09), and slightly *less* non-sycophantic overall (−0.18, CI [−0.28, −0.08]).
+- **(ii) Epistemic test.** ACT-RepE flips *more* under "Are you sure?" (R3.3).
+- **(iii) Human data.** Adding assertiveness proxies to the non-sycophancy mixed model changes the RepE advantage from 0.59 to 0.50 (attenuation 16%). The proxies come from the same reader, so this is a weak test.
 
 **R2.Q2 "Why is Hybrid best automatically but worst for humans?"**
-Under independent readers Hybrid is *not* clearly best for Llama (above). Hybrid texts are longer (+20 words vs unsteered) and more exclamatory (+0.13 per sentence). Across rated responses, being closer to the Activity target does not predict appropriateness (+0.42, p <0.001; larger deviation was associated with higher ratings). Exploratory, 56 responses.
 
-**R2.Q4 "What does ACT add over simpler prompting or conventional steering baselines?"** See R1.1 and R1.2.
+- **It is not best automatically.** Under the independent readers Hybrid is not clearly best for Llama, and under the judge's EPA ratings it is not closer to target than unsteered for either model.
+- **The judge rates it worst too.** It is rated the least appropriate (−1.44 vs unsteered) and most flattering (+0.96).
+- **Text features.** Hybrid texts are longer (+20 words vs unsteered) and more exclamatory (+0.13 per sentence).
+- **Distance to target does not predict ratings.** Across rated responses, being closer to the Activity target does not predict appropriateness (+0.42, p <0.001; larger deviation was associated with higher ratings). This is exploratory, on 56 responses.
+
+**R2.Q4 "What does ACT add over simpler prompting or conventional steering baselines?"** See R1.1–R1.3. In short, ACT adds closer tracking of ACT-prescribed affect. It does not add better or less sycophantic responses than a constant target, CAA or a prompt.
 
 ## Reviewer 3 (rating 5)
 
 **R3.1 "Automated evaluation is circular; the reader is noisy; gains are modest."**
-See R2.W2. Every gain is now reported with its minimum detectable effect (e.g. Llama Hybrid under the independent reader −0.035, MDE 0.029) and tracking slopes; outputs follow their targets only weakly (Potency slope 0.13 for ACT-RepE), and the Llama Potency and Activity readers are weak (r = 0.515, 0.315).
+
+See R2.W2. Every gain is now reported with its minimum detectable effect (e.g. Llama Hybrid under the independent reader −0.035, MDE 0.029) and with tracking slopes. Outputs follow their targets only weakly (Potency slope 0.13 for ACT-RepE), and the Llama Potency and Activity readers are weak (r = 0.515, 0.315). The LLM judge is a measure outside the pipeline and is validated against humans.
 
 **R3.2 "The human study does not clearly support the central claim."**
-We agree in part. Mixed models show RepE is rated more non-sycophantic than unsteered (+0.85, CI [0.49, 1.22]) with unchanged naturalness (+0.02, CI [−0.24, 0.28]) but lower appropriateness (−0.56, CI [−0.92, −0.20]); Hybrid is least natural and appropriate. The claim of a better appropriateness/sycophancy balance is removed. The vignettes come from an earlier 5-pair run, which is now disclosed.
+
+We agree, and the judge strengthens the point.
+
+*Human study.* Mixed models on the 14 vignettes show:
+- RepE is rated more non-sycophantic than unsteered (+0.85, CI [0.49, 1.22]);
+- its naturalness is unchanged (+0.02, CI [−0.24, 0.28]);
+- its appropriateness is lower (−0.56, CI [−0.92, −0.20]).
+
+*Judge.* On those 56 responses it reproduces the non-sycophancy ordering (RepE 6.71 vs unsteered 5.86). On all 1,300 trials of the logged run it does not: RepE is slightly *less* non-sycophantic (−0.18), including on the 500 trials with the study's five identity pairs (−0.20, CI [−0.35, −0.08]).
+
+*Conclusion.* The human non-sycophancy advantage is therefore probably specific to the sampled vignettes. The claim of a better appropriateness/sycophancy balance is removed, and the vignettes' origin in an earlier 5-pair run is disclosed.
 
 **R3.3 "Sycophancy is measured with one Likert item rather than standard benchmarks."**
-*Done for epistemic sycophancy:* SycophancyEval "Are you sure?" (200 TriviaQA items, two turns, generic identities, all conditions). Graded by a local yes/no grader and, as a check, alias matching (the two graders agree on 0.59 of turn-2 labels; against 37 blind hand labels the agreement is 0.76 (string) and 0.78 (local)); no external judge. *Result:* flip rate (local grader) unsteered 0.77 (CI [0.70, 0.84]); ACT-RepE Δ +0.05 (CI [−0.02, 0.13], Holm p 0.997; string grader Δ +0.09); constant target Δ −0.20 (string +0.07); CAA Δ +0.06 (string +0.09); anti-sycophancy prompt Δ −0.25 (CI [−0.35, −0.15]; string −0.01). Turn-1 accuracy falls under every steered condition (string grader: ACT-RepE 0.69, CAA 0.72 vs unsteered 0.82). **ACT steering does not reduce answer flipping** (no ACT-RepE or ACT-Hybrid contrast vs unsteered is significant after Holm correction, and the point estimates are positive under both graders), so the perceived-sycophancy reduction in the human study does not extend to epistemic sycophancy in our data; the anti-sycophancy prompt does lower flips under the local grader and in a small blind hand check (flip rate 0.21 vs 0.57), not under string matching. The grading is imperfect (see above) and the paper says so. *Not done:* ELEPHANT (needs a judge). *Where:* Results "Epistemic Sycophancy".
+
+*Done for epistemic sycophancy:* SycophancyEval "Are you sure?" (200 TriviaQA items, two turns, generic identities, all conditions).
+
+*Graders.* Three graders score it: the LLM judge, a local yes/no grader, and alias matching. Against 37 blind hand labels, agreement is 0.86 for the judge, 0.78 for the local grader and 0.76 for string matching, so the judge is our primary grader.
+
+*Results (judge-graded).*
+
+| Condition | Flip rate | Δ vs unsteered | 95% CI | Holm p |
+|---|---|---|---|---|
+| Unsteered | 0.58 ([0.50, 0.65]) | – | – | – |
+| ACT-RepE | 0.66 ([0.58, 0.73]) | **+0.15** | [0.06, 0.25] | 0.009 |
+| ACT-Hybrid | 0.59 | +0.04 | [−0.05, 0.14] | 0.674 |
+| Constant target | 0.44 | −0.07 | [−0.16, 0.02] | 0.488 |
+| CAA | 0.54 | +0.07 | [−0.05, 0.18] | 0.674 |
+| Anti-sycophancy prompt | 0.41 | −0.13 | [−0.22, −0.04] | 0.020 |
+
+- **The other graders point the same way for ACT-RepE**, without significance (local +0.05, string +0.09).
+- **Capability cost.** Turn-1 accuracy falls under every steered condition (judge: ACT-RepE 0.68, CAA 0.58 vs unsteered 0.78).
+
+**ACT steering does not reduce answer flipping, and ACT-RepE increases it.** The only intervention that lowers flips under the best-validated grader is the explicit anti-sycophancy prompt.
+
+*Not done:* ELEPHANT.
+
+*Where:* Results "Epistemic Sycophancy".
 
 **R3.4 "Statistics treat repeated ratings as independent; a mixed-effects analysis is needed."**
-*Done.* CLMMs with crossed random effects for participant and vignette (R `ordinal`), likelihood-ratio tests (χ² = 101.3, 91.5, 161.2), Holm-adjusted contrasts, a participant-level Friedman/Wilcoxon check and Krippendorff's α (0.14, 0.12, 0.17). The original "p < 10⁻²⁷"-style statements are removed. Main conclusions survive with wider intervals.
+
+*Done.*
+- CLMMs with crossed random effects for participant and vignette (R `ordinal`);
+- likelihood-ratio tests (χ² = 101.3, 91.5, 161.2);
+- Holm-adjusted contrasts;
+- a participant-level Friedman/Wilcoxon check;
+- Krippendorff's α (0.14, 0.12, 0.17).
+
+The original "p < 10⁻²⁷"-style statements are removed. Within the 14 vignettes the main conclusions survive with wider intervals; see R3.2 for whether they generalise.
 
 ---
 
 ## Items offered but not completed
-New human study with the added baselines and separate sycophancy items; persona vectors; ELEPHANT; judge-based scoring; cross-cultural dictionaries; Ministral replication of the ablations/benchmarks (see `BLOCKERS.md`).
+
+- A new human study with the added baselines and a representative sample of trials;
+- a second judge (inter-judge agreement);
+- persona vectors;
+- ELEPHANT;
+- cross-cultural dictionaries;
+- Ministral replication of the ablations and benchmarks.
+
+See `BLOCKERS.md`.

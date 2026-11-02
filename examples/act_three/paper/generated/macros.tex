@@ -204,6 +204,54 @@
 \newcommand{\AssertUnadj}{0.59}
 \newcommand{\AysGraderAgree}{0.59}
 \newcommand{\AysItems}{200}
+\newcommand{\AysJdAgreeLocal}{0.83}
+\newcommand{\AysJdAgreeString}{0.75}
+\newcommand{\AysJdAntisycpromptAcc}{0.72}
+\newcommand{\AysJdAntisycpromptDelta}{$-$0.13}
+\newcommand{\AysJdAntisycpromptDeltaCi}{[$-$0.22, $-$0.04]}
+\newcommand{\AysJdAntisycpromptDiscord}{10/28}
+\newcommand{\AysJdAntisycpromptFlip}{0.41}
+\newcommand{\AysJdAntisycpromptFlipCi}{[0.33, 0.49]}
+\newcommand{\AysJdAntisycpromptP}{0.020}
+\newcommand{\AysJdAntisycpromptToIncorrect}{0.38}
+\newcommand{\AysJdCaaAcc}{0.58}
+\newcommand{\AysJdCaaDelta}{$+$0.07}
+\newcommand{\AysJdCaaDeltaCi}{[$-$0.05, 0.18]}
+\newcommand{\AysJdCaaDiscord}{23/16}
+\newcommand{\AysJdCaaFlip}{0.54}
+\newcommand{\AysJdCaaFlipCi}{[0.44, 0.62]}
+\newcommand{\AysJdCaaP}{0.674}
+\newcommand{\AysJdCaaToIncorrect}{0.50}
+\newcommand{\AysJdHandAgree}{0.86}
+\newcommand{\AysJdHandN}{37}
+\newcommand{\AysJdHybridactAcc}{0.69}
+\newcommand{\AysJdHybridactDelta}{$+$0.04}
+\newcommand{\AysJdHybridactDeltaCi}{[$-$0.05, 0.14]}
+\newcommand{\AysJdHybridactDiscord}{23/18}
+\newcommand{\AysJdHybridactFlip}{0.59}
+\newcommand{\AysJdHybridactFlipCi}{[0.50, 0.67]}
+\newcommand{\AysJdHybridactP}{0.674}
+\newcommand{\AysJdHybridactToIncorrect}{0.55}
+\newcommand{\AysJdRepeactAcc}{0.68}
+\newcommand{\AysJdRepeactDelta}{$+$0.15}
+\newcommand{\AysJdRepeactDeltaCi}{[0.06, 0.25]}
+\newcommand{\AysJdRepeactDiscord}{27/8}
+\newcommand{\AysJdRepeactFlip}{0.66}
+\newcommand{\AysJdRepeactFlipCi}{[0.58, 0.73]}
+\newcommand{\AysJdRepeactP}{0.009}
+\newcommand{\AysJdRepeactToIncorrect}{0.62}
+\newcommand{\AysJdRepeconstAcc}{0.64}
+\newcommand{\AysJdRepeconstDelta}{$-$0.07}
+\newcommand{\AysJdRepeconstDeltaCi}{[$-$0.16, 0.02]}
+\newcommand{\AysJdRepeconstDiscord}{12/21}
+\newcommand{\AysJdRepeconstFlip}{0.44}
+\newcommand{\AysJdRepeconstFlipCi}{[0.35, 0.53]}
+\newcommand{\AysJdRepeconstP}{0.488}
+\newcommand{\AysJdRepeconstToIncorrect}{0.40}
+\newcommand{\AysJdUnsteeredAcc}{0.78}
+\newcommand{\AysJdUnsteeredFlip}{0.58}
+\newcommand{\AysJdUnsteeredFlipCi}{[0.50, 0.65]}
+\newcommand{\AysJdUnsteeredToIncorrect}{0.55}
 \newcommand{\AysLocAntisycpromptAcc}{0.53}
 \newcommand{\AysLocAntisycpromptDelta}{$-$0.25}
 \newcommand{\AysLocAntisycpromptDeltaCi}{[$-$0.35, $-$0.15]}
@@ -618,6 +666,655 @@
 \newcommand{\HumanNonSycWilcoxonPEMinusUnstHolm}{$<$0.001}
 \newcommand{\HumanNonSycWilcoxonRepEMinusPEHolm}{$<$0.001}
 \newcommand{\HumanNonSycWilcoxonRepEMinusUnstHolm}{$<$0.001}
+\newcommand{\JdCalACi}{[0.51, 0.68]}
+\newcommand{\JdCalAR}{0.60}
+\newcommand{\JdCalECi}{[0.79, 0.91]}
+\newcommand{\JdCalER}{0.86}
+\newcommand{\JdCalPCi}{[0.45, 0.70]}
+\newcommand{\JdCalPR}{0.58}
+\newcommand{\JdEpaLlamaAntisycpromptVsRepE}{$-$0.058}
+\newcommand{\JdEpaLlamaAntisycpromptVsRepECi}{[$-$0.091, $-$0.026]}
+\newcommand{\JdEpaLlamaAntisycpromptVsRepEP}{0.002}
+\newcommand{\JdEpaLlamaCaaVsRepE}{$+$0.063}
+\newcommand{\JdEpaLlamaCaaVsRepECi}{[0.018, 0.106]}
+\newcommand{\JdEpaLlamaCaaVsRepEP}{0.006}
+\newcommand{\JdEpaLlamaHybridVsUnst}{$-$0.028}
+\newcommand{\JdEpaLlamaHybridVsUnstCi}{[$-$0.090, 0.030]}
+\newcommand{\JdEpaLlamaHybridVsUnstP}{0.368}
+\newcommand{\JdEpaLlamaN}{6,084}
+\newcommand{\JdEpaLlamaPeonlyVsUnst}{$+$0.036}
+\newcommand{\JdEpaLlamaPeonlyVsUnstCi}{[$-$0.006, 0.077]}
+\newcommand{\JdEpaLlamaPeonlyVsUnstP}{0.180}
+\newcommand{\JdEpaLlamaRCrossA}{0.29}
+\newcommand{\JdEpaLlamaRCrossE}{0.55}
+\newcommand{\JdEpaLlamaRCrossP}{0.29}
+\newcommand{\JdEpaLlamaRMSevenbA}{0.33}
+\newcommand{\JdEpaLlamaRMSevenbE}{0.52}
+\newcommand{\JdEpaLlamaROrigA}{0.31}
+\newcommand{\JdEpaLlamaROrigE}{0.52}
+\newcommand{\JdEpaLlamaROrigP}{0.13}
+\newcommand{\JdEpaLlamaROwnA}{0.28}
+\newcommand{\JdEpaLlamaROwnE}{0.45}
+\newcommand{\JdEpaLlamaROwnP}{0.16}
+\newcommand{\JdEpaLlamaRTargetA}{0.16}
+\newcommand{\JdEpaLlamaRTargetE}{0.01}
+\newcommand{\JdEpaLlamaRTargetP}{0.39}
+\newcommand{\JdEpaLlamaRVaderE}{0.28}
+\newcommand{\JdEpaLlamaRepeconstVsRepE}{$+$0.108}
+\newcommand{\JdEpaLlamaRepeconstVsRepECi}{[0.075, 0.140]}
+\newcommand{\JdEpaLlamaRepeconstVsRepEP}{$<$0.001}
+\newcommand{\JdEpaLlamaRepeidonlyVsRepE}{$+$0.086}
+\newcommand{\JdEpaLlamaRepeidonlyVsRepECi}{[0.050, 0.123]}
+\newcommand{\JdEpaLlamaRepeidonlyVsRepEP}{$<$0.001}
+\newcommand{\JdEpaLlamaRepeonlyVsUnst}{$-$0.061}
+\newcommand{\JdEpaLlamaRepeonlyVsUnstCi}{[$-$0.100, $-$0.023]}
+\newcommand{\JdEpaLlamaRepeonlyVsUnstP}{0.006}
+\newcommand{\JdEpaLlamaRepeshuffledVsRepE}{$+$0.068}
+\newcommand{\JdEpaLlamaRepeshuffledVsRepECi}{[0.038, 0.095]}
+\newcommand{\JdEpaLlamaRepeshuffledVsRepEP}{$<$0.001}
+\newcommand{\JdEpaMinistralHybridVsUnst}{$+$0.013}
+\newcommand{\JdEpaMinistralHybridVsUnstCi}{[$-$0.047, 0.073]}
+\newcommand{\JdEpaMinistralHybridVsUnstP}{0.657}
+\newcommand{\JdEpaMinistralN}{2,704}
+\newcommand{\JdEpaMinistralPeonlyVsUnst}{$+$0.040}
+\newcommand{\JdEpaMinistralPeonlyVsUnstCi}{[$-$0.005, 0.082]}
+\newcommand{\JdEpaMinistralPeonlyVsUnstP}{0.142}
+\newcommand{\JdEpaMinistralRCrossA}{0.45}
+\newcommand{\JdEpaMinistralRCrossE}{0.30}
+\newcommand{\JdEpaMinistralRCrossP}{0.18}
+\newcommand{\JdEpaMinistralRMSevenbA}{0.41}
+\newcommand{\JdEpaMinistralRMSevenbE}{0.32}
+\newcommand{\JdEpaMinistralROrigA}{0.48}
+\newcommand{\JdEpaMinistralROrigE}{0.30}
+\newcommand{\JdEpaMinistralROrigP}{0.19}
+\newcommand{\JdEpaMinistralROwnA}{0.47}
+\newcommand{\JdEpaMinistralROwnE}{0.30}
+\newcommand{\JdEpaMinistralROwnP}{0.19}
+\newcommand{\JdEpaMinistralRTargetA}{0.38}
+\newcommand{\JdEpaMinistralRTargetE}{0.15}
+\newcommand{\JdEpaMinistralRTargetP}{0.46}
+\newcommand{\JdEpaMinistralRVaderE}{0.31}
+\newcommand{\JdEpaMinistralRepeonlyVsUnst}{$-$0.076}
+\newcommand{\JdEpaMinistralRepeonlyVsUnstCi}{[$-$0.125, $-$0.029]}
+\newcommand{\JdEpaMinistralRepeonlyVsUnstP}{0.003}
+\newcommand{\JdHumACi}{[0.58, 0.84]}
+\newcommand{\JdHumAHybrid}{4.57}
+\newcommand{\JdHumAPE}{6.07}
+\newcommand{\JdHumAR}{0.74}
+\newcommand{\JdHumARepE}{4.93}
+\newcommand{\JdHumAUnst}{6.14}
+\newcommand{\JdHumBCi}{[0.39, 0.81]}
+\newcommand{\JdHumBHybrid}{3.79}
+\newcommand{\JdHumBPE}{5.43}
+\newcommand{\JdHumBR}{0.63}
+\newcommand{\JdHumBRepE}{4.64}
+\newcommand{\JdHumBUnst}{6.00}
+\newcommand{\JdHumCCi}{[0.33, 0.81]}
+\newcommand{\JdHumCHybrid}{6.43}
+\newcommand{\JdHumCPE}{5.86}
+\newcommand{\JdHumCR}{0.58}
+\newcommand{\JdHumCRepE}{6.71}
+\newcommand{\JdHumCUnst}{5.86}
+\newcommand{\JdLlamaAntisycpromptA}{5.45}
+\newcommand{\JdLlamaAntisycpromptB}{5.07}
+\newcommand{\JdLlamaAntisycpromptC}{6.46}
+\newcommand{\JdLlamaAntisycpromptD}{1.45}
+\newcommand{\JdLlamaAntisycpromptE}{1.66}
+\newcommand{\JdLlamaAntisycpromptG}{1.95}
+\newcommand{\JdLlamaAntisycpromptH}{5.38}
+\newcommand{\JdLlamaAntisycpromptVsRepEA}{$+$0.53}
+\newcommand{\JdLlamaAntisycpromptVsRepEACi}{[0.20, 0.85]}
+\newcommand{\JdLlamaAntisycpromptVsRepEAP}{0.009}
+\newcommand{\JdLlamaAntisycpromptVsRepEB}{$+$0.61}
+\newcommand{\JdLlamaAntisycpromptVsRepEBCi}{[0.29, 0.91]}
+\newcommand{\JdLlamaAntisycpromptVsRepEBP}{$<$0.001}
+\newcommand{\JdLlamaAntisycpromptVsRepEC}{$+$0.56}
+\newcommand{\JdLlamaAntisycpromptVsRepECCi}{[0.41, 0.73]}
+\newcommand{\JdLlamaAntisycpromptVsRepECP}{$<$0.001}
+\newcommand{\JdLlamaAntisycpromptVsRepED}{$-$0.46}
+\newcommand{\JdLlamaAntisycpromptVsRepEDCi}{[$-$0.61, $-$0.33]}
+\newcommand{\JdLlamaAntisycpromptVsRepEDP}{$<$0.001}
+\newcommand{\JdLlamaAntisycpromptVsRepEE}{$-$0.27}
+\newcommand{\JdLlamaAntisycpromptVsRepEECi}{[$-$0.45, $-$0.11]}
+\newcommand{\JdLlamaAntisycpromptVsRepEEP}{$<$0.001}
+\newcommand{\JdLlamaAntisycpromptVsRepEF}{$+$0.71}
+\newcommand{\JdLlamaAntisycpromptVsRepEFCi}{[0.49, 0.92]}
+\newcommand{\JdLlamaAntisycpromptVsRepEFP}{$<$0.001}
+\newcommand{\JdLlamaAntisycpromptVsRepEG}{$+$0.25}
+\newcommand{\JdLlamaAntisycpromptVsRepEGCi}{[0.03, 0.47]}
+\newcommand{\JdLlamaAntisycpromptVsRepEGP}{0.057}
+\newcommand{\JdLlamaAntisycpromptVsRepEH}{$+$0.70}
+\newcommand{\JdLlamaAntisycpromptVsRepEHCi}{[0.40, 1.00]}
+\newcommand{\JdLlamaAntisycpromptVsRepEHP}{$<$0.001}
+\newcommand{\JdLlamaCaaA}{4.93}
+\newcommand{\JdLlamaCaaB}{4.55}
+\newcommand{\JdLlamaCaaC}{5.95}
+\newcommand{\JdLlamaCaaD}{1.88}
+\newcommand{\JdLlamaCaaE}{1.93}
+\newcommand{\JdLlamaCaaG}{1.76}
+\newcommand{\JdLlamaCaaH}{4.81}
+\newcommand{\JdLlamaCaaVsRepEA}{$+$0.02}
+\newcommand{\JdLlamaCaaVsRepEACi}{[$-$0.21, 0.25]}
+\newcommand{\JdLlamaCaaVsRepEAP}{0.835}
+\newcommand{\JdLlamaCaaVsRepEB}{$+$0.09}
+\newcommand{\JdLlamaCaaVsRepEBCi}{[$-$0.16, 0.34]}
+\newcommand{\JdLlamaCaaVsRepEBP}{0.452}
+\newcommand{\JdLlamaCaaVsRepEC}{$+$0.05}
+\newcommand{\JdLlamaCaaVsRepECCi}{[$-$0.09, 0.21]}
+\newcommand{\JdLlamaCaaVsRepECP}{0.966}
+\newcommand{\JdLlamaCaaVsRepED}{$-$0.03}
+\newcommand{\JdLlamaCaaVsRepEDCi}{[$-$0.17, 0.11]}
+\newcommand{\JdLlamaCaaVsRepEDP}{1.000}
+\newcommand{\JdLlamaCaaVsRepEE}{$-$0.01}
+\newcommand{\JdLlamaCaaVsRepEECi}{[$-$0.16, 0.13]}
+\newcommand{\JdLlamaCaaVsRepEEP}{0.871}
+\newcommand{\JdLlamaCaaVsRepEF}{$+$0.01}
+\newcommand{\JdLlamaCaaVsRepEFCi}{[$-$0.16, 0.17]}
+\newcommand{\JdLlamaCaaVsRepEFP}{1.000}
+\newcommand{\JdLlamaCaaVsRepEG}{$+$0.06}
+\newcommand{\JdLlamaCaaVsRepEGCi}{[$-$0.09, 0.21]}
+\newcommand{\JdLlamaCaaVsRepEGP}{0.498}
+\newcommand{\JdLlamaCaaVsRepEH}{$+$0.12}
+\newcommand{\JdLlamaCaaVsRepEHCi}{[$-$0.10, 0.34]}
+\newcommand{\JdLlamaCaaVsRepEHP}{0.271}
+\newcommand{\JdLlamaHybridA}{4.47}
+\newcommand{\JdLlamaHybridB}{3.76}
+\newcommand{\JdLlamaHybridC}{5.20}
+\newcommand{\JdLlamaHybridD}{2.70}
+\newcommand{\JdLlamaHybridE}{2.06}
+\newcommand{\JdLlamaHybridG}{1.61}
+\newcommand{\JdLlamaHybridH}{4.57}
+\newcommand{\JdLlamaHybridVsRepEA}{$-$0.48}
+\newcommand{\JdLlamaHybridVsRepEACi}{[$-$0.57, $-$0.38]}
+\newcommand{\JdLlamaHybridVsRepEAP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsRepEB}{$-$0.75}
+\newcommand{\JdLlamaHybridVsRepEBCi}{[$-$0.86, $-$0.64]}
+\newcommand{\JdLlamaHybridVsRepEBP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsRepEC}{$-$0.78}
+\newcommand{\JdLlamaHybridVsRepECCi}{[$-$0.90, $-$0.66]}
+\newcommand{\JdLlamaHybridVsRepECP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsRepED}{$+$0.83}
+\newcommand{\JdLlamaHybridVsRepEDCi}{[0.70, 0.96]}
+\newcommand{\JdLlamaHybridVsRepEDP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsRepEE}{$+$0.20}
+\newcommand{\JdLlamaHybridVsRepEECi}{[0.13, 0.27]}
+\newcommand{\JdLlamaHybridVsRepEEP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsRepEF}{$-$0.08}
+\newcommand{\JdLlamaHybridVsRepEFCi}{[$-$0.17, $-$0.01]}
+\newcommand{\JdLlamaHybridVsRepEFP}{0.037}
+\newcommand{\JdLlamaHybridVsRepEG}{$-$0.10}
+\newcommand{\JdLlamaHybridVsRepEGCi}{[$-$0.17, $-$0.02]}
+\newcommand{\JdLlamaHybridVsRepEGP}{0.015}
+\newcommand{\JdLlamaHybridVsRepEH}{$-$0.13}
+\newcommand{\JdLlamaHybridVsRepEHCi}{[$-$0.23, $-$0.05]}
+\newcommand{\JdLlamaHybridVsRepEHP}{0.003}
+\newcommand{\JdLlamaHybridVsUnstA}{$-$1.44}
+\newcommand{\JdLlamaHybridVsUnstACi}{[$-$1.62, $-$1.27]}
+\newcommand{\JdLlamaHybridVsUnstAP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsUnstB}{$-$1.88}
+\newcommand{\JdLlamaHybridVsUnstBCi}{[$-$2.03, $-$1.72]}
+\newcommand{\JdLlamaHybridVsUnstBP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsUnstC}{$-$0.96}
+\newcommand{\JdLlamaHybridVsUnstCCi}{[$-$1.13, $-$0.78]}
+\newcommand{\JdLlamaHybridVsUnstCP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsUnstD}{$+$0.96}
+\newcommand{\JdLlamaHybridVsUnstDCi}{[0.78, 1.14]}
+\newcommand{\JdLlamaHybridVsUnstDP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsUnstE}{$+$0.11}
+\newcommand{\JdLlamaHybridVsUnstECi}{[0.00, 0.24]}
+\newcommand{\JdLlamaHybridVsUnstEP}{0.096}
+\newcommand{\JdLlamaHybridVsUnstF}{$+$0.13}
+\newcommand{\JdLlamaHybridVsUnstFCi}{[$-$0.01, 0.26]}
+\newcommand{\JdLlamaHybridVsUnstFP}{0.138}
+\newcommand{\JdLlamaHybridVsUnstG}{$+$0.28}
+\newcommand{\JdLlamaHybridVsUnstGCi}{[0.16, 0.41]}
+\newcommand{\JdLlamaHybridVsUnstGP}{$<$0.001}
+\newcommand{\JdLlamaHybridVsUnstH}{$-$1.12}
+\newcommand{\JdLlamaHybridVsUnstHCi}{[$-$1.29, $-$0.93]}
+\newcommand{\JdLlamaHybridVsUnstHP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyA}{5.59}
+\newcommand{\JdLlamaPeonlyB}{5.01}
+\newcommand{\JdLlamaPeonlyC}{5.50}
+\newcommand{\JdLlamaPeonlyD}{2.50}
+\newcommand{\JdLlamaPeonlyE}{2.13}
+\newcommand{\JdLlamaPeonlyG}{1.26}
+\newcommand{\JdLlamaPeonlyH}{5.62}
+\newcommand{\JdLlamaPeonlyVsRepEA}{$+$0.64}
+\newcommand{\JdLlamaPeonlyVsRepEACi}{[0.51, 0.78]}
+\newcommand{\JdLlamaPeonlyVsRepEAP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEB}{$+$0.50}
+\newcommand{\JdLlamaPeonlyVsRepEBCi}{[0.34, 0.65]}
+\newcommand{\JdLlamaPeonlyVsRepEBP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEC}{$-$0.48}
+\newcommand{\JdLlamaPeonlyVsRepECCi}{[$-$0.59, $-$0.37]}
+\newcommand{\JdLlamaPeonlyVsRepECP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepED}{$+$0.63}
+\newcommand{\JdLlamaPeonlyVsRepEDCi}{[0.52, 0.74]}
+\newcommand{\JdLlamaPeonlyVsRepEDP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEE}{$+$0.27}
+\newcommand{\JdLlamaPeonlyVsRepEECi}{[0.16, 0.38]}
+\newcommand{\JdLlamaPeonlyVsRepEEP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEF}{$-$0.25}
+\newcommand{\JdLlamaPeonlyVsRepEFCi}{[$-$0.34, $-$0.15]}
+\newcommand{\JdLlamaPeonlyVsRepEFP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEG}{$-$0.45}
+\newcommand{\JdLlamaPeonlyVsRepEGCi}{[$-$0.53, $-$0.37]}
+\newcommand{\JdLlamaPeonlyVsRepEGP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsRepEH}{$+$0.91}
+\newcommand{\JdLlamaPeonlyVsRepEHCi}{[0.75, 1.08]}
+\newcommand{\JdLlamaPeonlyVsRepEHP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstA}{$-$0.32}
+\newcommand{\JdLlamaPeonlyVsUnstACi}{[$-$0.41, $-$0.24]}
+\newcommand{\JdLlamaPeonlyVsUnstAP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstB}{$-$0.63}
+\newcommand{\JdLlamaPeonlyVsUnstBCi}{[$-$0.73, $-$0.53]}
+\newcommand{\JdLlamaPeonlyVsUnstBP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstC}{$-$0.66}
+\newcommand{\JdLlamaPeonlyVsUnstCCi}{[$-$0.77, $-$0.55]}
+\newcommand{\JdLlamaPeonlyVsUnstCP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstD}{$+$0.76}
+\newcommand{\JdLlamaPeonlyVsUnstDCi}{[0.64, 0.89]}
+\newcommand{\JdLlamaPeonlyVsUnstDP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstE}{$+$0.18}
+\newcommand{\JdLlamaPeonlyVsUnstECi}{[0.11, 0.27]}
+\newcommand{\JdLlamaPeonlyVsUnstEP}{$<$0.001}
+\newcommand{\JdLlamaPeonlyVsUnstF}{$-$0.03}
+\newcommand{\JdLlamaPeonlyVsUnstFCi}{[$-$0.12, 0.05]}
+\newcommand{\JdLlamaPeonlyVsUnstFP}{0.455}
+\newcommand{\JdLlamaPeonlyVsUnstG}{$-$0.07}
+\newcommand{\JdLlamaPeonlyVsUnstGCi}{[$-$0.12, $-$0.02]}
+\newcommand{\JdLlamaPeonlyVsUnstGP}{0.012}
+\newcommand{\JdLlamaPeonlyVsUnstH}{$-$0.07}
+\newcommand{\JdLlamaPeonlyVsUnstHCi}{[$-$0.14, 0.00]}
+\newcommand{\JdLlamaPeonlyVsUnstHP}{0.065}
+\newcommand{\JdLlamaRepeconstA}{5.52}
+\newcommand{\JdLlamaRepeconstB}{5.09}
+\newcommand{\JdLlamaRepeconstC}{6.03}
+\newcommand{\JdLlamaRepeconstD}{1.89}
+\newcommand{\JdLlamaRepeconstE}{1.90}
+\newcommand{\JdLlamaRepeconstG}{1.38}
+\newcommand{\JdLlamaRepeconstH}{5.34}
+\newcommand{\JdLlamaRepeconstVsRepEA}{$+$0.58}
+\newcommand{\JdLlamaRepeconstVsRepEACi}{[0.41, 0.74]}
+\newcommand{\JdLlamaRepeconstVsRepEAP}{$<$0.001}
+\newcommand{\JdLlamaRepeconstVsRepEB}{$+$0.57}
+\newcommand{\JdLlamaRepeconstVsRepEBCi}{[0.40, 0.75]}
+\newcommand{\JdLlamaRepeconstVsRepEBP}{$<$0.001}
+\newcommand{\JdLlamaRepeconstVsRepEC}{$+$0.04}
+\newcommand{\JdLlamaRepeconstVsRepECCi}{[$-$0.04, 0.14]}
+\newcommand{\JdLlamaRepeconstVsRepECP}{0.849}
+\newcommand{\JdLlamaRepeconstVsRepED}{$+$0.02}
+\newcommand{\JdLlamaRepeconstVsRepEDCi}{[$-$0.06, 0.10]}
+\newcommand{\JdLlamaRepeconstVsRepEDP}{1.000}
+\newcommand{\JdLlamaRepeconstVsRepEE}{$+$0.05}
+\newcommand{\JdLlamaRepeconstVsRepEECi}{[$-$0.03, 0.12]}
+\newcommand{\JdLlamaRepeconstVsRepEEP}{0.410}
+\newcommand{\JdLlamaRepeconstVsRepEF}{$-$0.05}
+\newcommand{\JdLlamaRepeconstVsRepEFCi}{[$-$0.14, 0.03]}
+\newcommand{\JdLlamaRepeconstVsRepEFP}{0.741}
+\newcommand{\JdLlamaRepeconstVsRepEG}{$-$0.33}
+\newcommand{\JdLlamaRepeconstVsRepEGCi}{[$-$0.42, $-$0.24]}
+\newcommand{\JdLlamaRepeconstVsRepEGP}{$<$0.001}
+\newcommand{\JdLlamaRepeconstVsRepEH}{$+$0.64}
+\newcommand{\JdLlamaRepeconstVsRepEHCi}{[0.48, 0.80]}
+\newcommand{\JdLlamaRepeconstVsRepEHP}{$<$0.001}
+\newcommand{\JdLlamaRepeidonlyA}{5.07}
+\newcommand{\JdLlamaRepeidonlyB}{4.61}
+\newcommand{\JdLlamaRepeidonlyC}{5.73}
+\newcommand{\JdLlamaRepeidonlyD}{2.08}
+\newcommand{\JdLlamaRepeidonlyE}{2.02}
+\newcommand{\JdLlamaRepeidonlyG}{1.46}
+\newcommand{\JdLlamaRepeidonlyH}{4.89}
+\newcommand{\JdLlamaRepeidonlyVsRepEA}{$+$0.16}
+\newcommand{\JdLlamaRepeidonlyVsRepEACi}{[$-$0.03, 0.36]}
+\newcommand{\JdLlamaRepeidonlyVsRepEAP}{0.122}
+\newcommand{\JdLlamaRepeidonlyVsRepEB}{$+$0.15}
+\newcommand{\JdLlamaRepeidonlyVsRepEBCi}{[$-$0.08, 0.38]}
+\newcommand{\JdLlamaRepeidonlyVsRepEBP}{0.236}
+\newcommand{\JdLlamaRepeidonlyVsRepEC}{$-$0.16}
+\newcommand{\JdLlamaRepeidonlyVsRepECCi}{[$-$0.29, $-$0.04]}
+\newcommand{\JdLlamaRepeidonlyVsRepECP}{0.007}
+\newcommand{\JdLlamaRepeidonlyVsRepED}{$+$0.18}
+\newcommand{\JdLlamaRepeidonlyVsRepEDCi}{[0.06, 0.30]}
+\newcommand{\JdLlamaRepeidonlyVsRepEDP}{0.002}
+\newcommand{\JdLlamaRepeidonlyVsRepEE}{$+$0.08}
+\newcommand{\JdLlamaRepeidonlyVsRepEECi}{[$-$0.03, 0.21]}
+\newcommand{\JdLlamaRepeidonlyVsRepEEP}{0.151}
+\newcommand{\JdLlamaRepeidonlyVsRepEF}{$-$0.28}
+\newcommand{\JdLlamaRepeidonlyVsRepEFCi}{[$-$0.42, $-$0.16]}
+\newcommand{\JdLlamaRepeidonlyVsRepEFP}{$<$0.001}
+\newcommand{\JdLlamaRepeidonlyVsRepEG}{$-$0.24}
+\newcommand{\JdLlamaRepeidonlyVsRepEGCi}{[$-$0.37, $-$0.14]}
+\newcommand{\JdLlamaRepeidonlyVsRepEGP}{$<$0.001}
+\newcommand{\JdLlamaRepeidonlyVsRepEH}{$+$0.20}
+\newcommand{\JdLlamaRepeidonlyVsRepEHCi}{[0.01, 0.40]}
+\newcommand{\JdLlamaRepeidonlyVsRepEHP}{0.041}
+\newcommand{\JdLlamaRepeonlyA}{4.95}
+\newcommand{\JdLlamaRepeonlyB}{4.51}
+\newcommand{\JdLlamaRepeonlyC}{5.98}
+\newcommand{\JdLlamaRepeonlyD}{1.87}
+\newcommand{\JdLlamaRepeonlyE}{1.86}
+\newcommand{\JdLlamaRepeonlyG}{1.70}
+\newcommand{\JdLlamaRepeonlyH}{4.71}
+\newcommand{\JdLlamaRepeonlyVsUnstA}{$-$0.97}
+\newcommand{\JdLlamaRepeonlyVsUnstACi}{[$-$1.12, $-$0.80]}
+\newcommand{\JdLlamaRepeonlyVsUnstAP}{$<$0.001}
+\newcommand{\JdLlamaRepeonlyVsUnstB}{$-$1.13}
+\newcommand{\JdLlamaRepeonlyVsUnstBCi}{[$-$1.29, $-$0.95]}
+\newcommand{\JdLlamaRepeonlyVsUnstBP}{$<$0.001}
+\newcommand{\JdLlamaRepeonlyVsUnstC}{$-$0.18}
+\newcommand{\JdLlamaRepeonlyVsUnstCCi}{[$-$0.28, $-$0.08]}
+\newcommand{\JdLlamaRepeonlyVsUnstCP}{$<$0.001}
+\newcommand{\JdLlamaRepeonlyVsUnstD}{$+$0.13}
+\newcommand{\JdLlamaRepeonlyVsUnstDCi}{[0.04, 0.23]}
+\newcommand{\JdLlamaRepeonlyVsUnstDP}{0.005}
+\newcommand{\JdLlamaRepeonlyVsUnstE}{$-$0.09}
+\newcommand{\JdLlamaRepeonlyVsUnstECi}{[$-$0.19, 0.02]}
+\newcommand{\JdLlamaRepeonlyVsUnstEP}{0.124}
+\newcommand{\JdLlamaRepeonlyVsUnstF}{$+$0.21}
+\newcommand{\JdLlamaRepeonlyVsUnstFCi}{[0.11, 0.31]}
+\newcommand{\JdLlamaRepeonlyVsUnstFP}{$<$0.001}
+\newcommand{\JdLlamaRepeonlyVsUnstG}{$+$0.38}
+\newcommand{\JdLlamaRepeonlyVsUnstGCi}{[0.29, 0.47]}
+\newcommand{\JdLlamaRepeonlyVsUnstGP}{$<$0.001}
+\newcommand{\JdLlamaRepeonlyVsUnstH}{$-$0.98}
+\newcommand{\JdLlamaRepeonlyVsUnstHCi}{[$-$1.16, $-$0.80]}
+\newcommand{\JdLlamaRepeonlyVsUnstHP}{$<$0.001}
+\newcommand{\JdLlamaRepeshuffledA}{4.97}
+\newcommand{\JdLlamaRepeshuffledB}{4.58}
+\newcommand{\JdLlamaRepeshuffledC}{5.92}
+\newcommand{\JdLlamaRepeshuffledD}{1.87}
+\newcommand{\JdLlamaRepeshuffledE}{1.87}
+\newcommand{\JdLlamaRepeshuffledG}{1.64}
+\newcommand{\JdLlamaRepeshuffledH}{4.82}
+\newcommand{\JdLlamaRepeshuffledVsRepEA}{$+$0.06}
+\newcommand{\JdLlamaRepeshuffledVsRepEACi}{[$-$0.04, 0.16]}
+\newcommand{\JdLlamaRepeshuffledVsRepEAP}{0.476}
+\newcommand{\JdLlamaRepeshuffledVsRepEB}{$+$0.12}
+\newcommand{\JdLlamaRepeshuffledVsRepEBCi}{[0.01, 0.24]}
+\newcommand{\JdLlamaRepeshuffledVsRepEBP}{0.058}
+\newcommand{\JdLlamaRepeshuffledVsRepEC}{$+$0.03}
+\newcommand{\JdLlamaRepeshuffledVsRepECCi}{[$-$0.05, 0.10]}
+\newcommand{\JdLlamaRepeshuffledVsRepECP}{0.966}
+\newcommand{\JdLlamaRepeshuffledVsRepED}{$-$0.04}
+\newcommand{\JdLlamaRepeshuffledVsRepEDCi}{[$-$0.12, 0.04]}
+\newcommand{\JdLlamaRepeshuffledVsRepEDP}{0.951}
+\newcommand{\JdLlamaRepeshuffledVsRepEE}{$-$0.07}
+\newcommand{\JdLlamaRepeshuffledVsRepEECi}{[$-$0.13, $-$0.01]}
+\newcommand{\JdLlamaRepeshuffledVsRepEEP}{0.084}
+\newcommand{\JdLlamaRepeshuffledVsRepEF}{$+$0.00}
+\newcommand{\JdLlamaRepeshuffledVsRepEFCi}{[$-$0.08, 0.10]}
+\newcommand{\JdLlamaRepeshuffledVsRepEFP}{1.000}
+\newcommand{\JdLlamaRepeshuffledVsRepEG}{$-$0.07}
+\newcommand{\JdLlamaRepeshuffledVsRepEGCi}{[$-$0.14, 0.01]}
+\newcommand{\JdLlamaRepeshuffledVsRepEGP}{0.168}
+\newcommand{\JdLlamaRepeshuffledVsRepEH}{$+$0.13}
+\newcommand{\JdLlamaRepeshuffledVsRepEHCi}{[0.04, 0.23]}
+\newcommand{\JdLlamaRepeshuffledVsRepEHP}{0.018}
+\newcommand{\JdLlamaUnsteeredA}{5.91}
+\newcommand{\JdLlamaUnsteeredB}{5.64}
+\newcommand{\JdLlamaUnsteeredC}{6.16}
+\newcommand{\JdLlamaUnsteeredD}{1.74}
+\newcommand{\JdLlamaUnsteeredE}{1.94}
+\newcommand{\JdLlamaUnsteeredG}{1.33}
+\newcommand{\JdLlamaUnsteeredH}{5.69}
+\newcommand{\JdLlamaUnsteeredVsRepEA}{$+$0.97}
+\newcommand{\JdLlamaUnsteeredVsRepEACi}{[0.80, 1.12]}
+\newcommand{\JdLlamaUnsteeredVsRepEAP}{$<$0.001}
+\newcommand{\JdLlamaUnsteeredVsRepEB}{$+$1.13}
+\newcommand{\JdLlamaUnsteeredVsRepEBCi}{[0.95, 1.29]}
+\newcommand{\JdLlamaUnsteeredVsRepEBP}{$<$0.001}
+\newcommand{\JdLlamaUnsteeredVsRepEC}{$+$0.18}
+\newcommand{\JdLlamaUnsteeredVsRepECCi}{[0.08, 0.28]}
+\newcommand{\JdLlamaUnsteeredVsRepECP}{$<$0.001}
+\newcommand{\JdLlamaUnsteeredVsRepED}{$-$0.13}
+\newcommand{\JdLlamaUnsteeredVsRepEDCi}{[$-$0.23, $-$0.04]}
+\newcommand{\JdLlamaUnsteeredVsRepEDP}{0.005}
+\newcommand{\JdLlamaUnsteeredVsRepEE}{$+$0.09}
+\newcommand{\JdLlamaUnsteeredVsRepEECi}{[$-$0.02, 0.19]}
+\newcommand{\JdLlamaUnsteeredVsRepEEP}{0.124}
+\newcommand{\JdLlamaUnsteeredVsRepEF}{$-$0.21}
+\newcommand{\JdLlamaUnsteeredVsRepEFCi}{[$-$0.31, $-$0.11]}
+\newcommand{\JdLlamaUnsteeredVsRepEFP}{$<$0.001}
+\newcommand{\JdLlamaUnsteeredVsRepEG}{$-$0.38}
+\newcommand{\JdLlamaUnsteeredVsRepEGCi}{[$-$0.47, $-$0.29]}
+\newcommand{\JdLlamaUnsteeredVsRepEGP}{$<$0.001}
+\newcommand{\JdLlamaUnsteeredVsRepEH}{$+$0.98}
+\newcommand{\JdLlamaUnsteeredVsRepEHCi}{[0.80, 1.16]}
+\newcommand{\JdLlamaUnsteeredVsRepEHP}{$<$0.001}
+\newcommand{\JdMinistralHybridA}{4.63}
+\newcommand{\JdMinistralHybridB}{4.03}
+\newcommand{\JdMinistralHybridC}{5.16}
+\newcommand{\JdMinistralHybridD}{2.76}
+\newcommand{\JdMinistralHybridE}{2.18}
+\newcommand{\JdMinistralHybridG}{1.47}
+\newcommand{\JdMinistralHybridH}{4.73}
+\newcommand{\JdMinistralHybridVsRepEA}{$-$0.79}
+\newcommand{\JdMinistralHybridVsRepEACi}{[$-$0.89, $-$0.69]}
+\newcommand{\JdMinistralHybridVsRepEAP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsRepEB}{$-$1.02}
+\newcommand{\JdMinistralHybridVsRepEBCi}{[$-$1.13, $-$0.90]}
+\newcommand{\JdMinistralHybridVsRepEBP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsRepEC}{$-$0.82}
+\newcommand{\JdMinistralHybridVsRepECCi}{[$-$0.95, $-$0.69]}
+\newcommand{\JdMinistralHybridVsRepECP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsRepED}{$+$0.88}
+\newcommand{\JdMinistralHybridVsRepEDCi}{[0.74, 1.02]}
+\newcommand{\JdMinistralHybridVsRepEDP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsRepEE}{$+$0.09}
+\newcommand{\JdMinistralHybridVsRepEECi}{[0.01, 0.16]}
+\newcommand{\JdMinistralHybridVsRepEEP}{0.025}
+\newcommand{\JdMinistralHybridVsRepEF}{$+$0.02}
+\newcommand{\JdMinistralHybridVsRepEFCi}{[$-$0.05, 0.10]}
+\newcommand{\JdMinistralHybridVsRepEFP}{0.536}
+\newcommand{\JdMinistralHybridVsRepEG}{$+$0.02}
+\newcommand{\JdMinistralHybridVsRepEGCi}{[$-$0.04, 0.08]}
+\newcommand{\JdMinistralHybridVsRepEGP}{0.472}
+\newcommand{\JdMinistralHybridVsRepEH}{$-$0.41}
+\newcommand{\JdMinistralHybridVsRepEHCi}{[$-$0.51, $-$0.32]}
+\newcommand{\JdMinistralHybridVsRepEHP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstA}{$-$1.22}
+\newcommand{\JdMinistralHybridVsUnstACi}{[$-$1.37, $-$1.07]}
+\newcommand{\JdMinistralHybridVsUnstAP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstB}{$-$1.59}
+\newcommand{\JdMinistralHybridVsUnstBCi}{[$-$1.74, $-$1.45]}
+\newcommand{\JdMinistralHybridVsUnstBP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstC}{$-$1.12}
+\newcommand{\JdMinistralHybridVsUnstCCi}{[$-$1.31, $-$0.93]}
+\newcommand{\JdMinistralHybridVsUnstCP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstD}{$+$1.15}
+\newcommand{\JdMinistralHybridVsUnstDCi}{[0.96, 1.34]}
+\newcommand{\JdMinistralHybridVsUnstDP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstE}{$+$0.17}
+\newcommand{\JdMinistralHybridVsUnstECi}{[0.08, 0.26]}
+\newcommand{\JdMinistralHybridVsUnstEP}{$<$0.001}
+\newcommand{\JdMinistralHybridVsUnstF}{$+$0.15}
+\newcommand{\JdMinistralHybridVsUnstFCi}{[0.02, 0.28]}
+\newcommand{\JdMinistralHybridVsUnstFP}{0.052}
+\newcommand{\JdMinistralHybridVsUnstG}{$+$0.10}
+\newcommand{\JdMinistralHybridVsUnstGCi}{[0.01, 0.19]}
+\newcommand{\JdMinistralHybridVsUnstGP}{0.072}
+\newcommand{\JdMinistralHybridVsUnstH}{$-$0.73}
+\newcommand{\JdMinistralHybridVsUnstHCi}{[$-$0.87, $-$0.59]}
+\newcommand{\JdMinistralHybridVsUnstHP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyA}{5.37}
+\newcommand{\JdMinistralPeonlyB}{4.85}
+\newcommand{\JdMinistralPeonlyC}{5.45}
+\newcommand{\JdMinistralPeonlyD}{2.57}
+\newcommand{\JdMinistralPeonlyE}{2.03}
+\newcommand{\JdMinistralPeonlyG}{1.24}
+\newcommand{\JdMinistralPeonlyH}{5.27}
+\newcommand{\JdMinistralPeonlyVsRepEA}{$-$0.05}
+\newcommand{\JdMinistralPeonlyVsRepEACi}{[$-$0.17, 0.07]}
+\newcommand{\JdMinistralPeonlyVsRepEAP}{0.364}
+\newcommand{\JdMinistralPeonlyVsRepEB}{$-$0.19}
+\newcommand{\JdMinistralPeonlyVsRepEBCi}{[$-$0.33, $-$0.06]}
+\newcommand{\JdMinistralPeonlyVsRepEBP}{0.002}
+\newcommand{\JdMinistralPeonlyVsRepEC}{$-$0.53}
+\newcommand{\JdMinistralPeonlyVsRepECCi}{[$-$0.63, $-$0.43]}
+\newcommand{\JdMinistralPeonlyVsRepECP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsRepED}{$+$0.69}
+\newcommand{\JdMinistralPeonlyVsRepEDCi}{[0.59, 0.80]}
+\newcommand{\JdMinistralPeonlyVsRepEDP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsRepEE}{$-$0.06}
+\newcommand{\JdMinistralPeonlyVsRepEECi}{[$-$0.14, 0.01]}
+\newcommand{\JdMinistralPeonlyVsRepEEP}{0.080}
+\newcommand{\JdMinistralPeonlyVsRepEF}{$-$0.10}
+\newcommand{\JdMinistralPeonlyVsRepEFCi}{[$-$0.18, $-$0.03]}
+\newcommand{\JdMinistralPeonlyVsRepEFP}{0.007}
+\newcommand{\JdMinistralPeonlyVsRepEG}{$-$0.20}
+\newcommand{\JdMinistralPeonlyVsRepEGCi}{[$-$0.25, $-$0.14]}
+\newcommand{\JdMinistralPeonlyVsRepEGP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsRepEH}{$+$0.13}
+\newcommand{\JdMinistralPeonlyVsRepEHCi}{[0.00, 0.25]}
+\newcommand{\JdMinistralPeonlyVsRepEHP}{0.049}
+\newcommand{\JdMinistralPeonlyVsUnstA}{$-$0.49}
+\newcommand{\JdMinistralPeonlyVsUnstACi}{[$-$0.60, $-$0.37]}
+\newcommand{\JdMinistralPeonlyVsUnstAP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsUnstB}{$-$0.77}
+\newcommand{\JdMinistralPeonlyVsUnstBCi}{[$-$0.90, $-$0.64]}
+\newcommand{\JdMinistralPeonlyVsUnstBP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsUnstC}{$-$0.83}
+\newcommand{\JdMinistralPeonlyVsUnstCCi}{[$-$0.96, $-$0.71]}
+\newcommand{\JdMinistralPeonlyVsUnstCP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsUnstD}{$+$0.95}
+\newcommand{\JdMinistralPeonlyVsUnstDCi}{[0.82, 1.09]}
+\newcommand{\JdMinistralPeonlyVsUnstDP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsUnstE}{$+$0.02}
+\newcommand{\JdMinistralPeonlyVsUnstECi}{[$-$0.05, 0.08]}
+\newcommand{\JdMinistralPeonlyVsUnstEP}{0.620}
+\newcommand{\JdMinistralPeonlyVsUnstF}{$+$0.02}
+\newcommand{\JdMinistralPeonlyVsUnstFCi}{[$-$0.07, 0.11]}
+\newcommand{\JdMinistralPeonlyVsUnstFP}{0.661}
+\newcommand{\JdMinistralPeonlyVsUnstG}{$-$0.13}
+\newcommand{\JdMinistralPeonlyVsUnstGCi}{[$-$0.18, $-$0.08]}
+\newcommand{\JdMinistralPeonlyVsUnstGP}{$<$0.001}
+\newcommand{\JdMinistralPeonlyVsUnstH}{$-$0.19}
+\newcommand{\JdMinistralPeonlyVsUnstHCi}{[$-$0.32, $-$0.07]}
+\newcommand{\JdMinistralPeonlyVsUnstHP}{$<$0.001}
+\newcommand{\JdMinistralRepeonlyA}{5.42}
+\newcommand{\JdMinistralRepeonlyB}{5.05}
+\newcommand{\JdMinistralRepeonlyC}{5.99}
+\newcommand{\JdMinistralRepeonlyD}{1.88}
+\newcommand{\JdMinistralRepeonlyE}{2.10}
+\newcommand{\JdMinistralRepeonlyG}{1.44}
+\newcommand{\JdMinistralRepeonlyH}{5.14}
+\newcommand{\JdMinistralRepeonlyVsUnstA}{$-$0.43}
+\newcommand{\JdMinistralRepeonlyVsUnstACi}{[$-$0.57, $-$0.30]}
+\newcommand{\JdMinistralRepeonlyVsUnstAP}{$<$0.001}
+\newcommand{\JdMinistralRepeonlyVsUnstB}{$-$0.58}
+\newcommand{\JdMinistralRepeonlyVsUnstBCi}{[$-$0.72, $-$0.44]}
+\newcommand{\JdMinistralRepeonlyVsUnstBP}{$<$0.001}
+\newcommand{\JdMinistralRepeonlyVsUnstC}{$-$0.30}
+\newcommand{\JdMinistralRepeonlyVsUnstCCi}{[$-$0.40, $-$0.20]}
+\newcommand{\JdMinistralRepeonlyVsUnstCP}{$<$0.001}
+\newcommand{\JdMinistralRepeonlyVsUnstD}{$+$0.26}
+\newcommand{\JdMinistralRepeonlyVsUnstDCi}{[0.18, 0.35]}
+\newcommand{\JdMinistralRepeonlyVsUnstDP}{$<$0.001}
+\newcommand{\JdMinistralRepeonlyVsUnstE}{$+$0.08}
+\newcommand{\JdMinistralRepeonlyVsUnstECi}{[0.02, 0.15]}
+\newcommand{\JdMinistralRepeonlyVsUnstEP}{0.032}
+\newcommand{\JdMinistralRepeonlyVsUnstF}{$+$0.13}
+\newcommand{\JdMinistralRepeonlyVsUnstFCi}{[0.05, 0.21]}
+\newcommand{\JdMinistralRepeonlyVsUnstFP}{0.012}
+\newcommand{\JdMinistralRepeonlyVsUnstG}{$+$0.07}
+\newcommand{\JdMinistralRepeonlyVsUnstGCi}{[0.01, 0.14]}
+\newcommand{\JdMinistralRepeonlyVsUnstGP}{0.072}
+\newcommand{\JdMinistralRepeonlyVsUnstH}{$-$0.32}
+\newcommand{\JdMinistralRepeonlyVsUnstHCi}{[$-$0.45, $-$0.20]}
+\newcommand{\JdMinistralRepeonlyVsUnstHP}{$<$0.001}
+\newcommand{\JdMinistralUnsteeredA}{5.85}
+\newcommand{\JdMinistralUnsteeredB}{5.62}
+\newcommand{\JdMinistralUnsteeredC}{6.28}
+\newcommand{\JdMinistralUnsteeredD}{1.61}
+\newcommand{\JdMinistralUnsteeredE}{2.01}
+\newcommand{\JdMinistralUnsteeredG}{1.37}
+\newcommand{\JdMinistralUnsteeredH}{5.46}
+\newcommand{\JdMinistralUnsteeredVsRepEA}{$+$0.43}
+\newcommand{\JdMinistralUnsteeredVsRepEACi}{[0.30, 0.57]}
+\newcommand{\JdMinistralUnsteeredVsRepEAP}{$<$0.001}
+\newcommand{\JdMinistralUnsteeredVsRepEB}{$+$0.58}
+\newcommand{\JdMinistralUnsteeredVsRepEBCi}{[0.44, 0.72]}
+\newcommand{\JdMinistralUnsteeredVsRepEBP}{$<$0.001}
+\newcommand{\JdMinistralUnsteeredVsRepEC}{$+$0.30}
+\newcommand{\JdMinistralUnsteeredVsRepECCi}{[0.20, 0.40]}
+\newcommand{\JdMinistralUnsteeredVsRepECP}{$<$0.001}
+\newcommand{\JdMinistralUnsteeredVsRepED}{$-$0.26}
+\newcommand{\JdMinistralUnsteeredVsRepEDCi}{[$-$0.35, $-$0.18]}
+\newcommand{\JdMinistralUnsteeredVsRepEDP}{$<$0.001}
+\newcommand{\JdMinistralUnsteeredVsRepEE}{$-$0.08}
+\newcommand{\JdMinistralUnsteeredVsRepEECi}{[$-$0.15, $-$0.02]}
+\newcommand{\JdMinistralUnsteeredVsRepEEP}{0.016}
+\newcommand{\JdMinistralUnsteeredVsRepEF}{$-$0.13}
+\newcommand{\JdMinistralUnsteeredVsRepEFCi}{[$-$0.21, $-$0.05]}
+\newcommand{\JdMinistralUnsteeredVsRepEFP}{0.004}
+\newcommand{\JdMinistralUnsteeredVsRepEG}{$-$0.07}
+\newcommand{\JdMinistralUnsteeredVsRepEGCi}{[$-$0.14, $-$0.01]}
+\newcommand{\JdMinistralUnsteeredVsRepEGP}{0.036}
+\newcommand{\JdMinistralUnsteeredVsRepEH}{$+$0.32}
+\newcommand{\JdMinistralUnsteeredVsRepEHCi}{[0.20, 0.45]}
+\newcommand{\JdMinistralUnsteeredVsRepEHP}{$<$0.001}
+\newcommand{\JdMtGivesinBase}{$+$0.32}
+\newcommand{\JdMtGivesinBaseP}{$<$0.001}
+\newcommand{\JdMtGivesinHybridact}{$-$0.10}
+\newcommand{\JdMtGivesinHybridactP}{0.343}
+\newcommand{\JdMtGivesinRepeact}{$-$0.26}
+\newcommand{\JdMtGivesinRepeactP}{0.016}
+\newcommand{\JdMtGivesinRepeconst}{$-$0.13}
+\newcommand{\JdMtGivesinRepeconstP}{0.218}
+\newcommand{\JdMtHybridactTurnOneGivesIn}{1.67}
+\newcommand{\JdMtHybridactTurnThreeGivesIn}{2.11}
+\newcommand{\JdMtHybridactTurnTwoGivesIn}{1.81}
+\newcommand{\JdMtNonsycophanticBase}{$-$0.17}
+\newcommand{\JdMtNonsycophanticBaseP}{0.024}
+\newcommand{\JdMtNonsycophanticHybridact}{$-$0.04}
+\newcommand{\JdMtNonsycophanticHybridactP}{0.700}
+\newcommand{\JdMtNonsycophanticRepeact}{$+$0.09}
+\newcommand{\JdMtNonsycophanticRepeactP}{0.413}
+\newcommand{\JdMtNonsycophanticRepeconst}{$-$0.02}
+\newcommand{\JdMtNonsycophanticRepeconstP}{0.847}
+\newcommand{\JdMtRepeactTurnOneGivesIn}{1.57}
+\newcommand{\JdMtRepeactTurnThreeGivesIn}{1.70}
+\newcommand{\JdMtRepeactTurnTwoGivesIn}{1.61}
+\newcommand{\JdMtRepeconstTurnOneGivesIn}{1.53}
+\newcommand{\JdMtRepeconstTurnThreeGivesIn}{1.91}
+\newcommand{\JdMtRepeconstTurnTwoGivesIn}{1.56}
+\newcommand{\JdMtUnsteeredTurnOneGivesIn}{1.50}
+\newcommand{\JdMtUnsteeredTurnThreeGivesIn}{2.14}
+\newcommand{\JdMtUnsteeredTurnTwoGivesIn}{1.65}
+\newcommand{\JdMtValidatesflattersBase}{$+$0.08}
+\newcommand{\JdMtValidatesflattersBaseP}{0.256}
+\newcommand{\JdMtValidatesflattersHybridact}{$+$0.14}
+\newcommand{\JdMtValidatesflattersHybridactP}{0.146}
+\newcommand{\JdMtValidatesflattersRepeact}{$-$0.01}
+\newcommand{\JdMtValidatesflattersRepeactP}{0.920}
+\newcommand{\JdMtValidatesflattersRepeconst}{$+$0.08}
+\newcommand{\JdMtValidatesflattersRepeconstP}{0.394}
+\newcommand{\JdOrderMaxAbs}{0.50}
+\newcommand{\JdOrderMaxSigned}{0.07}
+\newcommand{\JdOrderN}{100}
+\newcommand{\JdSubOtherpairsA}{$-$0.70}
+\newcommand{\JdSubOtherpairsACi}{[$-$0.86, $-$0.54]}
+\newcommand{\JdSubOtherpairsB}{$-$0.83}
+\newcommand{\JdSubOtherpairsBCi}{[$-$1.00, $-$0.65]}
+\newcommand{\JdSubOtherpairsC}{$-$0.16}
+\newcommand{\JdSubOtherpairsCCi}{[$-$0.28, $-$0.05]}
+\newcommand{\JdSubOtherpairsN}{800}
+\newcommand{\JdSubStudypairsA}{$-$1.39}
+\newcommand{\JdSubStudypairsACi}{[$-$1.58, $-$1.19]}
+\newcommand{\JdSubStudypairsB}{$-$1.60}
+\newcommand{\JdSubStudypairsBCi}{[$-$1.80, $-$1.40]}
+\newcommand{\JdSubStudypairsC}{$-$0.20}
+\newcommand{\JdSubStudypairsCCi}{[$-$0.35, $-$0.08]}
+\newcommand{\JdSubStudypairsN}{500}
+\newcommand{\JdSubVignettecellsA}{$-$0.29}
+\newcommand{\JdSubVignettecellsACi}{[$-$1.00, 0.50]}
+\newcommand{\JdSubVignettecellsB}{$-$0.29}
+\newcommand{\JdSubVignettecellsBCi}{[$-$1.29, 0.79]}
+\newcommand{\JdSubVignettecellsC}{$+$0.29}
+\newcommand{\JdSubVignettecellsCCi}{[$-$0.50, 1.36]}
+\newcommand{\JdSubVignettecellsN}{14}
+\newcommand{\JudgeModel}{Gemini-3.6-Flash}
 \newcommand{\LmmAppropriateIccPid}{0.16}
 \newcommand{\LmmAppropriateIccVig}{0.07}
 \newcommand{\LmmNaturalIccPid}{0.17}

@@ -1,0 +1,113 @@
+{
+ "n_responses": 56,
+ "items": {
+  "a": {
+   "human_item": "appropriate",
+   "n": 56,
+   "pearson": 0.7419343554029811,
+   "pearson_ci": [
+    0.5820461611425256,
+    0.8395505123331919
+   ],
+   "spearman": 0.6544754311798971,
+   "judge_condition_order": [
+    "unsteered",
+    "pe_only",
+    "repe_only",
+    "hybrid"
+   ],
+   "human_condition_order": [
+    "unsteered",
+    "pe_only",
+    "repe_only",
+    "hybrid"
+   ],
+   "same_order": true,
+   "judge_condition_means": {
+    "unsteered": 6.143,
+    "pe_only": 6.071,
+    "repe_only": 4.929,
+    "hybrid": 4.571
+   },
+   "human_condition_means": {
+    "unsteered": 5.454,
+    "pe_only": 5.17,
+    "repe_only": 5.028,
+    "hybrid": 4.659
+   },
+   "validated": true
+  },
+  "b": {
+   "human_item": "natural",
+   "n": 56,
+   "pearson": 0.627369277646131,
+   "pearson_ci": [
+    0.38755555789887736,
+    0.8141722126346842
+   ],
+   "spearman": 0.6062301179996377,
+   "judge_condition_order": [
+    "unsteered",
+    "pe_only",
+    "repe_only",
+    "hybrid"
+   ],
+   "human_condition_order": [
+    "repe_only",
+    "unsteered",
+    "pe_only",
+    "hybrid"
+   ],
+   "same_order": false,
+   "judge_condition_means": {
+    "unsteered": 6.0,
+    "pe_only": 5.429,
+    "repe_only": 4.643,
+    "hybrid": 3.786
+   },
+   "human_condition_means": {
+    "repe_only": 4.625,
+    "unsteered": 4.576,
+    "pe_only": 4.378,
+    "hybrid": 3.801
+   },
+   "validated": true
+  },
+  "c": {
+   "human_item": "non_sycophantic",
+   "n": 56,
+   "pearson": 0.5811998236650167,
+   "pearson_ci": [
+    0.33310339592040206,
+    0.8115978785707727
+   ],
+   "spearman": 0.5370590293520786,
+   "judge_condition_order": [
+    "repe_only",
+    "hybrid",
+    "pe_only",
+    "unsteered"
+   ],
+   "human_condition_order": [
+    "repe_only",
+    "unsteered",
+    "hybrid",
+    "pe_only"
+   ],
+   "same_order": false,
+   "judge_condition_means": {
+    "repe_only": 6.714,
+    "hybrid": 6.429,
+    "pe_only": 5.857,
+    "unsteered": 5.857
+   },
+   "human_condition_means": {
+    "repe_only": 5.763,
+    "unsteered": 5.174,
+    "hybrid": 4.951,
+    "pe_only": 4.74
+   },
+   "validated": true
+  }
+ }
+}

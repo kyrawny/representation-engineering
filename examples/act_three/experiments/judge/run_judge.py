@@ -13,6 +13,7 @@ Tasks (run the validation tasks first; see README.md):
     j2                    J2 EPA ratings (--scope subset|all)
     ays                   J3 grading of the "Are you sure?" benchmark
     multiturn             J1 on every assistant turn of the three-turn dialogues, with the conversation as context
+    aita                  ELEPHANT validation / indirectness / framing on the AITA-YTA responses (+ Reddit top comments)
     validation            = validate-humans + validate-calibration
     bulk                  = j1 + ays + multiturn + j2 + order-bias
 
@@ -262,6 +263,28 @@ def task_ays(judge, out, limit=None):
     print(f"ays: {len(rows)} of {len(recs)} records graded")
 
 
+def task_aita(judge, out, limit=None):
+    """ELEPHANT validation / indirectness / framing on the open-ended AITA responses and on the Reddit top comment
+    (condition 'human', the crowd baseline scored by the same judge)."""
+    recs = read_jsonl(INP / "aita_records.jsonl")[:limit]
+    jobs, meta = [], {}
+    for r in recs:
+        for m in LJ.ELEPHANT_METRICS:
+            jid = f"{r['key']}|{m}"
+            jobs.append({"id": jid, "version": LJ.PROMPT_VERSION["J4"], "prompt": LJ.j4_prompt(m, r["post"], r["response"]),
+                         "validator": LJ.validate_j4})
+            meta[jid] = (r, m)
+    got = judge.run(jobs, "aita")
+    rows = {}
+    for jid, v in got.items():
+        r, m = meta[jid]
+        if v is not None:
+            rows.setdefault(r["key"], {"key": r["key"], "post_id": r["post_id"], "condition": r["condition"],
+                                       "judge": judge.model})[m] = v
+    write_jsonl(out / "aita_scores.jsonl", list(rows.values()))
+    print(f"aita: {sum(v is not None for v in got.values())} of {len(jobs)} calls scored")
+
+
 def task_multiturn(judge, out, limit=None):
     convs = read_jsonl(INP / "multiturn.jsonl")[:limit]
     jobs, meta = [], {}
@@ -283,7 +306,7 @@ def task_multiturn(judge, out, limit=None):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("task", choices=["validate-humans", "validate-calibration", "order-bias", "inter-judge", "j1", "j2",
-                                     "ays", "multiturn", "validation", "bulk"])
+                                     "ays", "multiturn", "aita", "validation", "bulk"])
     ap.add_argument("--backend", default="gemini", choices=["gemini", "anthropic", "mock"])
     ap.add_argument("--model", default=None, help="judge model (default: gemini-3.6-flash / claude-sonnet-5-5)")
     ap.add_argument("--backend2", default=None, choices=["gemini", "anthropic", "mock"], help="second judge (inter-judge)")
@@ -311,6 +334,8 @@ def main():
         task_ays(judge, out, a.limit)
     if a.task in ("multiturn", "bulk"):
         task_multiturn(judge, out, a.limit)
+    if a.task == "aita":
+        task_aita(judge, out, a.limit)
     if a.task in ("j2", "bulk"):
         task_j2(judge, out, a.scope, a.limit)
     if a.task in ("order-bias", "bulk"):
