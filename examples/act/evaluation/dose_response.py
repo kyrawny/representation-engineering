@@ -97,6 +97,7 @@ def build_model_probe(
     max_new_tokens: int = 64,
     steering: Any = None,
     steerer_cls: type = None,  # type: ignore[assignment]
+    prompt_style: str = "chat",
 ) -> Callable[[float], ProbeResult]:
     """Build the real dose-response probe (GPU phase).
 
@@ -121,6 +122,11 @@ def build_model_probe(
             its ``alpha`` is overridden per sweep point).
         steerer_cls: Steerer class (injectable for tests; defaults to
             :class:`act_steering.steerer.DeflectionSteerer`).
+        prompt_style: ``"chat"`` (default) wraps each probe prompt as a
+            single user message rendered through the tokenizer chat
+            template — required for instruct models. ``"raw"`` passes the
+            prompts through as flat continuation strings (AAAI-27
+            reproduction).
 
     Returns:
         A probe callable ``alpha -> ProbeResult``.
@@ -129,6 +135,7 @@ def build_model_probe(
         ValueError: If ``prompts`` is empty.
     """
     from act_steering.config import SteeringConfig
+    from act_steering.pipeline import render_prompt, response_after
     from act_steering.readers import build_epa_reader
     from act_steering.steerer import DeflectionSteerer
     from evaluation.quality_guardrails import repetition_rate
@@ -146,16 +153,16 @@ def build_model_probe(
         steerer.config.alpha = float(alpha)
         out: list[str] = []
         for prompt in prompts:
+            rendered = (
+                render_prompt([{"role": "user", "content": prompt}], tokenizer)
+                if prompt_style == "chat"
+                else prompt
+            )
             full = steerer.generate(
-                prompt, u_pre=u_pre, max_new_tokens=max_new_tokens,
+                rendered, u_pre=u_pre, max_new_tokens=max_new_tokens,
                 do_sample=False, return_text=True,
             )
-            text = full[0] if isinstance(full, (list, tuple)) else full
-            if isinstance(text, dict):
-                text = text.get("generated_text", "")
-            if isinstance(text, str) and text.startswith(prompt):
-                text = text[len(prompt):]
-            out.append(str(text))
+            out.append(response_after(full, rendered))
         return out
 
     def probe(alpha: float) -> ProbeResult:
@@ -349,6 +356,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--max-new-tokens", type=int, default=64,
         help="Generation cap per probe response (model probe)",
     )
+    parser.add_argument(
+        "--prompt-style",
+        default="chat",
+        choices=("chat", "raw"),
+        help=(
+            "Generation prompt format (model probe): 'chat' wraps each "
+            "probe prompt as a user message through the tokenizer chat "
+            "template (correct framing for instruct models; default) or "
+            "'raw' passes the prompts through flat (AAAI-27 "
+            "reproduction)"
+        ),
+    )
     args = parser.parse_args(argv)
 
     if args.probe == "model":
@@ -380,6 +399,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         probe = build_model_probe(
             model, tokenizer, bundle, scorer,
             prompts=prompts, u_pre=args.u_pre, max_new_tokens=args.max_new_tokens,
+            prompt_style=args.prompt_style,
         )
     else:
         probe = build_mock_probe()

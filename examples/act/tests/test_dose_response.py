@@ -191,8 +191,11 @@ def test_build_model_probe_sweeps_alpha() -> None:
     )
     model = _Model()
     scorer = lambda text: 2.0  # noqa: E731 - constant nats
+    # prompt_style='raw': the fake tokenizer has no chat template; this
+    # test exercises the alpha-sweep mechanics, not the prompt framing.
     probe = build_model_probe(
-        model, _Tok(), bundle, scorer, prompts=["p1"], steerer_cls=_Steerer,
+        model, _Tok(), bundle, scorer, prompts=["p1"],
+        steerer_cls=_Steerer, prompt_style="raw",
     )
     zero = probe(0.0)
     assert zero.epa_shift == (0.0, 0.0, 0.0)

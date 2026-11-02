@@ -16,8 +16,10 @@ from act_steering.pipeline import (
     PromptSpec,
     build_messages,
     build_prompt,
+    chat_user_prompt,
     descriptors_for,
     render_prompt,
+    response_after,
     role_system_prompt,
     system_prompt_for,
 )
@@ -196,3 +198,33 @@ def test_build_prompt_raises_without_pending(dictionary: ACTDictionary) -> None:
     state = ConversationState.from_ids(dictionary, "student", "teacher")
     with pytest.raises(RuntimeError, match="pending"):
         build_prompt(state, _FakeTokenizer(), PromptSpec())
+
+
+# --- response extraction + single-turn chat rendering -------------------------
+
+
+def test_response_after_strips_prompt_prefix() -> None:
+    assert response_after("PROMPT answer text", "PROMPT") == "answer text"
+    # no prefix present: returned as-is
+    assert response_after("answer text", "OTHER") == "answer text"
+
+
+def test_response_after_cleans_whitespace_and_stop_tokens() -> None:
+    assert response_after("PROMPT  reply here<|eot_id|>  ", "PROMPT") == "reply here"
+    assert response_after("PROMPT reply<|end_of_text|>", "PROMPT") == "reply"
+    # list output (batched generation) uses the first entry
+    assert response_after(["PROMPT first<|eot_id|>", "second"], "PROMPT") == "first"
+    # dict output (return_text dict form)
+    assert response_after({"generated_text": "PROMPT ok<|eot_id|>"}, "PROMPT") == "ok"
+    # a stop token mid-text is preserved
+    assert response_after("PROMPT a<|eot_id|>b", "PROMPT") == "a<|eot_id|>b"
+
+
+def test_chat_user_prompt_renders_single_turn() -> None:
+    out = chat_user_prompt("Q: 2+2?\nA:", _FakeTokenizer())
+    assert out == "<user>Q: 2+2?\nA:</user> <assistant> "
+
+
+def test_chat_user_prompt_requires_tokenizer() -> None:
+    with pytest.raises(ValueError, match="tokenizer"):
+        chat_user_prompt("hi", None)

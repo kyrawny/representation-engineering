@@ -38,7 +38,7 @@ Paper + reviews: wiki pages `entities/act-repe-aaai-paper` and
   (mambaforge env `repeng`; CPython 3.11, torch 2.7.x CUDA, transformers 4.52.x).
 - Repo root: `C:\Users\Kyra\Documents\Repos\qwen\representation-engineering`
   (qwen fork of `andyzoujm/representation-engineering`, `pip install -e .`).
-- From this directory: `python -m pytest` (374 tests, all CPU) and
+- From this directory: `python -m pytest` (380 tests, all CPU) and
   `python -m ruff check .` (line length 100, isort, bugbear, pyupgrade).
 - Default model: `meta-llama/Llama-3.1-8B-Instruct`. Artifact filenames use a
   **lowercase slug** of the model id:
@@ -74,11 +74,34 @@ Paper + reviews: wiki pages `entities/act-repe-aaai-paper` and
   directions with provenance meta (legacy bundles still load; reader and gate
   prefer `.raw`), and the gate gained `--stimulus-template` (default `fit`:
   wraps terms in the template the directions were fit with).
+- **T5 — chat-template prompt framing (2026-10-31):** every model-bound
+  generation step now renders its prompt through the tokenizer chat
+  template by default (`--prompt-style chat`): the pipeline puts the
+  identity instruction in a system role (`--system-variant
+  role|act_descriptors|anti_sycophancy` = B0/B1/B2), the sycophancy
+  dialogue runs as a real transcript (question → user, own initial answer
+  → assistant, pushback → fresh user turn), dose-response probe prompts
+  become single user messages, and the ablation battery renders as a chat
+  turn. Responses are cleaned by `act_steering.pipeline.response_after`
+  (prompt prefix, whitespace, trailing `<|eot_id|>`/`<|end_of_text|>`).
+  `--prompt-style raw` on all four CLIs reproduces the AAAI-27 flat
+  strings byte-for-byte (baseline reproduction only). The old flat
+  framing made an instruct model *continue the template* instead of
+  answering the scenario — the first GPU traces are contaminated and
+  must be regenerated.
 
 **GPU runs already done (user, Oct 30–31):** runbook step 1 (directions),
 step 2 (2-turn demo traces, steered + unsteered), step 3 (reader gate —
 **failed**, see below), step 4 (deflection reduction, n=2 turns), step 5
 (quality guardrails), LoRRA triplet build.
+
+⚠️ **The step-2 traces (and everything derived from them: steps 4, 5) were
+generated on the broken flat prompt template** (pre-T5) — the model was
+continuing the `You are … Context: … User: …` transcript instead of
+answering it (visible in `results/trace_unsteered.json`: echoed setup,
+trailing `User:` line, `<|eot_id|>` leaks). They are invalid for any
+instruct-model comparison and must be re-run with the T5 framing (see
+“Pending, in order”).
 
 **Critical finding — the reader gate FAILS**
 (`results/reader_validation.json`, 2026-10-31, 5-fold CV vs the human EPA
@@ -103,16 +126,22 @@ range (the WS1.8 problem; levers 2–3 of T4 address it). Consequences:
 
 **Pending, in order** (user runs the GPU parts; commands in `GPU_RUNBOOK.md`):
 
-1. **Reader re-gate** (T4-S6.2): re-run step 3 as-is (protocol match, no
+1. **Regenerate the demo traces** (step 2, with the T5 chat framing — the
+   flags are already at their correct defaults, so the runbook commands
+   work as-is): steered + unsteered 2-turn traces, then re-run the
+   monitor-threshold calibration (step 3b), deflection reduction (step 4)
+   and quality guardrails (step 5) on the fresh logs. Never mix old and
+   new logs in a comparison.
+2. **Reader re-gate** (T4-S6.2): re-run step 3 as-is (protocol match, no
    refit); if still failing, `cluster_mean` refit (step 1 levers) + re-gate;
    if still failing, multi-template refit + re-gate.
-2. **H3 battery** (step 8): 10 conditions × 500 scenarios (~8,000
+3. **H3 battery** (step 8): 10 conditions × 500 scenarios (~8,000
    generations) → `results/ablations_battery.json`.
-3. **Full sycophancy probe** (step 6): 4,071 are-you-sure items × 2 dialogue
+4. **Full sycophancy probe** (step 6): 4,071 are-you-sure items × 2 dialogue
    logs (data in `data/are_you_sure.jsonl`, `data/answer.jsonl`,
-   `data/feedback.jsonl`).
-4. **Dose-response sweep** (step 7).
-5. **External resources** (decision point, `H3_ANALYSIS.md` §4): WS2.2 human
+   `data/feedback.jsonl`), now as real chat transcripts.
+5. **Dose-response sweep** (step 7).
+6. **External resources** (decision point, `H3_ANALYSIS.md` §4): WS2.2 human
    EPA ratings (~400 responses × 5 raters), WS4 preregistered human study,
    M-J LLM judge — need rater compensation and/or paid frontier-model tokens,
    not available on the local 4090.
@@ -162,10 +191,19 @@ evaluation/
   signed unit directions). The reader/gate prefer them for measurement;
   Løwdin-orthonormalised directions remain the steering set. Legacy bundles
   load fine and fall back to canonical.
-- **Chat template:** all model-bound prompts must go through the model's
-  chat template. A raw-prompt bug broke the first GPU traces (2026-10-31);
-  the fix followed the `affective-intelligence` repo's Llama template
-  implementation. Don't regress this.
+- **Chat template (T5 fix, 2026-10-31):** all model-bound prompts must go
+  through the model's chat template. The flat `You are … Context: … User: …`
+  framing made `Llama-3.1-8B-Instruct` continue the template (repeat the
+  setup, echo the trailing `User:` line) instead of answering the scenario.
+  The fix: `--prompt-style chat` (default) on the pipeline,
+  sycophancy_dialogue, dose_response and ablations CLIs renders through
+  `tokenizer.apply_chat_template` (system role for the identity instruction;
+  dialogue turns as user/assistant/user), and `response_after` strips the
+  prompt prefix, whitespace and trailing stop tokens from every response.
+  `--prompt-style raw` reproduces the AAAI-27 strings for baseline
+  comparison only. Any new model-bound generation path must use
+  `render_prompt` / `chat_user_prompt` (pipeline) — never build a flat
+  prompt string by hand. Don't regress this.
 - **Reader circularity rule:** a reader built on the steered model's hidden
   states is *diagnostic only*; headline claims use the gate-validated metric
   (and eventually M-X on a different model / human ratings).

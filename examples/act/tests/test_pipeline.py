@@ -533,7 +533,7 @@ def test_build_real_components_wiring(
     state = ConversationState.from_ids(dictionary, "student", "teacher")
     state.record_user_message(coeffs, (1.0, 0.0, 0.0), label="hello")
     candidates = components.candidate_generator(state)
-    assert candidates == [" fake response"]
+    assert candidates == ["fake response"]
 
 
 def test_build_real_components_monitor_and_repair(
@@ -556,7 +556,7 @@ def test_build_real_components_monitor_and_repair(
     state = ConversationState.from_ids(dictionary, "student", "teacher")
     state.record_user_message(coeffs, (1.0, 0.0, 0.0), label="hello")
     repaired = components.repair_policy(state, "some response")
-    assert repaired == [" fake response"]
+    assert repaired == ["fake response"]
 
 
 # --- Steer conditions (T3-S2) --------------------------------------------------
@@ -705,7 +705,7 @@ def test_condition_none_generates_plain(
     )
     state = _pending_state(dictionary, coeffs)
     candidates = components.candidate_generator(state)
-    assert candidates == [" fake response"]
+    assert candidates == ["fake response"]
     assert steerer.calls[-1]["method"] == "plain"
 
 

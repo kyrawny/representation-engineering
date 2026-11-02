@@ -276,6 +276,13 @@ extraction, per-condition pipeline traces, reader validation, deflection
 reduction, quality guardrails with a separate reference model, the
 sycophancy dialogue harness + probe, and the dose-response sweep.
 
+All model-bound generation in the runbook renders prompts through the
+tokenizer chat template by default (instruct models do not answer the
+old flat `You are … User: …` transcript — see the runbook's “Prompt
+framing” note); `--prompt-style raw` on the pipeline, sycophancy
+harness, dose-response and ablation CLIs reproduces the AAAI-27 flat
+strings for baseline comparison only.
+
 ## Evaluation protocol
 
 Six evaluators, each answering one question. All are CPU-runnable in mock mode
@@ -326,7 +333,10 @@ are never hand-edited.
   (E r = −0.213, P r = +0.055, A r = −0.016 vs. the r ≥ 0.5 rule) — see
   ``results/H3_ANALYSIS.md``; no EPA-target number is publishable until a
   re-gate passes (refit levers: ``--direction-method cluster_mean``,
-  ``--epa-templates``). Mock-mode results demonstrate the machinery, not
+  ``--epa-templates``). The first demo traces were generated **before the
+  chat-template fix** (the model continued the flat prompt template
+  instead of answering the scenario) and must be regenerated; do not mix
+  old and new logs. Mock-mode results demonstrate the machinery, not
   the effect size.
 - **Reader circularity.** A reader fitted on the steered model's own hidden
   states is diagnostic only; ``reader_validation`` exists to promote an

@@ -11,6 +11,34 @@ activation headroom on the 24 GB card. If the local assistant model
 first — the two do not fit together, so the load must be swapped
 between the assistant and these GPU steps.
 
+**Prompt framing (read before any generation step).** An instruct model
+fed the flat `You are X. Context: … User: …` transcript does not answer
+the scenario — it *continues* the template (repeats the setup, echoes the
+trailing `User:` line). Every model-bound generation step below now
+renders its prompt through the tokenizer chat template by default
+(`--prompt-style chat`, added 2026-10-29):
+
+- `act_steering.pipeline` (steps 2, 3b): the identity instruction goes
+  into a system role; `--system-variant role|act_descriptors|anti_sycophancy`
+  selects the B0/B1/B2 system prompt (default `role`).
+- `evaluation.sycophancy_dialogue` (step 6): the QA item is a user
+  message, the model's own initial answer an assistant message, and the
+  pushback a fresh user turn.
+- `evaluation.dose_response` (step 7): each probe prompt is a single
+  user message.
+- `evaluation.ablations` (step 8): battery scenarios render as a chat
+  turn with the same `--system-variant` options.
+
+All four also accept `--prompt-style raw` to reproduce the AAAI-27 flat
+continuation strings byte-for-byte (baseline reproduction only), and
+responses are stripped of the prompt prefix, whitespace and trailing
+`<|eot_id|>` / `<|end_of_text|>` tokens before scoring.
+
+**Consequence:** traces and dialogue logs generated before this change
+were produced on the flat template — the model answered the template
+instead of the scenario — and must be regenerated from step 2 onward.
+Do not mix old and new logs in any comparison.
+
 **Prereqs (CPU, one time):**
 
 ```bash
@@ -103,6 +131,8 @@ the per-turn monitor traces, candidate scores and winner index.
 `end` hits the last prompt position plus every new token (CAA-style tail
 steering, the default); `none` steers every position, which is what the
 AAAI-27 implementation used — use it when reproducing that baseline.
+`--prompt-style` (default `chat`) / `--system-variant` (default `role`,
+B0) control the generation framing — see “Prompt framing” above.
 
 **Step 3 — reader gate (GPU; runs before any headline number).**
 Cross-validated agreement of the hidden-state reader against the human EPA
@@ -209,6 +239,12 @@ truthful_qa_mc) map to their `correct_letter`, trivia_qa rows to their
 skipped — **4,071 usable items** in the full file, so ~8.1k generations per
 condition. Smoke-run with `--max-items 100` first; a mock pipeline test is
 `--generate mock`.
+
+The dialogue runs as a real chat transcript (see “Prompt framing”):
+the model's own initial answer is an assistant message and the pushback
+is a new user turn — with the old flat framing an instruct model
+echoed the template instead of reconsidering. `--prompt-style raw`
+reproduces the AAAI-27 strings.
 The harshness field currently uses `--judge mock|none`; the validated LLM
 judge (frontier-model tokens) plugs in as the judge source.
 
@@ -225,7 +261,9 @@ python -m evaluation.dose_response --probe model \
 ```
 
 `data/probe_prompts.json` is a JSON list of prompts (e.g. the conversation
-starters from `data/act/user_inputs.json`).
+starters from `data/act/user_inputs.json`). Each prompt is wrapped as a
+single user message in the chat template by default (`--prompt-style
+raw` passes it through flat, AAAI-27 reproduction).
 
 **Step 8 — H3 ablation matrix (GPU; the decisive experiment).**
 Runs every ablation condition over the scenario battery (500 one-turn
@@ -258,6 +296,11 @@ are a wiring check, not a signal):
 python -m evaluation.ablations --battery artifacts/scenario_battery.json \
     --out results/ablations_battery_mock.json
 ```
+
+The battery scenarios render through the chat template in model mode
+(`--prompt-style chat` default) with the same `--system-variant`
+choices as step 2, so the B0/B1/B2 contrast is available at the
+ablation level as well.
 
 **Not yet GPU-wired (mock only):** `act_steering.lorra --train --execute`
 is wired and prints the exact upstream fine-tune command; it additionally

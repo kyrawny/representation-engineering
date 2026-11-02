@@ -87,8 +87,10 @@ __all__ = [
     "build_mock_components",
     "build_prompt",
     "build_real_components",
+    "chat_user_prompt",
     "descriptors_for",
     "render_prompt",
+    "response_after",
     "role_system_prompt",
     "system_prompt_for",
     "main",
@@ -558,6 +560,30 @@ def render_prompt(messages: Sequence[dict[str, str]], tokenizer: Any) -> str:
     return tokenizer.apply_chat_template(list(messages), tokenize=False, add_generation_prompt=True)
 
 
+def chat_user_prompt(text: str, tokenizer: Any) -> str:
+    """Render a single user turn through the tokenizer chat template.
+
+    For evaluation scripts (sycophancy dialogues, dose-response probes)
+    that keep fixed raw prompt strings: the text becomes the user message
+    and the prompt ends at the assistant generation position, so an
+    instruct model answers the turn instead of continuing a flat
+    transcript.
+
+    Args:
+        text: The raw prompt text (e.g., a QA question).
+        tokenizer: A tokenizer exposing ``apply_chat_template``.
+
+    Returns:
+        The rendered prompt ending at the generation (assistant) position.
+
+    Raises:
+        ValueError: If ``tokenizer`` is None.
+    """
+    if tokenizer is None:
+        raise ValueError("chat_user_prompt requires a tokenizer")
+    return render_prompt([{"role": "user", "content": text}], tokenizer)
+
+
 def build_prompt(
     state: ConversationState,
     tokenizer: Any | None = None,
@@ -613,22 +639,37 @@ def build_prompt(
     return " ".join(parts)
 
 
-def _response_after(full: Any, prompt: str) -> str:
+#: Trailing stop tokens that tokenizers can leave at the end of decoded
+#: generations (chat end-of-turn, base end-of-text).
+_TRAILING_STOP_TOKENS = ("<|eot_id|>", "<|end_of_text|>")
+
+
+def response_after(full: Any, prompt: str) -> str:
     """Extract the generated response from a generation-pipeline output.
+
+    The prompt prefix is stripped when present, surrounding whitespace is
+    removed, and trailing end-of-turn special tokens (``<|eot_id|>``,
+    ``<|end_of_text|>``) are dropped, so the returned text contains only
+    the model's reply.
 
     Args:
         full: The pipeline output (text, list of texts, or text dicts).
         prompt: The prompt the response continues.
 
     Returns:
-        The response text (the prompt prefix stripped, when present).
+        The cleaned response text.
     """
     text = full[0] if isinstance(full, (list, tuple)) else full
     if isinstance(text, dict):
         text = text.get("generated_text", "")
-    if isinstance(text, str) and text.startswith(prompt):
-        return text[len(prompt) :]
-    return str(text)
+    text = str(text)
+    if text.startswith(prompt):
+        text = text[len(prompt) :]
+    text = text.strip()
+    for token in _TRAILING_STOP_TOKENS:
+        if text.endswith(token):
+            text = text[: -len(token)]
+    return text.strip()
 
 
 # --- steer conditions (H3 ablation matrix) ----------------------------------
@@ -968,7 +1009,7 @@ def build_real_components(
                 **kwargs,
                 return_text=True,
             )
-        return _response_after(full, prompt)
+        return response_after(full, prompt)
 
     def generator(state: ConversationState) -> list[str]:
         if config.k == 1:
@@ -1016,13 +1057,25 @@ QUICK_SCRIPT: dict[str, object] = {
 
 
 def _build_real_cli_components(
-    args: argparse.Namespace, config: PipelineConfig
+    args: argparse.Namespace,
+    config: PipelineConfig,
+    coeffs: ACTCoefficients,
+    dictionary: ACTDictionary,
 ) -> PipelineComponents:
     """Build the real (model-bound) components from parsed CLI arguments.
+
+    The generation prompt uses the ``--prompt-style`` / ``--system-variant``
+    settings (default: the tokenizer chat template with the role system
+    prompt — required for instruct models, which otherwise continue the
+    flat transcript instead of answering the turn).
 
     Args:
         args: Parsed CLI arguments (``--model``, ``--directions``, ...).
         config: The control-loop settings to wire.
+        coeffs: ACT coefficients (needed by the ``act_descriptors``
+            prompt variant).
+        dictionary: The ACT dictionary (needed by the ``act_descriptors``
+            prompt variant's target resolution).
 
     Returns:
         The real :class:`PipelineComponents`.
@@ -1056,6 +1109,9 @@ def _build_real_cli_components(
         max_new_tokens=args.max_new_tokens,
         temperature=args.temperature,
         monitor_config=MonitorConfig(threshold=args.monitor_threshold),
+        coeffs=coeffs,
+        dictionary=dictionary,
+        prompt_spec=PromptSpec(style=args.prompt_style, variant=args.system_variant),
     )
 
 
@@ -1129,6 +1185,28 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--max-new-tokens", type=int, default=64, help="Generation cap per candidate (real mode)"
     )
     parser.add_argument(
+        "--prompt-style",
+        default="chat",
+        choices=("chat", "raw"),
+        help=(
+            "Generation prompt format (real mode): 'chat' renders the "
+            "conversation through the tokenizer chat template with a "
+            "system role (the correct framing for instruct models; "
+            "default) or 'raw' uses the flat continuation template "
+            "(AAAI-27 reproduction)"
+        ),
+    )
+    parser.add_argument(
+        "--system-variant",
+        default="role",
+        choices=("role", "act_descriptors", "anti_sycophancy"),
+        help=(
+            "System prompt variant for the chat style (real mode): 'role' "
+            "(B0), 'act_descriptors' (B1: role plus qualitative ACT "
+            "target descriptors) or 'anti_sycophancy' (B2)"
+        ),
+    )
+    parser.add_argument(
         "--monitor-positions",
         type=int,
         default=0,
@@ -1178,7 +1256,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             monitor_positions=args.monitor_positions,
             repair="reidentify" if args.repair else "none",
         )
-        components = _build_real_cli_components(args, config)
+        components = _build_real_cli_components(args, config, coeffs, dictionary)
     pipeline = ACTSteeringPipeline(coeffs, state, components, config)
     log = pipeline.run_conversation(messages)
     log["seed"] = args.seed

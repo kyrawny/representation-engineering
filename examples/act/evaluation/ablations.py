@@ -63,6 +63,7 @@ from act_steering.pipeline import (
     ACTCoefficients,
     ACTSteeringPipeline,
     PipelineComponents,
+    PromptSpec,
     SteerCondition,
     build_real_components,
 )
@@ -499,6 +500,27 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--max-new-tokens", type=int, default=64, help="Generation cap (real mode)")
     parser.add_argument(
+        "--prompt-style",
+        default="chat",
+        choices=("chat", "raw"),
+        help=(
+            "Generation prompt format (battery real mode): 'chat' renders "
+            "each scenario through the tokenizer chat template with a "
+            "system role (correct framing for instruct models; default) or "
+            "'raw' uses the flat continuation template (AAAI-27 "
+            "reproduction)"
+        ),
+    )
+    parser.add_argument(
+        "--system-variant",
+        default="role",
+        choices=("role", "act_descriptors", "anti_sycophancy"),
+        help=(
+            "System prompt variant for the chat style (battery real mode): "
+            "'role' (B0), 'act_descriptors' (B1) or 'anti_sycophancy' (B2)"
+        ),
+    )
+    parser.add_argument(
         "--constant-target",
         default=f"{DEFAULT_CONSTANT_TARGET[0]},{DEFAULT_CONSTANT_TARGET[1]},{DEFAULT_CONSTANT_TARGET[2]}",
         help="Comma-separated E,P,A for the constant_vec condition",
@@ -637,6 +659,7 @@ def main_battery(
                 max_new_tokens=args.max_new_tokens,
                 condition=steer_condition_for(spec, 0, constant_target, args.seed),
                 scenario_index_provider=lambda h=holder: h["index"],
+                prompt_spec=PromptSpec(style=args.prompt_style, variant=args.system_variant),
             )
         else:
             components = build_condition_components(spec)
