@@ -151,6 +151,10 @@ def static_design():
     n_sc = len({k.split("|")[0] for k in _read_keys(REV / "llama3" / "15_sycophancy_baselines.jsonl")}) if (REV / "llama3" / "15_sycophancy_baselines.jsonl").exists() else 0
     put("SubsetScenarios", str(n_sc))
     put("SubsetTrials", f"{n_sc * 13:,}")
+    rp = load_json(REV / "llama3" / "00_repro_check_ortho_on.json")
+    put("ReproIdentical", str(rp["n_identical"]))
+    put("ReproTotal", str(rp["n_texts"]))
+    put("ReproTrials", str(rp["n_trials"]))
     put("MtConvs", "100")
     put("AysItems", "200")
 
@@ -165,6 +169,11 @@ def main():
     from . import make_results_tables
     make_results_tables.build(mac, put, cname, num, ci, pstr)
     make_results_tables.more(mac, put, cname, num, ci, pstr)
+    make_results_tables.ablation_extra(mac, put, cname, num, ci, pstr)
+    make_results_tables.per_dim(mac, put, cname, num, ci, pstr)
+    make_results_tables.per_dim_table(num)
+    make_results_tables.multiturn_extra(mac, put, cname, num, ci, pstr)
+    make_results_tables.legacy_appendix(mac, put, cname, num, ci, pstr)
     write()
     print(f"{len(M)} macros written")
 

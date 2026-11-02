@@ -1,30 +1,0 @@
-Loading model: meta-llama/Llama-3.1-8B-Instruct
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.92s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.35s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.57s/it]
-Device set to use cuda:0
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-Device set to use cuda:0
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-Using orthogonalised directions
-Loaded directions for 3 EPA dimensions, 31 layers
-Reader configured (ElasticNet)
-Steerer coefficients: E=0.5, P=0.2, A=0.2
-Steerer configured
-unsteered pos_e_01 counselor_client IDENTICAL
-repe_only pos_e_01 counselor_client IDENTICAL
-unsteered pos_e_01 boss_subordinate IDENTICAL
-repe_only pos_e_01 boss_subordinate IDENTICAL
-unsteered pos_e_01 teacher_student IDENTICAL
-repe_only pos_e_01 teacher_student IDENTICAL
-unsteered pos_e_01 doctor_patient IDENTICAL
-repe_only pos_e_01 doctor_patient IDENTICAL
-unsteered pos_e_01 friend_friend IDENTICAL
-repe_only pos_e_01 friend_friend IDENTICAL
-10/10 identical -> C:\Users\Kyra\Documents\Repos\representation-engineering\examples\act_three\experiments\results\revision\llama3\00_repro_check_ortho_on.json

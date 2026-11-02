@@ -62,10 +62,10 @@ def build(gen: str, with_vader: bool = True) -> pd.DataFrame:
                          "text500": c["text"][:500],
                          **{f"orig_{d}": c["epa"][DIM[d]] for d in "EPA"}})
     for p in sorted((REV / gen).glob("*.jsonl")):
-        if "quick" in p.name or p.name.startswith("16_"):
+        if "quick" in p.name or p.name.startswith(("16_", "18_")):
             continue
         for r in _read_jsonl(p):
-            if not r.get("scenario_id"):
+            if not r.get("scenario_id") or r.get("text500") is None:
                 continue
             e = r.get("own_epa") or {}
             rows.append({"key": r["key"], "scenario_id": r["scenario_id"], "pair": r["pair"], "agent": r["agent"],

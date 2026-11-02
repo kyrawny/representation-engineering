@@ -1,0 +1,42 @@
+{
+ "created": "2026-11-02T20:42:53",
+ "text_rule": "first 500 characters of every text (plan G4)",
+ "j1": {
+  "llama3": {
+   "trials": 1300,
+   "texts": 9204,
+   "conditions": [
+    "antisyc_prompt",
+    "caa",
+    "hybrid",
+    "pe_only",
+    "repe_const",
+    "repe_idonly",
+    "repe_only",
+    "repe_shuffled",
+    "unsteered"
+   ]
+  },
+  "ministral": {
+   "trials": 1300,
+   "texts": 5200,
+   "conditions": [
+    "hybrid",
+    "pe_only",
+    "repe_only",
+    "unsteered"
+   ]
+  }
+ },
+ "ays_records": 1200,
+ "multiturn_conversations": 400,
+ "human": {
+  "vignettes": 14,
+  "response_item_means": 168
+ },
+ "calibration_utterances": 130,
+ "sources": {
+  "llama3_08": "a8615770a9e4",
+  "ministral_08": "aaa520029963"
+ }
+}

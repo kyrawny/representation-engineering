@@ -1,9 +1,0 @@
-Loading model: meta-llama/Llama-3.1-8B-Instruct
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.95s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.92s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.38s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.60s/it]
-Device set to use cuda:0
-Using orthogonalised directions
-Loaded directions for 3 EPA dimensions, 31 layers
-Reader configured (ElasticNet)
-Steerer coefficients: E=0.5, P=0.2, A=0.2
-Steerer configured
-ACT L2 (ortho) 9.70697935669273

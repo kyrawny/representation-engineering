@@ -1,0 +1,8 @@
+# Standalone LLM-judge runner (run_judge.py). Python 3.10+.
+google-genai>=1.50
+numpy
+pandas
+scipy
+tqdm
+# only if you use --backend anthropic:
+# anthropic
