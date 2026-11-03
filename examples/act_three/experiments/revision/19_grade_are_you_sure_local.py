@@ -7,7 +7,7 @@ single forward pass.  This fixes the main failure of alias string matching (a re
 while switching to another one).  Both graders are reported; agreement with a hand-checked sample is in
 ``16_grader_validation.json`` (see analysis/grade_are_you_sure.py).
 
-    python -m examples.act_three.experiments.revision.19_grade_are_you_sure_local
+    python -m examples.act_three.experiments.revision.19_grade_are_you_sure_local [16_are_you_sure_<agent>_<user>.jsonl]
 """
 import json
 
@@ -35,8 +35,10 @@ def p_yes(comp, q, gold, alts, resp) -> float:
 
 
 def main():
-    src = R.rev_dir("llama3") / "16_are_you_sure.jsonl"
-    out = R.JsonlLog(R.rev_dir("llama3") / "16_are_you_sure_localgrade.jsonl")
+    import sys
+    name = sys.argv[1] if len(sys.argv) > 1 else "16_are_you_sure.jsonl"   # e.g. the identity-sensitivity log
+    src = R.rev_dir("llama3") / name
+    out = R.JsonlLog(R.rev_dir("llama3") / name.replace(".jsonl", "_localgrade.jsonl"))
     rows = [json.loads(l) for l in open(src, encoding="utf-8") if l.strip()]
     todo = [r for r in rows if r["key"] not in out.done]
     print(f"{len(todo)} to grade")

@@ -1,7 +1,7 @@
 """
 T4a -- "Are you sure?" (SycophancyEval, Sharma et al. 2024), two turns, generic identities.
 
-Identities: agent = assistant, user = person.  At each turn the method is applied unchanged:
+Identities: agent = assistant, user = person (``--agent/--user`` for the identity sensitivity run).  At each turn the method is applied unchanged:
 read the current user message, compute the ACT target, steer (no state carried between turns).
 Grading is done by ``analysis/grade_are_you_sure.py`` (rule-based; no LLM judge available).
 
@@ -51,23 +51,27 @@ def main():
     ap.add_argument("--model", default="llama3")
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--conditions", nargs="+", default=CONDS, choices=CONDS)
+    ap.add_argument("--agent", default=AGENT, help="ACT identity of the model (sensitivity analysis; default %(default)s)")
+    ap.add_argument("--user", default=USER, help="ACT identity of the user (default %(default)s)")
     args = ap.parse_args()
+    agent, user = args.agent, args.user
+    tag = "" if (agent, user) == (AGENT, USER) else f"_{agent}_{user}"   # other identities get their own log
 
     items = load_items()[: 3 if args.quick else N_ITEMS]
-    log = R.JsonlLog(R.rev_dir(args.model) / ("16_are_you_sure_quick.jsonl" if args.quick else "16_are_you_sure.jsonl"))
+    log = R.JsonlLog(R.rev_dir(args.model) / (f"16_are_you_sure{tag}_quick.jsonl" if args.quick else f"16_are_you_sure{tag}.jsonl"))
     todo = [(it, c) for it in items for c in args.conditions
-            if f"{it['item_id']}|{AGENT}_{USER}|{c}" not in log.done]
+            if f"{it['item_id']}|{agent}_{user}|{c}" not in log.done]
     print(f"{len(todo)} (item, condition) pairs to run")
     if not todo:
         return
 
     comp = R.load_components(args.model)
     base = importlib.import_module("examples.act_three.experiments.revision.15_sycophancy_baselines")
-    agent_epa, user_epa = get_identity_epa(comp.identities_df, AGENT), get_identity_epa(comp.identities_df, USER)
+    agent_epa, user_epa = get_identity_epa(comp.identities_df, agent), get_identity_epa(comp.identities_df, user)
     const = R.constant_target(args.model)
     caa_acts = C.load_caa(comp, args.model)[0] if "caa" in args.conditions else None
     t2_target = act_target(comp, PUSHBACK, agent_epa, user_epa)
-    neutral = make_system_prompt(AGENT, USER)
+    neutral = make_system_prompt(agent, user)
 
     def respond(cond, user_msg, history, target):
         """One assistant turn under `cond`; `target` is the ACT target for this user message."""
@@ -76,13 +80,13 @@ def main():
         if cond == "repe_act":
             return R.gen_epa(comp, neutral, user_msg, target, history, MAX_NEW), neutral, target
         if cond == "hybrid_act":
-            sp = R.affective_prompt(AGENT, USER, target)
+            sp = R.affective_prompt(agent, user, target)
             return R.gen_epa(comp, sp, user_msg, target, history, MAX_NEW), sp, target
         if cond == "repe_const":
             return R.gen_epa(comp, neutral, user_msg, const, history, MAX_NEW), neutral, const
         if cond == "caa":
             return R.gen_vector(comp, neutral, user_msg, caa_acts, history, MAX_NEW), neutral, None
-        sp = base.antisyc_prompt(AGENT, USER)
+        sp = base.antisyc_prompt(agent, user)
         return R.gen_plain(comp, sp, user_msg, history, MAX_NEW), sp, None
 
     t1_targets = {}
@@ -96,7 +100,7 @@ def main():
             hist = [{"role": "user", "content": q}, {"role": "assistant", "content": r1}]
             r2, sp2, used2 = respond(cond, PUSHBACK, hist, t2_target)
         log.append({
-            "key": f"{it['item_id']}|{AGENT}_{USER}|{cond}", "item_id": it["item_id"], "condition": cond,
+            "key": f"{it['item_id']}|{agent}_{user}|{cond}", "item_id": it["item_id"], "condition": cond,
             "question": it["base"]["question"], "gold_aliases": it["base"]["answer"],
             "correct_answer": it["base"]["correct_answer"], "user_msg_1": q, "user_msg_2": PUSHBACK,
             "system_prompt": sp1, "response_1": r1, "response_2": r2,

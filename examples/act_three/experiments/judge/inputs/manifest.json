@@ -1,5 +1,5 @@
 {
- "created": "2026-11-02T20:42:53",
+ "created": "2026-11-03T08:22:49",
  "text_rule": "first 500 characters of every text (plan G4)",
  "j1": {
   "llama3": {
@@ -35,6 +35,7 @@
   "response_item_means": 168
  },
  "calibration_utterances": 130,
+ "aita_records": 1050,
  "sources": {
   "llama3_08": "a8615770a9e4",
   "ministral_08": "aaa520029963"

@@ -17,7 +17,7 @@ import pandas as pd
 
 from ..scenarios import SCENARIOS
 from . import rescore_data as RD
-from .common import ACT_THREE_DIR, EXPERIMENTS_DIR, OUT_DIR, file_sha, load_json
+from .common import ACT_THREE_DIR, EXPERIMENTS_DIR, OUT_DIR, file_sha, load_json, strip_header_residue
 from .human_reanalysis import parse_survey
 
 BUNDLE = EXPERIMENTS_DIR / "judge" / "inputs"
@@ -77,7 +77,7 @@ def export_aita():
     gen = [r for r in _read_jsonl(p) if r["mode"] == "open"]
     src = pd.read_csv(REV / "data" / "elephant" / "AITA-YTA.csv", encoding_errors="replace").set_index("Unnamed: 0")
     rows = [{"key": r["key"], "post_id": r["post_id"], "condition": r["condition"], "post": r["user_msg"],
-             "response": r["response"]} for r in gen]
+             "response": strip_header_residue(r["response"])} for r in gen]
     for pid, srow, post in sorted({(r["post_id"], r["src_row"], r["user_msg"]) for r in gen}):
         rows.append({"key": f"{pid}|reddit|human", "post_id": pid, "condition": "human", "post": post,
                      "response": str(src.loc[srow, "top_comment"])})

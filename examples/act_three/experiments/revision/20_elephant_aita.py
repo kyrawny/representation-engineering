@@ -9,7 +9,7 @@ because a cut post may lose the part the community verdict rests on.  Each post 
             ELEPHANT's validation / indirectness / framing prompts (``judge/elephant_prompts.py``);
     binary  the post + "\\nOutput only YTA or NTA." (ELEPHANT's AITA_binary prompt); parsed by string, no judge.
 Identities: agent = assistant, user = person (as in the "Are you sure?" benchmark); read-compute-steer is applied
-to each user message unchanged.
+to each user message unchanged.  ``--agent/--user`` (with ``--modes``) runs the identity sensitivity analysis.
 
     python -m examples.act_three.experiments.revision.20_elephant_aita [--quick]
 """
@@ -49,12 +49,17 @@ def main():
     ap.add_argument("--model", default="llama3")
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--conditions", nargs="+", default=CONDS, choices=CONDS)
+    ap.add_argument("--modes", nargs="+", default=["open", "binary"], choices=["open", "binary"])
+    ap.add_argument("--agent", default=AGENT, help="ACT identity of the model (sensitivity analysis; default %(default)s)")
+    ap.add_argument("--user", default=USER, help="ACT identity of the user (default %(default)s)")
     args = ap.parse_args()
+    agent, user = args.agent, args.user
+    tag = "" if (agent, user) == (AGENT, USER) else f"_{agent}_{user}"   # other identities get their own log
 
     posts = load_posts()[: 2 if args.quick else N_POSTS]
-    log = R.JsonlLog(R.rev_dir(args.model) / ("20_elephant_aita_quick.jsonl" if args.quick else "20_elephant_aita.jsonl"))
-    todo = [(p, c, mode) for p in posts for c in args.conditions for mode in ("open", "binary")
-            if f"{p['post_id']}|{AGENT}_{USER}|{c}|{mode}" not in log.done]
+    log = R.JsonlLog(R.rev_dir(args.model) / (f"20_elephant_aita{tag}_quick.jsonl" if args.quick else f"20_elephant_aita{tag}.jsonl"))
+    todo = [(p, c, mode) for p in posts for c in args.conditions for mode in args.modes
+            if f"{p['post_id']}|{agent}_{user}|{c}|{mode}" not in log.done]
     print(f"{len(todo)} (post, condition, mode) runs to do")
     if not todo:
         return
@@ -62,10 +67,10 @@ def main():
     ays = importlib.import_module("examples.act_three.experiments.revision.16_sycophancy_benchmarks")
     base = importlib.import_module("examples.act_three.experiments.revision.15_sycophancy_baselines")
     comp = R.load_components(args.model)
-    agent_epa, user_epa = get_identity_epa(comp.identities_df, AGENT), get_identity_epa(comp.identities_df, USER)
+    agent_epa, user_epa = get_identity_epa(comp.identities_df, agent), get_identity_epa(comp.identities_df, user)
     const = R.constant_target(args.model)
     caa_acts = C.load_caa(comp, args.model)[0] if "caa" in args.conditions else None
-    neutral = make_system_prompt(AGENT, USER)
+    neutral = make_system_prompt(agent, user)
 
     def respond(cond, user_msg, target, n):
         if cond == "unsteered":
@@ -73,13 +78,13 @@ def main():
         if cond == "repe_act":
             return R.gen_epa(comp, neutral, user_msg, target, None, n), neutral, target
         if cond == "hybrid_act":
-            sp = R.affective_prompt(AGENT, USER, target)
+            sp = R.affective_prompt(agent, user, target)
             return R.gen_epa(comp, sp, user_msg, target, None, n), sp, target
         if cond == "repe_const":
             return R.gen_epa(comp, neutral, user_msg, const, None, n), neutral, const
         if cond == "caa":
             return R.gen_vector(comp, neutral, user_msg, caa_acts, None, n), neutral, None
-        sp = base.antisyc_prompt(AGENT, USER)
+        sp = base.antisyc_prompt(agent, user)
         return R.gen_plain(comp, sp, user_msg, None, n), sp, None
 
     targets = {}
@@ -91,7 +96,7 @@ def main():
         with R.Timer() as tm:
             text, sp, used = respond(cond, msg, tg, MAX_NEW[mode])
         log.append({
-            "key": f"{p['post_id']}|{AGENT}_{USER}|{cond}|{mode}", "post_id": p["post_id"], "src_row": int(p["src_row"]),
+            "key": f"{p['post_id']}|{agent}_{user}|{cond}|{mode}", "post_id": p["post_id"], "src_row": int(p["src_row"]),
             "condition": cond, "mode": mode, "user_msg": msg, "system_prompt": sp, "response": text,
             "target_act": tg, "target_used": used,
             "own_epa": R.read_one(comp, text) if (mode == "open" and text.strip()) else None,

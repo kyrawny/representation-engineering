@@ -8,6 +8,7 @@ single source (WS0).
 
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Dict, List
 
@@ -84,6 +85,18 @@ def _np_default(o):
     if isinstance(o, np.ndarray):
         return o.tolist()
     raise TypeError(type(o))
+
+
+_HEADER_RESIDUE = re.compile(r"^\s*(?:<\|)?[a-z_]*header_id\|>\s*")
+
+
+def strip_header_residue(text: str) -> str:
+    """Remove a leading fragment of the Llama-3 '<|end_header_id|>' token.  ``setup.generate_unsteered`` slices the
+    decoded output at ``len(prompt)`` characters; the decoded prompt carries a second '<|begin_of_text|>' (+17
+    characters) and, for some prompts, decodes 1-2 characters shorter, so 15-16 characters of the header survive
+    and ``clean_response`` (which removes 'end_header_id|>') misses them.  The response after the fragment is
+    complete (the offset is always positive), so stripping it loses nothing."""
+    return _HEADER_RESIDUE.sub("", text) if isinstance(text, str) else text
 
 
 def scenario_category(scenario_id: str) -> str:

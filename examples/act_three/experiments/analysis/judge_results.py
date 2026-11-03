@@ -19,7 +19,7 @@ import pandas as pd
 from scipy.stats import binomtest
 
 from . import rescore_data as RD
-from .common import EXPERIMENTS_DIR, FIG_DIR, OUT_DIR, ensure_dirs, load_json, save_json
+from .common import EXPERIMENTS_DIR, FIG_DIR, OUT_DIR, ensure_dirs, load_json, save_json, strip_header_residue
 from .metrics import cluster_bootstrap, design_effect, holm, mde_paired
 
 JUDGE_DIR = EXPERIMENTS_DIR / "judge" / "outputs"
@@ -297,7 +297,7 @@ def aita_analysis(d):
         return {}
     g = pd.DataFrame(rjsonl(gp))
     b = g[g["mode"] == "binary"].copy()
-    head = b.response.fillna("").str.strip().str.upper().str[:5]
+    head = b.response.fillna("").map(strip_header_residue).str.strip().str.upper().str[:5]
     b["says_nta"] = head.str.contains("NTA").astype(int)
     b["says_yta"] = head.str.contains("YTA").astype(int)
     res = {"n_posts": int(g.post_id.nunique()),

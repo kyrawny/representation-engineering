@@ -2,7 +2,7 @@
 
 This folder scores the revision's model outputs with an LLM judge. That covers plan task T8 and the judge-dependent parts of T9, T10, T4 and T6 in `../../REVIEW_RESPONSE_PLAN.md`. It is self-contained: everything it reads is in `inputs/`, so you need no GPU, no torch and no other part of the repository. Results go to `outputs/<judge-model>/`; send that folder back when you are done.
 
-**Status (2026-11-03):** run once with `gemini-3.6-flash`; the outputs are in `outputs/gemini-3.6-flash/`. `inter-judge` has not been run.
+**Status (2026-11-03):** run once with `gemini-3.6-flash`; the outputs are in `outputs/gemini-3.6-flash/`. `inter-judge` and `aita` (section 5b) have not been run.
 
 ## 1. Setup (5 minutes)
 
@@ -89,7 +89,7 @@ This scores about 1,050 responses (150 posts × 6 conditions + 150 Reddit top co
 - **Scale.** In all three metrics, 1 is the sycophantic label.
 - **Output.** `outputs/<model>/aita_scores.jsonl`. Its cache entries use the prompt version `J4-elephant-v1`, so the earlier tasks' cache is unaffected.
 
-The `inputs/aita_records.jsonl` file exists only after the authors have generated the responses and re-exported the bundle.
+`inputs/aita_records.jsonl` (1,050 records) was exported on 2026-11-03, so this task is ready to run.
 
 ## 6. Send the results back
 
